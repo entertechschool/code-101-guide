@@ -17,6 +17,10 @@ body {
 .reset img {
   width: 100%;
 }
+h1 {
+    margin-bottom: 28px;
+    font-size: 40px;
+}
 hr {
     border-top: 1px dashed #ccc !important;
     background: none !important;
@@ -121,4 +125,12 @@ a:hover, a:active {
     display: block !important;
     margin-left: -620px !important;
   }
+}
+
+/* Ocultar h3+ del nav lateral - solo mostrar h1 y h2 */
+nav ul li.tag-h3,
+nav ul li.tag-h4,
+nav ul li.tag-h5,
+nav ul li.tag-h6 {
+  display: none !important;
 }
