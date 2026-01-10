@@ -1,5 +1,7 @@
 # Code 101 - Elementals Software Development
 
+> **Status:** 🔄 Actualizando - Ver [PLAN_REFACTOR_COURSE.md](PLAN_REFACTOR_COURSE.md) para la nueva estructura
+
 Guía completa del curso Code 101: introducción al desarrollo web con HTML, CSS, herramientas del desarrollador y fundamentos de JavaScript.
 
 ---
@@ -57,20 +59,20 @@ Guía completa del curso Code 101: introducción al desarrollo web con HTML, CSS
 
 ## Módulo 1: Introducción al Desarrollo Web
 
-**Proyecto:** Mi Primer Catálogo Web en la Nube
+**Proyecto:** Mi Perfil Personal
 
 | Clase | Tema | Contenido Clave |
 |-------|------|-----------------|
-| 1 | Cómo funciona la web moderna | Ciclo de vida, URL, HTML/CSS/JS, flujo de app web |
-| 2 | HTML Semántico | Etiquetas semánticas, listas, enlaces, imágenes, accesibilidad |
-| 3 | CSS Básico | Selectores, propiedades, Box Model, tipografía, colores |
-| **4** | **Markdown y GitHub Pages** | Markdown, estructura de carpetas, GitHub, deploy |
+| 1 | Setup y Web Moderna | VS Code, Live Server, HTML básico, cliente-servidor |
+| 2 | Diseña y Estructura | Wireframes, HTML semántico, navegación con anclas, accesibilidad |
+| 3 | Estilos con CSS | Selectores, Box Model, Google Fonts, paleta de colores |
+| **4** | **Layout Moderno con Flexbox** | Flexbox, cards, hover states, transiciones, Demo Day |
 
-**Herramientas:** Excalidraw, Google IDX / Firebase Studio, Codepen
+**Herramientas:** VS Code, Live Server, Excalidraw, Google Fonts, Coolors
 
-> **Lab Evaluado:** Clase 4 - Mi Primer Catálogo Web en la Nube
+> **Lab Evaluado:** Clase 4 - Mi Perfil Personal
 >
-> Un catálogo de 5 productos diseñado con HTML semántico y estilizado con CSS, organizado con tarjetas visuales (cards), y desplegado públicamente mediante GitHub Pages.
+> Un perfil personal con HTML semántico, CSS estilizado con paleta de colores y tipografía, layout con Flexbox (header horizontal + cards), y estados hover con transiciones.
 
 ---
 
@@ -118,7 +120,7 @@ Solo el **último lab de cada módulo** es calificado con una rúbrica de **4 cr
 
 | Módulo | Clase | Lab Evaluado | Rúbrica |
 |--------|-------|--------------|---------|
-| M1 | 4 | Mi Primer Catálogo Web | `class-04/lab/rubric.md` |
+| M1 | 4 | Mi Perfil Personal | `class-04/lab/rubric.md` |
 | M2 | 8 | MyLinks | `class-08/lab/rubric.md` |
 | M3 | 12 | Adivina el Número | `class-12/lab/rubric.md` |
 
@@ -137,7 +139,7 @@ Solo el **último lab de cada módulo** es calificado con una rúbrica de **4 cr
 
 | Módulo | Proyecto | Tecnologías |
 |--------|----------|-------------|
-| M1 | Mi Primer Catálogo Web en la Nube | HTML semántico, CSS, GitHub Pages |
+| M1 | Mi Perfil Personal | HTML semántico, CSS, Flexbox, hover states |
 | M2 | MyLinks - Tu Hub Personal | HTML, CSS, Flexbox, responsive, Git |
 | M3 | Adivina el Número | JavaScript, eventos, DOM básico |
 

@@ -1,245 +1,168 @@
 # CLAUDE.md - Code 101 Guide
 
 ## Referencia Principal
+
 - **Syllabus (fuente de verdad):** [README.md](README.md)
-- **Estructura:** 3 módulos técnicos (4 clases c/u) = 12 clases
+- **Estructura:** 3 módulos (4 clases c/u) = 12 clases
 - **Formato:** 180 min por clase (blend)
 
 ---
 
-## Checklist de Progreso
+## Sistema de Skills
 
-### M1: Introducción al Desarrollo Web (Clases 1-4)
-- [ ] **Clase 1:** Cómo funciona la web moderna
-- [ ] **Clase 2:** HTML Semántico: estructura y accesibilidad
-- [ ] **Clase 3:** CSS Básico, estilos y estructura visual
-- [ ] **Clase 4:** Markdown y GitHub Pages: mi web en la nube
+Este proyecto usa skills de Claude para generar contenido consistente.
 
-### M2: Herramientas del Desarrollador (Clases 5-8)
-- [ ] **Clase 5:** Setup del Desarrollador Moderno
-- [ ] **Clase 6:** Diseño Web Responsive + DevTools
-- [ ] **Clase 7:** Wireframing y Pensamiento Creativo
-- [ ] **Clase 8:** Vibe Coding Tools
+### Skills Disponibles
 
-### M3: Introducción a la Programación con JavaScript (Clases 9-12)
-- [ ] **Clase 9:** Fundamentos de JavaScript y Pensamiento Algorítmico
-- [ ] **Clase 10:** Decisiones y Lógica Condicional
-- [ ] **Clase 11:** Funciones: Los Bloques de Construcción
-- [ ] **Clase 12:** Proyecto Final
+| Skill | Propósito | Output |
+|-------|-----------|--------|
+| `module-planner` | Planificar módulo completo (4 clases) | `MODULE-PLAN.md` |
+| `class-readme` | README de clase para estudiante | `README.md` |
+| `class-lab` | Laboratorio paso a paso | `lab/README.md` |
+| `class-slides` | Presentación reveal.js | `slides/README.md` |
+| `class-facilitator` | Guía pedagógica | `facilitator/README.md` |
+| `evaluation-class` | Verificar calidad | Reporte |
+
+### Flujo de Creación
+
+```
+module-planner → MODULE-PLAN.md (aprobar)
+       ↓
+Para cada clase:
+  class-readme → class-lab → class-slides → class-facilitator
+       ↓
+evaluation-class (verificar)
+```
+
+Ver detalles en `.claude/skills/*/SKILL.md`
+
+---
+
+## Progreso del Curso
+
+Ver contenido por clase en [README.md → Referencia Rápida](README.md).
+
+| Módulo | Estado | Proyecto |
+|--------|--------|----------|
+| M1 (1-4) | ✅ Completo | Mi Perfil Personal |
+| M2 (5-8) | 🔄 En desarrollo | MyLinks |
+| M3 (9-12) | ⏳ Pendiente | Por definir |
 
 ---
 
 ## Convenciones por Archivo
 
-Cada clase tiene 4 archivos en `curriculum/class-XX/`:
+Cada clase tiene 4-5 archivos en `curriculum/class-XX/`:
 
-| Archivo | Propósito | Restricciones |
-|---------|-----------|---------------|
-| `README.md` | Resumen + preparación del estudiante | Estructura estándar |
-| `lab/README.md` | Guía de laboratorio paso a paso | Máximo 250 líneas |
-| `slides/README.md` | Presentación reveal.js | Mantener CSS actual |
-| `facilitator/README.md` | Guía pedagógica para instructor | Reflexiones profundas |
+| Archivo | Propósito | Límite |
+|---------|-----------|--------|
+| `README.md` | Resumen + preparación | ~150 líneas |
+| `lab/README.md` | Laboratorio paso a paso | Regular: <400, Calificado: <500 |
+| `lab/rubric.md` | Rúbrica (solo 4, 8, 12) | 5 criterios x 20 pts |
+| `slides/README.md` | Presentación | ≤12 slides |
+| `facilitator/README.md` | Guía pedagógica | <300 líneas |
 
----
+### Tipos de Lab
 
-## Estructura de Archivos
-
-### README.md (raíz de clase)
-```markdown
-> Módulo X: Clase Y de Z
-
-# Título de la Clase
-
-## Resumen (3-4 párrafos)
-## Estructura sugerida (tabla de fases)
-## Objetivos de aprendizaje (4-5 items)
-## Preparación para la clase
-## Glosario de nuevos términos
-```
-
-### lab/README.md
-```markdown
-# Lab: Título
-
-## Objetivos (1-4 items)
-## Conceptos clave (3-4 términos)
-## Setup inicial (comandos)
-## Parte 1, 2, 3... (~25-50 min c/u)
-## Retos autónomos (básico/intermedio/avanzado)
-## Instrucciones de entrega (checklist)
-```
-
-### slides/README.md
-```markdown
-<style>
-  /* CSS custom para grids */
-</style>
-
-<!-- Diapositivas separadas por --- -->
-- Portada
-- Objetivo
-- Conexión con clase anterior
-- Contenido técnico
-- Lab integrado
-- Validación
-- Cierre
-```
-
-### facilitator/README.md
-```markdown
-# Guía del Facilitador: Tema
-
-## Secciones numeradas (1-10)
-- Momentos clave
-- Conceptos mal entendidos
-- Estrategias de enseñanza
-- Errores comunes
-- Señales de comprensión
-- Conexión con futuras clases
-```
-
----
-
-## Referencias de Estilo
-
-- **Idioma:** Español latinoamericano
-- **Tono README:** Profesional, inspirador
-- **Tono Lab:** Práctico, paso a paso
-- **Tono Slides:** Educativo, conversacional
-- **Tono Facilitator:** Reflexivo, mentor-a-mentor
-- **Emojis:** Estratégicos en labs y slides
-
----
-
-## Sugerencias de Commit
-
-Después de implementaciones importantes, sugerir commit con mensaje listo para copiar:
-
-```
-Sugerencia de commit:
-git commit -m "tipo: descripción concisa"
-```
-
-**Cuándo sugerir:**
-- Nuevo archivo/feature completado
-- Corrección de bugs
-- Refactorización significativa
-- Actualización de documentación
-
-**Formato del mensaje:**
-- `feat:` nueva funcionalidad
-- `fix:` corrección de error
-- `docs:` documentación
-- `refactor:` reestructuración sin cambio funcional
-- `style:` formato, sin cambio de lógica
-
-**Nota:** El usuario decide si hace el commit o no.
-
----
-
-## Reglas de Encoding (OBLIGATORIO)
-
-**SIEMPRE usar UTF-8 puro para todos los archivos.**
-
-Al escribir contenido en español:
-- Usar tildes directamente: á, é, í, ó, ú, ñ, ü
-- Usar signos de interrogación/exclamación: ¿?, ¡!
-- **NUNCA** usar Write tool con strings que contengan caracteres especiales sin verificar encoding
-- Si aparecen caracteres como `�` o `\u00f3`, el archivo está corrupto y debe reescribirse
-
-**Verificación:** Después de crear/editar archivos con español, leer el archivo para confirmar que los caracteres se muestran correctamente.
-
----
-
-## Fuente de Verdad (OBLIGATORIO)
-
-**README.md es la única fuente de verdad para:**
-- Tabla de contenidos por clase
-- Estructura de módulos y labs calificados
-- Objetivos del curso
-
-**Al modificar contenido de clases:**
-1. Actualizar **primero** la tabla en `README.md → Referencia Rápida de Contenidos`
-2. Los demás archivos (CLAUDE.md, labs, etc.) referencian a README.md
-3. **NUNCA** duplicar tablas de contenido en otros archivos
-
-**Razón:** Evitar inconsistencias cuando el contenido del curso cambia.
+| Tipo | Clases | Partes | Tiempo | Rúbrica |
+|------|--------|--------|--------|---------|
+| Regular | 1-3, 5-7, 9-11 | 3 | ~90 min (en clase) | No |
+| Calificado | 4, 8 | 5 | ~135 min (50/50) | 5x20 pts |
+| Demo Day | 12 | Especial | Variable | Especial |
 
 ---
 
 ## Sistema de Evaluación
 
-**Solo el lab del último día de cada módulo es calificado (0-100)**
+### Labs Calificados
 
-| Módulo | Lab Calificado | Archivo Rúbrica |
-|--------|----------------|-----------------|
-| M1 | Clase 4 | `class-04/lab/rubric.md` |
-| M2 | Clase 8 | `class-08/lab/rubric.md` |
-| M3 | Clase 12 | `class-12/lab/rubric.md` |
+| Módulo | Clase | Rúbrica |
+|--------|-------|---------|
+| M1 | 4 | `class-04/lab/rubric.md` |
+| M2 | 8 | `class-08/lab/rubric.md` |
+| M3 | 12 | Demo Day (especial) |
 
-### Estructura de Rúbrica
-```markdown
-# Rúbrica - Lab Módulo X
+### Estructura Rúbrica (5 x 20 = 100 pts)
 
-## Criterios (4 categorías x 25 pts = 100 pts total)
-| Criterio | Excelente (25) | Bueno (18) | Satisfactorio (10) | Bajo (5) |
-|----------|----------------|------------|---------------------|----------|
+| Criterio | Excelente (20) | Bueno (15) | Satisfactorio (10) | Bajo (5) |
+|----------|---------------|------------|-------------------|----------|
+| Criterio 1 | ... | ... | ... | ... |
+| Criterio 2 | ... | ... | ... | ... |
+| Criterio 3 | ... | ... | ... | ... |
+| Criterio 4 | ... | ... | ... | ... |
+| **Desafío** | ... | ... | ... | ... |
 
-## Escala
-- 90-100: A (Excelente)
-- 80-89: B (Bueno)
-- 70-79: C (Satisfactorio)
-- < 70: F (Necesita Mejora)
+**Escala:** A (90-100), B (80-89), C (70-79), F (<70)
 
-## Checklist de Entrega
-```
+---
+
+## Referencias de Estilo
+
+| Documento | Tono | Notas |
+|-----------|------|-------|
+| README.md | Profesional, inspirador | Segunda persona |
+| lab/README.md | Práctico, paso a paso | Checkpoints visuales |
+| slides/README.md | Educativo, conversacional | Transiciones explícitas |
+| facilitator/README.md | Reflexivo, mentor-a-mentor | Contexto histórico |
+
+**Idioma:** Español latinoamericano
+**Emojis:** Estratégicos (no excesivos)
+
+---
+
+## Reglas de Encoding
+
+**SIEMPRE usar UTF-8 puro.**
+
+- Tildes directas: á, é, í, ó, ú, ñ, ü
+- Signos: ¿?, ¡!
+- Si aparecen `�` o `\u00f3`, el archivo está corrupto
+
+---
+
+## Fuente de Verdad
+
+**README.md es la única fuente de verdad para:**
+- Contenido por clase (tabla de referencia)
+- Estructura de módulos
+- Objetivos del curso
+
+**Al modificar contenido:**
+1. Actualizar PRIMERO `README.md`
+2. Los demás archivos referencian a README.md
+3. NUNCA duplicar tablas de contenido
 
 ---
 
 ## Herramientas del Curso
 
-### Módulo 1
-- Excalidraw (diagramas)
-- Google IDX / Firebase Studio (IDE en la nube)
-- Codepen (prototipos rápidos)
-
-### Módulo 2
-- Terminal (comandos básicos)
-- Visual Studio Code (editor)
-- Git (control de versiones)
-- Chrome DevTools (inspección)
-- Excalidraw (wireframes)
-- Figma (diseño)
-
-### Módulo 3
-- Consola del navegador
-- VS Code con extensiones JS
+| Módulo | Herramientas |
+|--------|--------------|
+| M1 | VS Code, Live Server, Excalidraw, Google Fonts |
+| M2 | Terminal, Git, Chrome DevTools, Figma |
+| M3 | Consola del navegador, VS Code + extensiones JS |
 
 ---
 
-## Proyectos Integradores
+## Sugerencias de Commit
 
-| Módulo | Proyecto | Repositorio |
-|--------|----------|-------------|
-| M1 | Mi Primer Catálogo Web en la Nube | Por definir |
-| M2 | MyLinks - Tu Hub Personal | Por definir |
-| M3 | Adivina el Número | Por definir |
+Después de cambios significativos:
 
----
+```
+git commit -m "tipo: descripción"
+```
 
-## Notas de Desarrollo
-
-*Última actualización: Enero 2026*
-
-- Curso inicial del programa (sin prerrequisitos)
-- 12 clases en 3 módulos técnicos
-- Enfoque: HTML, CSS, herramientas dev, JavaScript básico
-- Prepara para Code 201
+| Tipo | Uso |
+|------|-----|
+| `feat:` | Nueva funcionalidad |
+| `fix:` | Corrección |
+| `docs:` | Documentación |
+| `refactor:` | Reestructuración |
 
 ---
 
-## Al reportar problemas
+## Al Reportar Problemas
 
-Siempre incluir:
+Incluir:
 1. **Ubicación:** `archivo:línea`
-2. **Referencia:** "Clase X enseña..." o "Lab X Parte Y pide..." (consultar tabla en README.md)
+2. **Referencia:** "Clase X, Lab Parte Y" (consultar README.md)
