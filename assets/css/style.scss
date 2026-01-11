@@ -58,8 +58,12 @@ input[type="checkbox"] {
     margin-right: 8px; /* Espacio entre la casilla y el texto */
 }
 
+code {
+  font-family: 'JetBrains Mono', 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal !important;
+}
+
 code.highlighter-rouge {
-  font-family: 'JetBrains Mono', 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  font-family: 'JetBrains Mono', 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal !important;
   font-size: 13px;
   color: #cc3524;
   text-shadow: unset;
