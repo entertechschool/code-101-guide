@@ -2,7 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 /* OVERRIDES: */
 
@@ -46,8 +46,20 @@ ul {
 ol ol ol {
   margin-bottom: 0;
 }
+
+// Estilos para listas con casillas de verificación
+ul:has(input[type="checkbox"]) {
+  padding-left: 24px;
+}
+li:has(input[type="checkbox"]) {
+    list-style-type: none; /* Elimina la viñeta/marcador predeterminado */  
+}
+input[type="checkbox"] {
+    margin-right: 8px; /* Espacio entre la casilla y el texto */
+}
+
 code.highlighter-rouge {
-  font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  font-family: 'JetBrains Mono', 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   font-size: 13px;
   color: #cc3524;
   text-shadow: unset;
