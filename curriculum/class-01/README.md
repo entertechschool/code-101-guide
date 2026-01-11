@@ -1,6 +1,6 @@
-> Módulo 1: Clase 1 de 4
+> 📦 **Módulo 1:** Clase 1 de 4
 
-# Setup y Web Moderna
+# Clase 01: Setup y Web Moderna
 
 ## Resumen
 
@@ -22,7 +22,7 @@ Al final de la clase, tendrás tu primera página web funcionando: una página c
 
 ---
 
-## ¿Qué haremos en clase?
+## 🎯 ¿Qué haremos en clase?
 
 1. **Exploraremos cómo funciona la web** - Descubrirás qué pasa "detrás de escenas" cuando visitas un sitio web y verás que todo sitio está hecho de código que puedes leer.
 
@@ -46,7 +46,7 @@ Al finalizar esta clase, podrás:
 
 ---
 
-## Preparación para la Clase
+## ✅ Preparación para la Clase
 
 ### Instalaciones Requeridas
 

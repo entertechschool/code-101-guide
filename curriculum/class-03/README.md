@@ -1,6 +1,6 @@
-> Módulo 1: Clase 3 de 4
+> 📦 **Módulo 1:** Clase 3 de 4
 
-# Estilos con CSS
+# Clase 03: Estilos con CSS
 
 ## Resumen
 
@@ -22,7 +22,7 @@ Al final de la clase, tu perfil tendrá una identidad visual coherente: colores 
 
 ---
 
-## ¿Qué haremos en clase?
+## 🎯 ¿Qué haremos en clase?
 
 1. **Veremos la magia de CSS en acción** - Descubrirás cómo un solo archivo puede transformar completamente una página HTML.
 
@@ -46,7 +46,7 @@ Al finalizar esta clase, podrás:
 
 ---
 
-## Preparación para la Clase
+## ✅ Preparación para la Clase
 
 ### Herramientas
 

@@ -1,6 +1,6 @@
-> Módulo 1: Clase 2 de 4
+> 📦 **Módulo 1:** Clase 2 de 4
 
-# Diseña y Estructura
+# Clase 02: Diseña y Estructura
 
 ## Resumen
 
@@ -22,7 +22,7 @@ Al final de la clase, tendrás un wireframe completo de tu perfil personal (con 
 
 ---
 
-## ¿Qué haremos en clase?
+## 🎯 ¿Qué haremos en clase?
 
 1. **Entenderemos por qué diseñar antes de codear** - Verás cómo los profesionales planifican sus proyectos antes de escribir una línea de código.
 
@@ -46,7 +46,7 @@ Al finalizar esta clase, podrás:
 
 ---
 
-## Preparación para la Clase
+## ✅ Preparación para la Clase
 
 ### Herramientas
 

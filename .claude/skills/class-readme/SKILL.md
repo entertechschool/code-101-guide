@@ -19,9 +19,9 @@ Este skill genera READMEs de clase siguiendo el estándar de Code 101. El docume
 ## Template de Estructura
 
 ```markdown
-> Módulo [X]: Clase [Y] de [Z]
+> **Módulo [X]:** Clase [Y] de [Z]
 
-# [Título de la Clase]
+# Clase [Y]: [Título de la Clase]
 
 ## Resumen
 
@@ -37,7 +37,7 @@ Este skill genera READMEs de clase siguiendo el estándar de Code 101. El docume
 
 ---
 
-## ¿Qué haremos en clase?
+## 🎯 ¿Qué haremos en clase?
 
 1. **[Verbo en primera persona plural]** - [Breve descripción]
 2. **[Verbo en segunda persona]** - [Breve descripción]
@@ -55,7 +55,7 @@ Al finalizar esta clase, podrás:
 
 ---
 
-## Preparación para la Clase
+## ✅ Preparación para la Clase
 
 ### [Categoría: Instalaciones / Herramientas]
 
@@ -98,7 +98,7 @@ Al finalizar esta clase, podrás:
 >
 > - **Configurar bien tu entorno desde el inicio te ahorra horas después.** Los profesionales invierten tiempo en sus herramientas porque multiplica su productividad.
 
-### ¿Qué haremos en clase?
+### 🎯 ¿Qué haremos en clase?
 
 > 1. **Exploraremos cómo funciona la web** - Descubrirás qué pasa "detrás de escenas" cuando visitas un sitio.
 > 2. **Configurarás VS Code** - Instalarás las extensiones que usan los desarrolladores profesionales.

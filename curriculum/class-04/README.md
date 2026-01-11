@@ -1,6 +1,6 @@
-> Módulo 1: Clase 4 de 4
+> 📦 **Módulo 1:** Clase 4 de 4
 
-# Layout Moderno con Flexbox
+# Clase 04: Layout Moderno con Flexbox
 
 ## Resumen
 
@@ -24,7 +24,7 @@ Al final de la clase, presentarás tu proyecto completo: un perfil personal con 
 
 ---
 
-## ¿Qué haremos en clase?
+## 🎯 ¿Qué haremos en clase?
 
 1. **Analizaremos layouts de sitios populares** - Verás cómo Netflix, Spotify y otros organizan sus elementos y descubrirás que todos usan Flexbox.
 
@@ -48,7 +48,7 @@ Al finalizar esta clase, podrás:
 
 ---
 
-## Preparación para la Clase
+## ✅ Preparación para la Clase
 
 ### Herramientas
 
