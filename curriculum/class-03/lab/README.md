@@ -1,4 +1,4 @@
-# Lab: Estilos con CSS
+# Lab 03: Estilos con CSS
 
 ## 🎯 Objetivos
 

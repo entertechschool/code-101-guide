@@ -72,7 +72,7 @@ README.md
 ## Template: Lab Regular
 
 ```markdown
-# Lab: [Título del Lab]
+# Lab [XX]: [Título del Lab]
 
 ## 🎯 Objetivos
 
@@ -201,7 +201,7 @@ Explicación breve.
 > ⚠️ **IMPORTANTE:** La rúbrica debe incluirse INLINE en el lab (sección "Rúbrica de Evaluación"), NO como referencia a `rubric.md`. El archivo `rubric.md` es solo para el facilitador/evaluador.
 
 ```markdown
-# Lab: [Nombre del Proyecto Integrador]
+# Lab [XX]: [Nombre del Proyecto Integrador]
 
 > ⚠️ **Lab Calificado** - Este lab será evaluado según la rúbrica incluida abajo.
 >

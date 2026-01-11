@@ -1,4 +1,4 @@
-# Lab: Mi Perfil Personal - Proyecto Final M1
+# Lab 04: Mi Perfil Personal - Proyecto Final M1
 
 > ⚠️ **Lab Calificado** - Este lab será evaluado según la rúbrica incluida abajo.
 >

@@ -1,4 +1,4 @@
-# Lab: Mi Primera Página Web
+# Lab 01: Mi Primera Página Web
 
 ## 🎯 Objetivos
 

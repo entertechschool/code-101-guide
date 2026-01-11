@@ -1,4 +1,4 @@
-# Lab: Diseña y Estructura
+# Lab 02: Diseña y Estructura
 
 ## 🎯 Objetivos
 
