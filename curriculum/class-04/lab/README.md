@@ -4,7 +4,7 @@
 >
 > 📌 **Distribución:** Se espera completar ~50% durante la sesión en vivo (Partes 1-2) y el resto antes de la fecha de entrega.
 
-## Objetivos del Módulo
+## 🎯 Objetivos del Módulo
 
 Este lab integra todo lo aprendido en el Módulo 1:
 
@@ -14,7 +14,7 @@ Este lab integra todo lo aprendido en el Módulo 1:
 
 ---
 
-## Conceptos Clave
+## 🔑 Conceptos Clave
 
 - **Flexbox** - Sistema de layout unidimensional con `display: flex`
 - **justify-content / align-items** - Controlan distribución en ejes principal y cruzado
@@ -22,15 +22,18 @@ Este lab integra todo lo aprendido en el Módulo 1:
 
 ---
 
-## Tu Proyecto Hasta Ahora
+## ⚙️ Setup Inicial
 
-Deberías tener:
-- [ ] HTML semántico (`<header>`, `<main>`, `<section>`, `<footer>`)
-- [ ] Navegación con enlaces ancla funcionando
-- [ ] CSS con paleta de colores y Google Fonts
-- [ ] Al menos 3 secciones de contenido personal
+Este lab integra todo el Módulo 1. Verifica que tengas todo listo:
 
-Si te falta algo, este es el momento de completarlo antes de continuar.
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | HTML semántico | `<header>`, `<main>`, `<section>`, `<footer>` |
+| ☐ | Navegación con anclas | Enlaces funcionan correctamente |
+| ☐ | CSS con paleta + Google Fonts | Colores y tipografía personalizados |
+| ☐ | 3+ secciones de contenido | Contenido personal real |
+
+> ⚠️ Si te falta algo, este es el momento de completarlo antes de continuar.
 
 ---
 
@@ -322,7 +325,7 @@ Crea una sección hero con tu foto y bio lado a lado usando Flexbox. (Aprenderem
 
 ---
 
-## Entrega
+## 📝 Entrega
 
 📦 **Entregable:**
 

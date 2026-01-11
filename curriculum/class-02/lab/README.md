@@ -1,6 +1,6 @@
 # Lab: Diseña y Estructura
 
-## Objetivos
+## 🎯 Objetivos
 
 1. Crear un wireframe que planifique la estructura de tu perfil
 2. Reorganizar tu HTML usando etiquetas semánticas
@@ -8,7 +8,7 @@
 
 ---
 
-## Conceptos Clave
+## 🔑 Conceptos Clave
 
 - **Wireframe** - Boceto visual que planifica la estructura antes de codear
 - **HTML Semántico** - Etiquetas que describen el propósito del contenido (`<header>`, `<main>`, `<section>`)
@@ -16,14 +16,17 @@
 
 ---
 
-## Continuidad del Proyecto
+## ⚙️ Setup Inicial
 
-> Este lab continúa el trabajo de la Clase 01. Asegúrate de tener:
-> - Carpeta `mi-perfil` con tu proyecto
-> - Archivo `index.html` con tu nombre, foto, bio y hobbies
-> - VS Code con Live Server funcionando
+Este lab continúa el trabajo de la Clase 01. Verifica que tengas todo listo:
 
-Si no completaste el lab anterior, crea la estructura base antes de continuar.
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | Carpeta `mi-perfil` | Existe en tu computadora |
+| ☐ | `index.html` con contenido | Tiene tu nombre, foto, bio y hobbies |
+| ☐ | VS Code + Live Server | Página visible en `localhost:5500` |
+
+> ⚠️ Si no completaste el lab anterior, crea la estructura base antes de continuar.
 
 ---
 
@@ -31,7 +34,7 @@ Si no completaste el lab anterior, crea la estructura base antes de continuar.
 
 ### 1.1 Acceder a Excalidraw
 
-1. Abre [excalidraw.com](https://excalidraw.com/)
+1. Abre [excalidraw.com](https://excalidraw.com/){:target="_blank"}
 2. No necesitas crear cuenta (funciona sin login)
 3. Familiarízate con las herramientas básicas: rectángulo, texto, líneas
 
@@ -225,7 +228,7 @@ Organiza tus enlaces de navegación como lista horizontal usando `<ul>` y `<li>`
 
 ---
 
-## Entrega
+## 📝 Entrega
 
 ### Checklist
 

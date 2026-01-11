@@ -74,7 +74,7 @@ README.md
 ```markdown
 # Lab: [Título del Lab]
 
-## Objetivos
+## 🎯 Objetivos
 
 1. [Objetivo medible 1]
 2. [Objetivo medible 2]
@@ -82,7 +82,7 @@ README.md
 
 ---
 
-## Conceptos Clave
+## 🔑 Conceptos Clave
 
 - **[Término 1]** - Definición concisa
 - **[Término 2]** - Definición concisa
@@ -90,13 +90,17 @@ README.md
 
 ---
 
-## Continuidad del Proyecto
+## ⚙️ Setup Inicial
 
-> Este lab continúa el trabajo de la Clase X-1. Asegúrate de tener:
-> - [Requisito del lab anterior]
-> - [Requisito del lab anterior]
+Este lab continúa el trabajo de la Clase X-1. Verifica que tengas todo listo:
 
-Si no completaste el lab anterior, descarga el código base: [link o instrucción]
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | [Requisito 1] | [Cómo verificar] |
+| ☐ | [Requisito 2] | [Cómo verificar] |
+| ☐ | [Requisito 3] | [Cómo verificar] |
+
+> ⚠️ Si no completaste el lab anterior, completa los requisitos antes de continuar.
 
 ---
 
@@ -171,7 +175,7 @@ Explicación breve.
 
 ---
 
-## Entrega
+## 📝 Entrega
 
 ### Checklist
 
@@ -203,7 +207,7 @@ Explicación breve.
 >
 > 📌 **Distribución:** Se espera completar ~50% durante la sesión en vivo (Partes 1-2) y el resto antes de la fecha de entrega.
 
-## Objetivos del Módulo
+## 🎯 Objetivos del Módulo
 
 Este lab integra todo lo aprendido en el Módulo X:
 
@@ -213,7 +217,7 @@ Este lab integra todo lo aprendido en el Módulo X:
 
 ---
 
-## Conceptos Clave
+## 🔑 Conceptos Clave
 
 - **[Término 1]** - Definición concisa
 - **[Término 2]** - Definición concisa
@@ -221,14 +225,17 @@ Este lab integra todo lo aprendido en el Módulo X:
 
 ---
 
-## Tu Proyecto Hasta Ahora
+## ⚙️ Setup Inicial
 
-Deberías tener:
-- [ ] [Elemento del lab clase X-3]
-- [ ] [Elemento del lab clase X-2]
-- [ ] [Elemento del lab clase X-1]
+Este lab integra todo el Módulo X. Verifica que tengas todo listo:
 
-Si te falta algo, este es el momento de completarlo antes de continuar.
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | [Elemento del lab clase X-3] | [Cómo verificar] |
+| ☐ | [Elemento del lab clase X-2] | [Cómo verificar] |
+| ☐ | [Elemento del lab clase X-1] | [Cómo verificar] |
+
+> ⚠️ Si te falta algo, este es el momento de completarlo antes de continuar.
 
 ---
 
@@ -320,7 +327,7 @@ Usa la rúbrica de abajo para verificar que tu proyecto esté completo antes de 
 
 ---
 
-## Entrega
+## 📝 Entrega
 
 📦 **Entregable:**
 
@@ -685,15 +692,18 @@ El lab debe alinearse con:
 
 ### Lab Regular (clases 1-3, 5-7, 9-11)
 
+- [ ] Emojis en secciones: 🎯 Objetivos, 🔑 Conceptos Clave, ⚙️ Setup Inicial, 📝 Entrega
+- [ ] Sección "⚙️ Setup Inicial" con tabla de requisitos (clases 2, 3, 5, 6, 7, 9, 10, 11)
 - [ ] Duración ~90 min (3 partes)
 - [ ] Código tiene gaps intencionales
 - [ ] Checkpoints son visuales (no técnicos)
 - [ ] 3 Logros Adicionales con preview de conceptos futuros
-- [ ] Sección "Continuidad del Proyecto" si es clase 2, 3, 5, 6, 7, 9, 10, 11
 - [ ] Checklist de entrega claro
 
 ### Lab Calificado (clases 4, 8)
 
+- [ ] Emojis en secciones: 🎯 Objetivos, 🔑 Conceptos Clave, ⚙️ Setup Inicial, 📝 Entrega
+- [ ] Sección "⚙️ Setup Inicial" con tabla de requisitos
 - [ ] Duración ~135 min (5 partes, incluyendo Parte 5 Desafío)
 - [ ] Nota sobre distribución 50/50 (clase + post-clase)
 - [ ] Código tiene gaps intencionales

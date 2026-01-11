@@ -22,6 +22,7 @@ Este proyecto usa skills de Claude para generar contenido consistente.
 | `class-slides` | Presentación reveal.js | `slides/README.md` |
 | `class-facilitator` | Guía pedagógica | `facilitator/README.md` |
 | `evaluation-class` | Verificar calidad | Reporte |
+| `lint-links` | Validar enlaces externos | Reporte/Corrección |
 
 ### Flujo de Creación
 
@@ -117,6 +118,26 @@ Cada clase tiene 4-5 archivos en `curriculum/class-XX/`:
 - Tildes directas: á, é, í, ó, ú, ñ, ü
 - Signos: ¿?, ¡!
 - Si aparecen `�` o `\u00f3`, el archivo está corrupto
+
+---
+
+## Enlaces Externos
+
+**SIEMPRE** usar `{:target="_blank"}` en enlaces a páginas externas (sintaxis Kramdown):
+
+```markdown
+✅ Correcto:
+[VS Code](https://code.visualstudio.com/){:target="_blank"}
+[Google Fonts](https://fonts.google.com/){:target="_blank"}
+
+❌ Incorrecto:
+[VS Code](https://code.visualstudio.com/)
+```
+
+**Excepción:** Enlaces internos NO llevan target:
+- Anclas: `[Sección](#seccion)`
+- Rutas relativas: `[README](./README.md)`
+- Referencias al mismo sitio: `[Clase 01](../class-01/)`
 
 ---
 

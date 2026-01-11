@@ -1,6 +1,6 @@
 # Lab: Mi Primera Página Web
 
-## Objetivos
+## 🎯 Objetivos
 
 1. Configurar VS Code con extensiones esenciales para desarrollo web
 2. Crear la estructura base de un proyecto web con HTML válido
@@ -8,7 +8,7 @@
 
 ---
 
-## Conceptos Clave
+## 🔑 Conceptos Clave
 
 - **HTML** - Lenguaje de marcado que estructura el contenido de las páginas web
 - **Etiquetas** - Elementos que definen el tipo de contenido (`<h1>`, `<p>`, `<img>`)
@@ -16,33 +16,33 @@
 
 ---
 
-## Parte 1: Setup del Entorno (30 min)
+## ⚙️ Setup Inicial
 
-### 1.1 Instalar VS Code
+Antes de comenzar, instala VS Code y las extensiones necesarias:
 
-1. Descarga VS Code desde [code.visualstudio.com](https://code.visualstudio.com/)
+1. Descarga VS Code desde [code.visualstudio.com](https://code.visualstudio.com/){:target="_blank"}
 2. Instala siguiendo las instrucciones de tu sistema operativo
-3. Abre VS Code
+3. En VS Code, ve a **Extensiones** (ícono de cuadrados en la barra lateral)
+4. Busca e instala cada extensión de la tabla
 
-### 1.2 Instalar Extensiones
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | VS Code instalado | Puedes abrir la aplicación |
+| ☐ | Extensión **Live Server** | Aparece en lista de extensiones instaladas |
+| ☐ | Extensión **Auto Rename Tag** | Aparece en lista de extensiones instaladas |
+| ☐ | Extensión **Prettier** | Aparece en lista de extensiones instaladas |
 
-En VS Code, ve a la barra lateral izquierda y haz clic en el ícono de **Extensiones** (cuadrados).
+---
 
-Busca e instala estas extensiones:
+## Parte 1: Crear Tu Proyecto (30 min)
 
-| Extensión | Para qué sirve |
-|-----------|----------------|
-| **Live Server** | Ver cambios en tiempo real |
-| **Auto Rename Tag** | Editar etiquetas HTML más fácil |
-| **Prettier** | Formatear código automáticamente |
-
-### 1.3 Crear Estructura del Proyecto
+### 1.1 Crear Estructura del Proyecto
 
 1. Crea una carpeta en tu computadora llamada `mi-perfil`
 2. En VS Code: **File → Open Folder** → selecciona `mi-perfil`
 3. Crea un nuevo archivo: **File → New File** → guárdalo como `index.html`
 
-### 1.4 Estructura HTML Base
+### 1.2 Estructura HTML Base
 
 Escribe el siguiente código en `index.html`:
 
@@ -62,7 +62,7 @@ Escribe el siguiente código en `index.html`:
 
 > 💡 **Tip:** Reemplaza el comentario en `<title>` con tu nombre real.
 
-### 1.5 Activar Live Server
+### 1.3 Activar Live Server
 
 1. Haz clic derecho en `index.html` en el explorador de archivos
 2. Selecciona **"Open with Live Server"**
@@ -209,7 +209,7 @@ Crea un segundo archivo `hobbies.html` y enlázalo desde tu página principal. (
 
 ---
 
-## Entrega
+## 📝 Entrega
 
 ### Checklist
 

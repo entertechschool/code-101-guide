@@ -50,7 +50,7 @@ Google Fonts cambió todo: tipografías gratuitas, optimizadas para web, con un 
 
 > **Para contar en clase:** "¿Ven cómo Netflix tiene su tipografía distintiva? ¿O cómo Medium se ve elegante? Todo es CSS + tipografías web. Y ustedes van a hacer lo mismo hoy—gratis."
 
-**Fuentes:** [Wikipedia - CSS](https://en.wikipedia.org/wiki/CSS), [Wikipedia - Håkon Wium Lie](https://en.wikipedia.org/wiki/H%C3%A5kon_Wium_Lie), [Web Design Museum - CSS1](https://www.webdesignmuseum.org/web-design-history/css-1-1996)
+**Fuentes:** [Wikipedia - CSS](https://en.wikipedia.org/wiki/CSS){:target="_blank"}, [Wikipedia - Håkon Wium Lie](https://en.wikipedia.org/wiki/H%C3%A5kon_Wium_Lie){:target="_blank"}, [Web Design Museum - CSS1](https://www.webdesignmuseum.org/web-design-history/css-1-1996){:target="_blank"}
 
 ---
 

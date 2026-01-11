@@ -74,6 +74,21 @@ a {
   text-decoration: none;
 }
 
+/* Selecciona enlaces que contienen http (externos) y tienen el atributo target */
+a[href*="//"][target="_blank"]::after {
+    content: " \2197"; /* Código Unicode para la flecha superior derecha (↗) */
+    font-size: 0.7em;  /* Un poco más pequeña que el texto */
+    margin-left: 3px;   /* Separación del texto */
+    display: inline-block;
+    vertical-align: top;
+    transition: transform 0.2s ease; /* Para una micro-interacción moderna */
+}
+
+/* Efecto opcional: la flecha se mueve ligeramente al pasar el mouse */
+a[href*="//"][target="_blank"]:hover::after {
+    transform: translate(2px, -2px);
+}
+
 blockquote {
   border-left: 1px solid #cc3524;
 }

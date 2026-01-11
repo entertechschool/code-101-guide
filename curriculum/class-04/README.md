@@ -88,6 +88,6 @@ Al finalizar esta clase, podrás:
 
 ## Recursos Adicionales
 
-- [CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - La guía definitiva
-- [Flexbox Froggy](https://flexboxfroggy.com/) - Juego para practicar Flexbox
-- [MDN Flexbox](https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Flexbox)
+- [CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/){:target="_blank"} - La guía definitiva
+- [Flexbox Froggy](https://flexboxfroggy.com/){:target="_blank"} - Juego para practicar Flexbox
+- [MDN Flexbox](https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Flexbox){:target="_blank"}

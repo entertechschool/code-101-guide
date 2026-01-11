@@ -1,6 +1,6 @@
 # Lab: Estilos con CSS
 
-## Objetivos
+## 🎯 Objetivos
 
 1. Crear y vincular un archivo CSS externo a tu proyecto
 2. Aplicar una paleta de colores coherente con tipografía personalizada
@@ -8,7 +8,7 @@
 
 ---
 
-## Conceptos Clave
+## 🔑 Conceptos Clave
 
 - **CSS** - Lenguaje que controla la apariencia visual del HTML
 - **Selectores** - Definen qué elementos estilizar (`h1`, `.clase`, `#id`)
@@ -16,14 +16,17 @@
 
 ---
 
-## Continuidad del Proyecto
+## ⚙️ Setup Inicial
 
-> Este lab continúa el trabajo de la Clase 02. Asegúrate de tener:
-> - Estructura semántica (`<header>`, `<main>`, `<section>`, `<footer>`)
-> - Navegación con enlaces ancla funcionando
-> - Al menos 3 secciones de contenido
+Este lab continúa el trabajo de la Clase 02. Verifica que tengas todo listo:
 
-Si no completaste el lab anterior, reorganiza tu HTML con etiquetas semánticas antes de continuar.
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | HTML semántico | Tienes `<header>`, `<main>`, `<section>`, `<footer>` |
+| ☐ | Navegación con anclas | Los enlaces saltan a cada sección |
+| ☐ | 3+ secciones de contenido | Cada una tiene `id` único |
+
+> ⚠️ Si no completaste el lab anterior, reorganiza tu HTML con etiquetas semánticas antes de continuar.
 
 ---
 
@@ -78,7 +81,7 @@ Guarda ambos archivos. Si el fondo cambia a celeste, ¡funciona!
 
 ### 2.1 Elegir una Paleta
 
-Visita [coolors.co](https://coolors.co/generate) y genera paletas hasta encontrar una que te guste.
+Visita [coolors.co](https://coolors.co/generate){:target="_blank"} y genera paletas hasta encontrar una que te guste.
 
 Necesitas definir estos roles:
 
@@ -106,7 +109,7 @@ En la parte superior de `styles.css`, documenta tus colores:
 
 ### 2.3 Agregar Google Fonts
 
-1. Ve a [fonts.google.com](https://fonts.google.com/)
+1. Ve a [fonts.google.com](https://fonts.google.com/){:target="_blank"}
 2. Elige una tipografía para títulos (ej: Montserrat, Poppins)
 3. Elige una tipografía para texto (ej: Open Sans, Roboto)
 4. Copia el código `<link>` y agrégalo en `<head>` **antes** de tu CSS:
@@ -246,7 +249,7 @@ Investiga la propiedad `box-shadow` y agrégala a tu imagen o secciones para cre
 
 ---
 
-## Entrega
+## 📝 Entrega
 
 ### Checklist
 

@@ -49,7 +49,7 @@ El principio fundamental de WCAG: el contenido debe ser Perceptible, Operable, C
 
 > **Para contar en clase:** "El 15% de la población mundial tiene alguna discapacidad. Eso son más de mil millones de personas. El HTML semántico no es un 'extra'—es cómo hacemos la web para todos."
 
-**Fuentes:** [Wikipedia - HTML5](https://en.wikipedia.org/wiki/HTML5), [Wikipedia - WCAG](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines), [BOIA - History of WCAG](https://www.boia.org/blog/history-of-the-web-content-accessibility-guidelines-wcag)
+**Fuentes:** [Wikipedia - HTML5](https://en.wikipedia.org/wiki/HTML5){:target="_blank"}, [Wikipedia - WCAG](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines){:target="_blank"}, [BOIA - History of WCAG](https://www.boia.org/blog/history-of-the-web-content-accessibility-guidelines-wcag){:target="_blank"}
 
 ---
 

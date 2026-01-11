@@ -50,7 +50,7 @@ Al finalizar esta clase, podrás:
 
 ### Herramientas
 
-- [ ] **Excalidraw** - [excalidraw.com](https://excalidraw.com/) (no requiere cuenta)
+- [ ] **Excalidraw** - [excalidraw.com](https://excalidraw.com/){:target="_blank"} (no requiere cuenta)
 - [ ] **VS Code** - Con el proyecto de la clase anterior abierto
 
 ### Preparación
@@ -79,6 +79,6 @@ Al finalizar esta clase, podrás:
 
 ## Recursos Adicionales
 
-- [Excalidraw](https://excalidraw.com/)
-- [MDN - HTML Semántico](https://developer.mozilla.org/es/docs/Glossary/Semantics)
-- [WebAIM - Introducción a Accesibilidad](https://webaim.org/intro/)
+- [Excalidraw](https://excalidraw.com/){:target="_blank"}
+- [MDN - HTML Semántico](https://developer.mozilla.org/es/docs/Glossary/Semantics){:target="_blank"}
+- [WebAIM - Introducción a Accesibilidad](https://webaim.org/intro/){:target="_blank"}

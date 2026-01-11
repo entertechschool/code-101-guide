@@ -49,7 +49,7 @@ Para abril de 2016, cuando lanzaron la versión 1.0, ya había sido instalado po
 
 > **Para contar en clase:** "VS Code tiene menos de 10 años y ya es el editor más usado del mundo. Es gratuito, open source, y lo usa todo el mundo—desde estudiantes hasta ingenieros de Google."
 
-**Fuentes:** [Wikipedia - Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee), [CERN - Birth of the Web](https://home.cern/science/computing/birth-web), [Wikipedia - VS Code](https://en.wikipedia.org/wiki/Visual_Studio_Code), [VS Code 1.0 Announcement](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0)
+**Fuentes:** [Wikipedia - Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee){:target="_blank"}, [CERN - Birth of the Web](https://home.cern/science/computing/birth-web){:target="_blank"}, [Wikipedia - VS Code](https://en.wikipedia.org/wiki/Visual_Studio_Code){:target="_blank"}, [VS Code 1.0 Announcement](https://code.visualstudio.com/blogs/2016/04/14/vscode-1.0){:target="_blank"}
 
 ---
 

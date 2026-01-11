@@ -56,7 +56,7 @@ El inspector de Flexbox en Chrome/Firefox DevTools (introducido ~2019) hace visi
 
 > **Para contar en clase:** "Abran Netflix o Spotify. Esas filas de películas o álbumes que se ven perfectamente organizadas... Flexbox. Cards que se adaptan al tamaño de pantalla... Flexbox. Es LITERALMENTE lo que usan los profesionales."
 
-**Fuentes:** [CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), [Can I Use - Flexbox](https://caniuse.com/flexbox), [Flexbox History](https://annairish.github.io/historicizing/history)
+**Fuentes:** [CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/){:target="_blank"}, [Can I Use - Flexbox](https://caniuse.com/flexbox){:target="_blank"}, [Flexbox History](https://annairish.github.io/historicizing/history){:target="_blank"}
 
 ---
 

@@ -50,7 +50,7 @@ Al finalizar esta clase, podrás:
 
 ### Instalaciones Requeridas
 
-- [ ] **Visual Studio Code** - [code.visualstudio.com](https://code.visualstudio.com/)
+- [ ] **Visual Studio Code** - [code.visualstudio.com](https://code.visualstudio.com/){:target="_blank"}
 - [ ] **Navegador moderno** - Chrome, Firefox o Edge actualizado
 
 ### Extensiones de VS Code (las instalaremos juntos)
@@ -83,6 +83,6 @@ Al finalizar esta clase, podrás:
 
 ## Recursos Adicionales
 
-- [MDN Web Docs - Introducción a HTML](https://developer.mozilla.org/es/docs/Learn/HTML/Introduction_to_HTML)
-- [VS Code Docs](https://code.visualstudio.com/docs)
-- [Historia de la Web - W3C](https://www.w3.org/History.html)
+- [MDN Web Docs - Introducción a HTML](https://developer.mozilla.org/es/docs/Learn/HTML/Introduction_to_HTML){:target="_blank"}
+- [VS Code Docs](https://code.visualstudio.com/docs){:target="_blank"}
+- [Historia de la Web - W3C](https://www.w3.org/History.html){:target="_blank"}

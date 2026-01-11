@@ -51,8 +51,8 @@ Al finalizar esta clase, podrás:
 ### Herramientas
 
 - [ ] **VS Code** - Con tu proyecto `mi-perfil` de clases anteriores
-- [ ] **Google Fonts** - [fonts.google.com](https://fonts.google.com/) (explóralo antes de clase)
-- [ ] **Coolors** - [coolors.co](https://coolors.co/) (generador de paletas)
+- [ ] **Google Fonts** - [fonts.google.com](https://fonts.google.com/){:target="_blank"} (explóralo antes de clase)
+- [ ] **Coolors** - [coolors.co](https://coolors.co/){:target="_blank"} (generador de paletas)
 
 ### Preparación
 
@@ -79,7 +79,7 @@ Al finalizar esta clase, podrás:
 
 ## Recursos Adicionales
 
-- [Google Fonts](https://fonts.google.com/)
-- [Coolors - Generador de paletas](https://coolors.co/)
-- [MDN - CSS Basics](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/CSS_basics)
-- [CSS-Tricks - Box Model](https://css-tricks.com/the-css-box-model/)
+- [Google Fonts](https://fonts.google.com/){:target="_blank"}
+- [Coolors - Generador de paletas](https://coolors.co/){:target="_blank"}
+- [MDN - CSS Basics](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/CSS_basics){:target="_blank"}
+- [CSS-Tricks - Box Model](https://css-tricks.com/the-css-box-model/){:target="_blank"}
