@@ -23,6 +23,7 @@ Este proyecto usa skills de Claude para generar contenido consistente.
 | `class-facilitator` | Guía pedagógica | `facilitator/README.md` |
 | `evaluation-class` | Verificar calidad | Reporte |
 | `lint-links` | Validar enlaces externos | Reporte/Corrección |
+| `module-test` | Test diagnóstico por módulo | `test/README.md` + `test/questions.md` |
 
 ### Flujo de Creación
 
@@ -31,6 +32,9 @@ module-planner → MODULE-PLAN.md (aprobar)
        ↓
 Para cada clase:
   class-readme → class-lab → class-slides → class-facilitator
+       ↓
+En clases 4, 8, 12:
+  module-test (test diagnóstico)
        ↓
 evaluation-class (verificar)
 ```
@@ -59,16 +63,18 @@ Cada clase tiene 4-5 archivos en `curriculum/class-XX/`:
 |---------|-----------|--------|
 | `README.md` | Resumen + preparación | ~150 líneas |
 | `lab/README.md` | Laboratorio paso a paso | Regular: <400, Calificado: <500 |
-| `lab/rubric.md` | Rúbrica (solo 4, 8, 12) | 5 criterios x 20 pts |
+| `lab/rubric.md` | Rúbrica (solo 4, 8, 12) | 4 criterios x 25 pts |
 | `slides/README.md` | Presentación | ≤12 slides |
 | `facilitator/README.md` | Guía pedagógica | <300 líneas |
+| `test/README.md` | Info test diagnóstico (solo 4, 8, 12) | ~30 líneas |
+| `test/questions.md` | Preguntas Canvas (solo 4, 8, 12) | 8 preguntas |
 
 ### Tipos de Lab
 
 | Tipo | Clases | Partes | Tiempo | Rúbrica |
 |------|--------|--------|--------|---------|
 | Regular | 1-3, 5-7, 9-11 | 3 | ~90 min (en clase) | No |
-| Calificado | 4, 8 | 5 | ~135 min (50/50) | 5x20 pts |
+| Calificado | 4, 8 | 5 | ~135 min (50/50) | 4x25 pts |
 | Demo Day | 12 | Especial | Variable | Especial |
 
 ---
@@ -83,15 +89,14 @@ Cada clase tiene 4-5 archivos en `curriculum/class-XX/`:
 | M2 | 8 | `class-08/lab/rubric.md` |
 | M3 | 12 | Demo Day (especial) |
 
-### Estructura Rúbrica (5 x 20 = 100 pts)
+### Estructura Rúbrica (4 x 25 = 100 pts)
 
-| Criterio | Excelente (20) | Bueno (15) | Satisfactorio (10) | Bajo (5) |
+| Criterio | Excelente (25) | Bueno (20) | Satisfactorio (15) | Bajo (10) |
 |----------|---------------|------------|-------------------|----------|
 | Criterio 1 | ... | ... | ... | ... |
 | Criterio 2 | ... | ... | ... | ... |
 | Criterio 3 | ... | ... | ... | ... |
 | Criterio 4 | ... | ... | ... | ... |
-| **Desafío** | ... | ... | ... | ... |
 
 **Escala:** A (90-100), B (80-89), C (70-79), F (<70)
 

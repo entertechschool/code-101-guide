@@ -1,0 +1,119 @@
+# Test Módulo 1 - Questions
+
+**8 preguntas x 12.5 pts = 100 pts**
+
+---
+
+## Pregunta 1
+
+¿Qué rol cumple el navegador en el modelo cliente-servidor?
+
+- A) Almacena las bases de datos del sitio web
+- B) Actúa como cliente que solicita recursos al servidor
+- C) Procesa el código del lado del servidor
+- D) Gestiona los dominios DNS
+
+> Respuesta: B
+
+---
+
+## Pregunta 2
+
+¿Cuál es el propósito principal de las etiquetas HTML semánticas como `<header>`, `<main>` y `<footer>`?
+
+- A) Hacer el código más corto
+- B) Mejorar el rendimiento de carga
+- C) Describir el significado del contenido para navegadores y lectores de pantalla
+- D) Aplicar estilos automáticamente
+
+> Respuesta: C
+
+---
+
+## Pregunta 3
+
+¿Qué atributo es obligatorio en la etiqueta `<img>` para mejorar la accesibilidad?
+
+- A) `src`
+- B) `title`
+- C) `alt`
+- D) `class`
+
+> Respuesta: C
+
+---
+
+## Pregunta 4
+
+¿Cómo funciona un enlace ancla (`<a href="#seccion">`) dentro de la misma página?
+
+- A) Abre una nueva pestaña del navegador
+- B) Hace scroll hasta el elemento con el `id` correspondiente
+- C) Recarga la página completa
+- D) Envía datos al servidor
+
+> Respuesta: B
+
+---
+
+## Pregunta 5
+
+En el Box Model de CSS, ¿cuál es la diferencia entre `padding` y `margin`?
+
+- A) No hay diferencia, son sinónimos
+- B) Padding es espacio interno (dentro del borde), margin es espacio externo (fuera del borde)
+- C) Margin es para texto, padding es para imágenes
+- D) Padding solo funciona con Flexbox
+
+> Respuesta: B
+
+---
+
+## Pregunta 6
+
+¿Qué selector CSS tiene mayor especificidad?
+
+- A) `h1` (elemento)
+- B) `.titulo` (clase)
+- C) `#principal` (ID)
+- D) `*` (universal)
+
+> Respuesta: C
+
+---
+
+## Pregunta 7
+
+¿Qué propiedad CSS activa Flexbox en un contenedor?
+
+- A) `flex: 1`
+- B) `display: flex`
+- C) `flex-direction: row`
+- D) `justify-content: center`
+
+> Respuesta: B
+
+---
+
+## Pregunta 8
+
+¿Para qué sirve `justify-content` en Flexbox?
+
+- A) Alinear elementos en el eje vertical
+- B) Distribuir elementos en el eje principal (horizontal por defecto)
+- C) Cambiar el orden de los elementos
+- D) Definir el tamaño de los elementos
+
+> Respuesta: B
+
+---
+
+## Escala de Evaluación
+
+| Correctas | Puntaje | Nivel |
+|-----------|---------|-------|
+| 8 | 100 | Excelente |
+| 7 | 87.5 | Muy Bueno |
+| 6 | 75 | Bueno (Aprobado) |
+| 5 | 62.5 | Necesita refuerzo |
+| < 5 | < 62.5 | Requiere apoyo adicional |
