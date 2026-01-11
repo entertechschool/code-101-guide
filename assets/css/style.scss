@@ -68,12 +68,11 @@ code.highlighter-rouge {
   color: #cc3524;
   text-shadow: unset;
   margin: 0 4px;
-  font-weight: bold;
+  font-weight: 400;
   padding: 2px 6px;
-  background: #F0F0F0;
-  border-radius: 2px;
-  border-bottom: 1px solid #cc3524;
-  border-right: 1px solid #cc3524;
+  background: #F3F3F3;
+  border: 1px dashed #cc3524;
+  border-radius: 6px;
 }
 td:first-child {
   border-left: 1px solid #e5e5e5;
