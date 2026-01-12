@@ -136,6 +136,84 @@ Al cerrar, planta la semilla para la siguiente clase:
 - **Analogías**: Cotidianas y universales (restaurantes, llamadas, etc.)
 - **Datos históricos**: Siempre verificados con WebSearch, incluir fuentes
 
+---
+
+## Template Adicional: Clases de Cierre (4, 8)
+
+> ⚠️ **Solo para clases 4 y 8.** La clase 12 tiene formato especial (Demo Day).
+
+Las clases de cierre de módulo (4 y 8) requieren secciones adicionales:
+
+### Sección: 📊 Test Diagnóstico del Módulo
+
+```markdown
+## 📊 Test Diagnóstico del Módulo
+
+### Logística (30 min total)
+
+| Actividad | Tiempo | Qué hacer |
+|-----------|--------|-----------|
+| Test en Canvas | 15 min | Proyectar countdown, ambiente silencioso |
+| Revisión en vivo | 15 min | Compartir pantalla Canvas, solo estadísticas |
+
+### Durante el test
+
+> "Tienen 15 minutos. Es individual y a libro cerrado. Recuerden: esto NO afecta su calificación—es para que nosotros sepamos qué temas necesitan más práctica."
+
+**Tips:**
+- Proyectar un timer en pantalla
+- Mantener ambiente silencioso
+- Circular por el salón sin presionar
+
+### Revisión de resultados
+
+**Preparación:** En Canvas, ir a "Estadísticas de Quiz" (NO muestra nombres)
+
+[Diálogo de ejemplo para revisión]
+
+**Qué buscar:**
+- Preguntas con <60% acierto → tema que necesita refuerzo
+- Preguntas con >90% acierto → tema dominado, celebrar
+- Pregunta 8 (autoevaluación) → termómetro de confianza del grupo
+```
+
+### Sección: 🎤 Presentaciones de Cierre
+
+```markdown
+## 🎤 Presentaciones de Cierre
+
+### Antes de empezar
+> "Este es SU momento. Han trabajado X clases para llegar aquí..."
+
+### Durante presentaciones
+- Mantener ambiente positivo
+- Una pregunta breve a cada presentador
+- Aplaudir genuinamente después de cada uno
+
+### Si alguien no terminó
+> "Está bien no haber terminado al 100%. ¿Qué parte quieres mostrar?"
+
+### Cierre de las Presentaciones
+> "Hace X clases no sabían qué era [tema]. Hoy tienen [logro]. ¡Increíble!"
+```
+
+### Checkpoints para Clases de Cierre
+
+Los checkpoints deben incluir explícitamente:
+
+| Minuto | Actividad |
+|--------|-----------|
+| 0-10 | Intro |
+| 10-70 | Lab (partes 1-4) |
+| 70-85 | **Test diagnóstico** |
+| 85-100 | **Revisión resultados** |
+| 100-130 | **Presentaciones de cierre** |
+| 130-150 | Cierre + preview siguiente módulo |
+
+> ⚠️ **IMPORTANTE:** NO usar "Demo Day" para clases 4 y 8. "Demo Day" es exclusivo de la clase 12.
+
+---
+
 ## Ejemplo de Referencia
 
-Ver implementación completa en: `curriculum/class-09/facilitator/README.md`
+Ver implementación completa en: `curriculum/class-04/facilitator/README.md`

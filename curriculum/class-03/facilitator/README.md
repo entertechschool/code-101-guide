@@ -221,6 +221,6 @@ nav a:hover {
 
 Al cerrar, planta la semilla para la Clase 04:
 
-> "Ahora su perfil tiene identidad: colores, tipografía, espaciado. Pero los elementos siguen uno debajo del otro. ¿Cómo hace Netflix para poner películas lado a lado? ¿O Spotify sus álbumes en filas? La próxima clase aprenderemos Flexbox—UNA propiedad que cambia todo. Y prepárense: es la última clase del módulo. Habrá Demo Day."
+> "Ahora su perfil tiene identidad: colores, tipografía, espaciado. Pero los elementos siguen uno debajo del otro. ¿Cómo hace Netflix para poner películas lado a lado? ¿O Spotify sus álbumes en filas? La próxima clase aprenderemos Flexbox—UNA propiedad que cambia todo. Y prepárense: es la última clase del módulo, tendremos test diagnóstico y presentaciones de cierre."
 
 **Tarea implícita:** "Exploren layouts de sitios que les gusten. ¿Cómo organizan los elementos? Netflix, Spotify, Amazon..."

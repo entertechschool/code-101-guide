@@ -98,13 +98,13 @@ Facilitador: (Cambia a flex-direction: column)
 Facilitador: "Ahora el main axis es vertical. Los ejes se intercambian."
 ```
 
-### Dinámica 3: "Demo Day Setup"
+### Dinámica 3: "Preparación para Presentaciones"
 
-Preparar el ambiente para las presentaciones.
+Preparar el ambiente para las presentaciones de cierre del módulo.
 
 ```
-Facilitador: "En 30 minutos haremos Demo Day."
-Facilitador: "Cada quien tiene 3 minutos para presentar:"
+Facilitador: "En unos minutos tendremos las presentaciones de cierre."
+Facilitador: "Cada quien tiene 2-3 minutos para presentar:"
 Facilitador: "1. Su nombre y qué secciones eligió"
 Facilitador: "2. Por qué eligió esos colores"
 Facilitador: "3. Mostrar un hover state en acción"
@@ -214,15 +214,55 @@ nav a {
 
 | Minuto | Checkpoint | Cómo validar |
 |--------|------------|--------------|
-| 25 | Header con flex | Nombre izq, nav derecha |
-| 45 | Nav horizontal | Enlaces en fila con gap |
-| 70 | Cards layout | Al menos 3 cards en fila |
-| 95 | Hover funciona | Cards "flotan" al pasar mouse |
-| 120 | Demo Day | Presentaciones en curso |
+| 10-25 | Header con flex | Nombre izq, nav derecha |
+| 25-40 | Nav horizontal | Enlaces en fila con gap |
+| 40-55 | Cards layout | Al menos 3 cards en fila |
+| 55-70 | Hover funciona | Cards "flotan" al pasar mouse |
+| 70-85 | **Test diagnóstico** | Todos respondiendo en Canvas |
+| 85-100 | **Revisión resultados** | Estadísticas en pantalla |
+| 100-130 | Presentaciones | Cierre del módulo |
+| 130-150 | Cierre M1 | Preview M2, celebración |
 
 ---
 
-## 🎤 Demo Day: Guía de Facilitación
+## 📊 Test Diagnóstico del Módulo
+
+### Logística (30 min total)
+
+| Actividad | Tiempo | Qué hacer |
+|-----------|--------|-----------|
+| Test en Canvas | 15 min | Proyectar countdown, ambiente silencioso |
+| Revisión en vivo | 15 min | Compartir pantalla Canvas, solo estadísticas |
+
+### Durante el test
+
+> "Tienen 15 minutos. Es individual y a libro cerrado. Recuerden: esto NO afecta su calificación—es para que nosotros sepamos qué temas necesitan más práctica."
+
+**Tips:**
+- Proyectar un timer en pantalla
+- Mantener ambiente silencioso
+- Circular por el salón sin presionar
+
+### Revisión de resultados
+
+**Preparación:** En Canvas, ir a "Estadísticas de Quiz" (NO muestra nombres individuales)
+
+```
+Facilitador: (Comparte pantalla con estadísticas del quiz)
+Facilitador: "Veamos cómo nos fue como grupo..."
+Facilitador: (Muestra pregunta con más errores)
+Facilitador: "Esta pregunta la erraron varios. Hablemos de por qué."
+(Mini-repaso del concepto, 2-3 min por pregunta problemática)
+```
+
+**Qué buscar:**
+- Preguntas con <60% acierto → tema que necesita refuerzo
+- Preguntas con >90% acierto → tema dominado, celebrar
+- Pregunta 8 (autoevaluación) → termómetro de confianza del grupo
+
+---
+
+## 🎤 Presentaciones de Cierre
 
 ### Antes de empezar
 
@@ -241,7 +281,7 @@ nav a {
 
 > "Está bien no haber terminado al 100%. ¿Qué parte quieres mostrar? El progreso también cuenta."
 
-### Cierre del Demo Day
+### Cierre de las Presentaciones
 
 > "Hace 4 clases no sabían qué era HTML. Hoy tienen un sitio web personal con diseño profesional. Eso es INCREÍBLE. Denle un aplauso a ustedes mismos."
 
@@ -257,4 +297,4 @@ Al cerrar el módulo, planta la semilla:
 - Clase 5: Terminal y línea de comandos
 - Clase 6: Git y control de versiones
 - Clase 7: GitHub y colaboración
-- Clase 8: Responsive design + Demo Day
+- Clase 8: Responsive design + Cierre M2

@@ -66,7 +66,7 @@ Guía completa del curso Code 101: introducción al desarrollo web con HTML, CSS
 | 1 | Setup y Web Moderna | VS Code, Live Server, HTML básico, cliente-servidor |
 | 2 | Diseña y Estructura | Wireframes, HTML semántico, navegación con anclas, accesibilidad |
 | 3 | Estilos con CSS | Selectores, Box Model, Google Fonts, paleta de colores |
-| **4** | **Layout Moderno con Flexbox** | Flexbox, cards, hover states, transiciones, Demo Day |
+| **4** | **Layout Moderno con Flexbox** | Flexbox, cards, hover states, transiciones |
 
 **Herramientas:** VS Code, Live Server, Excalidraw, Google Fonts, Coolors
 

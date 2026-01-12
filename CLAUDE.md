@@ -160,6 +160,22 @@ Cada clase tiene 4-5 archivos en `curriculum/class-XX/`:
 
 ---
 
+## Sincronización con Class-00
+
+**REGLA OBLIGATORIA:** Al modificar cualquiera de estos elementos, SIEMPRE actualizar `curriculum/class-00/slides/README.md`:
+
+| Si cambias... | Actualizar en class-00 |
+|---------------|------------------------|
+| Estructura de módulos | Slide 2 (proyectos) y Slide 3 (estructura) |
+| Sistema de evaluación | Slide 4 (escala, labs calificados) |
+| Políticas del curso | Slide 5 (políticas) |
+| Herramientas del curso | Slide 6 (herramientas) |
+| Nombres de proyectos | Slide 2 (proyectos) |
+
+**class-00/slides** es la presentación de orientación y debe reflejar siempre el estado actual del curso.
+
+---
+
 ## Herramientas del Curso
 
 | Módulo | Herramientas |

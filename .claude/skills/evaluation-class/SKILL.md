@@ -112,6 +112,27 @@ README.md (syllabus principal)
 | | Incluye Parte 5 Desafío + rúbrica 5x20 |
 | Adherencia syllabus | Tema coincide con README.md del curso |
 
+### 4. Clases de Cierre de Módulo (4, 8, 12)
+
+> ⚠️ **Solo aplica para clases 4, 8, 12**
+
+| Actividad | Tiempo | Verificar en |
+|-----------|--------|--------------|
+| Test diagnóstico | 15 min | facilitator: sección "Test Diagnóstico" |
+| Revisión resultados | 15 min | facilitator: guía de revisión en vivo |
+| Presentaciones cierre | 30 min | facilitator: sección "Presentaciones" |
+| Lab (reducido) | 60-70 min | lab/README más corto que labs regulares |
+
+**Verificar en facilitator/README.md:**
+- [ ] Tiene sección "📊 Test Diagnóstico del Módulo"
+- [ ] Tiene guía para revisión de resultados en vivo
+- [ ] Tiene sección "🎤 Presentaciones de Cierre" (NO "Demo Day")
+- [ ] Checkpoints incluyen test y revisión con minutos específicos
+
+**Nota importante:**
+- "Demo Day" es EXCLUSIVO de la clase 12 (fin del curso)
+- Las clases 4 y 8 tienen "Presentaciones de Cierre", NO "Demo Day"
+
 ## Formato de Output
 
 ```markdown
@@ -195,3 +216,6 @@ La clase NO está lista si:
 - Tiempos no suman ~150 min
 - No hay conexión clara con clase anterior
 - Facilitador tiene contenido de otra clase (error común)
+- **(Clases 4, 8, 12)** Falta sección de test diagnóstico en facilitator
+- **(Clases 4, 8, 12)** Usa "Demo Day" en vez de "Presentaciones de Cierre" (excepto clase 12)
+- **(Clases 4, 8, 12)** Checkpoints no incluyen tiempo para test + revisión (30 min)
