@@ -12,7 +12,6 @@
 > - Un camino claro desde 0 hasta el estándar en 2026.
 > - Acompañamiento personalizado y comunidad activa.
 > - Contenido curricular de vanguardia.
-> - Soporte académico y administrativo.
 > - Retroalimentación real y oportunda.
 
 ### 🎓 ¿Qué esperamos de ti?
@@ -21,7 +20,6 @@
 > - Preparación previa a cada clase.
 > - **Participación activa en clase**.
 > - Respeto y honestidad total.
-> - Retroalimentación sobre tu avance.
 
 ---
 
@@ -52,7 +50,7 @@
 - Formato: 30% teoría + 70% práctica
 - Aprenderás **haciendo**
 
-> ⬅️ Antes de clase: Te preparas.
+> ⬅️ Antes de clase: Te preparas. \
 > ➡️ Después de clase: Culminas y entregas el laboratorio.
 
 ---
@@ -80,7 +78,8 @@
 | Herramienta | Para qué |
 |-------------|----------|
 | VS Code | Escribir código |
-| Chrome | Ver tu trabajo |
+| Excalidraw | Diagramas y wireframes |
+| Chrome | Ver e inspeccionar tu trabajo |
 | Terminal | Comandos |
 | Git + GitHub | Control de versiones + portafolio |
 
