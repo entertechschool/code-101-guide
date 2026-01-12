@@ -15,7 +15,7 @@ Crear tests de verificación rápida (15 min) para evaluar comprensión al final
 - Control interno de avance del grupo
 - Identificar temas que necesitan refuerzo
 - Ajustar ritmo/contenido si es necesario
-- Reemplaza NPS con métrica objetiva de comprensión
+- Medir satisfacción de forma imperceptible (pregunta 8)
 
 ---
 
@@ -72,7 +72,7 @@ curriculum/class-{X-3}/slides/README.md
 
 ## ¿Qué evalúa?
 
-Este test verifica tu comprensión de los conceptos de las Clases [X-3] a [X]:
+Conceptos de las Clases [X-3] a [X]:
 
 - [Tema 1]
 - [Tema 2]
@@ -83,18 +83,11 @@ Este test verifica tu comprensión de los conceptos de las Clases [X-3] a [X]:
 
 ## Instrucciones
 
-1. El test se realiza en Canvas durante la clase
+1. Se realiza en Canvas durante la clase
 2. Tienes 15 minutos
-3. Es individual y a libro cerrado
-4. El umbral de aprobación es 80% (6/8 correctas)
+3. Individual y a libro cerrado
 
----
-
-## ¿Por qué este test?
-
-Nos ayuda a saber si los conceptos están claros antes de avanzar al siguiente módulo. Si tienes dudas después del test, es el momento perfecto para resolverlas.
-
-> ⚠️ **Nota:** Este test es diagnóstico y **NO afecta tu calificación**. Es una herramienta para identificar qué temas necesitan más práctica.
+> 📊 **Nota:** Este test es diagnóstico - nos ayuda a identificar qué temas necesitan más práctica. **No afecta tu calificación**.
 ```
 
 ---
@@ -104,54 +97,48 @@ Nos ayuda a saber si los conceptos están claros antes de avanzar al siguiente m
 ```markdown
 # Test Módulo [N] - Questions
 
-**8 preguntas x 12.5 pts = 100 pts**
+**8 preguntas diagnósticas**
 
 ---
 
-## Pregunta 1
+## Preguntas 1-6 (Clases 1-3)
 
-[Pregunta clara y directa]
+[2 preguntas por clase, cubriendo conceptos fundamentales]
 
-- A) [Opción incorrecta]
-- B) [Opción correcta]
-- C) [Opción incorrecta]
-- D) [Opción incorrecta]
+## Pregunta 7 (Clase 4)
 
-> Respuesta: B
+[1 pregunta de aplicación práctica del proyecto]
 
----
+## Pregunta 8 (Autoevaluación)
 
-## Pregunta 2
+Después de completar este módulo, ¿cómo describirías tu nivel de confianza
+para [APLICACIÓN PRINCIPAL DEL MÓDULO]?
 
-[...]
+- A) Muy seguro/a - podría hacerlo sin ayuda
+- B) Bastante seguro/a - con algo de referencia
+- C) Algo inseguro/a - necesitaría bastante guía
+- D) Muy inseguro/a - no sabría por dónde empezar
 
----
-
-## Escala de Evaluación
-
-| Correctas | Puntaje | Nivel |
-|-----------|---------|-------|
-| 8 | 100 | Excelente |
-| 7 | 87.5 | Muy Bueno |
-| 6 | 75 | Bueno (Aprobado) |
-| 5 | 62.5 | Necesita refuerzo |
-| < 5 | < 62.5 | Requiere apoyo adicional |
+> ⚠️ Sin respuesta correcta - todas las opciones son válidas para diagnóstico
 ```
+
+**Nota:** La Pregunta 8 mide satisfacción de forma imperceptible. No tiene respuesta correcta.
 
 ---
 
 ## Reglas de Contenido
 
-### Distribución de Preguntas
+### Distribución de Preguntas (7 técnicas + 1 autoevaluación)
 
-| Clase | Preguntas |
-|-------|-----------|
-| Clase X-3 | 2 preguntas |
-| Clase X-2 | 2 preguntas |
-| Clase X-1 | 2 preguntas |
-| Clase X (inicio) | 2 preguntas |
+| Pregunta | Clase | Tipo |
+|----------|-------|------|
+| 1-2 | Clase X-3 | Conceptos iniciales |
+| 3-4 | Clase X-2 | Desarrollo del tema |
+| 5-6 | Clase X-1 | Profundización |
+| 7 | Clase X | Aplicación práctica |
+| 8 | — | Autoevaluación (satisfacción oculta) |
 
-### Tipos de Preguntas
+### Tipos de Preguntas (1-7)
 
 - **Conceptuales:** ¿Qué es...? ¿Cuál es el propósito de...?
 - **Aplicación:** ¿Cómo se hace...? ¿Cuál es la forma correcta de...?
@@ -168,13 +155,13 @@ Nos ayuda a saber si los conceptos están claros antes de avanzar al siguiente m
 
 ## Validación Final
 
+- [ ] README.md es conciso (~20 líneas) y NO menciona "umbral de aprobación"
 - [ ] README.md tiene nota de "NO afecta calificación"
-- [ ] questions.md tiene exactamente 8 preguntas
-- [ ] Cada pregunta tiene 4 opciones
-- [ ] Respuestas marcadas con `> Respuesta: X`
-- [ ] Distribución equilibrada de temas
+- [ ] questions.md tiene exactamente 8 preguntas (7 técnicas + 1 autoevaluación)
+- [ ] Preguntas 1-7: 4 opciones con respuesta marcada `> Respuesta: X`
+- [ ] Pregunta 8: autoevaluación sin respuesta correcta
+- [ ] Distribución: 2+2+2 (clases 1-3) + 1 (clase 4) + 1 (autoevaluación)
 - [ ] Formato compatible con Canvas (copy-paste)
-- [ ] Escala de evaluación incluida
 
 ---
 

@@ -1,6 +1,6 @@
 # Test Módulo 1 - Questions
 
-**8 preguntas x 12.5 pts = 100 pts**
+**8 preguntas diagnósticas**
 
 ---
 
@@ -97,23 +97,11 @@ En el Box Model de CSS, ¿cuál es la diferencia entre `padding` y `margin`?
 
 ## Pregunta 8
 
-¿Para qué sirve `justify-content` en Flexbox?
+Después de completar este módulo, ¿cómo describirías tu nivel de confianza para crear una página web con HTML y CSS?
 
-- A) Alinear elementos en el eje vertical
-- B) Distribuir elementos en el eje principal (horizontal por defecto)
-- C) Cambiar el orden de los elementos
-- D) Definir el tamaño de los elementos
+- A) Muy seguro/a - podría hacerlo sin ayuda
+- B) Bastante seguro/a - con algo de referencia
+- C) Algo inseguro/a - necesitaría bastante guía
+- D) Muy inseguro/a - no sabría por dónde empezar
 
-> Respuesta: B
-
----
-
-## Escala de Evaluación
-
-| Correctas | Puntaje | Nivel |
-|-----------|---------|-------|
-| 8 | 100 | Excelente |
-| 7 | 87.5 | Muy Bueno |
-| 6 | 75 | Bueno (Aprobado) |
-| 5 | 62.5 | Necesita refuerzo |
-| < 5 | < 62.5 | Requiere apoyo adicional |
+> ⚠️ Sin respuesta correcta - todas las opciones son válidas para diagnóstico
