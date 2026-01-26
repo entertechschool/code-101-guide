@@ -1,0 +1,278 @@
+<!-- .slide: data-background="#0A192F" -->
+# Clase 05: Setup del Desarrollador Moderno
+## Terminal, Git y tu Primer Push
+
+---
+
+## 🔗 TRANSICIÓN: Módulo 1 → Módulo 2
+
+### Módulo 1 completado:
+- Creaste tu primera página web
+- Aprendiste HTML semántico y CSS
+- Dominaste Flexbox y hover states
+- **Tu perfil vive en tu computadora**
+
+### Módulo 2 comienza:
+- **Terminal** - El control remoto de tu PC
+- **Git** - Control de versiones
+- **GitHub** - Tu código en la nube
+- **Al final: tu proyecto estará EN INTERNET**
+
+> "Del archivo local al mundo"
+
+---
+
+## 🧠 QUIZ PRE-LAB
+
+### Pregunta 1:
+¿Cómo subirías tu perfil personal a internet para que otros lo vean?
+
+### Pregunta 2:
+Si borras accidentalmente una línea de código importante, ¿cómo la recuperas?
+
+### Pregunta 3:
+¿Has visto esa pantalla negra con texto en películas de hackers? ¿Sabes cómo se llama?
+
+---
+
+## 💡 ¿Qué es la Terminal?
+
+### La interfaz gráfica (GUI):
+```
+📁 Clic → Abrir carpeta → Clic → Archivo → Clic...
+```
+
+### La terminal (CLI):
+```bash
+cd Documents && code proyecto.html
+```
+
+**Una línea. Mismo resultado. 10x más rápido.**
+
+> Los desarrolladores profesionales viven en la terminal
+
+---
+
+## 💡 Los Comandos Básicos
+
+| Comando | Significado | Qué hace |
+|---------|-------------|----------|
+| `pwd` | print working directory | ¿Dónde estoy? |
+| `ls` | list | ¿Qué hay aquí? |
+| `cd` | change directory | Ir a otra carpeta |
+| `mkdir` | make directory | Crear carpeta |
+
+### Demo en vivo:
+```bash
+pwd           # Estoy en /Users/facilitador
+ls            # Veo Desktop, Documents, Downloads...
+cd Documents  # Entro a Documents
+mkdir demo    # Creo carpeta 'demo'
+cd demo       # Entro a demo
+```
+
+---
+
+## 💡 ¿Qué es Git?
+
+### El problema:
+```
+proyecto_v1.html
+proyecto_v2.html
+proyecto_FINAL.html
+proyecto_FINAL_FINAL.html
+proyecto_AHORA_SI.html  😫
+```
+
+### La solución: Git
+```
+proyecto/
+└── .git/  ← Todo el historial está aquí
+    ├── commit 1: "crear estructura"
+    ├── commit 2: "agregar estilos"
+    └── commit 3: "corregir bug"
+```
+
+> Git guarda CADA versión. Puedes volver a cualquier punto.
+
+---
+
+## 💡 Git vs GitHub
+
+| Git | GitHub |
+|-----|--------|
+| Software en tu PC | Sitio web en la nube |
+| Guarda historial local | Almacena en internet |
+| Funciona sin internet | Necesita conexión |
+| Herramienta | Servicio |
+
+### Analogía:
+- **Git** = Word (programa para escribir)
+- **GitHub** = Google Drive (donde guardas en la nube)
+
+---
+
+## 💡 El Flujo de Git
+
+```
+┌─────────────┐     git add     ┌─────────────┐
+│  Modificas  │ ──────────────► │   Staging   │
+│   archivo   │                 │    Area     │
+└─────────────┘                 └──────┬──────┘
+                                       │
+                               git commit
+                                       │
+                                       ▼
+┌─────────────┐    git push    ┌─────────────┐
+│   GitHub    │ ◄───────────── │   Commit    │
+│   (remoto)  │                │   (local)   │
+└─────────────┘                └─────────────┘
+```
+
+1. **Editas** archivos
+2. **git add** → Preparas cambios
+3. **git commit** → Guardas en historial local
+4. **git push** → Subes a GitHub
+
+---
+
+## ✅ CHECKPOINT 1: Terminal Básica
+
+### Verificar en tu terminal:
+
+```bash
+pwd                    # Ver ubicación actual
+cd Documents           # Ir a Documents
+mkdir bootcamp         # Crear carpeta
+cd bootcamp           # Entrar a bootcamp
+pwd                    # Verificar
+```
+
+**¿Qué debe funcionar?**
+- [ ] `pwd` muestra `/Users/tu-nombre/Documents/bootcamp`
+- [ ] Estás dentro de la carpeta bootcamp
+- [ ] No hubo errores en los comandos
+
+---
+
+## ✅ CHECKPOINT 2: Git Configurado
+
+### Verificar tu configuración:
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+**¿Qué debe funcionar?**
+- [ ] Tu nombre aparece correctamente
+- [ ] Tu email es el mismo de GitHub
+- [ ] Git está instalado (`git --version` funciona)
+
+---
+
+## ✅ CHECKPOINT 3: Repositorio Clonado
+
+### Verificar el clone:
+
+```bash
+cd ~/Documents/bootcamp/mylinks
+ls
+```
+
+**¿Qué debe funcionar?**
+- [ ] Estás dentro de la carpeta `mylinks`
+- [ ] Ves archivos: `index.html`, `styles.css`, `README.md`
+- [ ] VS Code puede abrirlo con `code .`
+
+---
+
+## ✅ CHECKPOINT 4: Primer Push
+
+### Verificar en GitHub:
+
+1. Ve a `github.com/TU-USUARIO/mylinks`
+2. Actualiza la página
+3. Busca tu commit más reciente
+
+**¿Qué debe funcionar?**
+- [ ] Tu commit aparece en la lista
+- [ ] El mensaje describe los cambios
+- [ ] Los archivos modificados se ven en GitHub
+
+---
+
+## 💡 REFLEXIÓN: ¿Por qué Git?
+
+### Situación real:
+> "Estaba experimentando con el CSS y rompí todo. Ahora no funciona y no recuerdo qué cambié."
+
+### Sin Git:
+😱 Pánico. Empezar de cero.
+
+### Con Git:
+```bash
+git diff           # Ver qué cambié
+git checkout -- .  # Deshacer TODO
+```
+😌 Problema resuelto en segundos.
+
+---
+
+## 💡 REFLEXIÓN: Buenos Mensajes de Commit
+
+### ❌ Mensajes malos:
+```
+"cambios"
+"fix"
+"asdfgh"
+"actualizar archivo"
+```
+
+### ✅ Mensajes buenos:
+```
+"feat: agregar sección de contacto"
+"fix: corregir enlace roto en nav"
+"style: cambiar color primario a azul"
+```
+
+> Tu yo del futuro te lo agradecerá
+
+---
+
+## 🔗 TRANSICIÓN: Hacia Clase 06
+
+### Hoy lograste:
+- Navegar con la terminal (`pwd`, `ls`, `cd`)
+- Configurar Git con tu identidad
+- Clonar un repositorio de GitHub
+- Hacer tu primer commit y push
+
+### Próxima clase:
+- **Diseño Responsive** con media queries
+- **Chrome DevTools** para debugging
+- MyLinks que se ve bien en móvil Y desktop
+
+> "Tu código ya está en la nube. Ahora hagamos que se vea bien en cualquier pantalla."
+
+---
+
+## ❓ Preguntas de Cierre
+
+1. ¿Qué comando usas para saber en qué carpeta estás?
+
+2. ¿Cuál es la diferencia entre `git add` y `git commit`?
+
+3. ¿Por qué es importante usar mensajes de commit descriptivos?
+
+---
+
+## 📝 Entrega del Lab
+
+**Entregable:**
+- [ ] URL de tu repositorio en GitHub
+- [ ] Screenshot de `git log --oneline` mostrando tu commit
+
+**Próxima clase:**
+- Traer tu laptop con el proyecto MyLinks listo
+- Tener Chrome instalado (usaremos DevTools)

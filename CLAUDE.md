@@ -22,7 +22,7 @@ Este proyecto usa skills de Claude para generar contenido consistente.
 | `class-slides` | Presentación reveal.js | `slides/README.md` |
 | `class-facilitator` | Guía pedagógica | `facilitator/README.md` |
 | `evaluation-class` | Verificar calidad | Reporte |
-| `lint-links` | Validar enlaces externos | Reporte/Corrección |
+| `lint-markdown` | Validar Markdown para GitHub Pages | Reporte/Corrección |
 | `module-test` | Test diagnóstico por módulo | `test/README.md` + `test/questions.md` |
 
 ### Flujo de Creación
