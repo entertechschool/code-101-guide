@@ -24,14 +24,34 @@
 
 ## 🧠 QUIZ PRE-LAB
 
-### Pregunta 1:
-¿Cómo subirías tu perfil personal a internet para que otros lo vean?
+> **Nota para facilitador:** Este slide DETONA la demo en vivo.
+> Lanza la pregunta, espera respuestas, y usa esas respuestas como gancho para mostrar.
 
-### Pregunta 2:
-Si borras accidentalmente una línea de código importante, ¿cómo la recuperas?
+### Pregunta:
+¿Cómo harías para que otra persona pueda ver tu perfil personal que creaste en el Módulo 1?
 
-### Pregunta 3:
-¿Has visto esa pantalla negra con texto en películas de hackers? ¿Sabes cómo se llama?
+### Posibles respuestas a esperar:
+- "Le mando el archivo por email" ← funciona pero no es profesional
+- "Lo subo a internet de alguna forma" ✓ → ahí entramos a GitHub
+- "No sé cómo se hace eso" ← perfecto, eso aprenderemos hoy
+- "Usando algo de la nube" ✓ → exacto, GitHub es la nube de los desarrolladores
+
+---
+
+## 🎯 COMPROBACIÓN
+
+> **Nota:** Mostrar DESPUÉS de la demo de terminal básica (pwd, ls, cd).
+> Si varios estudiantes fallan, reforzar antes de continuar.
+
+### Pregunta:
+Estás en `/Users/maria/Documents`. ¿Qué comando te lleva a `/Users/maria`?
+
+A. `cd Documents`
+B. `cd /Users/maria`
+C. `cd ..`
+D. `pwd`
+
+> **Respuesta:** C - `cd ..` sube un nivel al directorio padre
 
 ---
 
@@ -68,8 +88,26 @@ pwd           # Estoy en /Users/facilitador
 ls            # Veo Desktop, Documents, Downloads...
 cd Documents  # Entro a Documents
 mkdir demo    # Creo carpeta 'demo'
-cd demo       # Entro a demo
 ```
+
+---
+
+## ✅ CHECKPOINT 1: Terminal Básica
+
+### Verificar en tu terminal:
+
+```bash
+pwd                    # Ver ubicación actual
+cd Documents           # Ir a Documents
+mkdir bootcamp         # Crear carpeta
+cd bootcamp           # Entrar a bootcamp
+pwd                    # Verificar
+```
+
+**¿Qué debe funcionar?**
+- [ ] `pwd` muestra `/Users/tu-nombre/Documents/bootcamp`
+- [ ] Estás dentro de la carpeta bootcamp
+- [ ] No hubo errores en los comandos
 
 ---
 
@@ -112,6 +150,22 @@ proyecto/
 
 ---
 
+## ✅ CHECKPOINT 2: Git Configurado
+
+### Verificar tu configuración:
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+**¿Qué debe funcionar?**
+- [ ] Tu nombre aparece correctamente
+- [ ] Tu email es el mismo de GitHub
+- [ ] Git está instalado (`git --version` funciona)
+
+---
+
 ## 💡 El Flujo de Git
 
 ```
@@ -136,41 +190,6 @@ proyecto/
 
 ---
 
-## ✅ CHECKPOINT 1: Terminal Básica
-
-### Verificar en tu terminal:
-
-```bash
-pwd                    # Ver ubicación actual
-cd Documents           # Ir a Documents
-mkdir bootcamp         # Crear carpeta
-cd bootcamp           # Entrar a bootcamp
-pwd                    # Verificar
-```
-
-**¿Qué debe funcionar?**
-- [ ] `pwd` muestra `/Users/tu-nombre/Documents/bootcamp`
-- [ ] Estás dentro de la carpeta bootcamp
-- [ ] No hubo errores en los comandos
-
----
-
-## ✅ CHECKPOINT 2: Git Configurado
-
-### Verificar tu configuración:
-
-```bash
-git config --global user.name
-git config --global user.email
-```
-
-**¿Qué debe funcionar?**
-- [ ] Tu nombre aparece correctamente
-- [ ] Tu email es el mismo de GitHub
-- [ ] Git está instalado (`git --version` funciona)
-
----
-
 ## ✅ CHECKPOINT 3: Repositorio Clonado
 
 ### Verificar el clone:
@@ -187,6 +206,18 @@ ls
 
 ---
 
+## 💡 REFLEXIÓN: ¿Por qué Git?
+
+| Situación | Sin Git | Con Git |
+|-----------|---------|---------|
+| Rompiste el CSS | 😱 Pánico, empezar de cero | `git checkout -- .` |
+| Quieres experimentar | Copiar carpeta entera | Crear una rama |
+| Trabajo en equipo | Emails con archivos adjuntos | `git pull` y `git push` |
+
+> **Regla**: Cada commit es un "save point" al que puedes volver
+
+---
+
 ## ✅ CHECKPOINT 4: Primer Push
 
 ### Verificar en GitHub:
@@ -199,23 +230,6 @@ ls
 - [ ] Tu commit aparece en la lista
 - [ ] El mensaje describe los cambios
 - [ ] Los archivos modificados se ven en GitHub
-
----
-
-## 💡 REFLEXIÓN: ¿Por qué Git?
-
-### Situación real:
-> "Estaba experimentando con el CSS y rompí todo. Ahora no funciona y no recuerdo qué cambié."
-
-### Sin Git:
-😱 Pánico. Empezar de cero.
-
-### Con Git:
-```bash
-git diff           # Ver qué cambié
-git checkout -- .  # Deshacer TODO
-```
-😌 Problema resuelto en segundos.
 
 ---
 
@@ -259,11 +273,11 @@ git checkout -- .  # Deshacer TODO
 
 ## ❓ Preguntas de Cierre
 
-1. ¿Qué comando usas para saber en qué carpeta estás?
+1. ¿Por qué la terminal es más eficiente que hacer clic en carpetas, aunque al principio parezca más difícil?
 
-2. ¿Cuál es la diferencia entre `git add` y `git commit`?
+2. ¿Cuál es la diferencia entre `git commit` y `git push`? ¿Por qué necesitamos ambos?
 
-3. ¿Por qué es importante usar mensajes de commit descriptivos?
+3. Imagina que mañana borras accidentalmente todo tu CSS. ¿Cómo te salvaría Git?
 
 ---
 
