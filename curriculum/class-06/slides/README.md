@@ -23,24 +23,14 @@
 
 ## 🧠 QUIZ PRE-LAB
 
-> **Nota para facilitador:** Este slide DETONA la demo en vivo.
-> Lanza la pregunta, espera respuestas, y usa esas respuestas como gancho para mostrar.
-
 ### Pregunta:
 Tu MyLinks se ve perfecto en tu laptop. ¿Cómo sabes si se ve bien en un iPhone sin tener un iPhone?
 
-### Posibles respuestas a esperar:
-- "No se puede saber sin el teléfono" ← incorrecto, hay herramientas
-- "Hacer la ventana más chica" ✓ → casi, pero hay algo mejor
-- "Hay algo en el navegador para eso" ✓ → exacto, DevTools
-- "Preguntar a alguien que tenga iPhone" ← no escalable, mostraremos algo mejor
+*Toma 2-3 respuestas antes de continuar*
 
 ---
 
 ## 🎯 COMPROBACIÓN
-
-> **Nota:** Mostrar DESPUÉS de la demo de DevTools y modo responsive.
-> Si varios estudiantes fallan, reforzar el concepto antes del lab.
 
 ### Pregunta:
 ¿Cuál es el atajo para abrir Chrome DevTools?
@@ -50,7 +40,13 @@ B. `F12` o `Ctrl + Shift + I`
 C. `Ctrl + U`
 D. `Alt + F4`
 
-> **Respuesta:** B - `F12` o `Ctrl + Shift + I` (Cmd + Option + I en Mac)
+---
+
+## 🎯 COMPROBACIÓN - Respuesta
+
+**Respuesta:** B
+
+`F12` o `Ctrl + Shift + I` (Cmd + Option + I en Mac) abre DevTools.
 
 ---
 

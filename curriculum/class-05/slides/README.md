@@ -24,24 +24,14 @@
 
 ## 🧠 QUIZ PRE-LAB
 
-> **Nota para facilitador:** Este slide DETONA la demo en vivo.
-> Lanza la pregunta, espera respuestas, y usa esas respuestas como gancho para mostrar.
-
 ### Pregunta:
 ¿Cómo harías para que otra persona pueda ver tu perfil personal que creaste en el Módulo 1?
 
-### Posibles respuestas a esperar:
-- "Le mando el archivo por email" ← funciona pero no es profesional
-- "Lo subo a internet de alguna forma" ✓ → ahí entramos a GitHub
-- "No sé cómo se hace eso" ← perfecto, eso aprenderemos hoy
-- "Usando algo de la nube" ✓ → exacto, GitHub es la nube de los desarrolladores
+*Toma 2-3 respuestas antes de continuar*
 
 ---
 
 ## 🎯 COMPROBACIÓN
-
-> **Nota:** Mostrar DESPUÉS de la demo de terminal básica (pwd, ls, cd).
-> Si varios estudiantes fallan, reforzar antes de continuar.
 
 ### Pregunta:
 Estás en `/Users/maria/Documents`. ¿Qué comando te lleva a `/Users/maria`?
@@ -51,7 +41,13 @@ B. `cd /Users/maria`
 C. `cd ..`
 D. `pwd`
 
-> **Respuesta:** C - `cd ..` sube un nivel al directorio padre
+---
+
+## 🎯 COMPROBACIÓN - Respuesta
+
+**Respuesta:** C
+
+`cd ..` sube un nivel al directorio padre.
 
 ---
 

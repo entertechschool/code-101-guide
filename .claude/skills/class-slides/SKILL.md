@@ -30,7 +30,7 @@ Crear slides optimizados para facilitar la clase. No son material de estudio, so
 
 2. **Generar archivo**: `curriculum/class-{X}/slides/README.md`
 
-## Estructura Fija (12 slides máximo)
+## Estructura Fija (13 slides máximo)
 
 ```markdown
 <!-- .slide: data-background="#0A192F" -->
@@ -53,23 +53,14 @@ Crear slides optimizados para facilitar la clase. No son material de estudio, so
 
 ## 🧠 QUIZ PRE-LAB
 
-> **Nota para facilitador:** Este slide DETONA la demo en vivo.
-> Lanza la pregunta, espera respuestas, y usa esas respuestas como gancho para mostrar.
-
 ### Pregunta:
 [Pregunta abierta sobre el concepto principal de hoy]
 
-### Posibles respuestas a esperar:
-- [Respuesta correcta que puedes validar]
-- [Error común que puedes corregir en la demo]
-- [Confusión que la demo debe aclarar]
+*Toma 2-3 respuestas antes de continuar*
 
 ---
 
 ## 🎯 COMPROBACIÓN
-
-> **Nota:** Mostrar DESPUÉS de la demo, ANTES de iniciar el lab.
-> Si varios estudiantes fallan, reforzar el concepto antes de continuar.
 
 ### Pregunta:
 [Pregunta que valida comprensión de lo que acaban de ver en la demo]
@@ -79,7 +70,13 @@ B. [Distractor: confusión de conceptos similares]
 C. [Respuesta correcta]
 D. [Distractor: respuesta parcial o incompleta]
 
-> **Respuesta:** [Letra] - [Explicación breve]
+---
+
+## 🎯 COMPROBACIÓN - Respuesta
+
+**Respuesta:** [Letra]
+
+[Explicación breve de por qué es correcta]
 
 ---
 
@@ -165,6 +162,8 @@ D. [Distractor: respuesta parcial o incompleta]
 | Definiciones de glosario | Va en `README.md` de clase |
 | Referencias a rúbricas | Documento interno, no público |
 | Estrategias pedagógicas | Va en `facilitador/README.md` |
+| **Notas para facilitador** | Son internas, no para estudiantes |
+| **Respuestas esperadas** | Sesga la discusión del QUIZ |
 
 ## Reglas para Clase Final de Módulo
 
@@ -192,24 +191,16 @@ Las clases 4, 8, 12 son **labs calificados**. Ajustes:
 ```markdown
 ## 🧠 QUIZ PRE-LAB
 
-> **Nota para facilitador:** Este slide DETONA la demo en vivo.
-
 ### Pregunta:
 ¿Qué pasa si cambio el color de fondo en CSS pero no veo el cambio en el navegador?
 
-### Posibles respuestas a esperar:
-- "Hay que refrescar la página" ✓
-- "Falta guardar el archivo" ✓
-- "El CSS no está conectado al HTML"
-- "No sé, me pasó y no supe qué hacer"
+*Toma 2-3 respuestas antes de continuar*
 ```
 
 ### COMPROBACIÓN (Code 101)
 
 ```markdown
 ## 🎯 COMPROBACIÓN
-
-> **Nota:** Mostrar DESPUÉS de la demo del selector CSS.
 
 ### Pregunta:
 ¿Cuál selector aplica estilos SOLO a elementos con class="destacado"?
@@ -219,7 +210,13 @@ B. `destacado { }`
 C. `.destacado { }`
 D. `*destacado { }`
 
-> **Respuesta:** C - El punto indica selector de clase
+---
+
+## 🎯 COMPROBACIÓN - Respuesta
+
+**Respuesta:** C
+
+El punto (`.`) indica selector de clase en CSS.
 ```
 
 ### CHECKPOINT (Code 101)
@@ -253,8 +250,8 @@ D. `*destacado { }`
 
 ## Meta
 
-- **Líneas**: ~150 máximo
-- **Slides**: 12 máximo
+- **Líneas**: ~180 máximo
+- **Slides**: 13 máximo (incluye slide de respuesta separado)
 - **Tiempo por slide**: ~2-3 min promedio
 
 ## Checklist de Verificación
@@ -262,15 +259,16 @@ D. `*destacado { }`
 Antes de finalizar, verificar:
 
 - [ ] ¿Tiene TRANSICIÓN de entrada conectando con clase anterior?
-- [ ] ¿Tiene QUIZ PRE-LAB que detona la demo?
-- [ ] ¿Tiene COMPROBACIÓN post-demo con pregunta de opción múltiple?
+- [ ] ¿Tiene QUIZ PRE-LAB con solo la pregunta (sin respuestas esperadas)?
+- [ ] ¿Tiene COMPROBACIÓN y COMPROBACIÓN-RESPUESTA como slides SEPARADOS?
 - [ ] ¿Tiene 1 CHECKPOINT por cada parte del lab?
 - [ ] ¿Tiene al menos 1 REFLEXIÓN con tabla comparativa?
 - [ ] ¿Tiene TRANSICIÓN de salida con preview?
 - [ ] ¿Tiene 3 PREGUNTAS DE CIERRE reflexivas?
 - [ ] ¿Tiene slide de ENTREGA con requisitos específicos?
-- [ ] ¿Máximo 12 slides?
+- [ ] ¿Máximo 13 slides?
 - [ ] ¿NO tiene código extenso? (eso va en el lab)
+- [ ] ¿NO tiene notas internas para facilitador expuestas? (blockquotes con instrucciones)
 
 ## Ejemplo de Referencia
 
