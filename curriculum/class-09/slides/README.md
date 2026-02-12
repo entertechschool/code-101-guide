@@ -54,10 +54,10 @@ Si tuvieras que explicarle a una computadora cómo preparar un café, ¿qué pas
 ### Pregunta:
 ¿Cuál de estos es un tipo de dato válido en JavaScript?
 
-A. `text` - para guardar palabras
-B. `integer` - para guardar números enteros
-C. `string` - para guardar texto
-D. `letter` - para guardar caracteres
+- A. `text` - para guardar palabras
+- B. `integer` - para guardar números enteros
+- C. `string` - para guardar texto
+- D. `letter` - para guardar caracteres
 
 ---
 
