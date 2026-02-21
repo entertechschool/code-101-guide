@@ -20,10 +20,11 @@
 
 ### Hoy resolvemos TODO eso:
 - **Funciones** para organizar y no repetir
-- **DOM** para una interfaz visual real
+- **DOM** para una interfaz visual con tarjeta flotante, glow y celebración
 - **Eventos** para que el botón funcione
+- **CSS** para micro-interacciones y diseño responsive
 
-> "Hoy tu juego se transforma de prototipo a producto."
+> "Hoy tu juego se transforma de prototipo a app que quieres mostrar."
 
 ---
 
@@ -97,15 +98,17 @@ Con paréntesis → "ejecuta AHORA y pasa el resultado"
 ### Verificar:
 
 **¿Qué debe funcionar?**
-- [ ] Input numérico visible en la página
-- [ ] Botón "Adivinar" visible
+- [ ] Tarjeta centrada con gradiente de fondo
+- [ ] Input brilla al enfocarse (glow effect)
+- [ ] Botón sube en hover, baja en click
 - [ ] Áreas de mensaje, contador e historial
 - [ ] `getElementById()` no devuelve `null`
 - [ ] `mostrarMensaje()` cambia texto y color
+- [ ] Se ve bien en celular (DevTools → responsive)
 
 **Prueba en consola:**
 ```js
-document.getElementById('mensaje')  // No debe ser null
+document.getElementById('game-card')  // No debe ser null
 ```
 
 ---
@@ -209,13 +212,14 @@ console.log(pista);  // "♨️ Caliente"
 1. ✅ Escribe un número → pista con color
 2. ✅ Escribe otro → historial se actualiza
 3. ✅ Escribe texto → validación muestra error
-4. ✅ Adivina → victoria + botón reiniciar aparece
-5. ✅ Reiniciar → nuevo juego, todo limpio
+4. ✅ Adivina → tarjeta brilla verde + botón reiniciar aparece
+5. ✅ Reiniciar → tarjeta vuelve a estado original, nuevo juego
+6. ✅ En celular → controles apilados, touch-friendly
 
 **Funciones creadas:**
-- [ ] `verificarIntento()` - lógica principal
+- [ ] `verificarIntento()` - lógica principal + celebración visual
 - [ ] `mostrarMensaje(texto, color)` - cambia mensaje
-- [ ] `reiniciarJuego()` - reinicia todo
+- [ ] `reiniciarJuego()` - reinicia todo + resetea celebración
 - [ ] `obtenerPista(intento, secreto)` - cercanía
 
 ---
@@ -226,8 +230,9 @@ console.log(pista);  // "♨️ Caliente"
 - Crear funciones con parámetros y `return`
 - Conectar JavaScript con el DOM
 - Responder a eventos del usuario (click, Enter)
-- Refactorizar de prompt/alert a interfaz visual
-- **Tu juego está COMPLETO** 🎉
+- Refactorizar de prompt/alert a interfaz visual con glass-effect
+- Agregar celebración visual de victoria con `style.borderColor` y `style.boxShadow`
+- **Tu juego es una app que puedes mostrar desde el celular** 🎉
 
 ### Próxima clase - Demo Day:
 - **Test diagnóstico** (15 min) - Variables, condicionales, funciones
@@ -251,11 +256,12 @@ console.log(pista);  // "♨️ Caliente"
 ## 📝 Entrega del Lab
 
 **Entregable:**
-- [ ] Screenshot del juego visual funcionando
+- [ ] Screenshot del juego visual (tarjeta centrada, colores, responsive)
 - [ ] URL del repositorio `guess-number-js` en GitHub
 - [ ] Al menos 3 commits nuevos de esta clase
 
 **Próxima clase (Demo Day):**
 - Traer el juego FUNCIONANDO y COMPLETO
+- Probarlo desde el celular (se ve bien responsive)
 - Preparar una presentación de 3 min
 - Practicar explicar tu código (¿qué hace cada función?)

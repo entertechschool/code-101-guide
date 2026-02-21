@@ -6,7 +6,7 @@
 
 En las clases anteriores creaste la lógica de tu juego: variables, números aleatorios, condicionales y validación. Pero tu código se repite, usa `prompt()`/`alert()` que no se ven profesionales, y todo está en un solo bloque largo. Hoy eso cambia.
 
-En esta clase aprenderás a organizar tu código en **funciones**—bloques reutilizables con nombre que hacen UNA tarea. También darás el salto más importante del módulo: reemplazarás las ventanas emergentes por una **interfaz visual real** con input, botones y mensajes con colores. Tu juego "Adivina el Número" quedará completo y listo para presentar.
+En esta clase aprenderás a organizar tu código en **funciones**—bloques reutilizables con nombre que hacen UNA tarea. También darás el salto más importante del módulo: reemplazarás las ventanas emergentes por una **interfaz visual real** con tarjeta flotante, micro-interacciones, celebración de victoria y diseño responsive. Tu juego "Adivina el Número" quedará completo y con aspecto de app profesional, listo para mostrar desde el celular.
 
 **Proyecto del Módulo:** Adivina el Número - Juego Interactivo
 
@@ -24,11 +24,11 @@ En esta clase aprenderás a organizar tu código en **funciones**—bloques reut
 
 ## 🎯 ¿Qué haremos en clase?
 
-1. **Crearemos la interfaz del juego** - Reemplazarás prompt/alert con un HTML que tenga input, botón y áreas de mensaje.
+1. **Crearemos la interfaz del juego** - Reemplazarás prompt/alert con una tarjeta flotante con glass-effect, input con glow, botón con micro-interacciones y diseño responsive.
 
 2. **Aprenderemos funciones** - Declararás funciones con parámetros y `return`, y moverás tu lógica existente dentro de ellas.
 
-3. **Conectaremos JS con el DOM** - Usarás `getElementById()`, `textContent` y `style` para mostrar mensajes y colores en la página.
+3. **Conectaremos JS con el DOM** - Usarás `getElementById()`, `textContent` y `style` para mostrar mensajes, colores y efectos visuales en la página.
 
 4. **Agregaremos eventos** - Un `addEventListener('click')` hará que el botón ejecute tu función de verificación cada vez que el jugador haga clic.
 
@@ -72,7 +72,7 @@ Antes de llegar a clase, piensa en estas preguntas:
 2. ¿Qué diferencia hay entre un juego que usa ventanas emergentes y uno con una interfaz visual?
 3. ¿Alguna vez reorganizaste algo (tu cuarto, tu mochila, tus archivos) sin cambiar el contenido? Eso es refactorizar.
 
-> 💡 Hoy tu juego dará un salto visual enorme. Ven preparado para verlo transformarse.
+> 💡 Hoy tu juego dará un salto visual enorme. De texto sobre fondo oscuro a una app que vas a querer mostrar desde tu celular. Ven preparado para verlo transformarse.
 
 ---
 

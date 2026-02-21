@@ -24,20 +24,22 @@ Evalúa que el juego funcione correctamente como aplicación interactiva.
 
 ## Criterio 2: Interfaz e Interacción (25 pts)
 
-Evalúa que el juego tenga una interfaz visual funcional con eventos DOM.
+Evalúa que el juego tenga una interfaz visual funcional con eventos DOM y feedback visual.
 
 | Nivel | Puntos | Descripción |
 |-------|--------|-------------|
-| **Excelente** | 25 | Input y botón funcionales, mensajes con colores (verde/rojo/turquesa), historial visual de intentos, botón de reinicio visible al ganar. |
-| **Bueno** | 20 | Input y botón funcionan, mensajes visibles en la página, colores aplicados. |
-| **Satisfactorio** | 15 | Interfaz básica funcional pero aún depende parcialmente de prompt/alert. |
+| **Excelente** | 25 | Tarjeta centrada con glass-effect, input con glow en focus, botón con micro-interacciones, mensajes con colores, celebración visual al ganar (tarjeta brilla verde), diseño responsive. |
+| **Bueno** | 20 | Input y botón funcionan, mensajes visibles con colores, celebración visual presente pero puede faltar responsive. |
+| **Satisfactorio** | 15 | Interfaz básica funcional pero sin micro-interacciones o celebración visual. |
 | **Bajo** | 10 | Sin interfaz visual, solo usa prompt/alert y consola. |
 
 **Evidencia a revisar:**
-- La página muestra input, botón y áreas de mensaje
+- La tarjeta aparece centrada con gradiente de fondo
+- El input brilla al enfocarse, el botón tiene hover/active
 - Los mensajes cambian de color según la pista
-- El historial se actualiza con cada intento
-- El botón reiniciar aparece al ganar
+- Al ganar, la tarjeta cambia a borde verde con glow
+- El botón reiniciar resetea la celebración visual
+- Se ve bien en celular (controles apilados)
 
 ---
 
@@ -99,7 +101,7 @@ Evalúa la capacidad del estudiante de demostrar y explicar su trabajo.
 
 ## Notas para el Evaluador
 
-- **Funcionalidad vs perfección:** El juego debe funcionar correctamente. No se espera diseño visual perfecto—lo importante es que la lógica funcione y use DOM.
+- **Funcionalidad vs perfección:** El juego debe funcionar correctamente con la interfaz visual (tarjeta, micro-interacciones, celebración). El CSS viene como template; lo importante es que el JS conecte correctamente con el DOM y la celebración visual funcione.
 - **Funciones:** Mínimo esperar `verificarIntento()` y `reiniciarJuego()`. Funciones adicionales como `mostrarMensaje()` u `obtenerPista()` indican excelencia.
 - **Presentación:** Considerar nervios normales. Evaluar comprensión del código, no elocuencia. Si el estudiante puede señalar una función y explicar qué hace, demuestra comprensión.
 - **Código copiado:** Si el código funciona pero el estudiante no puede explicarlo, calificar "Bajo" en el criterio 4.

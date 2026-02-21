@@ -91,8 +91,12 @@ Facilitador: "¿Se ven estas ventanas emergentes en apps profesionales?"
 (Grupo: "No")
 Facilitador: (Abre la versión DOM terminada)
 Facilitador: "Este es el mismo juego después de hoy."
-Facilitador: (Hace clic en el botón, mensaje aparece con colores, historial se actualiza)
-Facilitador: "Mismo código, misma lógica. Solo reorganizado y conectado al DOM."
+Facilitador: (Muestra la tarjeta flotante, hace clic en el input y muestra el glow)
+Facilitador: (Pasa el mouse sobre el botón y muestra cómo sube)
+Facilitador: (Hace clic, mensaje aparece con colores, historial se actualiza)
+Facilitador: (Adivina el número, la tarjeta brilla verde)
+Facilitador: "¿Alguien sacaría el celular para mostrarle esto a un amigo?"
+Facilitador: "Mismo código, misma lógica. Solo reorganizado, conectado al DOM, y con CSS que hace el 90% del trabajo visual."
 Facilitador: "Eso es refactorizar."
 ```
 
@@ -219,11 +223,11 @@ boton.addEventListener('click', function() {
 | Minuto | Checkpoint | Cómo validar |
 |--------|------------|--------------|
 | 0-15 | Intro + Transición C10→C11 + "Función Humana" | Grupo entiende qué es una función y por qué la necesitan |
-| 15-45 | Interfaz HTML + getElementById + mostrarMensaje | Página muestra el juego, consola confirma elementos no-null |
-| 45-80 | verificarIntento + addEventListener | Click en botón muestra mensajes en la página con colores |
-| 80-105 | Reinicio + historial + juego completo | Flujo completo funciona, reiniciar genera nuevo juego |
-| 105-130 | Logros adicionales + commits | Pista de cercanía, commits descriptivos |
-| 130-150 | Cierre + preview Demo Day + reflexión | Juego completo, estudiantes saben qué preparar para clase 12 |
+| 15-45 | Interfaz HTML + tarjeta flotante + getElementById | Tarjeta centrada, input brilla en focus, botón sube en hover, consola confirma elementos no-null |
+| 45-80 | verificarIntento + addEventListener + celebración | Click en botón muestra mensajes con colores. Al ganar, tarjeta brilla verde (momento "wow") |
+| 80-105 | Reinicio + historial + juego completo | Flujo completo funciona, reiniciar resetea celebración y genera nuevo juego |
+| 105-130 | Logros adicionales + prueba en celular + commits | Pista de cercanía, responsive en DevTools, commits descriptivos |
+| 130-150 | Cierre + preview Demo Day + reflexión | Juego completo y presentable, estudiantes saben qué preparar para clase 12 |
 
 ---
 
@@ -279,8 +283,11 @@ Al cerrar la clase, informar claramente:
 **Cuando ven el DOM en acción por primera vez:**
 > "¿Vieron eso? Escribieron una línea de JavaScript y la página cambió. Eso es el poder del DOM. Cada app que usan—Instagram, WhatsApp, Google—funciona así. JavaScript cambiando lo que ven en pantalla."
 
+**Cuando la tarjeta brilla verde al ganar (el "wow moment"):**
+> "Miren eso. Dos líneas de JavaScript: `style.borderColor` y `style.boxShadow`. Y la tarjeta se transformó. Esas mismas dos propiedades son las que usan las apps profesionales para dar feedback visual. Y el CSS hizo el 90% del trabajo—la `transition` que ya estaba en el template es lo que hace la animación suave."
+
 **Cuando alguien se frustra con null:**
 > "Si getElementById devuelve null, hay tres cosas que revisar: ¿el id existe en el HTML? ¿está bien escrito? ¿el script carga después del HTML? Siempre son una de las tres."
 
 **Al cerrar:**
-> "Miren su pantalla. Tienen un juego interactivo con interfaz visual, colores, historial y reinicio. Hace tres clases no sabían qué era una variable. Eso es lo que lograron en el Módulo 3. La próxima clase lo presentan al mundo."
+> "Miren su pantalla. Tienen un juego con tarjeta flotante, micro-interacciones, celebración de victoria y que se ve perfecto en el celular. Hace tres clases no sabían qué era una variable. ¿Alguien le quiere mostrar esto a alguien? Eso es lo que lograron. La próxima clase lo presentan al mundo."

@@ -47,66 +47,138 @@ Abre `index.html` y reemplaza el contenido del `<body>` con la interfaz del jueg
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adivina el Número</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 500px;
-      margin: 50px auto;
-      text-align: center;
-      background-color: #1a1a2e;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: #eee;
       padding: 20px;
     }
-    h1 { color: #e94560; }
+
+    .game-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.5s, box-shadow 0.5s;
+    }
+
+    h1 {
+      color: #e94560;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-bottom: 24px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
     input {
-      padding: 10px;
+      padding: 12px;
       font-size: 18px;
       width: 100px;
       text-align: center;
-      border: 2px solid #e94560;
-      border-radius: 8px;
-      background: #16213e;
+      border: 2px solid rgba(233, 69, 96, 0.4);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
       color: #eee;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
+    input:focus {
+      border-color: #e94560;
+      box-shadow: 0 0 12px rgba(233, 69, 96, 0.3);
+    }
+    /* Ocultar flechas del input numérico */
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button { -webkit-appearance: none; }
+    input[type=number] { -moz-appearance: textfield; }
+
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 18px;
       background-color: #e94560;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
     }
-    button:hover { background-color: #c73a52; }
+    button:hover {
+      background-color: #d63d56;
+      transform: translateY(-2px);
+    }
+    button:active { transform: translateY(1px); }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     #mensaje {
       font-size: 24px;
       margin: 20px 0;
       min-height: 40px;
+      transition: font-size 0.3s;
     }
+
     #historial {
       margin-top: 20px;
       font-size: 14px;
       color: #aaa;
     }
+
+    #btnReiniciar {
+      background-color: #0f3460;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .game-card { padding: 30px 20px; }
+      .controls { flex-direction: column; align-items: center; }
+      input { width: 80%; }
+      button { width: 80%; }
+    }
   </style>
 </head>
 <body>
-  <h1>🎯 Adivina el Número</h1>
-  <p>Estoy pensando en un número del 1 al 100...</p>
+  <div class="game-card" id="game-card">
+    <h1>🎯 Adivina el Número</h1>
+    <p class="subtitle">Estoy pensando en un número del 1 al 100...</p>
 
-  <div>
-    <input type="number" id="inputIntento" min="1" max="100" placeholder="?">
-    <button id="btnAdivinar">Adivinar</button>
+    <div class="controls">
+      <input type="number" id="inputIntento" min="1" max="100" placeholder="?">
+      <button id="btnAdivinar">Adivinar</button>
+    </div>
+
+    <p id="mensaje"></p>
+    <p id="contador">Intentos: 0</p>
+    <p id="historial">Historial: </p>
+
+    <button id="btnReiniciar" style="display: none;">
+      🔄 Jugar de nuevo
+    </button>
   </div>
-
-  <p id="mensaje"></p>
-  <p id="contador">Intentos: 0</p>
-  <p id="historial">Historial: </p>
-
-  <button id="btnReiniciar" style="display: none; margin-top: 10px; background-color: #0f3460;">
-    🔄 Jugar de nuevo
-  </button>
 
   <script src="script.js"></script>
 </body>
@@ -129,6 +201,7 @@ const mensaje = document.getElementById('mensaje');
 const contador = document.getElementById('contador');
 const historial = document.getElementById('historial');
 const btnReiniciar = document.getElementById('btnReiniciar');
+const tarjeta = document.getElementById('game-card');
 
 console.log('Elementos conectados:', inputIntento, btnAdivinar, mensaje);
 ```
@@ -168,7 +241,7 @@ git commit -m "feat: interfaz HTML del juego y conexión con DOM"
 git push
 ```
 
-✅ **Checkpoint:** La página muestra la interfaz del juego (input, botón, áreas de mensaje). `getElementById()` conecta los elementos. `mostrarMensaje()` cambia texto y color en la página.
+✅ **Checkpoint:** La página muestra una tarjeta centrada con el juego (input, botón, áreas de mensaje). El input brilla al enfocarse y el botón sube en hover. `getElementById()` conecta los elementos. `mostrarMensaje()` cambia texto y color en la página.
 
 ---
 
@@ -215,6 +288,9 @@ function verificarIntento() {
     mostrarMensaje('🎉 ¡Correcto! Era el ' + numeroSecreto, '#00ff88');
     btnAdivinar.disabled = true;
     btnReiniciar.style.display = 'inline-block';
+    // Celebración visual: la tarjeta brilla verde
+    tarjeta.style.borderColor = '#00ff88';
+    tarjeta.style.boxShadow = '0 0 40px rgba(0, 255, 136, 0.3)';
   } else if (valor > numeroSecreto) {
     mostrarMensaje('📈 Muy alto. Intenta más bajo.', '#ff6b6b');
   } else {
@@ -289,6 +365,10 @@ function reiniciarJuego() {
   inputIntento.value = '';
   inputIntento.focus();
 
+  // Resetear celebración visual
+  tarjeta.style.borderColor = 'rgba(233, 69, 96, 0.3)';
+  tarjeta.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.4)';
+
   console.log('(DEBUG) Nuevo número secreto:', numeroSecreto);
 }
 
@@ -351,15 +431,56 @@ git commit -m "feat: juego completo con funciones, DOM, historial y reinicio"
 git push
 ```
 
-✅ **Checkpoint:** El juego "Adivina el Número" está COMPLETO. Interfaz visual con input y botón. Funciones organizadas (`verificarIntento`, `reiniciarJuego`, `mostrarMensaje`, `obtenerPista`). Historial visual. Contador de intentos. Botón de reinicio. Colores en los mensajes.
+✅ **Checkpoint:** El juego "Adivina el Número" está COMPLETO. Tarjeta con glass-effect centrada en la pantalla. Input con glow al enfocarse, botón con micro-interacciones. Al ganar, la tarjeta brilla verde. Al reiniciar, todo vuelve al estado original. Funciones organizadas (`verificarIntento`, `reiniciarJuego`, `mostrarMensaje`, `obtenerPista`). Historial, contador y colores funcionan. Se ve bien en celular.
 
 ---
 
 ## Logros Adicionales (Opcional)
 
-### 🟢 Mejora Visual
+### 🟢 Historial con Pastillas de Color
 
-Agrega un efecto al acertar: cambia el color de fondo del body a verde por 2 segundos. Usa `document.body.style.backgroundColor` y `setTimeout()`.
+Transforma el historial de texto plano en pastillas/badges de colores. Cada intento se muestra como una pastilla: rojo si fue alto, turquesa si fue bajo, verde si fue correcto.
+
+En `index.html`, cambia el `<p>` del historial por un `<div>`:
+
+```html
+<div id="historial" class="historial"></div>
+```
+
+Agrega este CSS dentro del `<style>`:
+
+```css
+.historial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 20px;
+  min-height: 30px;
+}
+.guess-pill {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+```
+
+En `verificarIntento()`, reemplaza la línea del historial con:
+
+```js
+// Agregar pastilla de color al historial
+let color = valor > numeroSecreto ? '#ff6b6b' : valor < numeroSecreto ? '#4ecdc4' : '#00ff88';
+historial.innerHTML += '<span class="guess-pill" style="background:' + color + '30; color:' + color + '">' + valor + '</span>';
+```
+
+Y en `reiniciarJuego()`, cambia `historial.textContent` por:
+
+```js
+historial.innerHTML = '';
+```
+
+> 💡 **`innerHTML`** permite agregar HTML (no solo texto). Cada pastilla es un `<span>` con estilos en línea.
 
 ### 🟡 Límite de Intentos
 
@@ -375,18 +496,20 @@ Guarda el mejor puntaje (menor cantidad de intentos) usando una variable global.
 
 ### Checklist
 
-- [ ] Interfaz HTML: input, botón, mensajes, historial
+- [ ] Interfaz HTML: tarjeta centrada, input con glow, botón con hover
 - [ ] Funciones: `verificarIntento()`, `reiniciarJuego()`, `mostrarMensaje()`
-- [ ] DOM: `getElementById()`, `textContent`, `style.color`
+- [ ] DOM: `getElementById()`, `textContent`, `style.color`, `style.borderColor`, `style.boxShadow`
 - [ ] Evento click en botón con `addEventListener()`
+- [ ] Al ganar: tarjeta brilla verde (celebración visual)
 - [ ] Historial de intentos visible
-- [ ] Botón reiniciar funciona
+- [ ] Botón reiniciar funciona y resetea la celebración
+- [ ] Se ve bien en celular (responsive)
 - [ ] Al menos 3 commits nuevos (9+ total acumulado)
 
 ### Entregable
 
 📸 **Screenshot** del juego funcionando en el navegador mostrando:
-- La interfaz visual (input, botón, mensajes)
+- La tarjeta centrada con la interfaz visual
 - Al menos 3 intentos en el historial
 - Un mensaje de pista con color
 

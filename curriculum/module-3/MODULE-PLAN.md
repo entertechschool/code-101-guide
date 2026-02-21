@@ -45,18 +45,21 @@ A diferencia de los módulos anteriores (páginas estáticas), este proyecto int
 |-------|------|----------------------------------|
 | 9 | Fundamento | Repo creado, HTML+JS conectados, variables, tipos de datos, prompt/alert básico |
 | 10 | Lógica | Math.random() genera número secreto, if/else da pistas alto/bajo, validaciones con isNaN |
-| 11 | Interacción | Refactorización a DOM: input/botón, funciones, eventos click, historial visual, colores |
+| 11 | Interacción | Refactorización a DOM: tarjeta glass-effect, input/botón con micro-interacciones, funciones, eventos click, celebración visual, responsive |
 | 12 | Presentación | Pulido final + Demo Day: presentación del juego terminado |
 
 ### Entregable Final
 
-Un juego "Adivina el Número" funcional en el navegador que incluye:
+Un juego "Adivina el Número" con aspecto de app profesional en el navegador que incluye:
+- Tarjeta flotante con glass-effect sobre gradiente de fondo
+- Input con glow en focus, botón con micro-interacciones (hover/active)
 - Número aleatorio generado con Math.random()
-- Input y botón para ingresar intentos
 - Pistas visuales (alto/bajo/correcto) con colores
+- Celebración visual al ganar (tarjeta brilla verde con `style.borderColor` y `style.boxShadow`)
 - Contador de intentos visible
 - Historial de intentos anteriores
-- Botón para reiniciar el juego
+- Botón para reiniciar el juego (resetea celebración visual)
+- Diseño responsive mobile-first
 - Código organizado en funciones
 
 ---
@@ -138,12 +141,12 @@ Un juego "Adivina el Número" funcional en el navegador que incluye:
 | **Concepto Principal** | Funciones, DOM manipulation y eventos |
 | **Objetivo del Lab** | Refactorizar el juego: de prompt/alert a interfaz DOM con funciones y eventos |
 | **Herramientas** | VS Code, Live Server, Chrome DevTools |
-| **Entregable** | Juego completo con interfaz visual, funciones, eventos click, historial y reinicio |
+| **Entregable** | Juego completo con tarjeta glass-effect, micro-interacciones, celebración visual, funciones, eventos click, historial, reinicio y responsive |
 
 **Checkpoints del Lab:**
-1. HTML tiene input, botón y divs para mensajes. Primera función conectada con `getElementById`
-2. `addEventListener('click')` ejecuta `verificarIntento()`, muestra resultado en DOM con colores
-3. Historial visual de intentos, contador visible, `reiniciarJuego()` funciona. Juego COMPLETO
+1. HTML tiene tarjeta centrada con glass-effect, input con glow, botón con hover. Primera función conectada con `getElementById`
+2. `addEventListener('click')` ejecuta `verificarIntento()`, muestra resultado en DOM con colores. Celebración visual al ganar (tarjeta brilla verde)
+3. Historial visual de intentos, contador visible, `reiniciarJuego()` resetea celebración. Responsive en celular. Juego COMPLETO
 
 **Glosario de la Clase:**
 
@@ -189,7 +192,7 @@ Un juego "Adivina el Número" funcional en el navegador que incluye:
 | Criterio | Qué Evalúa | Excelente (25) | Bueno (20) | Satisfactorio (15) | Bajo (10) |
 |----------|-----------|----------------|------------|-------------------|----------|
 | **Funcionalidad** | El juego funciona correctamente | Genera número aleatorio, da pistas, valida entrada, detecta acierto, cuenta intentos | Funciona con errores menores (validación incompleta) | Funcionalidad básica (compara pero sin pistas claras) | No funciona o tiene errores graves |
-| **Interfaz e Interacción** | UI visual con eventos DOM | Input, botón, mensajes con colores, historial visual de intentos | Input y botón funcionan, mensajes visibles | Interfaz básica, aún usa prompt/alert | Sin interfaz visual, solo consola |
+| **Interfaz e Interacción** | UI visual con eventos DOM y feedback | Tarjeta glass-effect, input con glow, micro-interacciones, celebración visual, responsive | Input y botón funcionan, mensajes con colores, celebración presente | Interfaz básica, sin micro-interacciones o celebración | Sin interfaz visual, solo consola |
 | **Código y Funciones** | Organización del código | 3+ funciones claras, variables descriptivas, código organizado | 2 funciones, código legible | 1 función, código funcional pero desorganizado | Sin funciones, código lineal |
 | **Presentación** | Demo Day y comprensión | Explica su código con claridad, responde preguntas, demuestra comprensión | Presenta bien, explica la mayoría del código | Presenta pero no explica el código claramente | No presenta o no puede explicar su código |
 

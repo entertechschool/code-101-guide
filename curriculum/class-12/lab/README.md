@@ -25,9 +25,10 @@ Presentar tu juego "Adivina el Número" en una demo de 3 minutos, demostrando fu
 
 ### Minuto 1: Demo en Vivo
 
-- Abre tu juego en el navegador
-- Juega una ronda completa: ingresa números, muestra las pistas
-- Muestra el historial de intentos y los colores
+- Abre tu juego en el navegador (muestra la tarjeta flotante)
+- Juega una ronda completa: ingresa números, muestra las pistas con colores
+- Muestra el historial de intentos
+- Adivina el número y muestra la celebración visual (tarjeta verde)
 - Haz clic en "Jugar de nuevo" para demostrar el reinicio
 
 ### Minuto 2: Tu Código
@@ -48,10 +49,13 @@ Presentar tu juego "Adivina el Número" en una demo de 3 minutos, demostrando fu
 ## Checklist Pre-Presentación
 
 - [ ] El juego genera un número aleatorio entre 1 y 100
-- [ ] El input y el botón funcionan
+- [ ] La tarjeta centrada se ve con glass-effect y gradiente de fondo
+- [ ] El input brilla al enfocarse y el botón tiene micro-interacciones
 - [ ] Las pistas (alto/bajo/correcto) aparecen con colores
+- [ ] Al ganar, la tarjeta brilla verde (celebración visual)
 - [ ] El historial de intentos es visible
-- [ ] El botón de reiniciar funciona
+- [ ] El botón de reiniciar funciona y resetea la celebración
+- [ ] Se ve bien en celular (probarlo en DevTools → responsive)
 - [ ] Sabes explicar al menos 2 funciones de tu código
 - [ ] Tu repositorio en GitHub tiene commits descriptivos
 
