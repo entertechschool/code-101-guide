@@ -2,14 +2,13 @@
 
 > 🚀 **Proyecto:** Mi Portfolio Dev
 >
-> 📌 **Hoy:** Agregar interactividad con JavaScript: validación de formulario, menú móvil y scroll suave.
+> 📌 **Hoy:** Agregar interactividad con JavaScript: validación de formulario y menú móvil.
 
 ## 🎯 Objetivos
 
 1. Conectar un archivo JavaScript a tu HTML
 2. Validar un formulario con JavaScript (campos vacíos + formato de email)
 3. Crear un menú hamburguesa toggle para móvil
-4. Implementar smooth scroll con JavaScript
 
 ---
 
@@ -133,7 +132,19 @@ function validarFormulario() {
 
 > 💡 **`return false`** detiene la función cuando encuentra un error. Si pasa todas las validaciones, llega al final y muestra éxito.
 
-### 2.3 Funciones Auxiliares
+### 2.3 Estilos para Feedback
+
+Antes de crear las funciones auxiliares, agrega estos estilos en `styles.css`:
+
+```css
+.form-feedback { margin-top: 1rem; font-weight: 600; }
+.form-feedback.success { color: #16a34a; }
+.form-feedback.error { color: #dc2626; }
+```
+
+> 📌 **Preparación para JS:** Estas clases serán agregadas/quitadas por JavaScript para mostrar mensajes de validación con colores.
+
+### 2.4 Funciones Auxiliares
 
 ```js
 function validarEmail(email) {
@@ -156,7 +167,7 @@ function mostrarExito(mensaje) {
 
 > 📌 **¿Por qué no usamos regex para el email?** La validación con `indexOf` es más fácil de entender para principiantes. Verifica: hay algo antes del `@`, hay algo entre el `@` y el último `.`, y hay algo después del último `.`.
 
-### 2.4 Conectar al Formulario
+### 2.5 Conectar al Formulario
 
 ```js
 form.addEventListener('submit', function(evento) {
@@ -167,7 +178,7 @@ form.addEventListener('submit', function(evento) {
 
 > 📌 **`preventDefault()`** evita que el formulario recargue la página al enviarse. Queremos manejar el envío con JavaScript.
 
-### 2.5 Probar la Validación
+### 2.6 Probar la Validación
 
 Prueba estos casos:
 
@@ -250,118 +261,15 @@ navItems.forEach(function(enlace) {
 
 ---
 
-## Parte 4: Smooth Scroll (15 min)
-
-### 4.1 CSS Scroll Behavior
-
-Ya tenemos esto en nuestro CSS del Día 1:
-
-```css
-html {
-  scroll-behavior: smooth;
-}
-```
-
-Esto hace que los enlaces con `href="#seccion"` hagan scroll suave automáticamente.
-
-### 4.2 JavaScript Scroll (backup para más control)
-
-Agrega en `script.js`:
-
-```js
-/* =========================
-   SMOOTH SCROLL
-   ========================= */
-navItems.forEach(function(enlace) {
-  enlace.addEventListener('click', function(evento) {
-    evento.preventDefault();
-
-    // Obtener el destino del enlace
-    const destino = document.querySelector(this.getAttribute('href'));
-
-    if (destino) {
-      destino.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-```
-
-> ⚠️ **Nota:** Este código reutiliza `navItems` que ya definimos antes. Pero este `addEventListener` reemplaza la función anónima anterior. Para combinar ambos comportamientos (cerrar menú + scroll), actualicemos el listener del paso 3.3.
-
-### 4.3 Combinar: Cerrar Menú + Scroll
-
-Reemplaza el código del paso 3.3 con esta versión que hace ambas cosas:
-
-```js
-// Cerrar menú y hacer scroll suave al hacer clic en enlace
-navItems.forEach(function(enlace) {
-  enlace.addEventListener('click', function(evento) {
-    evento.preventDefault();
-
-    // Cerrar menú móvil
-    navLinks.classList.remove('active');
-    navToggle.textContent = '☰';
-
-    // Scroll suave al destino
-    const destino = document.querySelector(this.getAttribute('href'));
-    if (destino) {
-      destino.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-```
-
-> 💡 **Elimina** el código duplicado del paso 3.3 y del paso 4.2. Esta versión combina ambos.
-
-### 4.4 Scroll en el Botón Hero
-
-El botón "Contáctame" en el hero también debería hacer scroll suave. Agrega:
-
-```js
-// Scroll suave para el botón del hero
-const heroBtn = document.querySelector('#hero .btn');
-
-if (heroBtn) {
-  heroBtn.addEventListener('click', function(evento) {
-    evento.preventDefault();
-    const destino = document.querySelector(this.getAttribute('href'));
-    if (destino) {
-      destino.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-}
-```
-
-### 4.5 Probar Scroll
-
-| Acción | Resultado esperado |
-|--------|-------------------|
-| Clic en "About" (nav) | Scroll suave hasta la sección About |
-| Clic en "Skills" (nav) | Scroll suave hasta la sección Skills |
-| Clic en "Contáctame" (hero) | Scroll suave hasta el formulario |
-
-✅ **Checkpoint:** Todos los enlaces hacen scroll suave. El menú se cierra al navegar.
-
----
-
-## Parte 5: Commit y Push (5 min)
+## Parte 4: Commit y Push (5 min)
 
 ```bash
 git add .
-git commit -m "feat: validación de formulario, menú móvil y smooth scroll"
+git commit -m "feat: validación de formulario y menú móvil"
 git push
 ```
 
-✅ **Checkpoint Final:** Tu portfolio tiene JavaScript funcional: validación, menú toggle y scroll suave.
+✅ **Checkpoint Final:** Tu portfolio tiene JavaScript funcional: validación de formulario y menú toggle.
 
 ---
 
@@ -373,8 +281,6 @@ git push
 | Validar formulario | Función + condicionales |
 | Feedback visual | `textContent`, `className` |
 | Menú hamburguesa | `classList.toggle`, `addEventListener` |
-| Smooth scroll | `scrollIntoView` |
-| Cerrar menú al navegar | `forEach`, `remove` |
 
 ---
 
@@ -386,3 +292,18 @@ Si terminaste antes, intenta:
 - 🟡 Resaltar el campo con error cambiando su `border-color` a rojo
 - 🟡 Agregar un contador de caracteres debajo del textarea que muestre cuántos caracteres lleva
 - 🔴 Hacer que el nav cambie de fondo al hacer scroll (detectar `window.scrollY`)
+
+---
+
+## 📝 Tarea para Day 4
+
+Intenta completar **1-2 logros adicionales** del lab:
+
+- 🟢 **Resaltar campo con error:** cuando la validación falla, cambia el `border-color` del campo a rojo (`#dc2626`). Pista: usa `nombreInput.style.borderColor = '#dc2626'` en la función `mostrarError`.
+- 🟡 **Contador de caracteres:** agrega un `<span>` debajo del textarea y actualiza su texto con `mensajeInput.addEventListener('input', ...)` para mostrar cuántos caracteres lleva.
+
+Ambos usan patrones que ya practicaste: `addEventListener`, modificar propiedades del DOM, y condicionales.
+
+**Tiempo estimado:** ~30 min
+
+**Deadline:** antes del Day 4

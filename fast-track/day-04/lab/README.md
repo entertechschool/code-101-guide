@@ -2,13 +2,13 @@
 
 > 🚀 **Proyecto:** Mi Portfolio Dev
 >
-> 📌 **Hoy:** Publicar tu portfolio en GitHub Pages, pulir detalles visuales y revisar con la rúbrica.
+> 📌 **Hoy:** Publicar tu portfolio en GitHub Pages, pulir detalles visuales y preparar la entrega.
 
 ## 🎯 Objetivos
 
 1. Activar GitHub Pages y verificar el deploy
 2. Pulir detalles visuales y resolver issues pendientes
-3. Auto-evaluar tu proyecto con la rúbrica
+3. Revisar rápidamente tu proyecto con la rúbrica
 4. Hacer el commit final y preparar la entrega
 
 ---
@@ -76,7 +76,7 @@ Abre la URL en una **ventana de incógnito** (`Ctrl+Shift+N` o `Cmd+Shift+N`):
 
 ---
 
-## Parte 2: Pulido Visual (50 min)
+## Parte 2: Pulido Visual con DevTools (50 min)
 
 Ahora que tu sitio está publicado, es momento de pulir detalles.
 
@@ -115,25 +115,11 @@ Revisa tu sitio en **dos tamaños** (375px y 768px+) y corrige lo que necesite:
 
 | ✓ | Verificación |
 |---|-------------|
-| ☐ | Hover en cards funciona (solo desktop) |
 | ☐ | Hover en botón funciona |
 | ☐ | Validación de formulario muestra mensajes |
-| ☐ | Scroll suave al hacer clic en enlaces |
+| ☐ | Menú hamburguesa abre y cierra |
 
-### 2.2 Personalización de Contenido
-
-Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
-
-| ✓ | Elemento | Personalizado |
-|---|----------|--------------|
-| ☐ | Nombre real en hero y nav | |
-| ☐ | Título/rol profesional | |
-| ☐ | Biografía en About | |
-| ☐ | Skills que reflejan tus intereses | |
-| ☐ | Enlace a tu GitHub real en footer | |
-| ☐ | Año correcto en copyright | |
-
-### 2.3 Mejoras Opcionales
+### 2.2 Mejoras Opcionales
 
 Si tu sitio ya cumple con todo lo anterior, considera agregar:
 
@@ -143,30 +129,29 @@ nav {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Transición más suave en el scroll */
+/* Compensa la nav sticky al hacer scroll */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px; /* Compensa la nav sticky */
+  scroll-padding-top: 70px;
 }
 ```
 
-> 💡 **`scroll-padding-top`** evita que la nav sticky cubra el título de la sección al hacer scroll.
+> 💡 **`scroll-padding-top`** evita que la nav sticky cubra el título de la sección al hacer scroll con los enlaces de navegación.
 
-✅ **Checkpoint:** Tu portfolio está pulido y personalizado.
+✅ **Checkpoint:** Tu portfolio está pulido visualmente.
 
 ---
 
-## Parte 3: Auto-Revisión con Rúbrica (20 min)
+## Parte 3: Revisión Rápida con Rúbrica (10 min)
 
-Revisa tu proyecto usando la [rúbrica de evaluación](../../rubric.md).
+Revisa tu proyecto rápidamente usando la [rúbrica de evaluación](../../rubric.md).
 
 ### Criterio 1: Estructura y Git (25 pts)
 
-| ✓ | Verificación | Puntos |
-|---|-------------|--------|
-| ☐ | HTML con 5 secciones semánticas (nav, hero, about, skills, contact, footer) | |
-| ☐ | Formulario con `<label>`, `<input>`, `<textarea>` | |
-| ☐ | 4+ commits con mensajes descriptivos | |
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | HTML con 5 secciones semánticas (nav, hero, about, skills, contact, footer) |
+| ☐ | Formulario con `<label>`, `<input>`, `<textarea>` |
+| ☐ | 4+ commits con mensajes descriptivos |
 
 Revisa tu historial:
 
@@ -174,44 +159,34 @@ Revisa tu historial:
 git log --oneline
 ```
 
-**Tu puntaje estimado:** ___/25
-
 ### Criterio 2: Diseño Responsive (25 pts)
 
-| ✓ | Verificación | Puntos |
-|---|-------------|--------|
-| ☐ | Funciona en 375px sin scroll horizontal | |
-| ☐ | Funciona en 768px+ con layout de 2 columnas | |
-| ☐ | Flexbox usado en nav, cards y footer | |
-| ☐ | Hover states y transiciones presentes | |
-
-**Tu puntaje estimado:** ___/25
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | Funciona en 375px sin scroll horizontal |
+| ☐ | Funciona en 768px+ con layout de 2 columnas |
+| ☐ | Flexbox usado en nav, cards y footer |
+| ☐ | CSS organizado con variables |
 
 ### Criterio 3: Interactividad (25 pts)
 
-| ✓ | Verificación | Puntos |
-|---|-------------|--------|
-| ☐ | Formulario valida campos vacíos | |
-| ☐ | Formulario valida formato de email | |
-| ☐ | Menú hamburguesa funciona en móvil | |
-| ☐ | Scroll suave al hacer clic en enlaces | |
-
-**Tu puntaje estimado:** ___/25
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | Formulario valida campos vacíos |
+| ☐ | Formulario valida formato de email |
+| ☐ | Menú hamburguesa funciona en móvil |
 
 ### Criterio 4: Publicación (25 pts)
 
-| ✓ | Verificación | Puntos |
-|---|-------------|--------|
-| ☐ | GitHub Pages activo y accesible | |
-| ☐ | Contenido personalizado (no placeholder) | |
-| ☐ | Sin errores 404 ni recursos rotos | |
-| ☐ | URL compartible y funcional | |
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | GitHub Pages activo y accesible |
+| ☐ | Sin errores 404 ni recursos rotos |
+| ☐ | URL compartible y funcional |
 
-**Tu puntaje estimado:** ___/25
+> 💡 Si te falta algo, tienes tiempo para completarlo en la tarea de hoy y el Day 5.
 
-**Total estimado:** ___/100
-
-✅ **Checkpoint:** Has revisado tu portfolio criterio por criterio.
+✅ **Checkpoint:** Has identificado qué falta en tu portfolio.
 
 ---
 
@@ -221,7 +196,7 @@ git log --oneline
 
 ```bash
 git add .
-git commit -m "feat: pulido visual y contenido personalizado"
+git commit -m "feat: pulido visual y deploy en GitHub Pages"
 git push
 ```
 
@@ -245,11 +220,87 @@ git push
 
 ---
 
-## Parte 5: Instrucciones de Entrega - Día 5 (5 min)
+## 📝 Resumen del Día
 
-Mañana (viernes) deberás entregar por Canvas:
+| Lo que hicimos | Tecnología |
+|----------------|------------|
+| Activamos GitHub Pages | GitHub Settings |
+| Pulimos detalles visuales | CSS + DevTools |
+| Revisión rápida con rúbrica | 4 criterios × 25 pts |
+| Commit final y deploy | Git + GitHub Pages |
 
-### Entregables
+---
+
+## 📝 Tarea: Entrega Final
+
+### 1. Personalizar todo el contenido
+
+Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
+
+| ✓ | Elemento |
+|---|----------|
+| ☐ | Nombre real en hero y nav |
+| ☐ | Título/rol profesional |
+| ☐ | Biografía en About |
+| ☐ | Skills que reflejan tus intereses |
+| ☐ | Enlace a tu GitHub real en footer |
+| ☐ | Enlace a tu LinkedIn en footer (si tienes) |
+| ☐ | Año correcto en copyright |
+
+### 2. Auto-revisión completa con rúbrica
+
+Revisa tu proyecto criterio por criterio con la [rúbrica completa](../../rubric.md):
+
+**Criterio 1 — Estructura y Git (25 pts):**
+
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | HTML con 5 secciones semánticas |
+| ☐ | Formulario con `<label>`, `<input>`, `<textarea>` correctamente asociados |
+| ☐ | 4+ commits con mensajes descriptivos que reflejan el progreso diario |
+
+**Criterio 2 — Diseño Responsive (25 pts):**
+
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | Funciona en 375px sin scroll horizontal |
+| ☐ | Funciona en 768px+ con layout de 2 columnas |
+| ☐ | Flexbox usado en nav, cards y footer |
+| ☐ | CSS organizado con variables |
+| ☐ | Diseño responsive sin problemas visuales |
+
+**Criterio 3 — Interactividad (25 pts):**
+
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | Formulario valida campos vacíos |
+| ☐ | Formulario valida formato de email |
+| ☐ | Feedback visual (verde éxito, rojo error) |
+| ☐ | Menú hamburguesa funciona en móvil |
+| ☐ | Sin errores en la consola del navegador |
+
+**Criterio 4 — Publicación (25 pts):**
+
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | GitHub Pages activo y accesible |
+| ☐ | Contenido 100% personalizado (nombre real, bio, skills relevantes) |
+| ☐ | Sin errores 404 ni recursos rotos |
+| ☐ | URL compartible y funcional |
+
+### 3. Push final + verificar deploy
+
+```bash
+git add .
+git commit -m "feat: contenido personalizado y ajustes finales"
+git push
+```
+
+Abre tu URL de GitHub Pages en incógnito y verifica que todo se ve bien.
+
+### 4. Entregar por Canvas (Day 5)
+
+Envía estos dos enlaces:
 
 1. **URL de GitHub Pages:**
    ```
@@ -261,29 +312,11 @@ Mañana (viernes) deberás entregar por Canvas:
    https://github.com/TU-USUARIO/mi-portfolio-dev
    ```
 
-### Fecha límite
+**Tiempo estimado:** ~45-60 min
 
-- **Día 5 (viernes) 11:59 PM**
+**Deadline:** Day 5 (viernes) 11:59 PM
 
-### Últimos ajustes permitidos
-
-Puedes seguir haciendo cambios y pusheando hasta la fecha límite. GitHub Pages se actualiza automáticamente con cada push.
-
-> 💡 **Recuerda:** Cada push actualiza tu sitio publicado. Haz un último `git push` después de cualquier cambio.
-
-✅ **Checkpoint Final:** Sabes exactamente qué entregar y cuándo. ¡Tu portfolio está listo!
-
----
-
-## 📝 Resumen del Día
-
-| Lo que hicimos | Tecnología |
-|----------------|------------|
-| Activamos GitHub Pages | GitHub Settings |
-| Pulimos detalles visuales | CSS refinements |
-| Personalizamos contenido | HTML content |
-| Auto-revisión con rúbrica | 4 criterios × 25 pts |
-| Commit final y deploy | Git + GitHub Pages |
+> 💡 **Recuerda:** Cada push actualiza tu sitio publicado. Puedes seguir haciendo cambios y pusheando hasta la fecha límite.
 
 ---
 
@@ -293,7 +326,7 @@ En 4 días construiste un portfolio profesional desde cero:
 
 - **Día 1:** Estructura HTML + CSS base + Git
 - **Día 2:** Layout Flexbox + diseño responsive
-- **Día 3:** JavaScript: validación, menú, scroll
+- **Día 3:** JavaScript: validación y menú
 - **Día 4:** Deploy en GitHub Pages + pulido
 
 Tu portfolio está **publicado en internet** y lo puedes compartir con cualquier persona. Este es tu primer paso como desarrollador web.

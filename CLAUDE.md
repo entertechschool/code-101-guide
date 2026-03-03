@@ -52,6 +52,7 @@ Ver contenido por clase en [README.md → Referencia Rápida](README.md).
 | M1 (1-4) | ✅ Completo | Mi Perfil Personal |
 | M2 (5-8) | 🔄 En desarrollo | MyLinks |
 | M3 (9-12) | ⏳ Pendiente | Por definir |
+| Fast-Track | ✅ Completo | Mi Portfolio Dev |
 
 ---
 
@@ -173,6 +174,31 @@ Cada clase tiene 4-5 archivos en `curriculum/class-XX/`:
 | Nombres de proyectos | Slide 2 (proyectos) |
 
 **class-00/slides** es la presentación de orientación y debe reflejar siempre el estado actual del curso.
+
+---
+
+## Sincronización con Fast-Track
+
+**REGLA OBLIGATORIA:** El Fast-Track (`fast-track/`) tiene su propio `CLAUDE.md` con convenciones específicas. Ambos archivos deben mantenerse sincronizados.
+
+### Al modificar el curso regular, verificar en Fast-Track:
+
+| Si cambias... | Verificar en `fast-track/` |
+|---------------|---------------------------|
+| Escala de calificación | `rubric.md` debe usar la misma escala (A/B/C/F) |
+| Reglas de encoding | `CLAUDE.md` hereda las mismas reglas |
+| Formato de enlaces | Misma regla `{:target="_blank"}` aplica |
+| Sección Fast-Track en `README.md` | Debe coincidir con `fast-track/README.md` |
+
+### Al modificar Fast-Track, verificar en curso regular:
+
+| Si cambias... | Verificar en raíz |
+|---------------|-------------------|
+| Sistema de evaluación | `README.md` → sección "Fast-Track" |
+| Tecnologías por día | `README.md` → tabla Fast-Track |
+| Formato del programa | `README.md` → sección "Fast-Track" |
+
+> **Referencia:** Ver `fast-track/CLAUDE.md` para convenciones específicas del programa intensivo.
 
 ---
 

@@ -6,10 +6,9 @@
 
 ## 🎯 Objetivos
 
-1. Refactorizar valores CSS repetidos en variables reutilizables
+1. Refactorizar colores repetidos en variables CSS (parcial + tarea)
 2. Aplicar Flexbox para crear layouts horizontales y grids de cards
-3. Agregar hover states y transiciones CSS para interactividad visual
-4. Hacer tu sitio responsive con media queries (mobile-first)
+3. Hacer tu sitio responsive con media queries (mobile-first)
 
 ---
 
@@ -19,7 +18,6 @@
 - **Flexbox** - Sistema de layout que distribuye elementos en filas o columnas
 - **Mobile-first** - Diseñar primero para móvil y luego adaptar para desktop
 - **Media query** - Regla CSS que aplica estilos según el tamaño de pantalla
-- **Transición** - Animación suave entre dos estados CSS (`transition`)
 
 ---
 
@@ -33,7 +31,7 @@
 
 ---
 
-## Parte 1: CSS Variables y Mejoras (20 min)
+## Parte 1: CSS Variables y Mejoras (25 min)
 
 ### 1.1 ¿Por qué variables?
 
@@ -68,9 +66,9 @@ Agrega al **inicio** de tu `styles.css`, antes del reset:
 
 > 💡 **`:root`** es el elemento raíz del documento. Las variables definidas aquí están disponibles en **todo** el CSS.
 
-### 1.3 Reemplazar valores por variables
+### 1.3 Reemplazar valores por variables (parcial)
 
-Ahora reemplaza los valores directos por `var()`. Estos son los cambios principales:
+Ahora reemplaza los valores directos por `var()`. **En clase** vamos a hacer 3 secciones — el resto queda como tarea.
 
 **En Base:**
 
@@ -82,29 +80,6 @@ body {
   background-color: var(--color-bg);
 }
 a { text-decoration: none; color: var(--color-primary); }
-```
-
-**En Nav:**
-
-```css
-nav {
-  background-color: var(--color-white);
-  padding: 1rem;
-  border-bottom: 1px solid var(--color-border);
-}
-.nav-brand { font-weight: 700; font-size: 1.2rem; color: var(--color-primary); }
-.nav-links a { color: var(--color-text); }
-```
-
-**En Hero:**
-
-```css
-#hero {
-  text-align: center;
-  padding: 4rem 1rem;
-  background-color: var(--color-white);
-}
-.hero-subtitle { color: var(--color-text-light); font-size: 1.1rem; margin-bottom: 1.5rem; }
 ```
 
 **En Botón:**
@@ -137,52 +112,11 @@ nav {
 .skill-card p { color: var(--color-text-light); font-size: 0.9rem; }
 ```
 
-**En Projects:**
+> 💡 **Prueba rápida:** Cambia `--color-primary` a `#dc2626` (rojo). Todo lo que usa `var(--color-primary)` cambia de azul a rojo. Luego vuelve a `#2563eb`.
 
-```css
-.project-card {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-.project-card h3 { color: var(--color-primary); margin-bottom: 0.5rem; }
-.project-card p { color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1rem; }
-```
+### 1.4 Agregar sticky nav y hover en botón
 
-**En Contact:**
-
-```css
-#contact { background-color: var(--color-white); border-radius: 0.5rem; }
-.form-group input, .form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  font-family: var(--font-main);
-  font-size: 1rem;
-}
-```
-
-**En Footer:**
-
-```css
-footer {
-  background-color: var(--color-text);
-  color: var(--color-white);
-  padding: 2rem 1rem;
-  margin-top: 2rem;
-  text-align: center;
-}
-footer a { color: var(--color-border); }
-```
-
-> 💡 **Prueba rápida:** Cambia `--color-primary` a `#dc2626` (rojo). Todo el sitio cambia de azul a rojo. Luego vuelve a `#2563eb`.
-
-### 1.4 Agregar sticky nav y transiciones
-
-Ahora que el CSS está organizado, agreguemos dos mejoras:
+Ahora que el CSS está más organizado, agreguemos dos mejoras:
 
 **Nav fijo al scrollear:**
 
@@ -197,7 +131,7 @@ nav {
 }
 ```
 
-**Transición en el botón:**
+**Hover en el botón:**
 
 ```css
 .btn {
@@ -212,7 +146,19 @@ nav {
 
 > 📌 **`transition`** va en el estado normal (`.btn`), no en el `:hover`. Así la animación funciona tanto al entrar como al salir.
 
-✅ **Checkpoint:** Tu sitio se ve igual que antes, pero ahora el CSS usa variables. El nav se queda fijo al scrollear y el botón cambia de color al pasar el cursor.
+### 📝 Tarea: Completar Variables
+
+Las siguientes 5 secciones quedan pendientes para refactorizar. Repite el mismo patrón de find-replace que hicimos en clase:
+
+1. **Nav** — `nav`, `.nav-brand`, `.nav-links a`
+2. **Hero** — `#hero`, `.hero-subtitle`
+3. **Projects** — `.project-card`, `.project-card h3`, `.project-card p`
+4. **Contact** — `#contact`, `.form-group input`, `.form-group textarea`
+5. **Footer** — `footer`, `footer a`
+
+> 💡 El patrón es siempre el mismo: busca el valor directo (ej. `#2563eb`), reemplázalo por `var(--color-primary)`.
+
+✅ **Checkpoint:** Tu sitio se ve igual que antes, pero ahora el CSS usa variables en body, btn y skills. El nav se queda fijo al scrollear y el botón cambia de color al pasar el cursor.
 
 ---
 
@@ -333,7 +279,6 @@ Convierte los contenedores de Skills y Projects en flex:
 .skill-card,
 .project-card {
   flex: 1 1 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 ```
 
@@ -361,21 +306,7 @@ Agrega **dentro** del `@media (min-width: 768px)`:
 >
 > Las project cards usan `33.333%` para mostrar 3 columnas (una por proyecto).
 
-### 3.3 Hover en Cards
-
-Agrega **fuera** del media query:
-
-```css
-.skill-card:hover,
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-```
-
-Pasa el cursor sobre las cards. Deberían "flotar" suavemente.
-
-✅ **Checkpoint:** Las skill cards se muestran en 2 columnas y las project cards en 3 columnas en desktop. Ambas tienen efecto hover.
+✅ **Checkpoint:** Las skill cards se muestran en 2 columnas y las project cards en 3 columnas en desktop. En móvil se apilan a 1 columna.
 
 ---
 
@@ -475,96 +406,15 @@ Agrega **dentro** del `@media (min-width: 768px)`:
 
 ---
 
-## Parte 5: Hover States + Transiciones + Focus States (20 min)
+## Parte 5: Verificar Responsive con DevTools (10 min)
 
-### 5.1 Hover en Enlaces del Nav
-
-Agrega **fuera** del media query:
-
-```css
-.nav-links a {
-  transition: color 0.3s ease;
-}
-```
-
-> 📌 La regla `transition` va en el **estado normal**, no en el `:hover`. Así la animación funciona al entrar Y al salir.
-
-### 5.2 Hover en el Botón CTA
-
-El botón ya tiene hover básico. Agreguemos un efecto de elevación:
-
-```css
-.btn {
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-}
-```
-
-> ⚠️ Si ya tienes `transition` en `.btn`, reemplázala (no dupliques).
-
-### 5.3 Focus en Campos del Formulario
-
-Agreguemos feedback visual cuando un campo está activo:
-
-```css
-.form-group input,
-.form-group textarea {
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-```
-
-> ⚠️ Si ya tienes estas reglas, agrega solo la línea de `box-shadow`.
-
-### 5.4 Feedback del Formulario
-
-Agrega estilos para los mensajes de éxito y error que usaremos con JavaScript el Día 3:
-
-```css
-.form-feedback { margin-top: 1rem; font-weight: 600; }
-.form-feedback.success { color: #16a34a; }
-.form-feedback.error { color: #dc2626; }
-```
-
-> 📌 **Preparación para JS:** El Día 3 vamos a agregar/quitar estas clases con JavaScript para mostrar mensajes de validación.
-
-### 5.5 Hover en Enlaces del Footer
-
-```css
-.footer-section a {
-  transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-  color: var(--color-white);
-}
-```
-
-> ⚠️ Si ya están estas reglas, verifica que `transition` esté en el estado normal.
-
-✅ **Checkpoint:** Todos los elementos interactivos tienen transiciones suaves al pasar el cursor.
-
----
-
-## Parte 6: Verificar Responsive con DevTools (10 min)
-
-### 6.1 Abrir DevTools
+### 5.1 Abrir DevTools
 
 1. Haz clic derecho en tu página → **Inspeccionar** (o `F12`)
 2. Haz clic en el ícono de dispositivo móvil (📱) en la barra de DevTools
 3. Selecciona **iPhone SE** (375px) o ingresa 375 en el ancho
 
-### 6.2 Checklist Responsive
+### 5.2 Checklist Responsive
 
 Verifica cada punto:
 
@@ -578,7 +428,7 @@ Verifica cada punto:
 | ☐ | Footer | Secciones apiladas | Secciones en columnas |
 | ☐ | Sin scroll horizontal | ✅ | ✅ |
 
-### 6.3 Arreglar Problemas Comunes
+### 5.3 Arreglar Problemas Comunes
 
 | Problema | Solución |
 |----------|----------|
@@ -591,7 +441,7 @@ Verifica cada punto:
 
 ---
 
-## Parte 7: Commit y Push (5 min)
+## Parte 6: Commit y Push (5 min)
 
 ```bash
 git add .
@@ -601,7 +451,7 @@ git push
 
 Verifica en GitHub que tu código está actualizado.
 
-✅ **Checkpoint Final:** Portfolio con CSS organizado, layout profesional, hover states, y responsive verificado con DevTools.
+✅ **Checkpoint Final:** Portfolio con CSS organizado, layout Flexbox, y responsive verificado con DevTools.
 
 ---
 
@@ -610,13 +460,10 @@ Verifica en GitHub que tu código está actualizado.
 | Lo que hicimos | Técnica |
 |----------------|---------|
 | Variables CSS para colores y fuentes | `:root` + `var()` |
-| Nav fijo + transición en botón | `position: sticky` + `transition` |
+| Nav fijo + hover en botón | `position: sticky` + `transition` |
 | Nav horizontal en desktop | Flexbox + media query |
 | Skill cards en 2 columnas, project cards en 3 | Flexbox + flex-basis |
 | Footer expandido + columnas | HTML mejorado + Flexbox |
-| Hover en cards y botones | `:hover` + `transition` |
-| Form feedback classes | `.success` + `.error` |
-| Focus en formulario | `:focus` + box-shadow |
 | Responsive mobile-first | `@media (min-width: 768px)` |
 | Verificación responsive | Chrome DevTools |
 
@@ -624,9 +471,29 @@ Verifica en GitHub que tu código está actualizado.
 
 ## Logros Adicionales
 
-Si terminaste antes, intenta:
+Si terminaste antes, intenta agregar interactividad visual a tu sitio:
 
-- 🟢 Agregar un efecto hover diferente a cada card (escala, rotación, sombra diferente)
-- 🟡 Agregar un breakpoint extra para tablets: `@media (min-width: 480px)` donde las cards sean 2 columnas
-- 🟡 Agregar una animación de `border-bottom` en los enlaces del nav al hacer hover
-- 🔴 Hacer que el hero tenga una imagen de fondo con `background-image` y overlay semitransparente
+- 🟢 Hover en cards: `transform: translateY(-5px)` + `box-shadow: 0 4px 12px rgba(0,0,0,0.1)` (agrega `transition: transform 0.3s ease, box-shadow 0.3s ease` al estado normal)
+- 🟢 Hover elevación en botón: agregar `transform: translateY(-2px)` al `.btn:hover`
+- 🟡 Transición en nav links: `transition: color 0.3s ease` en `.nav-links a`
+- 🟡 Focus en formulario: `:focus` con `border-color: var(--color-primary)` + `box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1)`
+- 🟡 Hover en footer links: `transition: color 0.3s ease` + `:hover { color: var(--color-white) }`
+- 🔴 Breakpoint extra para tablets: `@media (min-width: 480px)` donde las cards sean 2 columnas
+
+---
+
+## 📝 Tarea para Day 3
+
+**Completar el refactoring de variables CSS** en las 5 secciones pendientes:
+
+1. **Nav** — `nav`, `.nav-brand`, `.nav-links a`
+2. **Hero** — `#hero`, `.hero-subtitle`
+3. **Projects** — `.project-card`, `.project-card h3`, `.project-card p`
+4. **Contact** — `#contact`, `.form-group input`, `.form-group textarea`
+5. **Footer** — `footer`, `footer a`
+
+Repite el mismo patrón de find-replace que hicimos en clase: busca el valor directo (ej. `#2563eb`), reemplázalo por la variable correspondiente (`var(--color-primary)`).
+
+**Tiempo estimado:** ~30 min
+
+**Deadline:** antes del Day 3

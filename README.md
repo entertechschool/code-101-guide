@@ -205,6 +205,28 @@ Tabla detallada de contenidos por clase para evaluación y referencia:
 
 ---
 
+## Fast-Track: Mi Portfolio Dev
+
+Programa intensivo de **4 días** (2h/día) para estudiantes que necesitan completar Code 101 de forma acelerada.
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Formato** | 4 sesiones × 120 min + entrega async Día 5 |
+| **Proyecto** | Portfolio personal de una página |
+| **Tecnologías** | HTML, CSS (Flexbox, responsive), JavaScript (validación, DOM), Git |
+| **Evaluación** | Rúbrica 4 × 25 = 100 pts |
+
+| Día | Tema |
+|-----|------|
+| 1 | HTML semántico + CSS básico + Git setup |
+| 2 | CSS variables + Flexbox + diseño responsive |
+| 3 | JavaScript: validación, menú toggle, smooth scroll |
+| 4 | GitHub Pages deploy + pulido + revisión con rúbrica |
+
+Ver programa completo en [fast-track/](fast-track/).
+
+---
+
 ## Prerrequisitos
 
 **Ninguno.** Code 101 es el curso de entrada al programa de Desarrollo de Software.
@@ -217,4 +239,4 @@ Este curso prepara a los estudiantes para Code 201, donde profundizarán en:
 
 ---
 
-*Última actualización: Enero 2026*
+*Última actualización: Febrero 2026*

@@ -41,7 +41,7 @@ Cada día comienza con una micro-lecture. Es una explicación **máximo 5 minuto
 2. HTML = estructura, CSS = estilos, JS = interactividad
 3. Hoy construimos los primeros dos. JS viene el Día 3.
 
-### Día 2: "Variables CSS y Flexbox"
+### Día 2: "Flexbox y Responsive"
 
 **Diagrama en pizarra:**
 
@@ -129,18 +129,17 @@ Tu computadora          GitHub            Internet
 
 | Min | Actividad | Rol del Facilitador |
 |-----|-----------|-------------------|
-| 0-5 | Micro-lecture | Diagrama Variables + Flexbox en pizarra |
-| 5-25 | CSS Variables: refactorizar + sticky nav | Motivar: "¿Ven que `#2563eb` aparece 4 veces?" |
-| 25-40 | Flexbox: nav responsive + hamburger | Explicar mobile-first mientras se escribe |
-| 40-55 | Flexbox: cards 2-3 columnas + expandir footer + footer columnas | Demostrar `flex: 1 1 calc(50% - 1rem)` |
-| 55-60 | **Break** | Verificar que Flexbox funciona en al menos 2 áreas |
-| 60-75 | Hover: cards + botón + nav | Explicar `transition` en estado normal vs `:hover` |
-| 75-85 | Focus: formulario | Code-along |
-| 85-100 | DevTools: verificar responsive | Guiar uso de Device Mode |
-| 100-115 | Arreglar issues responsive | Soporte individual |
+| 0-5 | Micro-lecture | Diagrama Flexbox + Responsive en pizarra |
+| 5-30 | CSS Variables (parcial) + sticky nav + btn hover | Motivar: "¿Ven que `#2563eb` aparece 4 veces?" Solo refactorizar 3 secciones (base, btn, skills) |
+| 30-55 | Flexbox: nav responsive + hamburger | Explicar mobile-first mientras se escribe |
+| 55-60 | **Break** | Verificar que nav Flexbox funciona |
+| 60-95 | Flexbox: cards + footer expandido + hero desktop | Demostrar `flex: 1 1 calc(50% - 1rem)` |
+| 95-110 | Media query responsive + verificar con DevTools | Guiar uso de Device Mode |
+| 110-115 | Buffer / troubleshooting | Soporte individual |
 | 115-120 | Commit + push | Guiar |
 
 **Contingencias Día 2:**
+- Si un estudiante no completó la tarea de variables: puede seguir con valores directos, Flexbox funciona igual
 - Si un estudiante no tiene Flexbox funcionando: compartir el CSS completo y que inspeccione cómo funciona
 - Si DevTools confunde: demostrar en proyector paso a paso
 - Error común: olvidar cerrar la llave `}` del `@media` → todo el CSS se rompe
@@ -151,14 +150,13 @@ Tu computadora          GitHub            Internet
 |-----|-----------|-------------------|
 | 0-5 | Micro-lecture | Diagrama DOM en pizarra |
 | 5-15 | Conectar JS + console.log | Verificar que TODOS ven el mensaje en consola |
-| 15-30 | Validación: seleccionar elementos | Explicar `getElementById` y `const` |
+| 15-30 | Validación: seleccionar elementos + estilos feedback | Explicar `getElementById` y `const`. Agregar `.form-feedback` CSS |
 | 30-45 | Validación: función + condicionales | Code-along paso a paso |
-| 45-60 | Validación: email + feedback | Probar todos los casos juntos |
+| 45-60 | Validación: email + feedback visual | Probar todos los casos juntos |
 | 60-65 | **Break** | Verificar que validación funciona |
 | 65-80 | Menú: seleccionar + toggle | Explicar `classList.toggle` |
-| 80-90 | Menú: cerrar al clic + ícono | Code-along |
-| 90-100 | Scroll: scrollIntoView | Combinar con cierre de menú |
-| 100-115 | Scroll: botón hero + probar | Verificación completa |
+| 80-100 | Menú: cerrar al clic + ícono + probar | Code-along + verificación completa |
+| 100-115 | Buffer / testing / debugging | Soporte individual, probar en DevTools |
 | 115-120 | Commit + push | Guiar |
 
 **Contingencias Día 3:**
@@ -247,7 +245,7 @@ Usa estos checkpoints para verificar que el grupo está al ritmo:
 |---|-------------|
 | ☐ | Nav horizontal en desktop, hamburguesa en móvil |
 | ☐ | Cards en 2 columnas en desktop |
-| ☐ | Hover states visibles |
+| ☐ | Responsive funciona en 375px y 768px+ |
 | ☐ | 2+ commits en GitHub |
 
 ### Final Día 3
@@ -256,7 +254,6 @@ Usa estos checkpoints para verificar que el grupo está al ritmo:
 |---|-------------|
 | ☐ | Formulario muestra error al enviar vacío |
 | ☐ | Menú hamburguesa abre y cierra |
-| ☐ | Scroll suave funciona |
 | ☐ | Sin errores en la consola |
 | ☐ | 3+ commits en GitHub |
 
@@ -305,6 +302,38 @@ En un grupo intensivo, siempre habrá estudiantes que se atrasen. Estrategia:
 - **Herramienta:** Abrir cada URL de GitHub Pages + revisar historial de commits
 - **Tiempo estimado:** 5-8 minutos por estudiante
 - **Rúbrica:** [rubric.md](../rubric.md) (4 criterios × 25 pts)
+
+---
+
+## Sistema de Tareas Async
+
+Cada día deja una tarea de ~30 min que refuerza lo aprendido **sin introducir conceptos nuevos**. El Day 5 (sin clase) es el safety net para completar pendientes.
+
+### Patrón General
+
+| Día | Tarea async (~30 min) |
+|-----|----------------------|
+| 1 | Sin tarea |
+| 2 | Completar refactoring de variables CSS (5 secciones pendientes) |
+| 3 | Intentar 1-2 logros adicionales (border rojo en error, contador chars) |
+| 4 | Personalizar contenido + auto-revisión completa con rúbrica |
+| 5 | **Safety net:** completar todo lo pendiente + push final + entregar por Canvas |
+
+### Si un estudiante no hizo la tarea
+
+Las tareas **no son bloqueantes**. El estudiante puede continuar con el siguiente día sin problemas:
+
+- **No completó variables (Day 2):** Puede seguir con valores directos. Flexbox y responsive funcionan igual. Las variables las puede completar después.
+- **No hizo logros adicionales (Day 3):** Son extras opcionales. El lab base del Day 4 no los requiere.
+- **No personalizó contenido (Day 4):** Tiene el Day 5 completo para hacerlo antes de entregar.
+
+### Comunicación con Estudiantes
+
+Al final de cada sesión (min 115-120), mencionar:
+1. Qué tarea queda pendiente
+2. Cuánto tiempo debería tomarles (~30 min)
+3. Que NO es bloqueante pero SÍ es importante para la nota final
+4. Deadline: antes de la próxima clase (o Day 5 para Day 4)
 
 ---
 
