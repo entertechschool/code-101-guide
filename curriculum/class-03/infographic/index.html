@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 03 - Estilos con CSS | Code 101</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6C3FA0;
+      --purple-light: #8B5FBF;
+      --purple-dark: #4A2170;
+      --teal: #00B4D8;
+      --teal-light: #48CAE4;
+      --coral: #FF6B6B;
+      --coral-light: #FF8787;
+      --yellow: #FFD166;
+      --bg: #0F0A1A;
+      --bg-card: #1A1230;
+      --bg-card-alt: #1E1540;
+      --text: #F0EDF5;
+      --text-muted: #A89BBF;
+      --font: 'Inter', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ========== LAYOUT (fijo 1080x1920 para screenshot) ========== */
+    .infographic {
+      width: 1080px;
+      height: 1920px;
+      margin: 0 auto;
+      padding: 0;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      padding: 76px 50px 66px;
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--bg) 60%);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 .accent {
+      color: var(--teal);
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    .hero-img {
+      width: 240px;
+      height: 240px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(108, 63, 160, 0.4);
+    }
+
+    /* ========== SECTION BASE ========== */
+    .section {
+      padding: 54px 50px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    /* ========== WHAT WE DID - 4 CARDS (~420px) ========== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(108, 63, 160, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .card-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--purple);
+      color: white;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ========== BOX MODEL VISUAL ========== */
+    .box-model-section {
+      background: var(--bg-card-alt);
+      padding: 62px 50px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .box-model-section .content-side {
+      flex: 1;
+    }
+
+    .box-model-section .image-side {
+      width: 360px;
+      flex-shrink: 0;
+    }
+
+    .box-model-section .image-side img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .box-model-list {
+      list-style: none;
+      margin-top: 14px;
+    }
+
+    .box-model-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      font-size: 14px;
+    }
+
+    .box-model-list .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-content { background: var(--teal); }
+    .dot-padding { background: var(--yellow); }
+    .dot-border { background: var(--coral); }
+    .dot-margin { background: var(--purple-light); }
+
+    .box-model-list strong {
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    /* ========== PALETTE + FONTS ========== */
+    .palette-section {
+      padding: 76px 50px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .palette-section .image-side {
+      width: 360px;
+      flex-shrink: 0;
+    }
+
+    .palette-section .image-side img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .palette-section .content-side {
+      flex: 1;
+    }
+
+    .tools-row {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .tool-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid rgba(108, 63, 160, 0.3);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .tool-chip .icon {
+      font-size: 18px;
+    }
+
+    /* ========== GLOSARIO STRIP (~100px) ========== */
+    .glossary-strip {
+      display: flex;
+      gap: 0;
+      background: var(--bg-card);
+    }
+
+    .glossary-item {
+      flex: 1;
+      padding: 30px 16px;
+      border-right: 1px solid rgba(108, 63, 160, 0.2);
+      text-align: center;
+    }
+
+    .glossary-item:last-child {
+      border-right: none;
+    }
+
+    .glossary-item dt {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .glossary-item dd {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      padding: 32px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(108, 63, 160, 0.2);
+    }
+
+    .footer-brand {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .footer-brand span {
+      color: var(--teal);
+    }
+
+    .footer-class {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">Módulo 1 · Clase 3 de 4</span>
+        <h1>Estilos con <span class="accent">CSS</span></h1>
+        <p class="hero-subtitle">Transforma tu perfil de una página plana a un diseño con identidad propia: colores, tipografías y espaciado profesional.</p>
+      </div>
+      <img class="hero-img" src="hero-css.png" alt="CSS transformando una página web">
+    </header>
+
+    <!-- QUÉ HICIMOS -->
+    <section class="section">
+      <p class="section-label">Lo que vimos en clase</p>
+      <h2>4 pasos para darle vida a tu página</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-number">1</div>
+          <h3>La magia de CSS</h3>
+          <p>Descubrimos cómo un solo archivo CSS puede transformar completamente la apariencia de una página HTML.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">2</div>
+          <h3>Paleta de colores</h3>
+          <p>Elegimos combinaciones de colores coherentes usando herramientas profesionales como Coolors.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">3</div>
+          <h3>Google Fonts</h3>
+          <p>Seleccionamos tipografías web que complementan nuestro diseño y aprendimos a implementarlas.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">4</div>
+          <h3>Box Model</h3>
+          <p>Dominamos padding, margin y border para controlar el espacio y crear layouts profesionales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOX MODEL -->
+    <section class="box-model-section">
+      <div class="content-side">
+        <p class="section-label">Concepto clave</p>
+        <h2 style="font-size: 28px;">El Box Model</h2>
+        <p style="color: var(--text-muted); margin-bottom: 10px; font-size: 14px;">Todo elemento HTML es una caja con 4 capas. Entender esto es la base de todo layout en CSS.</p>
+        <ul class="box-model-list">
+          <li><span class="dot dot-content"></span> <strong>content</strong> — El contenido real (texto, imagen)</li>
+          <li><span class="dot dot-padding"></span> <strong>padding</strong> — Espacio interno entre contenido y borde</li>
+          <li><span class="dot dot-border"></span> <strong>border</strong> — El borde visible del elemento</li>
+          <li><span class="dot dot-margin"></span> <strong>margin</strong> — Espacio externo entre elementos</li>
+        </ul>
+      </div>
+      <div class="image-side">
+        <img src="box-model.png" alt="Diagrama del Box Model CSS">
+      </div>
+    </section>
+
+    <!-- PALETA + FONTS -->
+    <section class="palette-section">
+      <div class="image-side">
+        <img src="palette-fonts.png" alt="Paleta de colores y tipografías">
+      </div>
+      <div class="content-side">
+        <p class="section-label">Diseño con intención</p>
+        <h2 style="font-size: 28px;">Colores + Tipografía</h2>
+        <p style="color: var(--text-muted); margin-bottom: 10px; font-size: 14px;">Los colores y fuentes que eliges comunican tu personalidad. Tu perfil no solo muestra información—transmite quién eres.</p>
+        <div class="tools-row">
+          <div class="tool-chip">
+            <span class="icon">🎨</span> Coolors
+          </div>
+          <div class="tool-chip">
+            <span class="icon">🔤</span> Google Fonts
+          </div>
+          <div class="tool-chip">
+            <span class="icon">🖥️</span> VS Code
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSARIO STRIP -->
+    <div class="glossary-strip">
+      <div class="glossary-item">
+        <dl>
+          <dt>selector</dt>
+          <dd>QUÉ estilizar</dd>
+        </dl>
+      </div>
+      <div class="glossary-item">
+        <dl>
+          <dt>propiedad</dt>
+          <dd>QUÉ cambiar</dd>
+        </dl>
+      </div>
+      <div class="glossary-item">
+        <dl>
+          <dt>valor</dt>
+          <dd>CÓMO cambiarlo</dd>
+        </dl>
+      </div>
+      <div class="glossary-item">
+        <dl>
+          <dt>padding</dt>
+          <dd>Espacio interno</dd>
+        </dl>
+      </div>
+      <div class="glossary-item">
+        <dl>
+          <dt>margin</dt>
+          <dd>Espacio externo</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-brand"><span>Entertech</span> School · Code 101</div>
+      <div class="footer-class">Clase 03 — Estilos con CSS · Módulo 1</div>
+    </footer>
+
+  </div>
+</body>
+</html>
