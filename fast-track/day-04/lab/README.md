@@ -143,8 +143,6 @@ html {
 
 ## Parte 3: Revisión Rápida con Rúbrica (10 min)
 
-Revisa tu proyecto rápidamente usando la [rúbrica de evaluación](../../rubric.md).
-
 ### Criterio 1: Estructura y Git (25 pts)
 
 | ✓ | Verificación |
@@ -249,8 +247,6 @@ Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
 
 ### 2. Auto-revisión completa con rúbrica
 
-Revisa tu proyecto criterio por criterio con la [rúbrica completa](../../rubric.md):
-
 **Criterio 1 — Estructura y Git (25 pts):**
 
 | ✓ | Verificación |
@@ -298,7 +294,7 @@ git push
 
 Abre tu URL de GitHub Pages en incógnito y verifica que todo se ve bien.
 
-### 4. Entregar por Canvas (Day 5)
+### 4. Entregar por Canvas
 
 Envía estos dos enlaces:
 
@@ -318,15 +314,3 @@ Envía estos dos enlaces:
 
 > 💡 **Recuerda:** Cada push actualiza tu sitio publicado. Puedes seguir haciendo cambios y pusheando hasta la fecha límite.
 
----
-
-## 🎉 Felicidades
-
-En 4 días construiste un portfolio profesional desde cero:
-
-- **Día 1:** Estructura HTML + CSS base + Git
-- **Día 2:** Layout Flexbox + diseño responsive
-- **Día 3:** JavaScript: validación y menú
-- **Día 4:** Deploy en GitHub Pages + pulido
-
-Tu portfolio está **publicado en internet** y lo puedes compartir con cualquier persona. Este es tu primer paso como desarrollador web.
