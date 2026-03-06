@@ -214,7 +214,7 @@ Programa intensivo de **4 días** (2h/día) para estudiantes que necesitan compl
 | **Formato** | 4 sesiones × 120 min + entrega async Día 5 |
 | **Proyecto** | Portfolio personal de una página |
 | **Tecnologías** | HTML, CSS (Flexbox, responsive), JavaScript (validación, DOM), Git |
-| **Evaluación** | Rúbrica 4 × 25 = 100 pts |
+| **Evaluación** | Rúbrica 5 × 20 = 100 pts |
 
 | Día | Tema |
 |-----|------|

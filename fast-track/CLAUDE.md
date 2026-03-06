@@ -38,7 +38,7 @@
 fast-track/
 ├── README.md              # Programa completo (fuente de verdad)
 ├── CLAUDE.md              # Este archivo
-├── rubric.md              # Rúbrica 4×25 pts (evaluador)
+├── rubric.md              # Rúbrica 5×20 pts (evaluador)
 ├── facilitator/
 │   └── README.md          # Guía pedagógica completa
 ├── starter/
@@ -129,14 +129,15 @@ Los archivos en `starter/` son templates con TODOs que el estudiante completa pr
 
 ## Sistema de Evaluación
 
-### Rúbrica: 4 criterios × 25 pts = 100
+### Rúbrica: 5 criterios × 20 pts = 100
 
 | Criterio | Evalúa | Día principal |
 |----------|--------|---------------|
 | 1. Estructura y Git | HTML semántico + commits | Día 1 |
 | 2. Diseño Responsive | CSS + Flexbox + media queries | Día 2 |
-| 3. Interactividad | JS: validación + menú + scroll | Día 3 |
+| 3. Interactividad | JS: validación + menú | Día 3 |
 | 4. Publicación | GitHub Pages + personalización | Día 4 |
+| 5. Mejoras Adicionales | Smooth scroll, dark mode, scroll-to-top | Día 3-4 |
 
 ### Escala (debe coincidir con curso regular)
 

@@ -301,7 +301,7 @@ En un grupo intensivo, siempre habrá estudiantes que se atrasen. Estrategia:
 - **Fecha de evaluación:** Después del Día 5 (fecha límite de entrega)
 - **Herramienta:** Abrir cada URL de GitHub Pages + revisar historial de commits
 - **Tiempo estimado:** 5-8 minutos por estudiante
-- **Rúbrica:** [rubric.md](../rubric.md) (4 criterios × 25 pts)
+- **Rúbrica:** [rubric.md](../rubric.md) (5 criterios × 20 pts)
 
 ---
 

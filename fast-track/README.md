@@ -119,7 +119,7 @@ Sin clase presencial. El estudiante trabaja de forma independiente:
 
 ## Sistema de Evaluación
 
-### Rúbrica (4 criterios × 25 pts = 100)
+### Rúbrica (5 criterios × 20 pts = 100)
 
 | Criterio | Evalúa |
 |----------|--------|
@@ -127,6 +127,7 @@ Sin clase presencial. El estudiante trabaja de forma independiente:
 | 2. Diseño Responsive | CSS + Flexbox + media queries |
 | 3. Interactividad | JavaScript: validación + menú |
 | 4. Publicación | GitHub Pages funcional + contenido personalizado |
+| 5. Mejoras Adicionales | Smooth scroll, dark mode, scroll-to-top |
 
 Ver rúbrica completa en [rubric.md](rubric.md).
 

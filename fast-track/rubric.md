@@ -1,19 +1,19 @@
 # Rúbrica - Mi Portfolio Dev (Fast-Track)
 
-> **Total:** 100 puntos (4 criterios × 25 puntos)
+> **Total:** 100 puntos (5 criterios × 20 puntos)
 
 ---
 
-## Criterio 1: Estructura y Git (25 pts)
+## Criterio 1: Estructura y Git (20 pts)
 
 Evalúa el uso de HTML semántico, formularios y control de versiones.
 
 | Nivel | Puntos | Descripción |
 |-------|--------|-------------|
-| **Excelente** | 25 | 5 secciones semánticas completas (nav, hero, about, skills, contact, footer). Formulario con `<label>`, `<input>`, `<textarea>` correctamente asociados. 4+ commits con mensajes descriptivos que reflejan el progreso diario. |
-| **Bueno** | 20 | 4 secciones semánticas. Formulario presente con campos básicos. 3 commits con mensajes razonables. |
-| **Satisfactorio** | 15 | 3 secciones semánticas. Formulario básico. 2 commits. |
-| **Bajo** | 10 | Menos de 3 secciones, formulario ausente o incompleto. 1 commit o mensajes genéricos ("update", "fix"). |
+| **Excelente** | 20 | 5 secciones semánticas completas (nav, hero, about, skills, contact, footer). Formulario con `<label>`, `<input>`, `<textarea>` correctamente asociados. 4+ commits con mensajes descriptivos que reflejan el progreso diario. |
+| **Bueno** | 15 | 4 secciones semánticas. Formulario presente con campos básicos. 3 commits con mensajes razonables. |
+| **Satisfactorio** | 10 | 3 secciones semánticas. Formulario básico. 2 commits. |
+| **Bajo** | 5 | Menos de 3 secciones, formulario ausente o incompleto. 1 commit o mensajes genéricos ("update", "fix"). |
 
 **Evidencia a revisar:**
 - `git log --oneline` en el repositorio
@@ -22,16 +22,16 @@ Evalúa el uso de HTML semántico, formularios y control de versiones.
 
 ---
 
-## Criterio 2: Diseño Responsive (25 pts)
+## Criterio 2: Diseño Responsive (20 pts)
 
 Evalúa el uso de CSS, Flexbox, media queries y diseño adaptable.
 
 | Nivel | Puntos | Descripción |
 |-------|--------|-------------|
-| **Excelente** | 25 | Flexbox aplicado en nav, cards y footer. Media query funcional con breakpoint a 768px. Sin scroll horizontal en móvil. CSS organizado con variables. Diseño responsive sin problemas visuales. |
-| **Bueno** | 20 | Flexbox en al menos 2 áreas. Media query presente. Responsive funcional con problemas menores de espaciado. |
-| **Satisfactorio** | 15 | Flexbox en 1 área. Responsive parcial (funciona en un tamaño pero tiene problemas en el otro). |
-| **Bajo** | 10 | No usa Flexbox. No es responsive. Scroll horizontal presente. Layout roto en móvil. |
+| **Excelente** | 20 | Flexbox aplicado en nav, cards y footer. Media query funcional con breakpoint a 768px. Sin scroll horizontal en móvil. CSS organizado con variables. Diseño responsive sin problemas visuales. |
+| **Bueno** | 15 | Flexbox en al menos 2 áreas. Media query presente. Responsive funcional con problemas menores de espaciado. |
+| **Satisfactorio** | 10 | Flexbox en 1 área. Responsive parcial (funciona en un tamaño pero tiene problemas en el otro). |
+| **Bajo** | 5 | No usa Flexbox. No es responsive. Scroll horizontal presente. Layout roto en móvil. |
 
 **Evidencia a revisar:**
 - Abrir URL en DevTools con vista de 375px (iPhone SE)
@@ -41,16 +41,16 @@ Evalúa el uso de CSS, Flexbox, media queries y diseño adaptable.
 
 ---
 
-## Criterio 3: Interactividad (25 pts)
+## Criterio 3: Interactividad (20 pts)
 
 Evalúa el uso de JavaScript para funcionalidades interactivas.
 
 | Nivel | Puntos | Descripción |
 |-------|--------|-------------|
-| **Excelente** | 25 | Validación de formulario completa (campos vacíos + formato email). Menú hamburguesa toggle funcional. Feedback visual para validación (colores éxito/error). |
-| **Bueno** | 20 | Validación de formulario funcional (al menos campos vacíos). Menú hamburguesa funciona. Feedback visual presente. |
-| **Satisfactorio** | 15 | Validación básica presente. Menú hamburguesa funciona parcialmente. |
-| **Bajo** | 10 | JavaScript conectado pero sin funcionalidades completas. Errores en consola. |
+| **Excelente** | 20 | Validación de formulario completa (campos vacíos + formato email). Menú hamburguesa toggle funcional. Feedback visual para validación (colores éxito/error). |
+| **Bueno** | 15 | Validación de formulario funcional (al menos campos vacíos). Menú hamburguesa funciona. Feedback visual presente. |
+| **Satisfactorio** | 10 | Validación básica presente. Menú hamburguesa funciona parcialmente. |
+| **Bajo** | 5 | JavaScript conectado pero sin funcionalidades completas. Errores en consola. |
 
 **Evidencia a revisar:**
 - Enviar formulario vacío → debe mostrar mensaje de error
@@ -61,22 +61,46 @@ Evalúa el uso de JavaScript para funcionalidades interactivas.
 
 ---
 
-## Criterio 4: Publicación (25 pts)
+## Criterio 4: Publicación (20 pts)
 
 Evalúa que el sitio esté correctamente publicado y personalizado.
 
 | Nivel | Puntos | Descripción |
 |-------|--------|-------------|
-| **Excelente** | 25 | GitHub Pages funcionando. URL pública accesible. Contenido 100% personalizado (nombre real, bio, skills relevantes). Sin errores 404. Carga rápida. |
-| **Bueno** | 20 | URL funciona. Contenido mayormente personalizado con algunos placeholders menores. |
-| **Satisfactorio** | 15 | URL funciona pero con problemas (estilos que no cargan, imágenes rotas). Contenido parcialmente personalizado. |
-| **Bajo** | 10 | No publicado, URL rota, error 404, o contenido completamente placeholder. |
+| **Excelente** | 20 | GitHub Pages funcionando. URL pública accesible. Contenido 100% personalizado (nombre real, bio, skills relevantes). Sin errores 404. Carga rápida. |
+| **Bueno** | 15 | URL funciona. Contenido mayormente personalizado con algunos placeholders menores. |
+| **Satisfactorio** | 10 | URL funciona pero con problemas (estilos que no cargan, imágenes rotas). Contenido parcialmente personalizado. |
+| **Bajo** | 5 | No publicado, URL rota, error 404, o contenido completamente placeholder. |
 
 **Evidencia a revisar:**
 - Abrir la URL de GitHub Pages en una ventana de incógnito
 - Verificar que el contenido está personalizado (no es el template genérico)
 - Probar en un dispositivo diferente (teléfono)
 - Verificar que todos los recursos cargan (sin 404 en Network tab)
+
+---
+
+## Criterio 5: Mejoras Adicionales (20 pts)
+
+Evalúa la implementación de desafíos extra que demuestran iniciativa y comprensión avanzada.
+
+**Desafíos evaluados:**
+1. **Smooth Scroll JS** — navegación suave al hacer clic en enlaces del menú (`scrollIntoView` con `behavior: 'smooth'`)
+2. **Dark Mode Toggle** — botón que alterna entre tema claro y oscuro usando clases CSS o variables
+3. **Botón Scroll-to-Top** — botón flotante que aparece al hacer scroll y regresa al inicio de la página
+
+| Nivel | Puntos | Descripción |
+|-------|--------|-------------|
+| **Excelente** | 20 | 3 desafíos implementados y completamente funcionales. Código limpio y sin errores en consola. |
+| **Bueno** | 15 | 2 desafíos implementados y funcionales. |
+| **Satisfactorio** | 10 | 1 desafío implementado y funcional. |
+| **Bajo** | 5 | Desafíos intentados pero no funcionales (código presente con errores o comportamiento incorrecto). |
+
+**Evidencia a revisar:**
+- Hacer clic en un enlace del nav → la página debe hacer scroll suave hasta la sección
+- Buscar botón de dark mode → debe alternar tema visual al hacer clic
+- Hacer scroll hacia abajo → debe aparecer botón flotante que regresa al inicio
+- Abrir consola del navegador → sin errores relacionados con los desafíos
 
 ---
 

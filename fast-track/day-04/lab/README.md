@@ -143,7 +143,7 @@ html {
 
 ## Parte 3: Revisión Rápida con Rúbrica (10 min)
 
-### Criterio 1: Estructura y Git (25 pts)
+### Criterio 1: Estructura y Git (20 pts)
 
 | ✓ | Verificación |
 |---|-------------|
@@ -157,7 +157,7 @@ Revisa tu historial:
 git log --oneline
 ```
 
-### Criterio 2: Diseño Responsive (25 pts)
+### Criterio 2: Diseño Responsive (20 pts)
 
 | ✓ | Verificación |
 |---|-------------|
@@ -166,7 +166,7 @@ git log --oneline
 | ☐ | Flexbox usado en nav, cards y footer |
 | ☐ | CSS organizado con variables |
 
-### Criterio 3: Interactividad (25 pts)
+### Criterio 3: Interactividad (20 pts)
 
 | ✓ | Verificación |
 |---|-------------|
@@ -174,13 +174,21 @@ git log --oneline
 | ☐ | Formulario valida formato de email |
 | ☐ | Menú hamburguesa funciona en móvil |
 
-### Criterio 4: Publicación (25 pts)
+### Criterio 4: Publicación (20 pts)
 
 | ✓ | Verificación |
 |---|-------------|
 | ☐ | GitHub Pages activo y accesible |
 | ☐ | Sin errores 404 ni recursos rotos |
 | ☐ | URL compartible y funcional |
+
+### Criterio 5: Mejoras Adicionales (20 pts)
+
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | Smooth scroll JS funciona al hacer clic en enlaces del nav |
+| ☐ | Dark mode toggle alterna entre tema claro y oscuro |
+| ☐ | Botón scroll-to-top aparece al hacer scroll y regresa al inicio |
 
 > 💡 Si te falta algo, tienes tiempo para completarlo en la tarea de hoy y el Day 5.
 
@@ -224,7 +232,7 @@ git push
 |----------------|------------|
 | Activamos GitHub Pages | GitHub Settings |
 | Pulimos detalles visuales | CSS + DevTools |
-| Revisión rápida con rúbrica | 4 criterios × 25 pts |
+| Revisión rápida con rúbrica | 5 criterios × 20 pts |
 | Commit final y deploy | Git + GitHub Pages |
 
 ---
@@ -247,7 +255,7 @@ Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
 
 ### 2. Auto-revisión completa con rúbrica
 
-**Criterio 1 — Estructura y Git (25 pts):**
+**Criterio 1 — Estructura y Git (20 pts):**
 
 | ✓ | Verificación |
 |---|-------------|
@@ -255,7 +263,7 @@ Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
 | ☐ | Formulario con `<label>`, `<input>`, `<textarea>` correctamente asociados |
 | ☐ | 4+ commits con mensajes descriptivos que reflejan el progreso diario |
 
-**Criterio 2 — Diseño Responsive (25 pts):**
+**Criterio 2 — Diseño Responsive (20 pts):**
 
 | ✓ | Verificación |
 |---|-------------|
@@ -265,7 +273,7 @@ Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
 | ☐ | CSS organizado con variables |
 | ☐ | Diseño responsive sin problemas visuales |
 
-**Criterio 3 — Interactividad (25 pts):**
+**Criterio 3 — Interactividad (20 pts):**
 
 | ✓ | Verificación |
 |---|-------------|
@@ -275,7 +283,7 @@ Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
 | ☐ | Menú hamburguesa funciona en móvil |
 | ☐ | Sin errores en la consola del navegador |
 
-**Criterio 4 — Publicación (25 pts):**
+**Criterio 4 — Publicación (20 pts):**
 
 | ✓ | Verificación |
 |---|-------------|
@@ -283,6 +291,14 @@ Asegúrate de que tu portfolio tiene contenido **real**, no placeholder:
 | ☐ | Contenido 100% personalizado (nombre real, bio, skills relevantes) |
 | ☐ | Sin errores 404 ni recursos rotos |
 | ☐ | URL compartible y funcional |
+
+**Criterio 5 — Mejoras Adicionales (20 pts):**
+
+| ✓ | Verificación |
+|---|-------------|
+| ☐ | Smooth scroll JS funciona al hacer clic en enlaces del nav |
+| ☐ | Dark mode toggle alterna entre tema claro y oscuro |
+| ☐ | Botón scroll-to-top aparece al hacer scroll y regresa al inicio |
 
 ### 3. Push final + verificar deploy
 
