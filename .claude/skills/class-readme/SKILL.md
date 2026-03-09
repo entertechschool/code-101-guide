@@ -1,5 +1,5 @@
 ---
-name: class-readme-generator
+name: class-readme
 description: Genera o refactoriza READMEs de clase para estudiantes de Code 101. Usa cuando necesites crear un nuevo README de clase, refactorizar uno existente, o cuando el usuario mencione "README de clase", "documentación de clase", o "preparación del estudiante".
 ---
 

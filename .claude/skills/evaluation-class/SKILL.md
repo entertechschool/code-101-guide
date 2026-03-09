@@ -1,5 +1,5 @@
 ---
-name: evaluacion-clase
+name: evaluation-class
 description: Evalúa calidad y coherencia de una clase antes de publicar. Usar cuando se pida evaluar, revisar, QA, o diagnóstico de una clase.
 allowed-tools: Read, Glob, Grep, Bash
 ---

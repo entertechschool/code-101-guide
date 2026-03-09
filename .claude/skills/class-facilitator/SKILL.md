@@ -1,6 +1,6 @@
 ---
-name: facilitator-guide
-description: Genera guías de facilitador para clases del bootcamp code-301-guide. Usar cuando se pida crear guía de facilitador, guía del instructor, material para el profesor, o facilitator guide.
+name: class-facilitator
+description: Genera guías de facilitador para clases del bootcamp. Usar cuando se pida crear guía de facilitador, guía del instructor, material para el profesor, o facilitator guide.
 allowed-tools: Read, Glob, Grep, WebSearch, WebFetch, Write, Edit
 ---
 

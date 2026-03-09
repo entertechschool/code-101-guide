@@ -32,7 +32,18 @@ Clase X → Módulo = floor((X-1)/4) + 1
         → Es lab calificado = (Posición == 4)
 ```
 
-### Paso 2: Leer recursos previos
+### Paso 2: Leer nivel de scaffolding
+
+Leer `## Scaffolding` de `AGENTS.md`. Extraer:
+
+1. `scaffolding_style` → determina tipo de gaps e instrucciones
+2. `part_naming` → nombre de secciones ("Parte" / "HU")
+3. `checkpoint_style` → tipo de checkpoints ("visual" / "functional" / "sprint-based")
+4. Tabla de Autonomía → buscar fila del módulo actual para % de código completo vs gaps
+
+> Si la sección no existe, usar defaults: `course_level=1`, `guided`, `Parte`, `visual`, 90% código completo.
+
+### Paso 3: Leer recursos previos
 
 ```bash
 # Clase actual
@@ -46,7 +57,7 @@ curriculum/class-{X-1}/lab/README.md
 README.md
 ```
 
-### Paso 3: Determinar tipo de lab
+### Paso 4: Determinar tipo de lab
 
 | Tipo | Clases | Características |
 |------|--------|-----------------|
@@ -58,7 +69,7 @@ README.md
 >
 > 📌 **Labs Calificados (4, 8):** Se espera que el estudiante avance ~50% durante la sesión en vivo y complete el resto antes de la fecha de entrega.
 
-### Paso 4: Generar archivos
+### Paso 5: Generar archivos
 
 **Lab Regular:**
 - `curriculum/class-{X}/lab/README.md`
@@ -70,6 +81,8 @@ README.md
 ---
 
 ## Template: Lab Regular
+
+> 📌 **Naming:** Usar el valor de `part_naming` de Scaffolding para nombrar secciones (ej: "Parte 1", "HU-1"). Default: "Parte".
 
 ```markdown
 # Lab [XX]: [Título del Lab]
@@ -586,39 +599,51 @@ Ver `rubric.md` para la rúbrica completa del proyecto.
 
 ### Gaps Intencionales
 
-El código debe tener espacios para que el estudiante piense:
+El código debe tener espacios para que el estudiante piense. El **porcentaje de gaps** depende del módulo actual — consultar la Tabla de Autonomía en `AGENTS.md > ## Scaffolding`.
 
-**❌ Incorrecto (todo completo):**
+**Reglas de gaps según `scaffolding_style`:**
+
+**`guided` (Nivel 1):** Gaps de personalización — código funcional con placeholders para contenido personal.
 ```html
-<header>
-    <h1>Mi Nombre</h1>
-    <nav>
-        <a href="#about">Sobre Mí</a>
-        <a href="#hobbies">Hobbies</a>
-    </nav>
-</header>
+<h1><!-- Tu nombre aquí --></h1>
+<nav>
+    <!-- Agrega al menos 3 enlaces de navegación -->
+    <!-- Recuerda usar href="#id" para enlazar a secciones -->
+</nav>
 ```
 
-**✅ Correcto (gaps intencionales):**
-```html
-<header>
-    <h1><!-- Tu nombre aquí --></h1>
-    <nav>
-        <!-- Agrega al menos 3 enlaces de navegación -->
-        <!-- Recuerda usar href="#id" para enlazar a secciones -->
-    </nav>
-</header>
+**`descriptive` (Nivel 2):** Gaps progresivos — el estudiante completa código con pistas contextuales.
+```javascript
+boton.addEventListener('_____', function() {
+  // Cambia el color de fondo del elemento
+  elemento.style._______ = 'blue';
+});
 ```
 
-### Checkpoints Visuales
+**`spec-based` (Nivel 3):** Pseudocódigo/specs — el estudiante escribe la implementación.
+```javascript
+// Algoritmo: 1. Obtener input 2. Validar rango 3. Comparar con secreto
+export function checkGuess(input, secret) {
+  /* implementar */
+}
+```
 
-Los checkpoints describen lo que el estudiante DEBE VER, no el código:
+> Para este repositorio (`course_level=1`), usar siempre el estilo `guided` (comment-placeholders).
 
-**❌ Incorrecto (técnico):**
-> ✅ **Checkpoint:** El elemento header debe tener `display: flex` y `justify-content: space-between`
+### Checkpoints por Nivel
 
-**✅ Correcto (visual):**
-> ✅ **Checkpoint:** Tu nombre aparece a la izquierda y la navegación a la derecha del header
+El tipo de checkpoint depende de `checkpoint_style` en `AGENTS.md > ## Scaffolding`.
+
+**`visual` (Nivel 1):** Describe lo que el estudiante DEBE VER en pantalla — no mencionar código.
+> ✅ **Checkpoint:** Tu nombre aparece centrado en la página con un color que elegiste.
+
+**`functional` (Nivel 2):** Describe comportamiento que se puede probar interactuando.
+> ✅ **Checkpoint:** Al hacer clic en el botón, el contador incrementa y el número se actualiza en pantalla.
+
+**`sprint-based` (Nivel 3):** Describe criterios de aceptación verificables con casos de prueba.
+> ✅ **Checkpoint:** La función retorna `true` para inputs válidos y `false` para inputs fuera de rango. Verificar con 3 casos.
+
+> Para este repositorio (`checkpoint_style=visual`), los checkpoints siempre describen lo que se ve, no el código.
 
 ### Logros como Preview
 
@@ -629,6 +654,36 @@ Los logros introducen conceptos FUTUROS, no consolidan lo actual:
 
 **✅ Correcto (preview):**
 > 🟢 Investiga la etiqueta `<a>` con `target="_blank"` para abrir enlaces en nueva pestaña (lo veremos en la Clase X+1)
+
+### Prosa Mínima
+
+Cada línea de prosa debe aportar información que el código o el checkpoint no dan. Eliminar:
+
+- **Frases que duplican el checkpoint:** "Guarda y revisa. Deberías ver X" → el checkpoint ya dice qué se debe ver
+- **Transiciones implícitas:** "Agrega estas líneas al final del archivo:" → implícito por flujo secuencial
+- **Paráfrasis de comentarios:** Si el código tiene `// ¿Por qué el tipo no es "number"?`, no repetirlo en prosa
+- **Bloques de "Resultado esperado"** cuando el checkpoint o un comentario inline ya lo cubre
+
+**Tips:** Máximo 1-2 líneas. No repetir lo que el comentario en el código ya pregunta.
+
+### Git Commits
+
+- **Primer commit del lab:** Bloque completo (`git add` → `commit` → `push`) + nota: "Repite este patrón al final de cada Parte"
+- **Commits siguientes:** Solo una línea inline al final de la Parte: `Commit sugerido: "feat: descripción"`
+- **Nunca** crear subsección `### X.Y Commit` — el commit va inline, sin bloque de código ni header propio
+
+### Comprimir Setup Repetido
+
+A partir de la segunda clase de cada módulo (posición ≥ 2), el estudiante ya sabe crear repos y clonar:
+
+- **Crear repo + clonar:** Comprimir en 1 párrafo descriptivo + 1 bloque bash (no listar pasos numerados)
+- **Verificación + primer commit:** Fusionar en una sola subsección cuando la verificación es trivial (abrir, ver resultado)
+
+### Fusionar Subtareas Secuenciales
+
+Si dos subtareas consecutivas trabajan sobre el mismo bloque de código y son naturalmente secuenciales, fusionarlas en una sola subtarea. Esto reduce secciones y headers sin perder gaps.
+
+**Ejemplo:** "Declarar variables" + "Verificar tipos" → "Variables y Tipos" (un bloque de código con ambos pasos).
 
 ---
 
@@ -699,6 +754,9 @@ El lab debe alinearse con:
 - [ ] Checkpoints son visuales (no técnicos)
 - [ ] 3 Logros Adicionales con preview de conceptos futuros
 - [ ] Checklist de entrega claro
+- [ ] Prosa no duplica checkpoints ni comentarios en código
+- [ ] Git commits: solo el primero tiene bloque completo
+- [ ] Setup comprimido si posición ≥ 2 en el módulo
 
 ### Lab Calificado (clases 4, 8)
 

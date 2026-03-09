@@ -1,5 +1,5 @@
 ---
-name: class-slides-generator
+name: class-slides
 description: Genera slides reveal.js para clases del bootcamp. Usar cuando se pida crear slides, presentación, o diapositivas para una clase.
 allowed-tools: Read, Glob, Grep, Write, Edit
 ---

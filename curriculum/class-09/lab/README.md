@@ -36,21 +36,9 @@ Antes de comenzar, verifica que tengas todo listo:
 
 ## Parte 1: Setup del Proyecto (25 min)
 
-### 1.1 Crea tu Repositorio
+### 1.1 Crea y Clona tu Repositorio
 
-Este será el repositorio donde construirás el juego "Adivina el Número" durante todo el Módulo 3.
-
-1. Ve a [github.com/new](https://github.com/new){:target="_blank"}
-2. Configura tu repositorio:
-   - **Repository name:** `guess-number-js`
-   - **Description:** "Mi primer juego interactivo con JavaScript"
-   - **Visibility:** Public
-   - Marca **"Add a README file"**
-3. Clic en **"Create repository"**
-
-### 1.2 Clona el Repositorio
-
-En tu terminal:
+Crea un nuevo repositorio en [github.com/new](https://github.com/new){:target="_blank"} llamado `guess-number-js` (público, con README). Luego clona y abre en VS Code:
 
 ```bash
 cd ~/Documents/bootcamp
@@ -59,7 +47,7 @@ cd guess-number-js
 code .
 ```
 
-### 1.3 Crea los Archivos
+### 1.2 Crea los Archivos
 
 En VS Code, crea dos archivos nuevos:
 
@@ -88,20 +76,9 @@ En VS Code, crea dos archivos nuevos:
 console.log('¡Hola desde JavaScript!');
 ```
 
-### 1.4 Verifica la Conexión
+### 1.3 Verifica y Haz Commit
 
-1. Abre `index.html` con Live Server (clic derecho → "Open with Live Server")
-2. Abre DevTools en Chrome (`F12` o `Cmd+Option+I`)
-3. Ve a la pestaña **Console**
-
-**Resultado esperado en la consola:**
-```
-¡Hola desde JavaScript!
-```
-
-> 💡 **Tip:** Si no ves el mensaje, verifica que la etiqueta `<script>` apunte correctamente a `script.js`.
-
-### 1.5 Tu Primer Commit
+Abre `index.html` con Live Server, abre la consola de Chrome (`F12` → Console). Deberías ver: `¡Hola desde JavaScript!`
 
 ```bash
 git add index.html script.js
@@ -109,61 +86,44 @@ git commit -m "feat: setup inicial con HTML y JS conectados"
 git push
 ```
 
+> 💡 Repite este patrón (`git add` → `commit` → `push`) al final de cada Parte.
+
 ✅ **Checkpoint:** Ves el mensaje "¡Hola desde JavaScript!" en la consola del navegador y tu commit está en GitHub.
 
 ---
 
 ## Parte 2: Variables y Tipos de Datos (35 min)
 
-### 2.1 Declara tus Primeras Variables
+### 2.1 Variables y Tipos
 
 Reemplaza el contenido de `script.js` con lo siguiente:
 
 ```js
 // --- Variables con let (pueden cambiar) ---
 let nombre = 'Tu Nombre';
-let edad = 0; // Cambia por tu edad real
-let estaAprendiendo = true;
+// Declara una variable 'edad' con tu edad real (usa let)
+// Declara una variable 'estaAprendiendo' con valor true (usa let)
 
 // --- Imprime cada variable ---
 console.log(nombre);
-console.log(edad);
-console.log(estaAprendiendo);
-```
+// Imprime las otras dos variables que declaraste
 
-Guarda y revisa la consola. Deberías ver tus tres valores impresos.
-
-### 2.2 Verifica los Tipos
-
-Agrega estas líneas al final de `script.js`:
-
-```js
 // --- Verifica los tipos de dato ---
 console.log(typeof nombre);       // ¿Qué tipo es?
-console.log(typeof edad);         // ¿Qué tipo es?
-console.log(typeof estaAprendiendo); // ¿Qué tipo es?
+// Usa typeof para verificar el tipo de 'edad' y 'estaAprendiendo'
+// ¿Qué esperas que diga? Escríbelo en un comentario antes de ejecutar
 ```
 
-**Resultado esperado:**
-```
-string
-number
-boolean
-```
+> 💡 `typeof` es un operador que te dice qué tipo de dato tiene una variable. Muy útil para depurar.
 
-> 💡 **Tip:** `typeof` es un operador que te dice qué tipo de dato tiene una variable. Es muy útil para depurar.
-
-### 2.3 Variables con `const`
-
-Agrega al final:
+### 2.2 Variables con `const`
 
 ```js
 // --- Variables con const (no pueden cambiar) ---
 const curso = 'Code 101';
-const maxIntentos = 10;
+// Declara una constante 'maxIntentos' con valor 10
 
-console.log(curso);
-console.log(maxIntentos);
+// Imprime ambas constantes con console.log()
 ```
 
 Ahora intenta cambiar una constante:
@@ -173,35 +133,28 @@ Ahora intenta cambiar una constante:
 // maxIntentos = 20;
 ```
 
-> 💡 **¿Cuándo usar `let` vs `const`?** Usa `const` cuando el valor no cambiará. Usa `let` cuando necesites reasignarlo después. En la duda, empieza con `const`.
+> 💡 **¿`let` vs `const`?** Usa `const` cuando el valor no cambiará. Usa `let` cuando necesites reasignarlo. En la duda, empieza con `const`.
 
-### 2.4 Interacción con el Usuario
-
-Agrega al final de tu archivo:
+### 2.3 Interacción con el Usuario
 
 ```js
 // --- Entrada del usuario ---
 let nombreUsuario = prompt('¿Cómo te llamas?');
-let edadUsuario = prompt('¿Cuántos años tienes?');
+// Pide la edad al usuario con prompt() y guárdala en 'edadUsuario'
 
 // --- Salida al usuario ---
-alert('Hola ' + nombreUsuario + ', tienes ' + edadUsuario + ' años.');
+// Muestra un alert que diga: "Hola [nombre], tienes [edad] años."
+// Usa concatenación con + para unir las variables con el texto
 
 // --- Verifica en consola ---
 console.log('Nombre:', nombreUsuario);
-console.log('Edad:', edadUsuario);
-console.log('Tipo de edad:', typeof edadUsuario);
+// Imprime la edad y su tipo de dato (usa typeof)
+// Pregúntate: ¿por qué el tipo no es "number"?
 ```
 
-**Observa algo importante:** ¿Qué tipo de dato tiene `edadUsuario`? Aunque escribas un número, `prompt()` siempre devuelve un `string`.
+> 💡 Aunque escribas un número, `prompt()` siempre devuelve un `string`.
 
-### 2.5 Commit
-
-```bash
-git add script.js
-git commit -m "feat: variables, tipos de datos e interacción con usuario"
-git push
-```
+Commit sugerido: `"feat: variables, tipos de datos e interacción con usuario"`
 
 ✅ **Checkpoint:** Tu programa pide nombre y edad con `prompt()`, muestra un saludo con `alert()`, y en la consola puedes ver los valores y sus tipos.
 
@@ -211,8 +164,6 @@ git push
 
 ### 3.1 Operadores Aritméticos
 
-Crea un nuevo comentario al final de `script.js` y experimenta:
-
 ```js
 // --- Operadores aritméticos ---
 let a = 20;
@@ -220,16 +171,15 @@ let b = 7;
 
 console.log('Suma:', a + b);        // 27
 console.log('Resta:', a - b);       // 13
-console.log('Multiplicación:', a * b); // 140
-console.log('División:', a / b);     // 2.857...
-console.log('Módulo:', a % b);       // 6 (el residuo)
+// Completa las 3 operaciones que faltan:
+// - Multiplicación (usa *)
+// - División (usa /)
+// - Módulo (usa % — devuelve el residuo de la división)
 ```
 
-> 💡 **Tip:** El operador `%` (módulo) devuelve el residuo de una división. Es muy útil para saber si un número es par o impar: si `numero % 2` da `0`, es par.
+> 💡 El operador `%` (módulo) devuelve el residuo. Si `numero % 2` da `0`, es par.
 
 ### 3.2 Cuidado con los Strings y Números
-
-Prueba esto y observa qué pasa:
 
 ```js
 // --- ¿Qué resultado esperas? ---
@@ -250,15 +200,14 @@ let saludo1 = 'Hola ' + nombreUsuario + ', tienes ' + edadUsuario + ' años.';
 console.log(saludo1);
 
 // Forma 2: Template literals con `` (backticks)
-let saludo2 = `Hola ${nombreUsuario}, tienes ${edadUsuario} años.`;
-console.log(saludo2);
+// Escribe el mismo saludo usando backticks (`) y ${variable}
+// let saludo2 = ...
+// console.log(saludo2);
 ```
 
-> 💡 **Template literals** usan backticks (`` ` ``) en lugar de comillas, y `${variable}` para insertar valores. Son más fáciles de leer cuando tienes varios valores.
+> 💡 **Template literals** usan backticks (`` ` ``) y `${variable}` para insertar valores. Son más fáciles de leer.
 
 ### 3.4 Aplica lo Aprendido
-
-Agrega al final un pequeño cálculo personalizado:
 
 ```js
 // --- Calculadora de edad ---
@@ -270,13 +219,7 @@ let anioNacimiento = anioActual - Number(edadUsuario);
 // Tu código aquí...
 ```
 
-### 3.5 Commit Final
-
-```bash
-git add script.js
-git commit -m "feat: operadores aritméticos, concatenación y template literals"
-git push
-```
+Commit sugerido: `"feat: operadores aritméticos, concatenación y template literals"`
 
 ✅ **Checkpoint:** Tu consola muestra resultados de operaciones matemáticas, la diferencia entre concatenación y suma, y un mensaje personalizado usando template literals.
 
