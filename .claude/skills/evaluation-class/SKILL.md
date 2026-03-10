@@ -15,6 +15,13 @@ Verificar que una clase está lista para publicar en Canvas, evaluando:
 
 ## Proceso de Evaluación
 
+### Paso 0: Leer scaffolding
+
+Leer `AGENTS.md > ## Scaffolding` para obtener las variables de nivel del curso:
+- `part_naming` → validar que checkpoints del lab usen la nomenclatura correcta (ej. "Parte" no "HU")
+- `checkpoint_style` → validar que el formato de validación coincida (ej. `visual` = describe lo que se ve en pantalla)
+- Tabla de Autonomía → verificar que el porcentaje de gaps corresponde al módulo
+
 ### Paso 1: Identificar la clase
 
 Extraer número de clase (X) del prompt del usuario.
@@ -63,8 +70,8 @@ README.md (syllabus principal)
 |----------|-----------|
 | Longitud | Regular: < 400 líneas. Calificado (4, 8): < 500 líneas |
 | Partes | Regular: 3 partes. Calificado: 5 partes (incluye Desafío) |
-| Checkpoints | Visuales, definidos por parte |
-| Código | Gaps intencionales (no completo) |
+| Checkpoints | Usan `checkpoint_style` de AGENTS.md, definidos por parte |
+| Código | Gaps intencionales según Tabla de Autonomía del módulo |
 | Rúbrica | Si calificado: inline 5x20 pts + rubric.md sincronizado |
 | Entrega | Instrucciones claras |
 
@@ -85,7 +92,7 @@ README.md (syllabus principal)
 | Cantidad | ≤ 12 slides |
 | Transiciones | Tiene entrada y salida |
 | Quiz | Tiene preguntas pre-lab |
-| Checkpoints | Uno por HU |
+| Checkpoints | Uno por parte del lab (ver `part_naming` en AGENTS.md) |
 | Reflexiones | 1-2 conceptos clave |
 
 ### 2. Coherencia Horizontal (X-1 → X → X+1)

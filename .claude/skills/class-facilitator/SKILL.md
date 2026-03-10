@@ -1,6 +1,6 @@
 ---
 name: class-facilitator
-description: Genera guías de facilitador para clases del bootcamp. Usar cuando se pida crear guía de facilitador, guía del instructor, material para el profesor, o facilitator guide.
+description: Genera guías de facilitador para clases del curso. Usar cuando se pida crear guía de facilitador, guía del instructor, material para el profesor, o facilitator guide.
 allowed-tools: Read, Glob, Grep, WebSearch, WebFetch, Write, Edit
 ---
 
@@ -8,9 +8,14 @@ allowed-tools: Read, Glob, Grep, WebSearch, WebFetch, Write, Edit
 
 ## Objetivo
 
-Crear guías de referencia rápida (lectura 5-10 min antes de clase) para instructores del bootcamp. El tono debe ser narrativo estilo Medium.com con párrafos cortos (3-5 líneas máximo).
+Crear guías de referencia rápida (lectura 5-10 min antes de clase) para instructores del curso. El tono debe ser narrativo estilo Medium.com con párrafos cortos (3-5 líneas máximo).
 
 ## Proceso
+
+0. **Leer scaffolding**: `AGENTS.md > ## Scaffolding`
+   - `checkpoint_style` → formato de validación en tabla de checkpoints
+   - Tabla de Autonomía → calibrar nivel de intervención y ejemplos
+   - `scaffolding_style` → calibrar "hand-holding" en dinámicas
 
 1. **Leer el contenido de la clase**: README.md, lab/README.md, slides/README.md
 2. **Investigar contexto histórico**: Usar WebSearch para obtener datos reales sobre las tecnologías
@@ -116,6 +121,8 @@ Facilitador: "Seguimiento"
 | XX | Hito 1 | Qué debe verse/funcionar |
 | XX | Hito 2 | Qué debe verse/funcionar |
 
+> Formato de "Cómo validar" debe coincidir con `checkpoint_style` de AGENTS.md.
+
 ---
 
 ## 🔗 Conexión con la Próxima Clase
@@ -135,6 +142,28 @@ Al cerrar, planta la semilla para la siguiente clase:
 - **Código**: Siempre funcional y copiable
 - **Analogías**: Cotidianas y universales (restaurantes, llamadas, etc.)
 - **Datos históricos**: Siempre verificados con WebSearch, incluir fuentes
+
+### Densidad
+
+- **Analogías:** Máximo 1 párrafo (2-3 líneas). Si necesita más, es demasiado compleja.
+- **Ejemplos:** No repetir código del lab salvo versión simplificada para demo.
+- **Contexto histórico:** Máximo 2 tecnologías por clase. Elegir las más impactantes.
+- **Dinámicas:** Diálogos ejemplo: 4-6 líneas de script. El facilitador improvisa el resto.
+
+---
+
+## Calibración por Módulo
+
+Leer Tabla de Autonomía en `AGENTS.md > ## Scaffolding`. Ajustar:
+
+| Aspecto | M1 (90/10) | M2 (85/15) | M3 (80/20) |
+|---------|------------|------------|------------|
+| Ejemplos listos | 3-4 completos | 2-3 con gaps menores | 1-2 con pseudocódigo |
+| Errores comunes | Setup y sintaxis | Lógica | Debugging |
+| Dinámicas | Facilitador lidera demo | Estudiantes intentan primero | Estudiantes resuelven, facilitador guía |
+| Checkpoints | Verificar visual | Verificar comportamiento | Verificar criterios |
+
+> Para cursos con `course_level=1` (ver AGENTS.md), la progresión es sutil: M1 es muy guiado, M3 solo ligeramente menos.
 
 ---
 

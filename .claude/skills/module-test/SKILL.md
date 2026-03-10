@@ -27,7 +27,7 @@ curriculum/class-XX/test/
 └── questions.md     # Preguntas con respuestas (copy-paste a Canvas)
 ```
 
-**Ubicación:** Solo en clases de cierre de módulo (ej: 4, 8, 12 en Code 101)
+**Ubicación:** Solo en clases de cierre de módulo (ej: última clase de cada módulo)
 
 ---
 

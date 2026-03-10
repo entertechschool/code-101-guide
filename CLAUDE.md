@@ -18,6 +18,8 @@ Ver **[AGENTS.md](AGENTS.md)** para convenciones del repositorio, estructura, to
 | `evaluation-class` | Verificar calidad | Reporte |
 | `lint-markdown` | Validar Markdown para GitHub Pages | Reporte/Corrección |
 | `module-test` | Test diagnóstico por módulo | `test/README.md` + `test/questions.md` |
+| `class-infographic` | Infografía post-clase | `infographic/index.html` + `infographic/image-prompts.md` |
+| `module-updater` | Auditar y actualizar módulo existente | Reporte + ediciones |
 
 Ver detalles en `.claude/skills/*/SKILL.md`
 

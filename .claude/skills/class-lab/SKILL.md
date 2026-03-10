@@ -1,6 +1,6 @@
 ---
 name: class-lab
-description: Genera laboratorios para clases del bootcamp. Usar cuando se pida crear lab, laboratorio, práctica guiada, o ejercicio de clase.
+description: Genera laboratorios para clases del curso. Usar cuando se pida crear lab, laboratorio, práctica guiada, o ejercicio de clase.
 allowed-tools: Read, Glob, Grep, Write, Edit
 ---
 
@@ -8,7 +8,7 @@ allowed-tools: Read, Glob, Grep, Write, Edit
 
 ## Objetivo
 
-Crear laboratorios prácticos con arquitectura incremental dentro de cada módulo. Los estudiantes construyen sobre el trabajo de clases anteriores, acumulando código en un proyecto que culmina en el lab calificado (clases 4, 8, 12).
+Crear laboratorios prácticos con arquitectura incremental dentro de cada módulo. Los estudiantes construyen sobre el trabajo de clases anteriores, acumulando código en un proyecto que culmina en el lab calificado (última clase de cada módulo).
 
 ## Decisiones de Diseño
 
@@ -628,7 +628,7 @@ export function checkGuess(input, secret) {
 }
 ```
 
-> Para este repositorio (`course_level=1`), usar siempre el estilo `guided` (comment-placeholders).
+> Usar el estilo correspondiente al `course_level` del curso (ver `AGENTS.md > ## Scaffolding`).
 
 ### Checkpoints por Nivel
 
@@ -643,7 +643,7 @@ El tipo de checkpoint depende de `checkpoint_style` en `AGENTS.md > ## Scaffoldi
 **`sprint-based` (Nivel 3):** Describe criterios de aceptación verificables con casos de prueba.
 > ✅ **Checkpoint:** La función retorna `true` para inputs válidos y `false` para inputs fuera de rango. Verificar con 3 casos.
 
-> Para este repositorio (`checkpoint_style=visual`), los checkpoints siempre describen lo que se ve, no el código.
+> Usar el estilo correspondiente al `checkpoint_style` del curso (ver `AGENTS.md > ## Scaffolding`).
 
 ### Logros como Preview
 
@@ -757,6 +757,10 @@ El lab debe alinearse con:
 - [ ] Prosa no duplica checkpoints ni comentarios en código
 - [ ] Git commits: solo el primero tiene bloque completo
 - [ ] Setup comprimido si posición ≥ 2 en el módulo
+
+## Ejemplo de Referencia
+
+Ver implementación completa en: `curriculum/class-02/lab/README.md`
 
 ### Lab Calificado (clases 4, 8)
 

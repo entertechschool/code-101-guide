@@ -1,11 +1,11 @@
 ---
 name: class-readme
-description: Genera o refactoriza READMEs de clase para estudiantes de Code 101. Usa cuando necesites crear un nuevo README de clase, refactorizar uno existente, o cuando el usuario mencione "README de clase", "documentación de clase", o "preparación del estudiante".
+description: Genera o refactoriza READMEs de clase para estudiantes del curso. Usa cuando necesites crear un nuevo README de clase, refactorizar uno existente, o cuando el usuario mencione "README de clase", "documentación de clase", o "preparación del estudiante".
 ---
 
 # Generador de README de Clase
 
-Este skill genera READMEs de clase siguiendo el estándar de Code 101. El documento es leído por el **estudiante antes de llegar a clase**.
+Este skill genera READMEs de clase siguiendo el estándar del curso (leer nombre de README.md raíz). El documento es leído por el **estudiante antes de llegar a clase**.
 
 ## Principios Fundamentales
 

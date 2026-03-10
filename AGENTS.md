@@ -38,7 +38,9 @@ Repositorio del curso **Code 101 - Elementals Software Development** de EnterTec
 │       ├── slides/README.md         # Presentación reveal.js
 │       ├── facilitator/README.md    # Guía pedagógica
 │       ├── test/README.md           # Info test (solo clases 4, 8, 12)
-│       └── test/questions.md        # Preguntas Canvas (solo 4, 8, 12)
+│       ├── test/questions.md        # Preguntas Canvas (solo 4, 8, 12)
+│       ├── infographic/index.html      # Infografia HTML (screenshot)
+│       └── infographic/image-prompts.md # Prompts para imagenes AI
 │   └── module-{N}/
 │       └── MODULE-PLAN.md           # Blueprint del módulo (pre-aprobación)
 ├── fast-track/                      # Programa intensivo (4 días)
@@ -94,6 +96,7 @@ Estratégicos en headers para escaneo visual. No decorativos ni excesivos.
 | `facilitator/README.md` | <300 líneas | ~8 min lectura |
 | `test/README.md` | ~30 líneas | Solo info para estudiante |
 | `test/questions.md` | 8 preguntas | 7 técnicas + 1 autoevaluación |
+| `infographic/index.html` | ~500 líneas | HTML autocontenido con CSS |
 
 ---
 
@@ -152,6 +155,15 @@ El programa intensivo (`fast-track/`) debe mantener coherencia con:
    module-test
 4. evaluation-class (verificar cada clase)
 5. lint-markdown (validar enlaces y formato)
+```
+
+### Flujo para actualizar módulo existente
+
+```
+1. module-updater (auditar)  →  Reporte de drift en conversación
+2. Usuario aprueba plan      →  Total, parcial, o solo parches
+3. module-updater (implementar) → Parches → Ediciones → Regeneraciones
+4. lint-markdown (validar archivos modificados)
 ```
 
 ### Dependencias entre archivos

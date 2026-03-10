@@ -1,6 +1,6 @@
 ---
 name: class-slides
-description: Genera slides reveal.js para clases del bootcamp. Usar cuando se pida crear slides, presentación, o diapositivas para una clase.
+description: Genera slides reveal.js para clases del curso. Usar cuando se pida crear slides, presentación, o diapositivas para una clase.
 allowed-tools: Read, Glob, Grep, Write, Edit
 ---
 
@@ -22,9 +22,14 @@ Crear slides optimizados para facilitar la clase. No son material de estudio, so
 
 ## Proceso
 
+0. **Leer scaffolding**: `AGENTS.md > ## Scaffolding`
+   - `part_naming` → nombrar checkpoints ("Parte 1" no "HU1")
+   - `checkpoint_style` → formato de validación en checkpoints
+   - Tabla de Autonomía → calibrar profundidad de código en slides
+
 1. **Leer contexto**:
    - `curriculum/class-{X}/README.md` (tema, objetivos)
-   - `curriculum/class-{X}/lab/README.md` (HUs para checkpoints)
+   - `curriculum/class-{X}/lab/README.md` (partes del lab para checkpoints)
    - `curriculum/class-{X-1}/README.md` (para transición de entrada)
    - `curriculum/class-{X+1}/README.md` (para preview de salida)
 
@@ -80,28 +85,28 @@ D. [Distractor: respuesta parcial o incompleta]
 
 ---
 
-## ✅ CHECKPOINT HU1: [Nombre]
+## ✅ CHECKPOINT [part_naming] 1: [Nombre]
 
 ### Verificar:
 ```
 [Comando o URL para probar]
 ```
 
-**¿Qué debe funcionar?**
+**¿Qué debe verse?**
 - Criterio 1
 - Criterio 2
 
 ---
 
-## ✅ CHECKPOINT HU2: [Nombre]
+## ✅ CHECKPOINT [part_naming] 2: [Nombre]
 
-[Repetir formato para cada HU del lab]
+[Repetir formato para cada parte del lab]
 
 ---
 
-## ✅ CHECKPOINT HU3: [Nombre]
+## ✅ CHECKPOINT [part_naming] 3: [Nombre]
 
-[Repetir formato - puede ser menos si hay menos HUs]
+[Repetir formato - puede ser menos si hay menos partes]
 
 ---
 
@@ -153,6 +158,8 @@ D. [Distractor: respuesta parcial o incompleta]
 ### Próxima clase: [Título]
 ```
 
+> Reemplazar `[part_naming]` con el valor de AGENTS.md (según `part_naming` en Paso 0).
+
 ## Lo que NO va en los Slides
 
 | Contenido | Razón |
@@ -164,6 +171,19 @@ D. [Distractor: respuesta parcial o incompleta]
 | Estrategias pedagógicas | Va en `facilitador/README.md` |
 | **Notas para facilitador** | Son internas, no para estudiantes |
 | **Respuestas esperadas** | Sesga la discusión del QUIZ |
+| **Código que duplica el lab** | El slide solo muestra el comando de verificación o resultado visual |
+
+## Formato de Checkpoints
+
+Adaptar según `checkpoint_style` en AGENTS.md:
+
+| Style | Pregunta | Contenido |
+|-------|----------|-----------|
+| `visual` | "¿Qué debe verse?" | Descripción de lo visible en pantalla |
+| `functional` | "¿Qué debe funcionar?" | Comportamiento verificable |
+| `sprint-based` | "¿Criterios cumplidos?" | Lista de aceptación |
+
+> En este repositorio (`visual`): describir lo que el estudiante observa en el navegador.
 
 ## Reglas para Clase Final de Módulo
 
@@ -186,7 +206,7 @@ Las clases 4, 8, 12 son **labs calificados**. Ajustes:
 
 ## Ejemplos por Tipo de Slide
 
-### QUIZ PRE-LAB (Code 101)
+### QUIZ PRE-LAB
 
 ```markdown
 ## 🧠 QUIZ PRE-LAB
@@ -197,7 +217,7 @@ Las clases 4, 8, 12 son **labs calificados**. Ajustes:
 *Toma 2-3 respuestas antes de continuar*
 ```
 
-### COMPROBACIÓN (Code 101)
+### COMPROBACIÓN
 
 ```markdown
 ## 🎯 COMPROBACIÓN
@@ -219,7 +239,7 @@ D. `*destacado { }`
 El punto (`.`) indica selector de clase en CSS.
 ```
 
-### CHECKPOINT (Code 101)
+### CHECKPOINT
 
 ```markdown
 ## ✅ CHECKPOINT: Header con navegación
@@ -234,7 +254,7 @@ El punto (`.`) indica selector de clase en CSS.
 - Header se mueve → falta `position: fixed`
 ```
 
-### REFLEXIÓN (Code 101)
+### REFLEXIÓN
 
 ```markdown
 ## 💡 REFLEXIÓN: Selectores CSS

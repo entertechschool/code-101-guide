@@ -58,6 +58,15 @@ Diseñar la arquitectura completa de un módulo de 4 clases ANTES de crear los r
 
 ## Proceso de Planificación
 
+### Fase 0: Leer scaffolding
+
+Leer `AGENTS.md > ## Scaffolding` para obtener las variables de nivel del curso:
+- Tabla de Autonomía → distribuir porcentaje de gaps por módulo (ej. M1=10%, M2=15%, M3=20%)
+- `part_naming` → nombrar partes del lab en checkpoints (ej. "Parte 1" no "HU1")
+- `checkpoint_style` → formato de checkpoints en el plan (ej. `visual` = describe lo que se ve)
+- `scaffolding_style` → calibrar nivel de detalle en labs planificados
+- `gap_types` → tipos de gap disponibles para el nivel
+
 ### Fase 1: Recopilar Contexto
 
 ```
@@ -89,7 +98,7 @@ Diseñar la arquitectura completa de un módulo de 4 clases ANTES de crear los r
    - Qué tiene el proyecto al final de cada clase
    - Cómo cada capa se construye sobre la anterior
 
-3. Definir checkpoints por lab
+3. Definir checkpoints por lab (usar `part_naming` y `checkpoint_style` de Fase 0)
    - 3 checkpoints para labs regulares (clases 1-3)
    - 5 partes para lab calificado (clase 4)
 

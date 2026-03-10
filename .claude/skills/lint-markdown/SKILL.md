@@ -198,7 +198,7 @@ https?://[^\s\)\]"']+
 
 ---
 
-## Enlaces Comunes en Code 101
+## Enlaces Comunes
 
 ### Herramientas (verificar periódicamente)
 - https://code.visualstudio.com/

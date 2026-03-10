@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox — Cómo organizar layouts como un profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Design System (reference) ──
+       --bg: #060913; --card-bg: #0d1117; --card-border: rgba(255,255,255,0.06);
+       --purple: #d946ef; --green: #4ade80; --blue: #93c5fd; --orange: #fb923c;
+       --text-primary: #e2e8f0; --text-secondary: #94a3b8; --text-muted: #64748b;
+    */
+
+    /* ── Canvas ── */
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #060913;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    pre {
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    code {
+      font-size: 0.9em;
+    }
+    .inline-code {
+      background: rgba(217, 70, 239, 0.12);
+      color: #d946ef;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(217, 70, 239, 0.15);
+      color: #d946ef;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 .tech {
+      color: #d946ef;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-purple { border-left: 3px solid #d946ef; }
+    .accent-green  { border-left: 3px solid #4ade80; }
+    .accent-blue   { border-left: 3px solid #93c5fd; }
+    .accent-orange { border-left: 3px solid #fb923c; }
+
+    /* ── Before/After visual ── */
+    .before-after {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .before-after .panel {
+      flex: 1;
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .before-after .panel-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .before-after .panel-label.before { color: #64748b; }
+    .before-after .panel-label.after { color: #4ade80; }
+    .before-after .box-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .before-after .box-row {
+      display: flex;
+      gap: 6px;
+    }
+    .before-after .box {
+      background: rgba(217, 70, 239, 0.15);
+      border: 1px solid rgba(217, 70, 239, 0.3);
+      color: #d946ef;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    /* ── Image block ── */
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 0.25rem;
+    }
+
+    /* ── Hover demo visual ── */
+    .hover-demo {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .hover-demo .state {
+      flex: 1;
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .hover-demo .state-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+    }
+    .hover-demo .mock-card {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+      display: inline-block;
+      min-width: 140px;
+    }
+    .hover-demo .state:last-child .mock-card {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(217, 70, 239, 0.15);
+      border-color: rgba(217, 70, 239, 0.25);
+    }
+    .hover-demo .state:last-child .state-label {
+      color: #fb923c;
+    }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 220px;
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.88rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    .footer .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="badge">Módulo 1 · Clase 04</div>
+    <h1><span class="tech">Flexbox</span> — Cómo organizar layouts como un profesional</h1>
+    <p class="subtitle">El sistema de layout que usan Netflix, Spotify y Amazon para organizar sus elementos en fila, centrar contenido y distribuir espacio.</p>
+  </section>
+
+  <!-- ════════ BLOQUE 1: Flex Container + Items ════════ -->
+  <section>
+    <div class="card accent-purple">
+      <h3>Flex Container e Items</h3>
+      <p class="desc">Activa Flexbox en el padre con <code class="inline-code">display: flex</code> y todos sus hijos directos se organizan automáticamente en fila.</p>
+
+      <div class="before-after">
+        <div class="panel">
+          <div class="panel-label before">Sin Flexbox</div>
+          <div class="box-stack">
+            <div class="box">Item 1</div>
+            <div class="box">Item 2</div>
+            <div class="box">Item 3</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-label after">Con Flexbox</div>
+          <div class="box-row">
+            <div class="box">Item 1</div>
+            <div class="box">Item 2</div>
+            <div class="box">Item 3</div>
+          </div>
+        </div>
+      </div>
+
+<pre><code><span style="color: #93c5fd">.container</span> {
+    <span style="color: #d946ef">display</span>: flex;           <span style="color: #64748b">/* Activa Flexbox */</span>
+    <span style="color: #d946ef">gap</span>: 20px;              <span style="color: #64748b">/* Espacio entre items */</span>
+}</code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 2: Ejes y Distribución ════════ -->
+    <div class="card accent-green">
+      <h3>Ejes: justify-content y align-items</h3>
+      <p class="desc">Flexbox tiene dos ejes. <code class="inline-code">justify-content</code> distribuye en el eje principal (horizontal) y <code class="inline-code">align-items</code> alinea en el eje cruzado (vertical).</p>
+
+      <img src="flex-axes.png" alt="Diagrama de ejes Flexbox: main axis horizontal con justify-content, cross axis vertical con align-items">
+    </div>
+
+    <!-- ════════ BLOQUE 3: Cards Layout ════════ -->
+    <div class="card accent-blue">
+      <h3>Cards con flex-wrap</h3>
+      <p class="desc">Combina <code class="inline-code">flex-wrap: wrap</code> con <code class="inline-code">gap</code> para crear grillas de cards que bajan a la siguiente línea si no caben.</p>
+
+<pre><code><span style="color: #93c5fd">.cards</span> {
+    <span style="color: #d946ef">display</span>: flex;
+    <span style="color: #d946ef">flex-wrap</span>: wrap;          <span style="color: #64748b">/* Bajan si no caben */</span>
+    <span style="color: #d946ef">gap</span>: 20px;
+    <span style="color: #d946ef">justify-content</span>: center;
+}
+
+<span style="color: #93c5fd">.card</span> {
+    <span style="color: #d946ef">background</span>: white;
+    <span style="color: #d946ef">padding</span>: 20px;
+    <span style="color: #d946ef">border-radius</span>: 8px;
+    <span style="color: #d946ef">width</span>: 200px;
+}</code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 4: Hover + Transition ════════ -->
+    <div class="card accent-orange">
+      <h3>Hover States y Transiciones</h3>
+      <p class="desc">La pseudo-clase <code class="inline-code">:hover</code> define estilos al pasar el mouse. <code class="inline-code">transition</code> hace que el cambio sea suave en vez de instantáneo.</p>
+
+      <div class="hover-demo">
+        <div class="state">
+          <div class="state-label">Normal</div>
+          <div class="mock-card">Card</div>
+        </div>
+        <div class="state">
+          <div class="state-label">:hover</div>
+          <div class="mock-card">Card</div>
+        </div>
+      </div>
+
+<pre><code><span style="color: #93c5fd">.card</span> {
+    <span style="color: #d946ef">transition</span>: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+<span style="color: #93c5fd">.card</span><span style="color: #fb923c">:hover</span> {
+    <span style="color: #d946ef">transform</span>: translateY(-5px);
+    <span style="color: #d946ef">box-shadow</span>: 0 8px 16px rgba(0,0,0,0.2);
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- ════════ GLOSARIO ════════ -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Flex Container</strong>
+        <span>Elemento padre con <code>display: flex</code></span>
+      </div>
+      <div class="term">
+        <strong>Flex Items</strong>
+        <span>Hijos directos del container</span>
+      </div>
+      <div class="term">
+        <strong>Main Axis</strong>
+        <span>Eje principal (horizontal por defecto)</span>
+      </div>
+      <div class="term">
+        <strong>Cross Axis</strong>
+        <span>Eje perpendicular al principal</span>
+      </div>
+      <div class="term">
+        <strong>gap</strong>
+        <span>Espacio uniforme entre items</span>
+      </div>
+      <div class="term">
+        <strong>:hover</strong>
+        <span>Estado al pasar el mouse</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <section class="footer">
+    <div class="logo">Code 101 — EnterTechSchool</div>
+    Clase 04 · Layout Moderno con Flexbox
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(13,17,23,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-04-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>

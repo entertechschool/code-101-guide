@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal y Git — Cómo trabajar como un desarrollador profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Design System (reference) ──
+       --bg: #060913; --card-bg: #0d1117; --card-border: rgba(255,255,255,0.06);
+       --purple: #d946ef; --green: #4ade80; --blue: #93c5fd; --orange: #fb923c;
+       --text-primary: #e2e8f0; --text-secondary: #94a3b8; --text-muted: #64748b;
+    */
+
+    /* ── Canvas ── */
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #060913;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    pre {
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    code {
+      font-size: 0.9em;
+    }
+    .inline-code {
+      background: rgba(217, 70, 239, 0.12);
+      color: #d946ef;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(217, 70, 239, 0.15);
+      color: #d946ef;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 .tech {
+      color: #d946ef;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-purple { border-left: 3px solid #d946ef; }
+    .accent-green  { border-left: 3px solid #4ade80; }
+    .accent-blue   { border-left: 3px solid #93c5fd; }
+    .accent-orange { border-left: 3px solid #fb923c; }
+
+    /* ── Command table ── */
+    .cmd-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+    .cmd-table th {
+      text-align: left;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .cmd-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.95rem;
+    }
+    .cmd-table td:first-child {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: #d946ef;
+      white-space: nowrap;
+    }
+    .cmd-table td:last-child {
+      color: #94a3b8;
+    }
+    .cmd-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Before/After visual ── */
+    .before-after {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .before-after .panel {
+      flex: 1;
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .before-after .panel-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .before-after .panel-label.before { color: #64748b; }
+    .before-after .panel-label.after { color: #4ade80; }
+    .before-after .file-list {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    .before-after .file-list .bad {
+      color: #fb923c;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .before-after .file-list .good {
+      color: #4ade80;
+    }
+
+    /* ── Compare table ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .compare-table th {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+      text-align: left;
+    }
+    .compare-table th:nth-child(2) { color: #93c5fd; }
+    .compare-table th:nth-child(3) { color: #fb923c; }
+    .compare-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+    .compare-table td:first-child {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Image block ── */
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 0.25rem;
+    }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 220px;
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.88rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    .footer .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="badge">Módulo 2 · Clase 05</div>
+    <h1><span class="tech">Terminal y Git</span> — Cómo trabajar como un desarrollador profesional</h1>
+    <p class="subtitle">Las herramientas que usan en Google, Amazon y Spotify para navegar archivos, guardar versiones de código y colaborar en equipo.</p>
+  </section>
+
+  <!-- ════════ BLOQUE 1: Terminal y Navegación ════════ -->
+  <section>
+    <div class="card accent-purple">
+      <h3>Terminal: El Control Remoto de tu PC</h3>
+      <p class="desc">La terminal es una interfaz de texto para ejecutar comandos. Lo que toma 10 clics en carpetas, se hace en una línea.</p>
+
+      <table class="cmd-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Qué hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>pwd</td><td>Muestra en qué carpeta estás</td></tr>
+          <tr><td>ls</td><td>Lista archivos y carpetas</td></tr>
+          <tr><td>cd carpeta</td><td>Entra a una carpeta</td></tr>
+          <tr><td>cd ..</td><td>Sube un nivel</td></tr>
+          <tr><td>mkdir nombre</td><td>Crea una carpeta nueva</td></tr>
+        </tbody>
+      </table>
+
+<pre><code><span style="color: #64748b">$</span> <span style="color: #4ade80">cd</span> Documents
+<span style="color: #64748b">$</span> <span style="color: #4ade80">mkdir</span> bootcamp
+<span style="color: #64748b">$</span> <span style="color: #4ade80">cd</span> bootcamp
+<span style="color: #64748b">$</span> <span style="color: #4ade80">pwd</span>
+<span style="color: #94a3b8">/Users/tunombre/Documents/bootcamp</span></code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 2: Git ════════ -->
+    <div class="card accent-green">
+      <h3>Git: Control de Versiones</h3>
+      <p class="desc">Git guarda cada versión de tu código. Si rompes algo, puedes volver atrás. Es como tener "Ctrl+Z" para todo tu proyecto.</p>
+
+      <div class="before-after">
+        <div class="panel">
+          <div class="panel-label before">Sin Git</div>
+          <div class="file-list">
+            <div class="bad">proyecto_v1.html</div>
+            <div class="bad">proyecto_v2.html</div>
+            <div class="bad">proyecto_FINAL.html</div>
+            <div class="bad">proyecto_FINAL_FINAL.html</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-label after">Con Git</div>
+          <div class="file-list">
+            <div class="good">proyecto/</div>
+            <div class="good">&nbsp;&nbsp;└── .git/</div>
+            <div class="good">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── commit 1</div>
+            <div class="good">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── commit 2</div>
+            <div class="good">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── commit 3</div>
+          </div>
+        </div>
+      </div>
+
+<pre><code><span style="color: #64748b">$</span> <span style="color: #4ade80">git</span> commit -m <span style="color: #fb923c">"feat: agregar sección de contacto"</span>
+<span style="color: #64748b">$</span> <span style="color: #4ade80">git</span> push</code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 3: Flujo Git ════════ -->
+    <div class="card accent-blue">
+      <h3>El Flujo de Git: add → commit → push</h3>
+      <p class="desc">Tres pasos para guardar y subir tus cambios: preparar con <code class="inline-code">git add</code>, guardar en historial con <code class="inline-code">git commit</code>, y subir a la nube con <code class="inline-code">git push</code>.</p>
+
+      <img src="git-flow.png" alt="Diagrama del flujo Git: editar archivo, git add al staging area, git commit al historial local, git push a GitHub remoto">
+    </div>
+
+    <!-- ════════ BLOQUE 4: Git vs GitHub ════════ -->
+    <div class="card accent-orange">
+      <h3>Git vs GitHub</h3>
+      <p class="desc">Git es el programa en tu computadora. GitHub es el servicio en la nube. Como Word vs Google Drive.</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Aspecto</th>
+            <th>Git</th>
+            <th>GitHub</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Qué es</td>
+            <td>Software en tu PC</td>
+            <td>Sitio web en la nube</td>
+          </tr>
+          <tr>
+            <td>Dónde guarda</td>
+            <td>Historial local</td>
+            <td>Almacena en internet</td>
+          </tr>
+          <tr>
+            <td>Internet</td>
+            <td>Funciona sin conexión</td>
+            <td>Necesita conexión</td>
+          </tr>
+          <tr>
+            <td>Analogía</td>
+            <td>Word (programa)</td>
+            <td>Google Drive (nube)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════════ GLOSARIO ════════ -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Terminal / CLI</strong>
+        <span>Interfaz de texto para comandos</span>
+      </div>
+      <div class="term">
+        <strong>Repositorio</strong>
+        <span>Carpeta con historial de Git</span>
+      </div>
+      <div class="term">
+        <strong>Clone</strong>
+        <span>Copiar un repo remoto a tu PC</span>
+      </div>
+      <div class="term">
+        <strong>Commit</strong>
+        <span>Guardar un punto en el historial</span>
+      </div>
+      <div class="term">
+        <strong>Push</strong>
+        <span>Subir commits a GitHub</span>
+      </div>
+      <div class="term">
+        <strong>Remote</strong>
+        <span>Servidor con la versión central</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <section class="footer">
+    <div class="logo">Code 101 — EnterTechSchool</div>
+    Clase 05 · Setup del Desarrollador Moderno
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(13,17,23,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-05-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>
