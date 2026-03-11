@@ -25,6 +25,20 @@ Ver detalles en `.claude/skills/*/SKILL.md`
 
 ---
 
+## Skills Compartidos
+
+Los 10 skills vienen de [shared-skills](https://github.com/entertechschool/shared-skills) via symlinks:
+
+```
+.claude/skills/{skill} → ~/.entertechschool/shared-skills/{skill}
+```
+
+- **Actualizar skills:** editar en `shared-skills/` y correr `ets-sync-skills`
+- **Override local:** reemplazar symlink con directorio real (el repo local tiene prioridad)
+- **Sync:** `ets-sync-skills` copia canónicas → `~/.entertechschool/shared-skills/`
+
+---
+
 ## Progreso del Curso
 
 | Módulo | Estado | Proyecto |
