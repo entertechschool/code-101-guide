@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS — Decisiones y Lógica Condicional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #0f172a;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-green  { border-left: 3px solid #10b981; }
+    .accent-blue   { border-left: 3px solid #3b82f6; }
+    .accent-purple { border-left: 3px solid #8b5cf6; }
+    .accent-orange { border-left: 3px solid #f97316; }
+
+    /* ── Grid Layouts ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .logic-box {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .logic-box .op {
+      font-size: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── Comparison table ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .compare-table th {
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+    }
+    .compare-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .compare-table .result-true { color: #4ade80; font-weight: bold; }
+    .compare-table .result-false { color: #f87171; font-weight: bold; }
+
+    /* ── Syntax highlighting mocks ── */
+    .syn-keyword { color: #c678dd; }
+    .syn-string { color: #98c379; }
+    .syn-number { color: #d19a66; }
+    .syn-boolean { color: #d19a66; }
+    .syn-comment { color: #5c6370; font-style: italic; }
+    .syn-func { color: #61afef; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #f8fafc;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 3 · Clase 10</div>
+    <h1>Decisiones y Lógica Condicional</h1>
+    <p class="subtitle">Enseña a tu código a pensar, comparar y elegir caminos</p>
+  </section>
+
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
+
+    <!-- Bloque 1: Operadores de Comparación -->
+    <div class="card accent-green">
+      <h3>1. Operadores de Comparación</h3>
+      <p class="desc">Toman dos valores, los comparan, y producen siempre un booleano (<code>true</code> o <code>false</code>).</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Operador</th>
+            <th>Significado</th>
+            <th>Ejemplo</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>===</code></td>
+            <td>Igual estricto (valor y tipo)</td>
+            <td><code>5 === 5</code><br><code>5 === "5"</code></td>
+            <td><span class="result-true">true</span><br><span class="result-false">false</span></td>
+          </tr>
+          <tr>
+            <td><code>!==</code></td>
+            <td>Diferente estricto</td>
+            <td><code>5 !== 3</code></td>
+            <td><span class="result-true">true</span></td>
+          </tr>
+          <tr>
+            <td><code>&gt;</code> / <code>&gt;=</code></td>
+            <td>Mayor / Mayor o igual</td>
+            <td><code>10 &gt; 5</code></td>
+            <td><span class="result-true">true</span></td>
+          </tr>
+          <tr>
+            <td><code>&lt;</code> / <code>&lt;=</code></td>
+            <td>Menor / Menor o igual</td>
+            <td><code>3 &lt; 1</code></td>
+            <td><span class="result-false">false</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bloque 2: Operadores Lógicos -->
+    <div class="card accent-blue">
+      <h3>2. Operadores Lógicos</h3>
+      <p class="desc">Combinan múltiples condiciones (sí o no) para resolver situaciones complejas.</p>
+      
+      <div class="grid-2">
+        <div class="logic-box">
+          <div class="op">&amp;&amp; (AND)</div>
+          <p style="color:#94a3b8; font-size:0.95rem;">Exigente: <strong>Todas</strong> las condiciones deben ser verdaderas. Si una sola falla, todo es falso.</p>
+          <pre style="text-align:left; background:transparent; border:none; padding:1rem 0 0 0; margin:0;"><code><span class="syn-boolean">true</span> &amp;&amp; <span class="syn-boolean">true</span>   <span class="syn-comment">// → true</span>
+<span class="syn-boolean">true</span> &amp;&amp; <span class="syn-boolean">false</span>  <span class="syn-comment">// → false</span></code></pre>
+        </div>
+        <div class="logic-box">
+          <div class="op">|| (OR)</div>
+          <p style="color:#94a3b8; font-size:0.95rem;">Flexible: Basta con que <strong>al menos una</strong> sea verdadera para que todo sea verdadero.</p>
+          <pre style="text-align:left; background:transparent; border:none; padding:1rem 0 0 0; margin:0;"><code><span class="syn-boolean">true</span> || <span class="syn-boolean">false</span>  <span class="syn-comment">// → true</span>
+<span class="syn-boolean">false</span> || <span class="syn-boolean">false</span> <span class="syn-comment">// → false</span></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 3: Flujo de Control -->
+    <div class="card accent-purple">
+      <h3>3. Flujo Condicional: if / else if / else</h3>
+      <p class="desc">El programa deja de ser una línea recta y evalúa caminos. Entrará al primer bloque que su condición sea verdadera, e ignorará los demás.</p>
+      <pre><code><span class="syn-keyword">if</span> (puntaje &gt;= <span class="syn-number">90</span>) {
+  <span class="syn-comment">// Camino 1: Solo si es mayor o igual a 90</span>
+  alert(<span class="syn-string">'Excelente'</span>);
+} <span class="syn-keyword">else if</span> (puntaje &gt;= <span class="syn-number">60</span>) {
+  <span class="syn-comment">// Camino 2: Si no fue el primero, pero es mayor a 60</span>
+  alert(<span class="syn-string">'Aprobado'</span>);
+} <span class="syn-keyword">else</span> {
+  <span class="syn-comment">// Camino final: Si NINGUNA condición anterior se cumplió</span>
+  alert(<span class="syn-string">'Sigue intentando'</span>);
+}</code></pre>
+    </div>
+
+    <!-- Bloque 4: El objeto Math y isNaN -->
+    <div class="card accent-orange">
+      <h3>4. Aleatoriedad (Math) y Validación (isNaN)</h3>
+      <p class="desc">Herramientas esenciales para construir juegos o validar entradas del usuario.</p>
+      <pre><code><span class="syn-comment">// 🎲 Generador de Número Secreto (1 a 100):</span>
+<span class="syn-keyword">const</span> numeroVip = Math.<span class="syn-func">floor</span>(Math.<span class="syn-func">random</span>() * <span class="syn-number">100</span>) + <span class="syn-number">1</span>;
+<span class="syn-comment">// random() da decimal (ej: 0.999), 
+// * 100 escala (ej: 99.9), 
+// floor() redondea hacia abajo (ej: 99),
+// + 1 desplaza el rango a 1-100.</span>
+
+<span class="syn-comment">// 🛡️ Validación de Usuario: "Not a Number"</span>
+<span class="syn-keyword">if</span> (<span class="syn-func">isNaN</span>(intento) || intento === <span class="syn-string">''</span>) {
+  alert(<span class="syn-string">"Por favor, ingresa un número válido."</span>);
+}</code></pre>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>=== vs ==</strong>
+        <span>Siempre usa <code>===</code> (igualdad estricta). La igualdad doble <code>==</code> es peligrosa porque intenta convertir tipos por detrás (<code>"5" == 5</code> es `true`).</span>
+      </div>
+      <div class="term">
+        <strong>! (NOT lógico)</strong>
+        <span>Invierte un valor. <code>!true</code> se convierte en <code>false</code>. Muy útil para negar condiciones complejas.</span>
+      </div>
+      <div class="term">
+        <strong>NaN</strong>
+        <span>Not a Number. Aparece cuando intentas convertir letras a números. Usa <code>isNaN(valor)</code> para detectar si el usuario ingresó algo inválido.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 10
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(15,23,42,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-10-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>

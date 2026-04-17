@@ -3,438 +3,356 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clase 03 - Estilos con CSS | Code 101</title>
+  <title>CSS — Estilos y Box Model</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ========== RESET & BASE ========== */
+    /* ── Reset ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
-      --purple: #6C3FA0;
-      --purple-light: #8B5FBF;
-      --purple-dark: #4A2170;
-      --teal: #00B4D8;
-      --teal-light: #48CAE4;
-      --coral: #FF6B6B;
-      --coral-light: #FF8787;
-      --yellow: #FFD166;
-      --bg: #0F0A1A;
-      --bg-card: #1A1230;
-      --bg-card-alt: #1E1540;
-      --text: #F0EDF5;
-      --text-muted: #A89BBF;
-      --font: 'Inter', sans-serif;
-      --mono: 'JetBrains Mono', monospace;
-    }
-
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
     body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    /* ========== LAYOUT (fijo 1080x1920 para screenshot) ========== */
-    .infographic {
       width: 1080px;
-      height: 1920px;
       margin: 0 auto;
-      padding: 0;
-      background: var(--bg);
-      overflow: hidden;
+      background: #0f172a;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
     }
 
-    /* ========== HERO ========== */
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
     .hero {
-      position: relative;
-      padding: 76px 50px 66px;
-      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--bg) 60%);
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .hero-content {
-      flex: 1;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--teal);
-      color: var(--bg);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 16px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
-      font-size: 44px;
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 .accent {
-      color: var(--teal);
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.5;
-    }
-
-    .hero-img {
-      width: 240px;
-      height: 240px;
-      border-radius: 24px;
-      object-fit: cover;
-      box-shadow: 0 20px 60px rgba(108, 63, 160, 0.4);
-    }
-
-    /* ========== SECTION BASE ========== */
-    .section {
-      padding: 54px 50px;
-    }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--teal);
-      margin-bottom: 10px;
-    }
-
-    .section h2 {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    /* ========== WHAT WE DID - 4 CARDS (~420px) ========== */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid rgba(108, 63, 160, 0.3);
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: var(--purple);
-      color: white;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 15px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* ========== BOX MODEL VISUAL ========== */
-    .box-model-section {
-      background: var(--bg-card-alt);
-      padding: 62px 50px;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .box-model-section .content-side {
-      flex: 1;
-    }
-
-    .box-model-section .image-side {
-      width: 360px;
-      flex-shrink: 0;
-    }
-
-    .box-model-section .image-side img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .box-model-list {
-      list-style: none;
-      margin-top: 14px;
-    }
-
-    .box-model-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 9px 0;
-      font-size: 14px;
-    }
-
-    .box-model-list .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .dot-content { background: var(--teal); }
-    .dot-padding { background: var(--yellow); }
-    .dot-border { background: var(--coral); }
-    .dot-margin { background: var(--purple-light); }
-
-    .box-model-list strong {
-      font-family: var(--mono);
-      font-size: 13px;
-    }
-
-    /* ========== PALETTE + FONTS ========== */
-    .palette-section {
-      padding: 76px 50px;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .palette-section .image-side {
-      width: 360px;
-      flex-shrink: 0;
-    }
-
-    .palette-section .image-side img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .palette-section .content-side {
-      flex: 1;
-    }
-
-    .tools-row {
-      display: flex;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .tool-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid rgba(108, 63, 160, 0.3);
-      border-radius: 12px;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .tool-chip .icon {
-      font-size: 18px;
-    }
-
-    /* ========== GLOSARIO STRIP (~100px) ========== */
-    .glossary-strip {
-      display: flex;
-      gap: 0;
-      background: var(--bg-card);
-    }
-
-    .glossary-item {
-      flex: 1;
-      padding: 30px 16px;
-      border-right: 1px solid rgba(108, 63, 160, 0.2);
       text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
     }
-
-    .glossary-item:last-child {
-      border-right: none;
+    .hero .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
-
-    .glossary-item dt {
-      font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--teal);
-      margin-bottom: 4px;
-    }
-
-    .glossary-item dd {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    /* ========== FOOTER ========== */
-    .footer {
-      padding: 32px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(108, 63, 160, 0.2);
-    }
-
-    .footer-brand {
-      font-size: 14px;
+    .hero h1 {
+      font-size: 2.5rem;
       font-weight: 700;
-      color: var(--text-muted);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
     }
 
-    .footer-brand span {
-      color: var(--teal);
+    /* ── Cards ── */
+    .card {
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
     }
 
-    .footer-class {
-      font-size: 13px;
-      color: var(--text-muted);
+    /* ── Accent borders ── */
+    .accent-blue   { border-left: 3px solid #3b82f6; }
+    .accent-rose   { border-left: 3px solid #f43f5e; }
+    .accent-yellow { border-left: 3px solid #eab308; }
+    .accent-teal   { border-left: 3px solid #14b8a6; }
+
+    /* ── Grid Layouts ── */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .sel-box {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .sel-box h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    /* ── Box Model Diagram ── */
+    .box-model {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+    .bm-margin {
+      background: rgba(249, 115, 22, 0.1);
+      border: 2px dashed #f97316;
+      padding: 30px;
+      position: relative;
+    }
+    .bm-border {
+      background: rgba(234, 179, 8, 0.1);
+      border: 4px solid #eab308;
+      padding: 30px;
+      position: relative;
+    }
+    .bm-padding {
+      background: rgba(16, 185, 129, 0.1);
+      border: 2px dashed #10b981;
+      padding: 30px;
+      position: relative;
+    }
+    .bm-content {
+      background: #3b82f6;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px 40px;
+    }
+    .bm-label {
+      position: absolute;
+      top: 4px;
+      left: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Syntax highlighting mocks ── */
+    .syn-sel { color: #e06c75; }
+    .syn-prop { color: #d19a66; }
+    .syn-val { color: #98c379; }
+    .syn-brace { color: #abb2bf; }
+    .syn-comment { color: #5c6370; font-style: italic; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term > strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #f8fafc;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
-  <div class="infographic">
 
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-content">
-        <span class="hero-badge">Módulo 1 · Clase 3 de 4</span>
-        <h1>Estilos con <span class="accent">CSS</span></h1>
-        <p class="hero-subtitle">Transforma tu perfil de una página plana a un diseño con identidad propia: colores, tipografías y espaciado profesional.</p>
-      </div>
-      <img class="hero-img" src="hero-css.png" alt="CSS transformando una página web">
-    </header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 1 · Clase 03</div>
+    <h1>Estilos y Box Model</h1>
+    <p class="subtitle">La Matrix del Diseño: Cascada, Selectores y el control del espacio</p>
+  </section>
 
-    <!-- QUÉ HICIMOS -->
-    <section class="section">
-      <p class="section-label">Lo que vimos en clase</p>
-      <h2>4 pasos para darle vida a tu página</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-number">1</div>
-          <h3>La magia de CSS</h3>
-          <p>Descubrimos cómo un solo archivo CSS puede transformar completamente la apariencia de una página HTML.</p>
-        </div>
-        <div class="card">
-          <div class="card-number">2</div>
-          <h3>Paleta de colores</h3>
-          <p>Elegimos combinaciones de colores coherentes usando herramientas profesionales como Coolors.</p>
-        </div>
-        <div class="card">
-          <div class="card-number">3</div>
-          <h3>Google Fonts</h3>
-          <p>Seleccionamos tipografías web que complementan nuestro diseño y aprendimos a implementarlas.</p>
-        </div>
-        <div class="card">
-          <div class="card-number">4</div>
-          <h3>Box Model</h3>
-          <p>Dominamos padding, margin y border para controlar el espacio y crear layouts profesionales.</p>
-        </div>
-      </div>
-    </section>
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
 
-    <!-- BOX MODEL -->
-    <section class="box-model-section">
-      <div class="content-side">
-        <p class="section-label">Concepto clave</p>
-        <h2 style="font-size: 28px;">El Box Model</h2>
-        <p style="color: var(--text-muted); margin-bottom: 10px; font-size: 14px;">Todo elemento HTML es una caja con 4 capas. Entender esto es la base de todo layout en CSS.</p>
-        <ul class="box-model-list">
-          <li><span class="dot dot-content"></span> <strong>content</strong> — El contenido real (texto, imagen)</li>
-          <li><span class="dot dot-padding"></span> <strong>padding</strong> — Espacio interno entre contenido y borde</li>
-          <li><span class="dot dot-border"></span> <strong>border</strong> — El borde visible del elemento</li>
-          <li><span class="dot dot-margin"></span> <strong>margin</strong> — Espacio externo entre elementos</li>
-        </ul>
-      </div>
-      <div class="image-side">
-        <img src="box-model.png" alt="Diagrama del Box Model CSS">
-      </div>
-    </section>
+    <!-- Bloque 1: CSS Syntax -->
+    <div class="card accent-blue">
+      <h3>1. Anatomía de una Regla CSS</h3>
+      <p class="desc">HTML es el esqueleto; CSS es la ropa. Toda regla necesita un <strong>selector</strong> (a quién), una <strong>propiedad</strong> (qué) y un <strong>valor</strong> (cómo).</p>
+      <pre><code><span class="syn-comment">/* Conectar en el HTML con: &lt;link rel="stylesheet" href="styles.css"&gt; */</span>
 
-    <!-- PALETA + FONTS -->
-    <section class="palette-section">
-      <div class="image-side">
-        <img src="palette-fonts.png" alt="Paleta de colores y tipografías">
-      </div>
-      <div class="content-side">
-        <p class="section-label">Diseño con intención</p>
-        <h2 style="font-size: 28px;">Colores + Tipografía</h2>
-        <p style="color: var(--text-muted); margin-bottom: 10px; font-size: 14px;">Los colores y fuentes que eliges comunican tu personalidad. Tu perfil no solo muestra información—transmite quién eres.</p>
-        <div class="tools-row">
-          <div class="tool-chip">
-            <span class="icon">🎨</span> Coolors
-          </div>
-          <div class="tool-chip">
-            <span class="icon">🔤</span> Google Fonts
-          </div>
-          <div class="tool-chip">
-            <span class="icon">🖥️</span> VS Code
-          </div>
+<span class="syn-sel">h1</span> <span class="syn-brace">{</span>
+    <span class="syn-prop">color</span>: <span class="syn-val">#38bdf8</span>;
+    <span class="syn-prop">background-color</span>: <span class="syn-val">#0f172a</span>;
+<span class="syn-brace">}</span></code></pre>
+    </div>
+
+    <!-- Bloque 2: Cascada y Herencia -->
+    <div class="card accent-rose">
+      <h3>2. La Matrix (Cascada y Herencia)</h3>
+      <p class="desc">Dos principios fundamentales de cómo el navegador lee y aplica los estilos.</p>
+      <div style="display: flex; gap: 2rem; margin-top: 1.5rem;">
+        <div style="flex:1; background:#0f172a; padding:1.5rem; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
+          <h4 style="color:#f43f5e; margin-bottom:0.5rem;">⬇️ Cascada</h4>
+          <p style="font-size:0.9rem; color:#94a3b8;">CSS se lee de arriba hacia abajo. Si dos reglas se contradicen para el mismo elemento, <strong>la última línea escrita gana</strong>.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- GLOSARIO STRIP -->
-    <div class="glossary-strip">
-      <div class="glossary-item">
-        <dl>
-          <dt>selector</dt>
-          <dd>QUÉ estilizar</dd>
-        </dl>
-      </div>
-      <div class="glossary-item">
-        <dl>
-          <dt>propiedad</dt>
-          <dd>QUÉ cambiar</dd>
-        </dl>
-      </div>
-      <div class="glossary-item">
-        <dl>
-          <dt>valor</dt>
-          <dd>CÓMO cambiarlo</dd>
-        </dl>
-      </div>
-      <div class="glossary-item">
-        <dl>
-          <dt>padding</dt>
-          <dd>Espacio interno</dd>
-        </dl>
-      </div>
-      <div class="glossary-item">
-        <dl>
-          <dt>margin</dt>
-          <dd>Espacio externo</dd>
-        </dl>
+        <div style="flex:1; background:#0f172a; padding:1.5rem; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
+          <h4 style="color:#f43f5e; margin-bottom:0.5rem;">🧬 Herencia</h4>
+          <p style="font-size:0.9rem; color:#94a3b8;">Las propiedades de texto (como <code>font-family</code> y <code>color</code>) aplicadas a un contenedor padre, <strong>pasan a sus hijos solos</strong> (como del <code>body</code> a los `p`).</p>
+        </div>
       </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-brand"><span>Entertech</span> School · Code 101</div>
-      <div class="footer-class">Clase 03 — Estilos con CSS · Módulo 1</div>
-    </footer>
+    <!-- Bloque 3: Selectores Clave -->
+    <div class="card accent-yellow">
+      <h3>3. Los 3 Selectores Clave</h3>
+      <p class="desc">A quién le disparo el dardo. El nivel de exclusividad que le das a una regla de diseño CSS.</p>
+      
+      <div class="grid-3">
+        <div class="sel-box" style="border-top: 3px solid rgba(255,255,255,0.5);">
+          <h4 style="color:#e2e8f0;">Etiqueta</h4>
+          <p style="color:#94a3b8; font-size:0.9rem;"><code>h1 { }</code><br><br>Muy global. Afecta a <strong>todos</strong> los <code>&lt;h1&gt;</code> de la página por igual.</p>
+        </div>
+        <div class="sel-box" style="border-top: 3px solid #eab308;">
+          <h4 style="color:#eab308;">ID</h4>
+          <p style="color:#94a3b8; font-size:0.9rem;"><code>#experiencia { }</code><br><br>Exclusivo. Afecta a <strong>un solo</strong> elemento de la página. Como un DNI.</p>
+        </div>
+        <div class="sel-box" style="border-top: 3px solid #8b5cf6;">
+          <h4 style="color:#8b5cf6;">Clase</h4>
+          <p style="color:#94a3b8; font-size:0.9rem;"><code>.btn-rojo { }</code><br><br>Reusable. Afecta a <strong>un grupo</strong> de elementos que comparten `class="btn-rojo"`.</p>
+        </div>
+      </div>
+    </div>
 
-  </div>
+    <!-- Bloque 4: Box Model -->
+    <div class="card accent-teal">
+      <h3>4. El Modelo de Caja (Box Model)</h3>
+      <p class="desc"><strong>Todo en la web es un rectángulo.</strong> El Box Model dicta cómo se distribuyen sus capas de adentro hacia afuera: el relleno da aire, el borde encierra, el margen empuja.</p>
+      
+      <div class="box-model">
+        <div class="bm-margin">
+          <span class="bm-label" style="color:#f97316;">Margin (Afuera)</span>
+          <div class="bm-border">
+            <span class="bm-label" style="color:#eab308;">Border (El Límite)</span>
+            <div class="bm-padding">
+              <span class="bm-label" style="color:#10b981;">Padding (Adentro)</span>
+              <div class="bm-content">
+                CONTENT (Texto/Imagen)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <pre style="margin-top:2rem;"><code><span class="syn-sel">section</span> <span class="syn-brace">{</span>
+    <span class="syn-prop">padding</span>: <span class="syn-val">20px</span>;  <span class="syn-comment">/* Aire dentro de la sección */</span>
+    <span class="syn-prop">margin</span>: <span class="syn-val">40px</span>;   <span class="syn-comment">/* Empuja a las secciones vecinas */</span>
+    <span class="syn-prop">border</span>: <span class="syn-val">2px solid black</span>;
+<span class="syn-brace">}</span></code></pre>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Normalización (`*`)</strong>
+        <span>Regla CSS (`* { margin:0; padding:0; }`) usada al inicio para borrar los estilos por defecto que pone Chrome. Arrancamos con un lienzo limpio.</span>
+      </div>
+      <div class="term">
+        <strong>Padding</strong>
+        <span>Espacio <strong>interno</strong>. Empuja el contenido hacia el centro para que no golpee los bordes.</span>
+      </div>
+      <div class="term">
+        <strong>Margin</strong>
+        <span>Espacio <strong>externo</strong>. La "burbuja de espacio personal" que separa tu caja del resto.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 03
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(15,23,42,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-03-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
 </body>
 </html>

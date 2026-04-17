@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS — Fundamentos de JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #0f172a;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-yellow { border-left: 3px solid #f59e0b; }
+    .accent-blue   { border-left: 3px solid #3b82f6; }
+    .accent-pink   { border-left: 3px solid #ec4899; }
+    .accent-green  { border-left: 3px solid #10b981; }
+
+    /* ── Variable Boxes ── */
+    .var-container {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .var-box {
+      flex: 1;
+      background: #0f172a;
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .var-box.locked {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #1e293b;
+    }
+    .var-box .tag {
+      position: absolute;
+      top: -12px;
+      left: 1rem;
+      background: #f59e0b;
+      color: #000;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    .var-box.locked .tag {
+      background: #ef4444;
+      color: #fff;
+    }
+    .var-box .content {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      color: #38bdf8;
+    }
+
+    /* ── Syntax highlighting mocks ── */
+    .syn-keyword { color: #c678dd; }
+    .syn-string { color: #98c379; }
+    .syn-number { color: #d19a66; }
+    .syn-comment { color: #5c6370; font-style: italic; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #f8fafc;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 3 · Clase 09</div>
+    <h1>El lenguaje que hace cosas</h1>
+    <p class="subtitle">Algoritmos, Variables, Tipos de Dato y Operadores en JavaScript</p>
+  </section>
+
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
+
+    <!-- Bloque 1: Algoritmos y Secuencia -->
+    <div class="card accent-yellow">
+      <h3>1. Algoritmos y Ejecución Secuencial</h3>
+      <p class="desc">Un algoritmo es una secuencia <strong>finita</strong>, <strong>ordenada</strong> y <strong>precisa</strong> de instrucciones. JavaScript ejecuta tu código exactamente así: línea por línea, de arriba hacia abajo, sin saltarse nada.</p>
+      <pre><code><span class="syn-comment">// La precisión importa. Si omites un paso, el código falla.</span>
+Paso 1: Detectar el clic en el botón.
+Paso 2: Obtener el valor ingresado por el usuario.
+Paso 3: Si está vacío → mostrar advertencia.
+Paso 4: Si tiene valor → guardar datos y avanzar.</code></pre>
+    </div>
+
+    <!-- Bloque 2: Variables -->
+    <div class="card accent-blue">
+      <h3>2. Variables: Las cajas de la memoria</h3>
+      <p class="desc">Una variable es un espacio en la memoria para guardar un dato. Tienen nombre (variable) y tipo. En JS usamos dos principales:</p>
+      
+      <div class="var-container">
+        <div class="var-box">
+          <div class="tag">let intentos = 0;</div>
+          <div class="content" style="color:#d19a66">0 <span style="color:#94a3b8">→</span> 1</div>
+          <p style="margin-top:1rem; font-size:0.9rem; color:#94a3b8">Caja Abierta: El contenido PUEDE cambiar o reasignarse en el futuro.</p>
+        </div>
+        <div class="var-box locked">
+          <div class="tag">const MAX = 10;</div>
+          <div class="content" style="color:#d19a66">10</div>
+          <p style="margin-top:1rem; font-size:0.9rem; color:#94a3b8">Caja Sellada: Una vez inicializado, el contenido NO PUEDE cambiar. (Opción por defecto)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 3: Tipos de Dato -->
+    <div class="card accent-pink">
+      <h3>3. Tipos de Dato y el inspector typeof</h3>
+      <p class="desc">La regla de oro: <strong>las comillas definen el tipo, no el contenido</strong>. Dependiendo del tipo, el motor de JS decide si sumar, concatenar o dar error.</p>
+      <pre><code><span class="syn-keyword">typeof</span> <span class="syn-number">42</span>            <span class="syn-comment">// → "number" (Azul en consola)</span>
+<span class="syn-keyword">typeof</span> <span class="syn-string">"42"</span>          <span class="syn-comment">// → "string" (Negro en consola)</span>
+<span class="syn-keyword">typeof</span> <span class="syn-keyword">true</span>          <span class="syn-comment">// → "boolean"</span>
+<span class="syn-keyword">typeof</span> <span class="syn-keyword">undefined</span>     <span class="syn-comment">// → "undefined" (Caja sin inicializar)</span></code></pre>
+    </div>
+
+    <!-- Bloque 4: La Trampa del + -->
+    <div class="card accent-green">
+      <h3>4. La Trampa del "+" y Conversión de Tipos</h3>
+      <p class="desc">El operador <code>+</code> hace doble trabajo: suma matemática y concatenación de texto. Si detecta un string en la operación, abandona la suma y pega textos juntos. <code>prompt()</code> siempre devuelve texto.</p>
+      <pre><code><span class="syn-comment">// ❌ La Trampa:</span>
+<span class="syn-string">"5"</span> + <span class="syn-number">3</span>              <span class="syn-comment">// → "53" (Concatenación)</span>
+<span class="syn-string">"5"</span> - <span class="syn-number">3</span>              <span class="syn-comment">// → 2    (Matemáticas reales)</span>
+
+<span class="syn-comment">// ✅ La Solución: Convertir con Number() o parseInt()</span>
+<span class="syn-keyword">Number</span>(<span class="syn-string">"5"</span>) + <span class="syn-number">3</span>      <span class="syn-comment">// → 8</span>
+
+<span class="syn-comment">// ✨ Forma Moderna: Template Literals (con backticks)</span>
+<span class="syn-keyword">let</span> msg = <span class="syn-string">`Tienes ${edad} años y faltan ${100 - edad}`</span>;</code></pre>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>console.log()</strong>
+        <span>Tu herramienta número uno. Imprime mensajes secretamente en la consola (F12) para depurar tu código.</span>
+      </div>
+      <div class="term">
+        <strong>prompt()</strong>
+        <span>Abre una ventana solicitando input al usuario. ADVERTENCIA: Lo que el usuario escribe SIEMPRE regresa como `string` (texto).</span>
+      </div>
+      <div class="term">
+        <strong>undefined vs null</strong>
+        <span><code>undefined</code> es cuando declaraste una caja pero no pusiste nada adentro. <code>null</code> es cuando dejaste la caja vacía a propósito.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 09
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(15,23,42,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-09-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>

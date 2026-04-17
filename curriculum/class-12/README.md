@@ -76,14 +76,32 @@ Tu presentación debe cubrir:
 
 ---
 
-## Glosario
+## 📁 Entregables requeridos
 
-| Término | Definición |
-|---------|------------|
-| **Demo Day** | Sesión de presentaciones donde cada estudiante muestra su proyecto completado |
-| **Refactorización** | Mejorar la estructura del código sin cambiar lo que hace |
-| **MVP** | Minimum Viable Product: la versión mínima funcional de un producto |
-| **Depuración** | Proceso de encontrar y corregir errores en el código |
+- Archivo `index.html` con estructura mínima y título del juego.
+- Archivo `script.js` con el juego funcionando.
+- Enlace al repositorio de GitHub.
+
+---
+
+## ✅ Rúbrica de evaluación (100 puntos)
+
+| Criterio | Descripción | Puntos |
+|----------|-------------|--------|
+| 🎯 **Lógica del juego** | Genera número aleatorio, reconoce intentos, entrega mensajes adecuados según resultado. | 30 pts |
+| 🔀 **Uso de condicionales** | Usa `if` o `else` correctamente para evaluar los intentos del jugador y el flujo del juego. | 20 pts |
+| ✅ **Validaciones** | Verifica que el número ingresado esté entre 1 y 100 y no esté vacío o mal escrito. | 15 pts |
+| 🖥️ **Interfaz básica** | Usa elementos HTML en la interfaz visual con mensajes claros y personalizados. | 15 pts |
+| 📂 **Organización del código** | Código legible, ordenado, con comentarios y estructura básica en HTML. | 20 pts |
+
+---
+
+## 🧠 Recomendaciones
+
+- Agrega comentarios en tu código para explicar tu lógica.
+- Personaliza el mensaje final: usa nombre del usuario o emojis.
+- Personaliza los estilos CSS de tu interfaz.
+- Usa `Number()` para convertir la entrada de texto a número.
 
 ---
 

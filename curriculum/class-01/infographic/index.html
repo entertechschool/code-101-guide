@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML — Setup y Web Moderna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #0f172a;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(239, 68, 68, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-red    { border-left: 3px solid #ef4444; }
+    .accent-blue   { border-left: 3px solid #3b82f6; }
+    .accent-yellow { border-left: 3px solid #f59e0b; }
+    .accent-purple { border-left: 3px solid #a855f7; }
+
+    /* ── Anatomy Diagram ── */
+    .anatomy-box {
+      background: #0f172a;
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .an-tag { color: #f87171; }
+    .an-attr { color: #f59e0b; }
+    .an-val { color: #98c379; }
+    .an-content { color: #e2e8f0; }
+
+    /* ── Grid Layouts ── */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .tech-box {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .tech-box h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── Syntax highlighting mocks ── */
+    .syn-tag { color: #e06c75; }
+    .syn-attr { color: #d19a66; }
+    .syn-string { color: #98c379; }
+    .syn-comment { color: #5c6370; font-style: italic; }
+    .syn-text { color: #abb2bf; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #f8fafc;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 1 · Clase 01</div>
+    <h1>Setup y Web Moderna</h1>
+    <p class="subtitle">Estructura web, ciclo cliente-servidor y la anatomía de HTML</p>
+  </section>
+
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
+
+    <!-- Bloque 1: La Trinidad Web -->
+    <div class="card accent-red">
+      <h3>1. La Trinidad de la Web</h3>
+      <p class="desc">Toda página web, sin excepción, se construye con estas 3 tecnologías.</p>
+      
+      <div class="grid-3">
+        <div class="tech-box" style="border-top: 3px solid #ef4444;">
+          <h4>HTML</h4>
+          <p style="color:#94a3b8; font-size:0.95rem;"><strong>Estructura</strong> (Los Huesos)<br>Define qué existe en la página: títulos, párrafos, imágenes.</p>
+        </div>
+        <div class="tech-box" style="border-top: 3px solid #3b82f6;">
+          <h4>CSS</h4>
+          <p style="color:#94a3b8; font-size:0.95rem;"><strong>Apariencia</strong> (La Ropa)<br>Define cómo se ve: colores, tamaños, fuentes y layouts.</p>
+        </div>
+        <div class="tech-box" style="border-top: 3px solid #f59e0b;">
+          <h4>JavaScript</h4>
+          <p style="color:#94a3b8; font-size:0.95rem;"><strong>Comportamiento</strong> (El Cerebro)<br>Define qué hace: reacciona a clics, lógica, cambia datos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 2: Cliente-Servidor -->
+    <div class="card accent-blue">
+      <h3>2. El Ciclo Cliente-Servidor</h3>
+      <p class="desc">Cómo llega una página web a tu pantalla: el cliente pide, el servidor sirve. Dos actores, una conversación.</p>
+      <div style="background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 2rem 1.5rem; margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 2rem;">
+        <div style="text-align: center; width: 120px;">
+          <div style="font-size: 2.5rem;">💻</div>
+          <div style="color: #38bdf8; font-family: 'JetBrains Mono', monospace; margin-top: 0.5rem; font-weight: bold;">Cliente</div>
+          <div style="font-size: 0.8rem; color: #94a3b8;">Navegador</div>
+        </div>
+
+        <div style="flex-grow: 1; max-width: 350px; display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="text-align: center;">
+            <div style="font-size: 0.85rem; color: #e2e8f0; margin-bottom: 0.25rem;">1. Solicita la URL ──▶</div>
+            <div style="border-top: 2px dashed #64748b;"></div>
+          </div>
+          <div style="text-align: center;">
+            <div style="border-top: 2px solid #4ade80;"></div>
+            <div style="font-size: 0.85rem; color: #4ade80; margin-top: 0.25rem; font-weight: 500;">◀── 3. Responde Archivos Web</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; width: 120px;">
+          <div style="font-size: 2.5rem;">🗄️</div>
+          <div style="color: #a3e635; font-family: 'JetBrains Mono', monospace; margin-top: 0.5rem; font-weight: bold;">Servidor</div>
+          <div style="font-size: 0.8rem; color: #94a3b8;">2. DNS ubica la IP</div>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-top: 0.5rem;"><strong>Live Server:</strong> Convierte tu propia computadora en el servidor durante el desarrollo.</p>
+    </div>
+
+    <!-- Bloque 3: Anatomía de una Etiqueta -->
+    <div class="card accent-purple">
+      <h3>3. Anatomía de una Etiqueta HTML</h3>
+      <p class="desc">La unidad básica de instrucción para el navegador. Nombres siempre en minúsculas.</p>
+      <div class="anatomy-box">
+        <span class="an-tag">&lt;a</span> <span class="an-attr">href</span>=<span class="an-val">"perfil.html"</span> <span class="an-attr">class</span>=<span class="an-val">"boton"</span><span class="an-tag">&gt;</span><span class="an-content">Ver Perfil</span><span class="an-tag">&lt;/a&gt;</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1rem; text-align: center;"><strong>Nota:</strong> Algunas etiquetas como <code>&lt;img&gt;</code> son "vacías" y no tienen etiqueta de cierre ni contenido interno.</p>
+    </div>
+
+    <!-- Bloque 4: Primeras Etiquetas -->
+    <div class="card accent-yellow">
+      <h3>4. Tus Primeras Etiquetas</h3>
+      <p class="desc">Con 5 etiquetas elementales puedes construir toda la estructura base de un sitio web.</p>
+      <pre><code><span class="syn-comment">&lt;!-- Títulos: h1 al h6 (Solo un h1 por página) --&gt;</span>
+<span class="syn-tag">&lt;h1&gt;</span><span class="syn-text">Mi Título Principal</span><span class="syn-tag">&lt;/h1&gt;</span>
+
+<span class="syn-comment">&lt;!-- Párrafos --&gt;</span>
+<span class="syn-tag">&lt;p&gt;</span><span class="syn-text">Lorem ipsum dolor sit amet...</span><span class="syn-tag">&lt;/p&gt;</span>
+
+<span class="syn-comment">&lt;!-- Imágenes (Ruta y Accesibilidad) --&gt;</span>
+<span class="syn-tag">&lt;img</span> <span class="syn-attr">src</span>=<span class="syn-string">"foto.jpg"</span> <span class="syn-attr">alt</span>=<span class="syn-string">"Texto para lector de pantallas"</span><span class="syn-tag">&gt;</span>
+
+<span class="syn-comment">&lt;!-- Listas Desordenadas (ul) --&gt;</span>
+<span class="syn-tag">&lt;ul&gt;</span>
+    <span class="syn-tag">&lt;li&gt;</span><span class="syn-text">Elemento uno</span><span class="syn-tag">&lt;/li&gt;</span>
+    <span class="syn-tag">&lt;li&gt;</span><span class="syn-text">Elemento dos</span><span class="syn-tag">&lt;/li&gt;</span>
+<span class="syn-tag">&lt;/ul&gt;</span></code></pre>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Etiqueta HTML</strong>
+        <span>La instrucción básica para el navegador. Se compone de apertura <code>&lt;tag&gt;</code>, contenido y cierre <code>&lt;/tag&gt;</code>. Algunas son vacías como <code>&lt;img&gt;</code>.</span>
+      </div>
+      <div class="term">
+        <strong>Atributo alt</strong>
+        <span>Texto alternativo en <code>&lt;img&gt;</code>. Crucial para accesibilidad (lectores de pantalla) y si la imagen no carga.</span>
+      </div>
+      <div class="term">
+        <strong>Live Server</strong>
+        <span>Extensión de VS Code que convierte tu computadora en un servidor local, actualizando el navegador en tiempo real al guardar.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 01
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(15,23,42,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-01-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>

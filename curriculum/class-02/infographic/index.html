@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML — Diseña y Estructura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #0f172a;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.15);
+      color: #a855f7;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-purple { border-left: 3px solid #a855f7; }
+    .accent-blue   { border-left: 3px solid #3b82f6; }
+    .accent-green  { border-left: 3px solid #10b981; }
+    .accent-orange { border-left: 3px solid #f97316; }
+
+    /* ── Wireframe Flow ── */
+    .wireframe-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      background: #0f172a;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px dashed rgba(255,255,255,0.2);
+    }
+    .wf-step {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+    }
+    .wf-step:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .wf-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .wf-title { font-weight: bold; color: #f8fafc; }
+
+    /* ── Navigation Diagram ── */
+    .nav-diagram {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+    .nd-box {
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.05);
+      font-family: 'JetBrains Mono', monospace;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    .nd-line {
+      flex-grow: 1;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, #10b981 0, #10b981 5px, transparent 5px, transparent 10px);
+      position: relative;
+    }
+    .nd-line::after {
+      content: "▶";
+      position: absolute;
+      right: -8px;
+      top: -10px;
+      color: #10b981;
+      font-size: 1.2rem;
+    }
+
+    /* ── Syntax highlighting mocks ── */
+    .syn-tag { color: #e06c75; }
+    .syn-attr { color: #d19a66; }
+    .syn-string { color: #98c379; }
+    .syn-comment { color: #5c6370; font-style: italic; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #f8fafc;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 1 · Clase 02</div>
+    <h1>Diseña y Estructura</h1>
+    <p class="subtitle">Wireframes, HTML Semántico y Enlaces de Navegación</p>
+  </section>
+
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
+
+    <!-- Bloque 1: Wireframes -->
+    <div class="card accent-purple">
+      <h3>1. El Plano antes del Código</h3>
+      <p class="desc">Los profesionales no apilan ladrillos sin un plano. Diseñar la estructura antes de codificar ahorra horas de borrar y reescribir.</p>
+      
+      <div class="wireframe-flow">
+        <div class="wf-step">
+          <div class="wf-icon">✏️</div>
+          <div class="wf-title">1. Wireframe</div>
+          <div style="font-size:0.85rem; color:#94a3b8;">Estructura (boceto en blanco y negro)</div>
+        </div>
+        <div class="wf-step">
+          <div class="wf-icon">🎨</div>
+          <div class="wf-title">2. Mockup</div>
+          <div style="font-size:0.85rem; color:#94a3b8;">Diseño con colores y fuentes reales</div>
+        </div>
+        <div class="wf-step">
+          <div class="wf-icon">🖱️</div>
+          <div class="wf-title">3. Prototipo</div>
+          <div style="font-size:0.85rem; color:#94a3b8;">Version interactiva y navegable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 2: HTML Semántico -->
+    <div class="card accent-blue">
+      <h3>2. HTML Semántico vs La Sopa de Divs</h3>
+      <p class="desc">La etiqueta <code>&lt;div&gt;</code> agrupa, pero <strong>no tiene significado</strong> para Google ni lectores de pantalla. En su lugar, usamos etiquetas que comunican su propósito nativamente.</p>
+      <pre><code><span class="syn-comment">&lt;!-- Sopa invisible (Mala práctica) --&gt;</span>
+<span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-string">"cabecera"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>
+<span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-string">"contenido-principal"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>
+
+<span class="syn-comment">&lt;!-- Estructura Semántica (Se lee, se indexa, se entiende) --&gt;</span>
+<span class="syn-tag">&lt;header&gt;</span>
+    <span class="syn-tag">&lt;nav&gt;</span><span class="syn-comment">&lt;!-- La Navegación --&gt;</span>...<span class="syn-tag">&lt;/nav&gt;</span>
+<span class="syn-tag">&lt;/header&gt;</span>
+
+<span class="syn-tag">&lt;main&gt;</span><span class="syn-comment">&lt;!-- Solo existe un &lt;main&gt; por página --&gt;</span>
+    <span class="syn-tag">&lt;section&gt;</span>...<span class="syn-tag">&lt;/section&gt;</span>
+<span class="syn-tag">&lt;/main&gt;</span>
+
+<span class="syn-tag">&lt;footer&gt;</span>...<span class="syn-tag">&lt;/footer&gt;</span></code></pre>
+    </div>
+
+    <!-- Bloque 3: Navegación Interna -->
+    <div class="card accent-green">
+      <h3>3. Navegación Interna: El Teletransportador</h3>
+      <p class="desc">Permite al usuario moverse entre secciones dentro de la misma página sin recargar, usando <strong>Enlaces Ancla</strong>.</p>
+      
+      <div class="nav-diagram">
+        <div class="nd-box">
+          <div style="color:#d19a66; font-size:0.8rem; margin-bottom:4px;">El Botón (href con #)</div>
+          <span class="syn-tag">&lt;a</span> <span class="syn-attr">href</span>=<span class="syn-string">"#hobbies"</span><span class="syn-tag">&gt;</span>
+        </div>
+        <div class="nd-line">
+          <span style="position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-size:0.8rem; color:#10b981; white-space:nowrap;">Coincidencia Exacta</span>
+        </div>
+        <div class="nd-box">
+          <div style="color:#61afef; font-size:0.8rem; margin-bottom:4px;">El Destino (id)</div>
+          <span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-string">"hobbies"</span><span class="syn-tag">&gt;</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>HTML Semántico</strong>
+        <span>Uso de etiquetas que describen e informan a Google y navegadores el verdadero propósito del contenido (ej. <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>).</span>
+      </div>
+      <div class="term">
+        <strong>Atributo id</strong>
+        <span>El DNI de un elemento HTML. Es único, irrepetible por página, nunca lleva espacios y se usa como blanco para enlaces.</span>
+      </div>
+      <div class="term">
+        <strong>Accesibilidad</strong>
+        <span>Construir software utilizable por cualquier persona. Un código sin semántica o sin <code>alt</code> en imágenes excluye a millones de usuarios.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 02
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(15,23,42,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-02-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>

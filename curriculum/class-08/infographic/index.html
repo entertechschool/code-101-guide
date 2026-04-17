@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA — Programa con inteligencia artificial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #060913;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(217, 70, 239, 0.15);
+      color: #d946ef;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-purple { border-left: 3px solid #d946ef; }
+    .accent-green  { border-left: 3px solid #4ade80; }
+    .accent-blue   { border-left: 3px solid #93c5fd; }
+    .accent-orange { border-left: 3px solid #fb923c; }
+
+    /* ── Comparison table ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .compare-table th {
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .compare-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #94a3b8;
+    }
+    .compare-table .col-bad { color: #fb923c; }
+    .compare-table .col-good { color: #4ade80; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    /* ── Images ── */
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 2 · Clase 08 — Lab Calificado</div>
+    <h1>IA — Programa con inteligencia artificial</h1>
+    <p class="subtitle">LLMs, Tokens, Prompt Scaffolding y Vibe Coding profesional</p>
+  </section>
+
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
+
+    <!-- Bloque 1: LLM -->
+    <div class="card accent-purple">
+      <h3>LLM (Large Language Model)</h3>
+      <p class="desc">Motor de completado de texto que predice el siguiente token más probable basándose en el contexto previo. No piensa, no busca en Google, no entiende: calcula probabilidades.</p>
+      <pre><code>Prompt: "El cielo es..."
+  Token más probable → "azul" (95%)
+
+Prompt: "El cielo del planeta Marte es..."
+  Token más probable → "rojo" (92%)
+
+Más contexto = predicción más precisa</code></pre>
+    </div>
+
+    <!-- Bloque 2: Tokens -->
+    <div class="card accent-blue">
+      <h3>Tokens y Ventana de Contexto</h3>
+      <p class="desc">Un token es una unidad numérica que representa un fragmento de texto. Todo lo que entra y sale de un LLM se mide en tokens. Cuando la ventana se llena, el modelo "olvida" lo anterior.</p>
+      <pre><code>"Hello, how are you?"     → 5 tokens
+"¿Hola, cómo estás?"     → 8 tokens
+
+1 token ≈ 4 caracteres (inglés)
+1 token ≈ 3.5 caracteres (español)
+
+Ventana de Contexto = tu historial
+  + tu nuevo prompt.
+  Si se llena, la IA olvida el inicio.</code></pre>
+    </div>
+
+    <!-- Bloque 3: Prompt Scaffolding -->
+    <div class="card accent-green">
+      <h3>Prompt Scaffolding</h3>
+      <p class="desc">Técnica de construir instrucciones estructuradas por bloques lógicos (rol, contexto, tarea, restricciones y formato) para que la IA no tenga que adivinar nada.</p>
+      <pre><code>Estructura de un prompt pro:
+
+[ROL]           Actúa como un experto en...
+[CONTEXTO]      Mi proyecto es... mi usuario es...
+[TAREA]         Genera el código HTML/CSS de...
+[RESTRICCIONES] Usa solo estos colores, mobile-first
+[FORMATO]       Devuelve en un Artifact renderizable</code></pre>
+    </div>
+
+    <!-- Bloque 4: Vibe Coding -->
+    <div class="card accent-orange">
+      <h3>Vibe Coding: Profesional vs Irresponsable</h3>
+      <p class="desc">Programar describiendo lo que quieres en lenguaje natural mientras la IA escribe el código. Tu rol: supervisar, iterar y validar.</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="col-bad">❌ Irresponsable</th>
+            <th class="col-good">✅ Profesional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prompt vago → acepta sin leer</td>
+            <td>Prompt scaffolded → evalúa el output</td>
+          </tr>
+          <tr>
+            <td>Copia y pega sin entender</td>
+            <td>Entiende la estructura del código</td>
+          </tr>
+          <tr>
+            <td>Si falla: "no funciona, arréglalo"</td>
+            <td>Localiza el error → instrucción precisa</td>
+          </tr>
+          <tr>
+            <td>El código es una caja negra</td>
+            <td>El código es su responsabilidad</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Prompt</strong>
+        <span>Instrucción que le das a la IA. La calidad del resultado depende 100% de la calidad del prompt.</span>
+      </div>
+      <div class="term">
+        <strong>Artifact</strong>
+        <span>Código que Claude genera y renderiza en vivo al lado del chat. Tu página se construye en tiempo real.</span>
+      </div>
+      <div class="term">
+        <strong>GitHub Pages</strong>
+        <span>Hosting gratuito que convierte tu repositorio en un sitio web con URL pública real.</span>
+      </div>
+      <div class="term">
+        <strong>Iteración</strong>
+        <span>Refinar resultados de IA con feedback específico: "los botones necesitan 1rem de espacio", no "no me gusta".</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 08
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(13,17,23,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-08-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>
