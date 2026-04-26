@@ -1,0 +1,41 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jekyll / GitHub Pages
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+.bundle/
+
+# Node (por si se agrega más adelante)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Carpeta desarrollador
+dev/
+
+
+# Archivos generados por Figma plugin local del instructor
+# (el código fuente sí se versiona en dev/figma-starter-kit/)
+*.fig
