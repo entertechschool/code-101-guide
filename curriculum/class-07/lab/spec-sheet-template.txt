@@ -1,0 +1,78 @@
+═══════════════════════════════════════════════════════════════
+  SPEC SHEET — MyLinks v2
+  Plantilla del Lab 07 — Rellena cada sección con tu información
+═══════════════════════════════════════════════════════════════
+
+Esta hoja es el insumo directo del prompt que le darás a la IA
+en la Clase 08. Mientras más concreto el contenido, mejor el
+output que generará Claude.
+
+
+───────────────────────────────────────────────────────────────
+  1. OBJETIVO DE REDISEÑO
+───────────────────────────────────────────────────────────────
+(Pega aquí tu frase de la Parte 1.3 del lab.
+ Debe describir: estado actual, personalidad deseada,
+ recurso visual y tu usuario ideal.)
+
+
+  Mi MyLinks actual es ______________________________,
+
+  pero quiero que sea _______________________________
+
+  usando _____________________________________________.
+
+  Mi usuario ideal es _______________________________
+
+  que necesita ______________________________________.
+
+
+
+───────────────────────────────────────────────────────────────
+  2. ESTILO EN UNA FRASE
+───────────────────────────────────────────────────────────────
+(Resume tu estética en una sola línea.
+ Ej: "Brutalista minimalista alineado a la izquierda")
+
+
+  Tu estilo: ________________________________________
+
+
+
+───────────────────────────────────────────────────────────────
+  3. TOKENS DE DISEÑO
+───────────────────────────────────────────────────────────────
+
+  Color de fondo  (bg-principal): #______
+  Color de acento (acento):       #______
+  Color de texto  (texto):        #______
+
+  Sombra (sombra):
+    X:     ___ px
+    Y:     ___ px
+    Blur:  ___ px
+    Color: #______
+
+  Tipografía:    ________________________________
+  (Ej: Inter, Poppins, Space Mono)
+
+
+
+───────────────────────────────────────────────────────────────
+  4. ENLACES QUE MOSTRARÁS
+───────────────────────────────────────────────────────────────
+(Entre 3 y 6 enlaces máximo, cada uno con su URL real.)
+
+
+  - LinkedIn:  https://
+  - GitHub:    https://
+  - Portfolio: https://
+  - Email:     mailto:
+  -
+  -
+
+
+
+═══════════════════════════════════════════════════════════════
+  FIN DE LA PLANTILLA
+═══════════════════════════════════════════════════════════════

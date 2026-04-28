@@ -292,22 +292,20 @@ Vas a exportar ambas vistas — son insumo directo para Clase 08.
 
 ### 5.2 Arma tu Spec Sheet
 
-Descarga la plantilla y rellénala con tu información:
+Descarga la plantilla en texto plano y rellénala con tu información:
 
-📥 **[Descargar plantilla `spec-sheet-template.txt`](spec-sheet-template.md)**
+📥 **[Descargar plantilla `spec-sheet-template.txt`](spec-sheet-template.txt){:download="spec-sheet.txt"}**
 
-Renómbrala como `spec-sheet.txt` (o `spec-sheet.md` si prefieres ver formato Markdown) y ábrela con cualquier editor de texto (Bloc de notas, VS Code, Word, Notion, lo que tengas a mano).
-
-La plantilla tiene 4 secciones que debes llenar:
+Ábrela con cualquier editor de texto (Bloc de notas, VS Code, Word, Notion — lo que tengas a mano) y rellena las 4 secciones:
 
 1. **Objetivo de Rediseño** — pega aquí tu frase de la Parte 1.3.
 2. **Estilo en una frase** — ej: "Brutalista minimalista alineado a la izquierda".
 3. **Tokens de Diseño** — los hex y valores de tu sombra (Parte 4.1).
 4. **Enlaces** — entre 3 y 6 enlaces máximo, cada uno con su URL.
 
-> 💡 **Por qué no exigimos Markdown:** lo que importa es el **contenido**, no el formato. Lo único requerido es que sea legible en cualquier editor de texto.
+> 💡 **Por qué texto plano:** lo que importa es el **contenido**, no el formato. Que se pueda abrir en cualquier editor sin instalar nada.
 
-✅ **Checkpoint:** Tienes `mockup-mobile.png`, `mockup-desktop.png` y `spec-sheet.txt` (o `.md`). Estos tres archivos son lo que vas a llevar a Clase 08.
+✅ **Checkpoint:** Tienes `mockup-mobile.png`, `mockup-desktop.png` y `spec-sheet.txt`. Estos tres archivos son lo que vas a llevar a Clase 08.
 
 ---
 
@@ -343,7 +341,7 @@ Antes de salir, valida en voz alta o por chat:
 
 - [ ] Tengo `mockup-mobile.png` exportado del Frame `Móvil` (escala 2x).
 - [ ] Tengo `mockup-desktop.png` exportado del Frame `Escritorio` (escala 2x).
-- [ ] Tengo mi `spec-sheet` rellenado (en `.txt`, `.md` o cualquier formato de texto legible).
+- [ ] Tengo mi `spec-sheet.txt` rellenado.
 - [ ] Sé qué objetivo voy a perseguir en la Clase 08.
 
 ---
@@ -352,7 +350,7 @@ Antes de salir, valida en voz alta o por chat:
 
 📁 **Una carpeta** con:
 
-1. `spec-sheet.txt` (o `.md`) — Tu hoja de especificación rellenada desde la plantilla.
+1. `spec-sheet.txt` — Tu hoja de especificación rellenada desde la plantilla.
 2. `mockup-mobile.png` — Tu Frame `Móvil` exportado de Figma (high-fi).
 3. `mockup-desktop.png` — Tu Frame `Escritorio` exportado de Figma (high-fi).
 
