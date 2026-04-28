@@ -1,3 +1,5 @@
+> 🚫 **DESACTIVADO** — Banco de preguntas archivado. No se aplica en el curso actual. El único test vigente es el del Módulo 2 (clase 8).
+
 # Test Módulo 3 - Questions
 
 **8 preguntas diagnósticas**

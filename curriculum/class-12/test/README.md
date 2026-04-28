@@ -1,3 +1,5 @@
+> 🚫 **DESACTIVADO** — Este test no se aplica en el curso actual. Se conserva como referencia. El único test diagnóstico vigente es el del Módulo 2 (clase 8).
+
 # Test Módulo 3: JavaScript Básico
 
 **Duración:** 15 min | **Preguntas:** 8 | **Formato:** Opción múltiple

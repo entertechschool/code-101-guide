@@ -133,17 +133,15 @@ Solo el **último lab de cada módulo** es calificado con una rúbrica de **4 cr
 | 70-79 | C | Satisfactorio - Cumple requisitos |
 | < 70 | F | Necesita mejora |
 
-### Tests Diagnósticos por Módulo
+### Test Diagnóstico
 
-Al final de cada módulo (clases 4, 8, 12), se realiza un **test diagnóstico** de 15 minutos durante la clase:
+Solo el **Módulo 2** tiene test diagnóstico (clase 8), de 15 minutos durante la clase:
 
 | Módulo | Clase | Test | Contenido |
 |--------|-------|------|-----------|
-| M1 | 4 | Fundamentos Web | HTML, CSS, Box Model, Flexbox |
-| M2 | 8 | Herramientas Dev | Terminal, Git, Responsive, DevTools |
-| M3 | 12 | JavaScript Básico | Variables, condicionales, funciones |
+| M2 | 8 | Herramientas Dev | Terminal, Git, Responsive, Wireframing, Vibe Coding |
 
-> ⚠️ **Importante:** Los tests son **diagnósticos** y NO afectan la calificación del estudiante. Se usan para control interno de avance y ajustes pedagógicos (reemplaza el NPS tradicional).
+> ⚠️ **Importante:** El test es **diagnóstico** y NO afecta la calificación del estudiante. Se usa para control interno de avance y ajustes pedagógicos (reemplaza el NPS tradicional).
 
 ---
 
@@ -171,7 +169,7 @@ class-XX/
 │   └── README.md       # Presentación reveal.js
 ├── facilitator/
 │   └── README.md       # Guía pedagógica para instructores
-└── test/               # Solo en clases 4, 8, 12
+└── test/               # Solo en clase 8 (M2)
     ├── README.md       # Info del test para estudiante
     └── questions.md    # Preguntas (formato Canvas)
 ```

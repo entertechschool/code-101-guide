@@ -1,3 +1,5 @@
+> 🚫 **DESACTIVADO** — Este test no se aplica en el curso actual. Se conserva como referencia. El único test diagnóstico vigente es el del Módulo 2 (clase 8).
+
 # Test Módulo 1: Fundamentos Web
 
 **Duración:** 15 min | **Preguntas:** 8 | **Formato:** Opción múltiple

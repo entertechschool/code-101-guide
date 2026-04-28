@@ -1,107 +1,70 @@
 # Test Módulo 2 - Questions
 
-**8 preguntas diagnósticas**
+**5 preguntas diagnósticas** (4 técnicas + 1 autoevaluación)
+
+Cubre las 4 clases del módulo: Terminal/Git (C5), Responsive + DevTools (C6), Wireframing (C7), Vibe Coding con IA (C8).
 
 ---
 
-## Pregunta 1
+## Pregunta 1 — Clase 5: Terminal y Git
 
-¿Cuál es la ventaja principal de usar Git en un proyecto de desarrollo?
+Acabas de modificar tu archivo `index.html` localmente. ¿Cuál es la secuencia correcta de comandos para guardar esos cambios y subirlos a GitHub?
 
-- A) Hace que el código se ejecute más rápido
-- B) Permite rastrear cambios, volver a versiones anteriores y colaborar con otros
-- C) Reemplaza la necesidad de un editor de código
-- D) Convierte automáticamente HTML en CSS
+- A) `git push` → `git add .` → `git commit`
+- B) `git add .` → `git commit -m "mensaje"` → `git push`
+- C) `git upload` → `git save` → `git send`
+- D) `git pull` → `git status` → `git log`
 
 > Respuesta: B
 
 ---
 
-## Pregunta 2
+## Pregunta 2 — Clase 6: Responsive y DevTools
 
-¿Qué comando de terminal usas para moverte a una carpeta llamada `mi-proyecto`?
+En un proyecto **mobile-first**, quieres que un título solo aumente de tamaño en pantallas de tablet o más grandes (768px+). ¿Cómo escribes la media query?
 
-- A) `ls mi-proyecto`
-- B) `pwd mi-proyecto`
-- C) `cd mi-proyecto`
-- D) `git mi-proyecto`
-
-> Respuesta: C
-
----
-
-## Pregunta 3
-
-¿Por qué se recomienda usar unidades relativas (`rem`, `%`, `vh`) en lugar de píxeles fijos?
-
-- A) Los píxeles no funcionan en navegadores modernos
-- B) Las unidades relativas se adaptan a diferentes tamaños de pantalla
-- C) Las unidades relativas cargan más rápido
-- D) Los píxeles solo funcionan en móviles
+- A) `@media (max-width: 768px) { h1 { font-size: 2.5rem; } }`
+- B) `@media (min-width: 768px) { h1 { font-size: 2.5rem; } }`
+- C) `@screen tablet { h1 { font-size: 2.5rem; } }`
+- D) `@if (width >= 768px) { h1 { font-size: 2.5rem; } }`
 
 > Respuesta: B
 
 ---
 
-## Pregunta 4
+## Pregunta 3 — Clase 7: Wireframing y Design Thinking
 
-¿Qué herramienta del navegador te permite inspeccionar y modificar CSS en tiempo real?
+¿Cuándo conviene usar un **wireframe de baja fidelidad** en lugar de uno de alta fidelidad?
 
-- A) GitHub Pages
-- B) La terminal
-- C) Chrome DevTools
-- D) VS Code Live Server
-
-> Respuesta: C
-
----
-
-## Pregunta 5
-
-¿Cuál es la diferencia principal entre un wireframe de baja fidelidad y uno de alta fidelidad?
-
-- A) El de baja fidelidad usa código, el de alta fidelidad usa papel
-- B) El de baja fidelidad muestra estructura básica, el de alta fidelidad incluye colores, tipografía y detalles visuales
-- C) No hay diferencia, son lo mismo
-- D) El de alta fidelidad es más rápido de crear
+- A) Solo cuando el cliente lo pide explícitamente
+- B) En las primeras etapas del diseño, para iterar rápido sobre estructura y jerarquía sin distraerse con colores ni tipografía
+- C) Cuando el proyecto ya está en producción y solo falta pulir detalles
+- D) Nunca: los wireframes de alta fidelidad siempre son la mejor opción
 
 > Respuesta: B
 
 ---
 
-## Pregunta 6
+## Pregunta 4 — Clase 8: Vibe Coding con IA
 
-¿Qué hace una media query en CSS?
+En el contexto de Vibe Coding con herramientas de IA, ¿qué es un **token** y por qué importa?
 
-- A) Inserta imágenes responsivas automáticamente
-- B) Aplica estilos diferentes según condiciones como el ancho de pantalla
-- C) Conecta la página con una base de datos
-- D) Reemplaza Flexbox en dispositivos móviles
-
-> Respuesta: B
-
----
-
-## Pregunta 7
-
-¿Qué necesitas para publicar tu sitio web con GitHub Pages?
-
-- A) Un servidor de pago y un dominio personalizado
-- B) Un repositorio en GitHub con los archivos del sitio y activar GitHub Pages en Settings
-- C) Instalar un software especial en tu computadora
-- D) Enviar los archivos por correo al equipo de GitHub
+- A) Una contraseña que protege tu repositorio en GitHub
+- B) Una unidad básica de texto (palabra o fragmento) que la IA procesa; importa porque cada modelo tiene un límite de tokens por interacción y eso afecta cuánto contexto puede manejar
+- C) Un archivo de configuración necesario para activar GitHub Pages
+- D) El nombre técnico de un wireframe digital generado por IA
 
 > Respuesta: B
 
 ---
 
-## Pregunta 8
+## Pregunta 5 — Autoevaluación
 
-Después de completar este módulo, ¿cómo describirías tu nivel de confianza usando terminal, Git y herramientas de diseño?
+Después de completar el Módulo 2, ¿cómo describirías tu nivel de confianza usando terminal, Git, diseño responsive, wireframing y herramientas de IA para prototipado?
 
-- A) Muy seguro/a - podría usarlas sin ayuda
-- B) Bastante seguro/a - con algo de referencia
-- C) Algo inseguro/a - necesitaría bastante guía
-- D) Muy inseguro/a - no sabría por dónde empezar
+- A) Muy seguro/a — podría aplicarlas sin ayuda
+- B) Bastante seguro/a — con algo de referencia
+- C) Algo inseguro/a — necesitaría bastante guía
+- D) Muy inseguro/a — no sabría por dónde empezar
 
-> ⚠️ Sin respuesta correcta - todas las opciones son válidas para diagnóstico
+> ⚠️ Sin respuesta correcta — todas las opciones son válidas para diagnóstico
