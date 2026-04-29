@@ -6,169 +6,130 @@
 
 ## 🔑 Conceptos Clave
 
-- **Wireframe**: Esquema visual que muestra la estructura de una página sin detalles de diseño final.
-- **Low-fidelity (Low-fi)**: Boceto rápido en blanco/negro enfocado solo en layout y estructura.
-- **High-fidelity (High-fi)**: Diseño detallado con colores, tipografía y espaciado definidos.
-- **Design Thinking**: Metodología de resolución de problemas centrada en el usuario.
-- **Ideación**: Fase creativa donde se generan múltiples ideas sin juzgar.
+- **Wireframe** — Esqueleto visual del diseño sin pintura. Define jerarquía y posición.
+- **Low-fi vs High-fi** — Cajas grises sin estilo vs diseño pixel-perfect. **En este lab viven en el mismo archivo Figma**, evolucionando sobre el mismo Frame.
+- **Design Thinking** — Metodología centrada en el usuario, no en el gusto del diseñador.
+- **Token de diseño** — Variable reutilizable de color/sombra/tipografía. En Figma se llaman **Styles**.
+- **Auto Layout** — El `display: flex` de Figma. Hace que los componentes crezcan y se adapten.
+- **Componente** — Pieza reutilizable. La plantilla starter trae 4 componentes low-fi listos para arrastrar.
+
+---
+
+## 🎁 La Plantilla Starter (preparación previa, una sola vez)
+
+Antes de la primera clase con esta versión del lab, debes crear el archivo Figma **MyLinks Starter Kit**. Hay 2 caminos:
+
+**Camino rápido (recomendado):** Ejecuta el plugin local en `dev/figma-starter-kit/`. Genera todo el kit en 3 segundos. Ver instrucciones en `dev/figma-starter-kit/README.md`.
+
+**Camino manual:** Crea a mano un archivo Figma con: 2 Frames (`Móvil` 390×844, `Escritorio` 1440×900), 3 Color Styles (`bg-principal`, `acento`, `texto`), 1 Effect Style (`sombra` brutalista), 4 componentes low-fi (`foto`, `titulo`, `bio`, `boton`) y 1 Botón Maestro con Auto Layout.
+
+Una vez creado el archivo, **comparte con permiso "Anyone with the link can view & duplicate"** y pega el link en el chat al inicio de la clase.
 
 ---
 
 ## 🔗 Analogías Útiles
 
-**Wireframe <> Plano arquitectónico:**
-Antes de construir una casa, el arquitecto dibuja planos. No incluyen el color de las paredes ni los muebles—solo muestran dónde van las habitaciones, puertas y ventanas. Un wireframe hace lo mismo para una página web.
+**Wireframe ↔ Plano arquitectónico:** Antes de construir una casa, el arquitecto dibuja planos sin colores. No te dice de qué color son las paredes, solo dónde van. Un wireframe hace lo mismo para una página web.
 
-**Low-fi vs High-fi <> Boceto vs Render:**
-Cuando un artista crea una pintura, primero hace bocetos rápidos a lápiz (low-fi). Cuando encuentra la composición correcta, la pinta con todos los colores y detalles (high-fi). Empezar por el boceto permite explorar ideas sin invertir horas en algo que quizás no funcione.
+**Low-fi → High-fi en el mismo Figma ↔ Boceto que se convierte en pintura:** El artista no dibuja a lápiz en una libreta y después pinta en otro lienzo. Empieza con líneas en el lienzo final y le aplica color encima. Eso es lo que hacemos en Figma: las cajas grises de la Parte 3 se convierten en el diseño high-fi de la Parte 4 sobre el mismo Frame.
 
-**Ideación <> Brainstorm con post-its:**
-Piensa en una sala de reuniones llena de post-its pegados en la pared. No importa si algunas ideas son "locas"—el objetivo es cantidad. Después se filtran las mejores. Así funciona la ideación en Design Thinking.
+**Token ↔ Variable CSS:** Un desarrollador pro no escribe `#FF6B35` veinte veces — define `--color-acento: #FF6B35` y lo reutiliza. En Figma esa idea se llama **Style**. Si cambias el Style, todos los elementos vinculados se actualizan al instante.
 
-**Figma <> Google Docs para diseño:**
-Así como Google Docs permite que varias personas editen un documento simultáneamente, Figma permite que diseñadores y desarrolladores colaboren en tiempo real sobre el mismo archivo de diseño.
+**Auto Layout ↔ Flexbox:** Si dominas `display: flex`, ya dominas Auto Layout. Es el mismo concepto: contenedor que abraza a sus hijos y se adapta cuando crece el contenido.
 
 ---
 
 ## 📚 Contexto Histórico
 
-### Wireframes: Del CAD al diseño web
+### Figma: Del dormitorio universitario a la industria
 
-El término "wireframe" no nació en diseño web. Viene del mundo del diseño industrial y CAD (Computer Aided Design), donde se usaban líneas para representar objetos 3D sin texturas ni colores—literalmente como si estuvieran hechos de alambre.
+Dylan Field y Evan Wallace fundaron Figma en 2012 cuando eran estudiantes de Brown University. Field recibió una Thiel Fellowship — $100,000 para dejar la universidad y enfocarse en la startup.
 
-La transición al diseño web ocurrió en los años 90. Matthew Van Horn, trabajando en Snickelways Interactive entre 1993-94, afirma haber acuñado el término para describir la estructura de una página separada de su "look & feel". Los diseñadores que trabajaron con él llevaron el término a agencias como Razorfish, Scient y Sapient, expandiéndolo por la industria.
+La apuesta era arriesgada: crear una herramienta de diseño que corriera 100% en el navegador, sin instalación. Adobe dominaba el mercado. Muchos pensaron que era imposible.
 
-Lo fascinante es que el concepto de representar estructura con líneas simples tiene raíces aún más antiguas. Ilustraciones similares aparecen en el Renacimiento italiano, donde artistas usaban líneas para estudiar la perspectiva y forma de objetos.
+Figma lanzó en 2016. Para 2025 tiene 13 millones de usuarios activos mensuales y el **95% de las empresas Fortune 500** lo usa. Adobe intentó comprarlo por $20 mil millones en 2022 — bloqueado por reguladores. Figma salió a bolsa en NYSE en agosto de 2025.
 
-> **Para contar en clase:** "El término wireframe viene del diseño industrial de los años 80. Imaginen un carro dibujado solo con líneas, sin color ni textura—literalmente como hecho de alambre. Eso hacían los ingenieros para ver la estructura antes de fabricar. Ahora hacemos lo mismo con páginas web."
+> **Para contar en clase:** "El fundador de Figma dejó la universidad a los 19 años para crear esta herramienta. Hoy el 95% de las empresas Fortune 500 la usan. Y ustedes la van a aprender gratis, hoy."
 
 ### Design Thinking: De Stanford a Apple
 
-Design Thinking tiene un padre reconocido: David Kelley. En 1978, después de frustrarse como ingeniero eléctrico, Kelley fundó la firma de diseño que eventualmente se convertiría en IDEO—la misma que diseñó el primer mouse de Apple.
+David Kelley fundó IDEO en 1978 — la firma que diseñó el primer mouse de Apple. En 2004 fundó la d.school en Stanford con una misión radical: enseñar a personas de cualquier disciplina a resolver problemas como diseñadores.
 
-En 2004, Kelley fundó el d.school en Stanford con una misión radical: enseñar a personas de cualquier disciplina a resolver problemas como diseñadores. El nombre "Design Thinking" fue intencional—la palabra "thinking" hacía que sonara accesible para no-diseñadores.
+Las 5 fases (Empatizar, Definir, Idear, Prototipar, Testear) nacieron ahí. Apple, Google y Airbnb adoptaron la metodología.
 
-Las 5 fases que enseñamos (Empatizar, Definir, Idear, Prototipar, Testear) nacieron ahí. Apple, Google y Airbnb adoptaron esta metodología. Hoy es parte del currículo de escuelas de negocios en todo el mundo.
-
-> **Para contar en clase:** "David Kelley diseñó el primer mouse de Apple en 1978. Pero su mayor contribución fue crear una metodología que cualquiera puede usar para resolver problemas: Design Thinking. Si Apple lo usa, nosotros también."
-
-### Figma: Del dormitorio a la industria
-
-Dylan Field y Evan Wallace fundaron Figma en 2012 cuando eran estudiantes en Brown University. Field recibió una Thiel Fellowship—$100,000 de Peter Thiel a cambio de dejar la universidad y enfocarse en su startup.
-
-La apuesta era arriesgada: crear una herramienta de diseño que corriera completamente en el navegador, sin instalación. Adobe dominaba el mercado con programas de escritorio. Muchos pensaron que era imposible.
-
-Figma lanzó su versión pública en 2016. Para 2025, tiene 13 millones de usuarios activos mensuales y el 95% de las empresas Fortune 500 lo usan. Adobe intentó comprarlo por $20 mil millones en 2022, pero la adquisición fue bloqueada por reguladores. En agosto de 2025, Figma salió a bolsa en la NYSE.
-
-> **Para contar en clase:** "El fundador de Figma dejó la universidad a los 19 años para crear esta herramienta. Hoy el 95% de las empresas más grandes del mundo la usan. Y ustedes van a aprenderla gratis, hoy."
-
-**Fuentes:** [Whitney Hess - Wireframes](https://whitneyhess.com/blog/2008/11/02/who-coined-the-term-wireframes/), [Stanford d.school](https://dschool.stanford.edu/directory/david-kelley), [Figma Wikipedia](https://en.wikipedia.org/wiki/Figma), [Fortune - Dylan Field](https://fortune.com/2025/08/01/figma-ipo-cofounder-dylan-field-former-linkedin-intern-peter-thiel-fellowship/)
+> **Para contar en clase:** "Si Apple lo usa para crear iPhones, podemos usarlo para crear nuestro MyLinks."
 
 ---
 
 ## 🎭 Dinámicas de Clase
 
-### Dinámica 1: "Análisis de Linktree en vivo"
+### Dinámica 1: "Caso de Estudio 0 en vivo"
 
-Esta dinámica abre la clase con energía. Proyecta 3-4 páginas de Linktree reales y guía una discusión rápida.
+Tú eres el caso de estudio. **Construye TU MyLinks paralelamente a los alumnos**, en pantalla compartida. No es performance — es liderazgo. Si tú te atascas, ellos verán cómo se sale del atasco.
 
-> "Vamos a analizar páginas de Linktree como detectives de diseño. No busquen si les 'gusta'—busquen patrones."
-
-**Dinámica sugerida:**
 ```
-Facilitador: "¿Qué elementos se repiten en todas estas páginas?"
-(Respuestas: foto de perfil, nombre, lista de enlaces...)
-Facilitador: "Exacto. Estos son los 'bloques' básicos. Ahora: ¿qué VARÍA entre ellas?"
-(Respuestas: colores, formas de botones, fondos...)
-Facilitador: "Eso es lo que van a diseñar hoy: manteniendo los bloques, personalizando el estilo."
+Facilitador: "Voy a hacer mi propio MyLinks junto con ustedes. Vean mis decisiones.
+              Si me equivoco, se los digo. Si me atasco, sale en vivo."
 ```
 
-### Dinámica 2: "3 variantes en 5 minutos cada una"
+### Dinámica 2: "Análisis de Carrd con ojo de detective"
 
-Esta es la fase de ideación. Los estudiantes deben dibujar 3 versiones diferentes de su MyLinks. El truco es la presión de tiempo.
+Pega 2 plantillas de Carrd lado a lado. Discusión guiada de las 4 preguntas:
 
-> "Van a dibujar 3 diseños diferentes en los próximos 15 minutos. No se preocupen si son 'feos'—eso es exactamente el punto. Un boceto que tardó 5 minutos es fácil de tirar. Un diseño que tardó 3 horas duele descartarlo."
-
-**Dinámica sugerida:**
 ```
-Facilitador: "Variante A: Minimalista. Solo lo esencial. Tienen 5 minutos. ¡Ahora!"
-(Timer visible, circular por el salón)
-Facilitador: "¡Stop! Variante B: Creativo. Algo que nunca han visto. 5 minutos."
-(Repetir)
-Facilitador: "Variante C: Profesional. Como si fuera para una empresa seria. 5 minutos."
+1. ¿Qué se REPITE? (jerarquía vertical: foto → nombre → bio → botones)
+2. ¿Qué VARÍA? (centrado vs asimétrico, contenedor vs flujo libre)
+3. ¿Qué te GUSTA y por qué?
+4. ¿Qué TOMARÍAS PRESTADO de cada una?
 ```
 
-### Dinámica 3: "Peer Review de wireframes"
+> **Tip táctico:** Insiste en "tomar prestado", no "robar". Es más respetuoso y conceptualmente igual.
 
-Después de las 3 variantes, los estudiantes intercambian bocetos con un compañero.
+### Dinámica 3: "Demo de Auto Layout — la magia revelada"
 
-> "Tu compañero va a ver tus 3 diseños. Sin hablar, que marque con una estrella cuál le gusta más. Después discuten por qué."
+Cuando llegues al Botón Maestro, haz esto:
 
-Esta dinámica valida ideas sin que el autor defienda su trabajo—el diseño debe "hablar solo".
+```
+1. Edita el texto del botón → escribe "LinkedIn y mi Twitch y mi Patreon"
+2. El botón crece sin romperse
+3. Pausa dramática: "Eso, desarrolladores, es display: flex en Figma."
+```
+
+El "wow" es real. Los alumnos verán que el botón se comporta como un componente web real.
 
 ---
 
 ## 💡 Ejemplos Listos para Usar
 
-### Ejemplo 1: Wireframe low-fi en ASCII
-
-**Cuándo usarlo:** Para mostrar qué tan simple puede ser un wireframe low-fi.
+### Ejemplo 1: Objetivo de Rediseño del Caso de Estudio 0
 
 ```
-┌─────────────────────────┐
-│                         │
-│      [  FOTO  ]         │
-│                         │
-│     Juan Pérez          │
-│   Desarrollador Web     │
-│                         │
-│  ┌─────────────────┐    │
-│  │   Mi Portfolio  │    │
-│  └─────────────────┘    │
-│  ┌─────────────────┐    │
-│  │    LinkedIn     │    │
-│  └─────────────────┘    │
-│  ┌─────────────────┐    │
-│  │     GitHub      │    │
-│  └─────────────────┘    │
-│                         │
-│    [tw] [ig] [gh]       │
-│                         │
-└─────────────────────────┘
+"Mi MyLinks actual es un documento HTML genérico y centrado, pero quiero
+que sea un hub asimétrico, minimalista y con personalidad fuerte usando
+alineación a la izquierda y botones brutalistas con sombras duras.
+Mi usuario ideal es un reclutador técnico que necesita encontrar
+mi LinkedIn o mis proyectos en menos de 3 segundos sin leer 20 enlaces."
 ```
 
-**Tip de facilitación:** "Esto es TODO lo que necesitan en un wireframe low-fi. Sin colores, sin fuentes fancy. Solo rectángulos y texto placeholder."
+> **Tip:** Compártelo entero en el chat. Es la vara de calidad que los alumnos deben alcanzar.
 
-### Ejemplo 2: Paleta de colores mínima viable
-
-**Cuándo usarlo:** Cuando lleguen a high-fi y no sepan qué colores elegir.
+### Ejemplo 2: Sombra brutalista vs sombra suave
 
 ```
-Paleta minimalista (4 colores):
-- Fondo: #FFFFFF (blanco) o #0F172A (oscuro)
-- Texto: #1F2937 (gris oscuro) o #F8FAFC (claro)
-- Primario: #3B82F6 (azul) - botones y acentos
-- Hover: #2563EB (azul más oscuro) - estados interactivos
+Brutalista: X:4 Y:4 Blur:0 #000        (sello del Caso de Estudio)
+Suave:      X:0 Y:8 Blur:24 rgba(0,0,0,0.2)  (estilo minimalista)
 ```
 
-**Tip de facilitación:** "No necesitan 10 colores. Los mejores diseños usan 3-4. Empiecen simple."
+> **Tip:** Pregunta a los alumnos cuál eligen y por qué. Decisión por intención.
 
-### Ejemplo 3: Anatomía de un frame en Figma
-
-**Cuándo usarlo:** Al introducir Figma por primera vez.
+### Ejemplo 3: Atajos esenciales de Figma
 
 ```
-Atajos esenciales de Figma:
-- F = Frame (crear artboard)
-- R = Rectángulo
-- O = Elipse/Círculo
-- T = Texto
-- Shift = Mantener proporciones
-- Ctrl/Cmd + D = Duplicar
-- Ctrl/Cmd + G = Agrupar
+Selección y movimiento:  V (mover), Ctrl+0 (encajar lienzo), Ctrl+D (duplicar)
+Crear elementos:         F (Frame), R (Rectángulo), O (Elipse), T (Texto)
+Auto Layout:             Shift+A (activar), gap entre items en panel derecho
+Exportar:                Frame seleccionado → Export panel → +PNG @2x
 ```
-
-**Tip de facilitación:** Proyecta tu pantalla de Figma y ve mostrando cada atajo mientras lo nombras. Los estudiantes aprenden mejor viendo + haciendo.
 
 ---
 
@@ -176,44 +137,43 @@ Atajos esenciales de Figma:
 
 | Señal | Qué está pasando | Qué hacer |
 |-------|------------------|-----------|
-| "No sé dibujar" | Miedo a bocetos imperfectos | "Los wireframes NO son arte. Rectángulos y texto. Eso es todo." |
-| Estudiante pasa 20 min en un solo boceto | Perfeccionismo, no está ideando | "La regla es 5 min máximo. Si tardas más, ya no es low-fi." |
-| Wireframe low-fi tiene colores | No entiende la diferencia low-fi/high-fi | "Low-fi = solo blanco, negro y gris. Los colores vienen después." |
-| No encuentra Figma/Excalidraw | Problemas de acceso | Tener links listos: excalidraw.com (sin cuenta), figma.com |
-| Figma no carga/lento | Conexión o navegador viejo | Sugerir Chrome, cerrar otras pestañas |
-| "No me gusta ninguno de mis 3 diseños" | Normal en ideación | "Combina lo mejor de cada uno. Eso es diseño iterativo." |
+| Alumno arrastra cajas y aplica colores en la Parte 3 | No respeta la regla "low-fi sin pintura" | "En esta parte solo cajas grises. Los colores vienen en la Parte 4." |
+| El Frame no se pinta cuando aplica el Style `bg-principal` | El Frame tenía un color suelto | "Selecciona el Frame → Fill → 4 puntitos → asignar Style" |
+| Boton crece pero el texto sale volando | Auto Layout aplicado al texto, no al frame contenedor | "Borra todo, selecciona solo el texto, Shift+A" |
+| Exporta el lienzo gris en lugar del Frame | Seleccionó un elemento interno, no el Frame padre | "En el panel izquierdo de capas, clic exactamente donde dice 'Móvil'" |
+| Imagen del avatar queda detrás del Frame | Z-index: la arrastró al lienzo, no al Frame | "Arrástrala desde el panel de capas al interior del Frame" |
+| Sigue queriendo dibujar 3 variantes | Trae el flujo viejo de la versión anterior | "Una sola decisión documentada. Si quieres explorar variantes, lo haces en privado después." |
 
 ---
 
 ## 🎯 Checkpoints de Validación
 
-| Minuto | Checkpoint | Cómo validar |
+| Tiempo | Checkpoint | Cómo validar |
 |--------|------------|--------------|
-| 0-10 | Intro + análisis de ejemplos | Estudiantes identifican patrones en Linktrees |
-| 10-35 | Parte 1 completa | Screenshot de MyLinks actual + observaciones escritas |
-| 35-65 | Parte 2 completa | 3 bocetos visibles (papel o Excalidraw) |
-| 65-100 | Parte 3 completa | Frame de Figma con colores aplicados |
-| 100-110 | Exportación y cierre | PNG exportado de wireframe high-fi |
+| 0-5 | Setup | Todos duplicaron la plantilla Starter Kit a su cuenta |
+| 5-25 | Parte 1 completa | Objetivo de Rediseño compartido en chat por todos |
+| 25-35 | Parte 2 completa | Pregunta rápida: "¿Quién recuerda qué hace la tecla T?" |
+| 35-50 | Parte 3 completa | Frames con cajas grises armadas (screenshot opcional) |
+| 50-100 | Parte 4 completa | Frame Móvil + Escritorio con tokens y contenido real |
+| 100-110 | Parte 5 completa | 3 archivos entregables (Spec Sheet + 2 mockups PNG) |
 
 **Señales de que van bien:**
-- El salón está relativamente silencioso durante bocetos (concentración)
-- Preguntas son sobre diseño, no sobre herramientas
-- Estudiantes muestran bocetos a compañeros voluntariamente
+- El salón está silencioso durante la Parte 3 (concentración + arrastre).
+- Preguntas son sobre decisiones de diseño, no sobre la herramienta.
+- Alumnos comparten screenshots de su Frame en el chat voluntariamente.
 
 **Señales de problemas:**
-- Muchos estudiantes estancados en el mismo boceto por >10 min
-- Preguntas frecuentes sobre cómo usar Excalidraw/Figma
-- Nadie terminó las 3 variantes en el tiempo dado
+- Muchos preguntan dónde está el panel de Local Styles → repasa el Momento de "Las 3 zonas".
+- Auto Layout se rompe constantemente → demo extra del Botón Maestro.
+- Algunos alumnos terminan en 30 minutos → diles que prueben los Bonus.
 
 ---
 
-## 🔗 Conexión con la Próxima Clase
+## 🔗 Conexión con la Próxima Clase (Lab Calificado)
 
-Al cerrar, planta la semilla para la clase 08 (Lab Calificado):
+Al cerrar, planta la semilla para el Lab 08:
 
-> "Hoy diseñaron sin escribir una sola línea de código. Mañana van a hacer algo mágico: usar inteligencia artificial para convertir ese diseño en código real. Literalmente van a describir su wireframe a una IA y ella va a generar el CSS. Pero necesitan traer su wireframe high-fi terminado—sin él, no tienen qué pedirle a la IA."
-
-**Tarea implícita:** Terminar y exportar el wireframe high-fi en Figma. Es el input para el lab calificado.
+> "Esos 3 archivos que acaban de generar — `spec-sheet.txt` + `mockup-mobile.png` + `mockup-desktop.png` — son el **input directo** del prompt que le van a dar a una IA en la próxima clase. Sin esos 3 archivos, no pueden ejecutar el lab calificado. La IA va a leer sus mockups, extraer colores y proporciones, y construir su MyLinks publicado en GitHub Pages. Pero solo si llegan con los 3."
 
 ---
 
@@ -221,26 +181,14 @@ Al cerrar, planta la semilla para la clase 08 (Lab Calificado):
 
 ### Sobre el cambio de ritmo
 
-Esta es la única clase del módulo donde no escriben código. Algunos estudiantes pueden sentirse "improductivos". Normaliza esto:
+Esta es la única clase del módulo donde casi no escriben código. Algunos alumnos se sentirán "improductivos". Normaliza esto:
 
-> "Hoy no vamos a escribir código, y eso está bien. Los desarrolladores profesionales pasan más tiempo planeando que codificando. Es más fácil mover rectángulos en Figma que reescribir CSS."
+> "Hoy no van a escribir HTML ni CSS. Eso está bien. Los desarrolladores profesionales pasan más tiempo planeando que codificando. Mañana la IA va a escribir el código por ustedes — pero solo si hoy diseñan bien."
 
-### Sobre Figma
+### Sobre el plugin del Starter Kit
 
-Figma puede ser abrumador para principiantes. Enfócate solo en:
-1. Crear un frame (F)
-2. Dibujar rectángulos (R) y círculos (O)
-3. Agregar texto (T)
-4. Cambiar colores en el panel derecho
-5. Exportar como PNG
+El plugin Figma en `dev/figma-starter-kit/` te permite regenerar el archivo en cualquier momento. Si los alumnos accidentalmente borran un componente del kit, regeneras y compartes en 3 segundos.
 
-**No enseñes:** Componentes, Auto Layout, Variables, Prototipado interactivo. Eso es para otra clase.
+### Sobre los Bonus
 
-### Sobre las 3 variantes
-
-Si un estudiante dice "solo tengo una idea", dale estos prompts:
-- "¿Y si la foto fuera mucho más grande?"
-- "¿Y si los botones fueran redondos en lugar de rectangulares?"
-- "¿Y si el fondo fuera oscuro en lugar de claro?"
-
-Pequeños cambios = nuevas variantes. No necesitan reinventar todo.
+Los Bonus (Componente Maestro + Prototipo Interactivo) son para alumnos que terminen rápido. **No los enseñes en el flujo normal** — solo si alguien levanta la mano antes de tiempo.
