@@ -1,36 +1,38 @@
 > 📦 **Módulo 2:** Clase 4 de 4 (Lab Calificado)
 
-# Clase 08: Vibe Coding con IA
+# Clase 08: Vibe Coding — De idea a sitio publicado
 
 ## Resumen
 
-Esta es la clase final del Módulo 2 y tu primer lab calificado. Vas a usar inteligencia artificial para transformar tu diseño de MyLinks en código funcional, y lo publicarás en internet con una URL real que podrás compartir con cualquier persona.
+Esta es la clase final del Módulo 2 y tu primer lab calificado. Vas a usar inteligencia artificial para convertir el diseño que hiciste en la Clase 07 — tu **Spec Sheet** y mockups — en un sitio web real, publicado en internet con una URL pública.
 
-Aprenderás **Prompt Scaffolding**, una técnica para construir prompts efectivos paso a paso. En lugar de escribir un prompt desde cero (lo cual puede ser intimidante), usarás un proceso guiado que te hace preguntas y construye el prompt perfecto para ti.
+Aprenderás **Prompt Scaffolding**: la técnica de construir prompts estructurados por bloques (Rol + Contexto + Tarea + Restricciones + Formato) que separa al programador profesional del aficionado. Verás en vivo el contraste entre un prompt vago (V1) y uno scaffolded (V2), y el resultado dramáticamente diferente que produce cada uno.
 
-Al final de la clase, tu MyLinks estará publicado en GitHub Pages con una URL como `tunombre.github.io/mylinks`—tu primera página web en internet.
+Al final de la clase, tu MyLinks estará vivo en `tunombre.github.io/mylinks` — tu primera URL pública. Y entenderás qué hace cada bloque del HTML/CSS que la IA generó por ti.
 
 ---
 
 ## ¿Por qué te sirve?
 
-- **La IA es el copiloto del desarrollador moderno.** Empresas como Google, Microsoft y Meta ya integran IA en sus flujos de trabajo. Aprender a usarla efectivamente es una habilidad que te diferenciará.
+- **Vibe Coding es el presente.** Andrej Karpathy acuñó el término en febrero de 2025 para describir cómo la programación está cambiando: describes en lenguaje natural y la IA escribe el código. Pero hay 2 formas de hacerlo: con criterio o a ciegas. Hoy aprendes a hacerlo con criterio.
 
-- **Saber pedir es tan importante como saber hacer.** Un buen prompt puede ahorrarte horas de trabajo. Un mal prompt te da código que no entiendes y no puedes mantener.
+- **Saber pedir es tan importante como saber hacer.** Un prompt scaffolded de 5 bloques produce 10x mejor código que uno de 1 línea. Eso es habilidad transferible — la usarás todos los días en tu carrera.
 
-- **GitHub Pages es hosting gratuito y profesional.** Tu proyecto estará en una URL real, no en tu computadora. Es algo que puedes poner en tu CV y compartir en LinkedIn hoy mismo.
+- **GitHub Pages es hosting profesional gratuito.** Tu sitio queda en una URL real (no en tu computadora). Es algo que pones en tu LinkedIn hoy mismo y te diferencia.
 
 ---
 
 ## 🎯 ¿Qué haremos en clase?
 
-1. **Aprenderás Prompt Scaffolding** - Una técnica para construir prompts efectivos respondiendo preguntas simples con opciones predefinidas.
+1. **V1: Prompt vago en Claude** — Verás un resultado genérico para entender qué NO queremos.
 
-2. **Generarás tu MyLinks con IA** - Usarás Claude para crear el código HTML/CSS basado en tu diseño.
+2. **V2: Prompt Scaffolded con Gemini** — Convertirás tu Spec Sheet del Lab 07 en un prompt estructurado y lo dispararás en Claude con tus mockups adjuntos.
 
-3. **Verificarás que sea responsive** - Usarás DevTools para confirmar que funciona en móvil y desktop.
+3. **Iterar con criterio** — Personalizarás los botones con código real de [uiverse.io](https://uiverse.io){:target="_blank"} adaptado a tu paleta.
 
-4. **Publicarás en GitHub Pages** - Tu sitio estará en internet con una URL pública.
+4. **Extraer a VS Code** — Sacarás el código del Artifact de Claude y lo correrás localmente con Live Server.
+
+5. **Publicar en GitHub Pages** — Tu MyLinks tendrá una URL pública que cualquiera puede visitar.
 
 ---
 
@@ -38,11 +40,11 @@ Al final de la clase, tu MyLinks estará publicado en GitHub Pages con una URL c
 
 Al finalizar esta clase, podrás:
 
-1. **Aplicar** la técnica Prompt Scaffolding para construir prompts efectivos
-2. **Generar** código HTML/CSS funcional usando inteligencia artificial
-3. **Verificar** que un sitio web sea responsive usando Chrome DevTools
-4. **Publicar** un sitio web en GitHub Pages con URL pública
-5. **Iterar** sobre resultados de IA cuando no son lo que esperabas
+1. **Diferenciar** un prompt vago de un prompt scaffolded observando el output de cada uno.
+2. **Construir** un Prompt Scaffolded usando Spec Sheet + mockups del Lab 07.
+3. **Iterar con criterio** sobre el código generado por la IA con instrucciones específicas y referencias reales.
+4. **Extraer** el código generado a un proyecto local con Live Server.
+5. **Publicar** un sitio web en GitHub Pages con URL pública.
 
 ---
 
@@ -52,24 +54,26 @@ Al finalizar esta clase, podrás:
 
 Antes de continuar, verifica que tienes:
 
-- [ ] Repositorio MyLinks con al menos 2 commits
-- [ ] Diseño responsive funcionando (de clase 06)
-- [ ] Wireframe de tu diseño (low-fi o high-fi, de clase 07)
-- [ ] Tu wireframe accesible (imagen, Excalidraw, o Figma)
+- [ ] Repositorio MyLinks con commits regulares (de la Clase 06).
+- [ ] Diseño responsive funcionando.
+- [ ] **3 entregables del Lab 07** en una carpeta accesible:
+  - `spec-sheet.txt`
+  - `mockup-mobile.png`
+  - `mockup-desktop.png`
 
 ### Herramientas
 
-- [ ] **Cuenta en Claude.ai** - [claude.ai](https://claude.ai/){:target="_blank"} (gratis, requiere registro)
-- [ ] **Cuenta en Google/Gemini** - Para usar Gemini en la técnica Prompt Scaffolding
-- [ ] **Chrome con DevTools** - Para verificar responsive
-- [ ] **Tu repositorio MyLinks** - Clonado y listo para editar
+- [ ] **Claude.ai** — [claude.ai](https://claude.ai/){:target="_blank"} (cuenta gratuita).
+- [ ] **Gemini** — [gemini.google.com](https://gemini.google.com/){:target="_blank"} (cuenta de Google).
+- [ ] **VS Code con Live Server** — Lo usaste en clases anteriores.
+- [ ] **Tu repositorio MyLinks** — Clonado en VS Code y listo para editar.
 
 ### Preparación
 
-- [ ] Crea una cuenta en Claude.ai si no tienes (es gratis)
-- [ ] Ten tu wireframe listo (puede ser foto del boceto, PNG de Excalidraw, o link de Figma)
-- [ ] Abre tu proyecto MyLinks en VS Code
-- [ ] Verifica que puedes hacer push a GitHub (`git status` no muestra errores)
+- [ ] Crea cuenta en Claude.ai y Gemini si aún no las tienes.
+- [ ] Ten los 3 archivos del Lab 07 a mano (en una carpeta o en el escritorio).
+- [ ] Verifica que `git status` corre sin errores en tu repo MyLinks.
+- [ ] Cierra apps innecesarias — vas a tener Claude, Gemini y VS Code abiertos en paralelo.
 
 ---
 
@@ -77,12 +81,11 @@ Antes de continuar, verifica que tienes:
 
 | Término | Definición |
 |---------|------------|
-| **Prompt** | Instrucción o pregunta que le das a una IA para obtener una respuesta |
-| **Prompt Scaffolding** | Técnica de construir prompts paso a paso mediante preguntas clarificadoras |
-| **Artifact** | En Claude, un bloque de código o contenido que se genera de forma interactiva |
-| **GitHub Pages** | Servicio gratuito de GitHub para publicar sitios web estáticos |
-| **Deploy** | Proceso de publicar código en un servidor para que sea accesible en internet |
-| **Iteración** | Proceso de mejorar algo a través de múltiples versiones |
+| **Vibe Coding** | Programar describiendo en lenguaje natural lo que quieres y dejando que la IA escriba el código. Tú supervisas, iteras y validas. |
+| **Prompt Scaffolding** | Técnica de construir un prompt estructurado por bloques (Rol + Contexto + Tarea + Restricciones + Formato). |
+| **Artifact** | Panel renderizable de Claude donde el código se ejecuta en vivo a la derecha del chat. |
+| **Iterar con criterio** | Refinar el output de la IA con instrucciones específicas y código real, no caprichos vagos. |
+| **GitHub Pages** | Hosting gratuito de GitHub para sitios estáticos. Toma tu repo y lo publica en una URL. |
 
 ---
 
@@ -92,17 +95,21 @@ Este es un **lab calificado**. Tu trabajo será evaluado con la siguiente rúbri
 
 | Criterio | Peso | Qué se evalúa |
 |----------|------|---------------|
-| Estructura y Git | 25% | 4+ commits descriptivos, organización de archivos |
-| Diseño Responsive | 25% | Funciona correctamente en móvil y desktop |
-| Contenido y Estilo | 25% | 5+ enlaces, paleta coherente, tipografía |
-| Publicación | 25% | GitHub Pages funcionando con URL pública |
+| Prompt Scaffolded y uso del Spec Sheet | 25% | Calidad del prompt + uso de Lab 07 + mockups adjuntos |
+| Iteración con criterio | 25% | Iteración con código real adaptado, no copia ciega |
+| Extracción y Diseño Responsive | 25% | Live Server local + responsive en móvil y desktop |
+| Publicación y Coherencia | 25% | URL pública + coherencia con Spec Sheet + 3+ commits |
 
 **Escala:** A (90-100), B (80-89), C (70-79), F (<70)
+
+> Ver rúbrica detallada en [rubric.md](lab/rubric.md).
 
 ---
 
 ## Recursos Adicionales
 
-- [Claude.ai](https://claude.ai/){:target="_blank"} - IA para generar código
-- [GitHub Pages Docs](https://docs.github.com/es/pages){:target="_blank"} - Documentación oficial
-- [Chrome DevTools - Device Mode](https://developer.chrome.com/docs/devtools/device-mode/){:target="_blank"} - Simular dispositivos
+- [Claude.ai](https://claude.ai/){:target="_blank"} — IA para generar código con Artifacts.
+- [Gemini](https://gemini.google.com/){:target="_blank"} — IA para razonar y planificar prompts.
+- [uiverse.io](https://uiverse.io/){:target="_blank"} — Galería open-source de componentes CSS.
+- [GitHub Pages Docs](https://docs.github.com/es/pages){:target="_blank"} — Documentación oficial.
+- [Andrej Karpathy on Vibe Coding](https://x.com/karpathy){:target="_blank"} — Quien acuñó el término.

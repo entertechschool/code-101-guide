@@ -1,304 +1,177 @@
 <!-- .slide: data-background="#0A192F" -->
-# Clase 08: Vibe Coding con IA
-## Tu MyLinks en internet hoy
+# Clase 08: Vibe Coding
+## De idea a sitio publicado
 
 ---
 
-## 🔗 TRANSICIÓN: Diseño → Implementación
+## 🔗 TRANSICIÓN: Diseño → Sitio Publicado
 
 ### Clase anterior (07):
-- Creaste wireframes low-fi y high-fi
-- Definiste tu paleta de colores
-- Planificaste tu diseño en Figma/Excalidraw
+- Hiciste tu Spec Sheet con tokens y enlaces
+- Exportaste mockup móvil y mockup escritorio en Figma
 
-### Hoy:
-- Convertirás ese diseño en **código real**
-- Usarás **IA como copiloto**
-- Publicarás en **GitHub Pages**
-- Tendrás una **URL pública** para compartir
+### Hoy (Lab Calificado):
+- Conviertes esos 3 archivos en un sitio web real con **IA**
+- Aprendes **Prompt Scaffolding** profesional
+- Publicas en **GitHub Pages** con URL pública
 
-> "Del wireframe al mundo, con ayuda de IA."
+> "Del Spec Sheet al mundo, en una sola clase."
+
+---
+
+## 🚦 ¿Qué tipo de Vibe Coder vas a ser hoy?
+
+| ❌ Irresponsable | ✅ Profesional |
+|---|---|
+| Prompt vago → acepta sin leer | Prompt scaffolded → evalúa output |
+| Copia y pega sin entender | Entiende cada bloque |
+| "Arréglalo" cuando falla | Localiza el error y guía a la IA |
+| "Así me lo generó la IA" | El código es **su responsabilidad** |
+
+> **Tu objetivo hoy:** salir sabiendo qué hace cada línea del HTML/CSS que la IA escribió.
 
 ---
 
 ## 🧠 QUIZ PRE-LAB
 
 ### Pregunta:
-Si le pides a una IA "hazme una página web bonita", ¿por qué probablemente no obtendrás lo que quieres?
+Andrej Karpathy acuñó el término *Vibe Coding* en febrero de 2025. ¿Qué crees que significa?
 
 *Toma 2-3 respuestas antes de continuar*
 
 ---
 
-## 🎯 COMPROBACIÓN
-
-### Pregunta:
-¿Qué hace falta en este prompt?
-
-> "Hazme un Linktree"
-
-A. Nada, es perfecto
-B. Falta decir qué colores, estilos y estructura quieres
-C. Falta decir "por favor"
-D. Los prompts no funcionan así
-
----
-
-## 🎯 COMPROBACIÓN - Respuesta
-
-**Respuesta:** B
-
-Un prompt efectivo incluye:
-- **Qué** quieres (tipo de página)
-- **Cómo** lo quieres (colores, estilos, estructura)
-- **Requisitos técnicos** (responsive, HTML/CSS)
-
-> "Hazme un Linktree" → la IA adivina todo
-> "Hazme un Linktree oscuro con botones neón redondeados" → la IA entiende
-
----
-
-## 💡 Prompt Scaffolding
-
-### El problema:
-Escribir un buen prompt desde cero es difícil.
-¿Qué colores? ¿Qué estilos? ¿Qué estructura?
-
-### La solución: Prompt Scaffolding
-
-```
-┌─────────────────────────────────────────┐
-│  Responde 4-5 preguntas simples         │
-│  con opciones A, B, C, D                │
-└─────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────┐
-│  Se genera el prompt perfecto           │
-│  automáticamente                        │
-└─────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────┐
-│  Lo usas en Claude → código listo       │
-└─────────────────────────────────────────┘
-```
-
----
-
 ## 💡 ¿Por qué dos IAs?
 
-### Gemini: El arquitecto
-- Hace preguntas clarificadoras
-- Te ayuda a definir qué quieres
-- Construye el prompt final
+### Gemini: el planificador
+- Razona y organiza contexto largo
+- Convierte tu Spec Sheet → prompt estructurado
 
-### Claude: El constructor
-- Recibe el prompt ya listo
-- Genera el código HTML/CSS
-- Crea artifacts interactivos
+### Claude: el constructor
+- Recibe el prompt y genera código
+- Crea **Artifacts** renderizables (vista previa en vivo)
 
 > "Gemini te ayuda a pedir. Claude te ayuda a construir."
 
 ---
 
-## ✅ CHECKPOINT 1: Prompt Scaffolding
+## 💡 La diferencia entre V1 y V2
 
-### Verificar:
+### V1 — Zero-shot (lo que NO hacemos):
 
-1. Usaste el prompt de scaffolding en Gemini
-2. Respondiste las 5 preguntas (wireframe + 4 de diseño)
-3. Obtuviste un prompt final personalizado
+```
+Crea un linktree con botones para mis redes sociales
+```
 
-**¿Qué debe estar listo?**
-- [ ] Prompt copiado y listo para usar
-- [ ] Incluye tus preferencias de estilo
-- [ ] Menciona requisitos técnicos (responsive, HTML/CSS)
+→ Resultado: genérico, podría ser de cualquiera
+
+### V2 — Scaffolded (lo que SÍ hacemos):
+
+```
+[ROL] Desarrollador frontend senior
+[CONTEXTO] Erick, brutalista, reclutador en 3 segundos
+[TAREA] Crear MyLinks responsive
+[RESTRICCIONES] HTML semántico, mockups adjuntos
+[FORMATO] Artifact renderizable
+```
+
+→ Resultado: tu sitio, tu estilo, tus links
 
 ---
 
-## 💡 Generación con Claude
+## ✅ CHECKPOINT 1: V1 Generado
 
-### El flujo:
+### Verificar:
+- Pegaste prompt vago en Claude
+- Observaste resultado genérico
+- Entiendes qué NO funciona
 
-1. **Pega** tu prompt en Claude.ai
-2. **(Opcional)** Adjunta imagen de tu wireframe
-3. **Revisa** el artifact generado
-4. **Itera** si algo no está bien
-
-### Iterar = pedir cambios específicos
-
-```
-❌ "No me gusta"
-✅ "El fondo debería ser más oscuro, casi negro"
-
-❌ "Está mal"
-✅ "Los botones están muy juntos, agrega 1rem de espacio"
-
-❌ "Arréglalo"
-✅ "El texto del título debería ser más grande, usa 2.5rem"
-```
+> El V1 es la **vara de comparación**. Sin él, no aprecias el V2.
 
 ---
 
-## ✅ CHECKPOINT 2: Código Generado
+## ✅ CHECKPOINT 2: V2 Scaffolded en Claude
 
 ### Verificar:
-
-1. Claude generó un artifact con HTML/CSS
-2. La vista previa se ve similar a tu diseño
-3. Copiaste el código a tu `index.html`
-4. Personalizaste nombre, bio y enlaces
+- Pegaste plantilla en Gemini con Spec Sheet completo
+- Copiaste el prompt estructurado a Claude
+- **Adjuntaste ambos mockups** (mobile + desktop)
+- Tienes Artifact con tu MyLinks personalizado
 
 **Commit #1:**
 ```bash
-git commit -m "feat: generar MyLinks con IA y personalizar contenido"
+git commit -m "feat: generar MyLinks con prompt scaffolded"
 ```
 
 ---
 
-## 💡 Verificación Responsive
+## ✅ CHECKPOINT 3: Iteración con uiverse.io
 
-### ¿Por qué verificar?
+### Verificar:
+- Elegiste un botón en uiverse.io
+- Le pasaste el CSS a Claude con instrucción específica
+- Claude **adaptó** los colores a tu paleta (no copió tal cual)
+- Botones personalizados se ven coherentes con el resto
 
-La IA intenta hacer el código responsive, pero...
-- A veces los breakpoints no son los correctos
-- Elementos pueden romperse en tamaños específicos
-- El hover puede no funcionar como esperabas
-
-### La regla: siempre verificar en DevTools
-
-```
-F12 → Modo responsive → 375px (móvil) → 768px (desktop)
-```
+> Iterar con criterio = código real + instrucción precisa. Cero "hazlo bonito".
 
 ---
 
-## ✅ CHECKPOINT 3: Responsive Verificado
+## ✅ CHECKPOINT 4: Live Server Local
 
-### Verificar en 375px (móvil):
-- [ ] Contenido no se corta
-- [ ] Texto legible
-- [ ] Botones fáciles de tocar
-- [ ] Sin scroll horizontal
-
-### Verificar en 768px+ (desktop):
-- [ ] Contenido centrado
-- [ ] Botones con max-width
-- [ ] Hover funcionando
-- [ ] Espaciado proporcional
+### Verificar:
+- Copiaste el Artifact final a `index.html`
+- Abriste con Live Server
+- Paridad visual: Claude izquierda vs Live Server derecha
 
 **Commit #2:**
 ```bash
-git commit -m "fix: ajustar diseño responsive"
+git commit -m "feat: extraer MyLinks a proyecto local"
 ```
 
 ---
 
-## 💡 GitHub Pages
-
-### ¿Qué es?
-Hosting **gratuito** de GitHub para sitios estáticos.
-
-### ¿Cómo funciona?
-
-```
-Tu repositorio                    Internet
-┌──────────────┐                 ┌──────────────┐
-│  index.html  │  ──GitHub──►    │  tu-usuario  │
-│  styles.css  │    Pages        │  .github.io  │
-│  images/     │                 │  /mylinks    │
-└──────────────┘                 └──────────────┘
-```
-
-### El resultado:
-`https://tu-usuario.github.io/mylinks/`
-
-Una URL **real** que cualquiera puede visitar.
-
----
-
-## ✅ CHECKPOINT 4: Publicado
+## ✅ CHECKPOINT 5: GitHub Pages (Desafío Calificado)
 
 ### Pasos:
-1. Settings → Pages → Branch: main → Save
-2. Esperar 1-3 minutos
-3. Verificar URL pública
+1. `git push`
+2. Settings → Pages → Branch: main → Save
+3. Esperar 1-3 min
+4. Verificar URL pública
+5. **Pegarla en el chat de la clase**
 
-### ¿Qué debe funcionar?
-- [ ] URL accesible desde cualquier navegador
-- [ ] Contenido se ve igual que en local
-- [ ] Puedes abrirlo en tu teléfono
+### El momento "wow":
+> Abre la URL en tu **celular**. Está en internet. Es tuyo.
 
 ---
 
-## 🔗 TRANSICIÓN: Módulo 2 Completo
+## 💡 REFLEXIÓN: El Spec Sheet vale oro
 
-### Lo que lograste en el Módulo 2:
+| Sin Spec Sheet | Con Spec Sheet del Lab 07 |
+|---|---|
+| La IA adivina todo | La IA tiene contexto preciso |
+| Resultado genérico | Resultado coherente con tu diseño |
+| 5+ iteraciones para llegar | Llegas en 1-2 iteraciones |
+
+> El trabajo de la Clase 07 es la palanca que hace al Lab 08 fluir.
+
+---
+
+## 🎉 ¡Felicidades! Módulo 2 Completo
+
+### Lo que lograste en 4 clases:
 
 | Clase | Habilidad |
 |-------|-----------|
 | 05 | Terminal + Git |
 | 06 | Responsive + DevTools |
 | 07 | Wireframing + Figma |
-| **08** | **IA + Deploy** |
+| **08** | **Vibe Coding + Deploy** |
 
 ### Tu MyLinks ahora:
-- ✅ Está en GitHub (control de versiones)
-- ✅ Es responsive (cualquier dispositivo)
-- ✅ Tiene diseño profesional (wireframe → código)
-- ✅ Está en internet (GitHub Pages)
+- ✅ Está en GitHub
+- ✅ Es responsive
+- ✅ Tiene tu Spec Sheet detrás
+- ✅ Vive en internet con URL pública
 
-> "De la nada a una URL pública en 4 clases."
-
----
-
-## 💡 REFLEXIÓN: El Poder del Prompt
-
-| Prompt vago | Prompt con scaffolding |
-|-------------|------------------------|
-| "Hazme un Linktree" | "Hazme un Linktree oscuro con botones neón redondeados, hover con escala, foto circular, responsive mobile-first..." |
-| Resultado: genérico | Resultado: personalizado |
-| Muchas iteraciones | Pocas iteraciones |
-
-> La técnica **Prompt Scaffolding** convierte preguntas simples en prompts poderosos.
-
----
-
-## ❓ Preguntas de Cierre
-
-1. ¿Por qué usar Prompt Scaffolding en lugar de escribir el prompt directamente?
-
-2. ¿Qué haces cuando la IA no genera exactamente lo que querías?
-
-3. ¿Por qué verificamos el responsive en DevTools aunque la IA "ya lo hizo responsive"?
-
----
-
-## 📝 Entrega del Lab
-
-**Entregable:**
-- [ ] URL de GitHub Pages funcionando
-- [ ] URL del repositorio con 4+ commits
-
-**Verificación final:**
-- [ ] 5+ enlaces personalizados
-- [ ] Responsive en 375px y 768px
-- [ ] Paleta de colores coherente
-
----
-
-## 🎉 ¡Felicidades!
-
-### Completaste el Módulo 2
-
-Tu MyLinks está **en vivo**, en internet, con una URL que puedes:
-- Poner en tu Instagram bio
-- Agregar a tu LinkedIn
-- Compartir en tu CV
-- Enviar a amigos y familia
-
-> "Tu primera página web publicada. La primera de muchas."
-
-### Próximo módulo:
-**JavaScript** - Agregar interactividad a tus páginas
+### Próximo módulo: **JavaScript** — Dale cerebro a tus páginas.

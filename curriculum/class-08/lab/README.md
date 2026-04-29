@@ -1,422 +1,355 @@
-# Lab 08: Vibe Coding con IA
+# Lab 08: Vibe Coding — De idea a sitio publicado
 
-> 🚀 **Proyecto del Módulo:** MyLinks - Tu Hub Personal en la Web
+> 🚀 **Proyecto del Módulo:** MyLinks — Tu hub personal en la web.
 >
-> 📌 **Este lab:** Usar IA para generar tu MyLinks y publicarlo en GitHub Pages.
+> 📌 **Este lab:** Convertir tu **Spec Sheet del Lab 07** en un sitio web real, usando **Prompt Scaffolding** sobre Claude, iterando con criterio, extrayendo a VS Code y publicando en GitHub Pages.
 >
-> ⚠️ **Lab Calificado:** Este lab será evaluado. Ver rúbrica al final.
+> ⚠️ **Lab Calificado:** Este lab será evaluado con la rúbrica del final.
 
 ## 🎯 Objetivos del Lab
 
-1. Aplicar la técnica **Prompt Scaffolding** para construir un prompt efectivo
-2. Generar código HTML/CSS usando Claude.ai
-3. Verificar diseño responsive con DevTools
-4. Publicar en GitHub Pages con URL pública
+1. Diferenciar un **prompt vago (V1)** de un **prompt scaffolded (V2)** observando el output real de cada uno.
+2. Construir un Prompt Scaffolded usando tu Spec Sheet y mockups del Lab 07.
+3. **Iterar con criterio** (código real, no instrucciones vagas) para personalizar componentes.
+4. Extraer el código generado por la IA a tu proyecto local en VS Code.
+5. Publicar tu MyLinks en GitHub Pages y obtener una **URL pública en vivo**.
 
 ---
 
 ## 🔑 Conceptos Clave
 
-- **Prompt Scaffolding** - Técnica de construir prompts paso a paso con preguntas clarificadoras
-- **Artifact** - Código generado por Claude que puedes copiar directamente
-- **GitHub Pages** - Hosting gratuito para tu sitio web
-- **Iteración** - Refinar resultados de IA cuando no son exactamente lo que querías
+- **Prompt Scaffolding** — Construir una instrucción estructurada por bloques (Rol + Contexto + Tarea + Restricciones + Formato) para guiar a la IA hacia un resultado exacto.
+- **Vibe Coding** — Programar describiendo en lenguaje natural lo que quieres y dejando que la IA genere el código. Tú supervisas, iteras y validas.
+- **Artifact** — Panel renderizable de Claude donde el código se ejecuta en vivo a la derecha del chat.
+- **Iterar con criterio** — Refinar el output de la IA con **referencias concretas** (CSS real de uiverse.io, valores hex específicos), no con caprichos vagos ("hazlo bonito").
+- **GitHub Pages** — Hosting gratuito que convierte tu repositorio en una web pública con su propia URL.
 
 ---
 
-## ⚙️ Setup Inicial
+## ⚙️ Setup Inicial (5 min)
 
-Verifica que tengas todo listo:
+### Prerrequisito obligatorio
+
+Necesitas los **3 entregables del Lab 07** en una carpeta accesible:
+
+| ✓ | Archivo | Para qué se usa |
+|---|---------|-----------------|
+| ☐ | `spec-sheet.txt` | Define el Rol, Contexto y Restricciones de tu prompt |
+| ☐ | `mockup-mobile.png` | Adjuntas a Claude para que extraiga colores y proporciones móvil |
+| ☐ | `mockup-desktop.png` | Adjuntas a Claude para que adapte el diseño a desktop |
+
+### Cuentas y herramientas
 
 | ✓ | Requisito | Verificación |
 |---|-----------|--------------|
-| ☐ | Repositorio MyLinks | `git status` funciona sin errores |
-| ☐ | Wireframe disponible | Tienes imagen, Excalidraw o link de Figma |
-| ☐ | Cuenta en Claude.ai | Puedes acceder a [claude.ai](https://claude.ai/){:target="_blank"} |
-| ☐ | Chrome instalado | DevTools se abre con F12 |
+| ☐ | Cuenta en [Claude.ai](https://claude.ai/){:target="_blank"} | Login funcionando |
+| ☐ | Cuenta en [Gemini](https://gemini.google.com/){:target="_blank"} | Login funcionando |
+| ☐ | Repositorio MyLinks de la Clase 06 | `git status` corre sin errores |
+| ☐ | VS Code con Live Server | Lo usaste en clases anteriores |
 
 ---
 
-## Parte 1: Prompt Scaffolding (35 min)
+## 🚦 Antes de arrancar: ¿Qué tipo de Vibe Coder vas a ser hoy?
 
-### 1.1 ¿Qué es Prompt Scaffolding?
+> 🎯 **Marco mental del lab.** Andrej Karpathy acuñó el término *Vibe Coding* en febrero de 2025 para describir cómo cambia la programación cuando dejas que la IA escriba el código. Pero hay 2 formas de hacerlo, y la diferencia define a un programador profesional:
 
-**Prompt Scaffolding** es una técnica para construir prompts efectivos sin tener que escribirlos desde cero. Funciona así:
+| ❌ Vibe Coding Irresponsable | ✅ Vibe Coding Profesional |
+|---|---|
+| Prompt vago → acepta sin leer | Prompt scaffolded → evalúa el output |
+| Copia y pega sin entender qué hace el código | Entiende la estructura, aunque no haya escrito cada línea |
+| Si algo falla, no sabe por dónde empezar | Localiza el error y le da instrucción precisa a la IA |
+| El código es una caja negra ("así me lo generó la IA") | El código es **su responsabilidad** — la IA es solo una herramienta |
 
-```
-┌─────────────────────────────────────────────┐
-│  PASO 1: Responder preguntas simples        │
-│  (con opciones predefinidas)                │
-│                                             │
-│  "¿Qué estilo visual?" → Minimalista        │
-│  "¿Qué colores?" → Oscuro con acentos neón  │
-│  "¿Forma de botones?" → Redondeados         │
-└─────────────────────────────────────────────┘
-                    │
-                    ▼
-┌─────────────────────────────────────────────┐
-│  PASO 2: Se genera el prompt final          │
-│  (automáticamente, listo para usar)         │
-└─────────────────────────────────────────────┘
-                    │
-                    ▼
-┌─────────────────────────────────────────────┐
-│  PASO 3: Usar prompt en Claude              │
-│  → Obtener código funcional                 │
-└─────────────────────────────────────────────┘
-```
-
-### 1.2 Abre Gemini
-
-Ve a [gemini.google.com](https://gemini.google.com/){:target="_blank"} e inicia sesión.
-
-### 1.3 Usa el Prompt Scaffolding
-
-Copia y pega este prompt en Gemini:
-
-```
-Eres un asistente que ayuda a construir prompts para generar páginas web tipo Linktree.
-
-Tu trabajo es hacerme 5 preguntas para entender qué quiero, y luego generar un prompt final que pueda usar en otra IA.
-
-Las preguntas deben ser:
-
-**Pregunta 0 (opcional):** "¿Tienes un wireframe o boceto de tu diseño? Si es así, descríbelo brevemente o pega el link. Si no tienes, escribe 'No tengo' y continuamos."
-
-**Pregunta 1:** "¿Qué estilo visual prefieres?"
-- A) Minimalista y limpio
-- B) Colorido y llamativo
-- C) Oscuro y moderno
-- D) Profesional y corporativo
-
-**Pregunta 2:** "¿Qué tipo de paleta de colores?"
-- A) Tonos neutros (blancos, grises, negros)
-- B) Colores vibrantes (azul, rosa, naranja)
-- C) Modo oscuro con acentos neón
-- D) Colores tierra y naturales
-
-**Pregunta 3:** "¿Cómo prefieres los botones de enlaces?"
-- A) Rectangulares con bordes marcados
-- B) Redondeados (pill buttons)
-- C) Con sombras y efecto 3D
-- D) Minimalistas, solo texto con hover
-
-**Pregunta 4:** "¿Qué efecto de hover quieres en los botones?"
-- A) Cambio de color suave
-- B) Escala (se agranda ligeramente)
-- C) Sombra que aparece
-- D) Cambio de fondo + escala combinados
-
-Hazme las preguntas UNA POR UNA. Espera mi respuesta antes de hacer la siguiente.
-
-Cuando tenga todas las respuestas, genera un prompt final con este formato:
-
----
-**PROMPT PARA CLAUDE:**
-
-Crea una página web tipo Linktree con las siguientes características:
-
-[Incluir todas mis respuestas organizadas]
-
-Requisitos técnicos:
-- HTML semántico en un solo archivo
-- CSS incluido en un tag <style> dentro del HTML
-- Diseño responsive (mobile-first)
-- Debe verse bien en 375px y 768px+
-- Incluir al menos 5 enlaces de ejemplo
-- Foto de perfil circular como placeholder
-- Nombre y bio debajo de la foto
-
-Genera el código completo listo para usar.
----
-```
-
-### 1.4 Responde las Preguntas
-
-Gemini te hará las preguntas una por una. Responde con la letra (A, B, C, o D) o con tu propia descripción si ninguna opción te convence.
-
-**Para la Pregunta 0 (wireframe):**
-- Si tienes wireframe en Figma: pega el link
-- Si tienes imagen: describe los elementos principales
-- Si no tienes: escribe "No tengo" y continúa
-
-### 1.5 Obtén tu Prompt Final
-
-Cuando termines las 5 preguntas, Gemini generará un prompt listo para usar.
-
-**Copia el prompt final** (la parte que dice "PROMPT PARA CLAUDE").
-
-✅ **Checkpoint:** Tienes un prompt personalizado generado por Gemini, listo para usar en Claude.
+> 💡 **Tu objetivo hoy:** salir de este lab sabiendo qué hace cada bloque del HTML/CSS que la IA generó por ti.
 
 ---
 
-## Parte 2: Generación con IA (25 min)
+## Parte 1 · V1: El Prompt Vago (10 min)
 
-### 2.1 Abre Claude
+> 🧪 **Idea clave:** Antes de hacer las cosas bien, vamos a hacerlas mal a propósito. Esto te da una vara de comparación real.
 
-Ve a [claude.ai](https://claude.ai/){:target="_blank"} e inicia sesión.
+### 1.1 Abre Claude y pega este prompt zero-shot
 
-### 2.2 Pega tu Prompt
-
-Pega el prompt que generaste con Gemini en el chat de Claude.
-
-Si tienes una imagen de tu wireframe, puedes adjuntarla junto con el prompt (Claude acepta imágenes).
-
-### 2.3 Revisa el Artifact
-
-Claude generará un **artifact** con el código HTML/CSS completo.
-
-En el panel derecho verás una vista previa de cómo se ve tu página.
-
-**Revisa que incluya:**
-- [ ] Foto de perfil (placeholder circular)
-- [ ] Tu nombre y bio
-- [ ] Al menos 5 botones de enlaces
-- [ ] Estilos aplicados según tus preferencias
-
-### 2.4 Itera si es Necesario
-
-Si algo no se ve como esperabas, **pide ajustes**. Ejemplos:
+Abre [claude.ai](https://claude.ai/){:target="_blank"} en una pestaña nueva y pega **literal** este prompt sin modificar nada:
 
 ```
-"Hazlo más oscuro, el fondo debería ser casi negro"
+Crea una aplicación web tipo linktree que tenga botones para
+mis redes sociales y una sección para mi información de perfil.
 ```
 
-```
-"Los botones están muy juntos, agrega más espacio entre ellos"
-```
+### 1.2 Observa el resultado
+
+Cuando Claude termine de generar:
+
+- Mira el Artifact a la derecha. ¿Aparece tu nombre? ¿Tus colores? ¿Tu estilo?
+- **No.** Es genérico. Podría ser de cualquier persona.
+
+### 1.3 Reflexiona
+
+Cero contexto → la IA adivinó **todo**. Eso es **Vibe Coding Irresponsable**: aceptar el primer output sin haber dado contexto.
+
+✅ **Checkpoint:** Generaste un V1 vago y entendiste por qué no es lo que quieres. Ahora vamos a hacerlo bien.
+
+---
+
+## Parte 2 · V2: Prompt Scaffolded con Gemini (20 min)
+
+> 🧠 **Idea clave:** Gemini es excelente razonando y organizando contexto largo. Lo usaremos como **planificador** para convertir tu Spec Sheet en un prompt estructurado. Claude es el **constructor** que ejecuta ese prompt.
+
+### 2.1 Abre Gemini en otra pestaña
+
+Ve a [gemini.google.com](https://gemini.google.com/){:target="_blank"}.
+
+### 2.2 Pega esta plantilla de Scaffolding
+
+Copia, pega y **NO ejecutes todavía** — vas a llenarla primero:
 
 ```
-"Cambia la fuente del título a algo más bold"
+Actúa como un experto en Prompt Engineering para desarrollo web.
+
+Necesito que conviertas mi Spec Sheet en un prompt scaffolded
+profesional para que Claude genere mi sitio MyLinks.
+
+Estructura el prompt con esta arquitectura:
+
+[ROL] - Asignar identidad de desarrollador frontend senior
+[CONTEXTO] - Quién soy, para qué es el sitio, quién lo usará
+[TAREA] - Qué debe construir
+[RESTRICCIONES TÉCNICAS] - Stack y reglas técnicas
+[RESTRICCIONES DE DISEÑO] - Tokens y estilo
+[FORMATO DE SALIDA] - Cómo entregar el resultado
+
+Aquí mi Spec Sheet:
+---
+[PEGA AQUÍ TODO EL CONTENIDO DE TU spec-sheet.txt]
+---
+
+Genera el prompt estructurado listo para pegar en Claude.
+Al final del prompt, agrega esta instrucción literal:
+"Genera el código completo en un Artifact renderizable
+para que pueda ver el resultado visual en tiempo real."
 ```
 
-> 💡 **Tip:** Sé específico. "No me gusta" no ayuda. "El color del botón debería ser más azul" sí ayuda.
+### 2.3 Llena la plantilla con tu Spec Sheet
 
-### 2.5 Copia el Código a tu Proyecto
+Abre tu `spec-sheet.txt` del Lab 07, copia **todo el contenido**, y pégalo en el lugar marcado `[PEGA AQUÍ...]` de la plantilla.
 
-1. En el artifact, haz clic en **"Copy"** o selecciona todo el código
-2. Abre VS Code con tu proyecto MyLinks
-3. Abre `index.html`
-4. **Reemplaza todo el contenido** con el código de Claude
-5. Guarda (`Ctrl+S`)
+### 2.4 Ejecuta en Gemini
 
-### 2.6 Personaliza el Contenido
+Envía el prompt. Gemini te devolverá un **prompt estructurado** mucho más largo y específico que el original.
 
-Edita `index.html` para poner TU información real:
+**Cópialo entero** (todo el bloque que Gemini generó).
 
-1. **Tu nombre** - Reemplaza el placeholder
-2. **Tu bio** - Una línea sobre ti
-3. **Tus enlaces** - Reemplaza los 5 enlaces de ejemplo con los tuyos:
-   - GitHub
-   - LinkedIn
-   - Portfolio (si tienes)
-   - Email
-   - Otro que quieras
+### 2.5 Disparar el V2 en Claude (con tus mockups)
 
-### 2.7 Commit #1
+1. Vuelve a [claude.ai](https://claude.ai/){:target="_blank"} y abre **conversación nueva** (no la del V1).
+2. **Antes de enviar el mensaje**, adjunta los 2 mockups del Lab 07:
+   - Clic en el ícono de **clip 📎**.
+   - Selecciona `mockup-mobile.png` Y `mockup-desktop.png`.
+3. Pega el prompt scaffolded que te dio Gemini.
+4. Envía.
 
-Guarda tu progreso en Git:
+> 💡 **Por qué adjuntas ambos mockups:** Claude lee ambas imágenes, extrae colores y proporciones, y construye un sitio **responsive real** que funciona desde móvil hasta desktop. Si solo subes uno, la IA tendrá que adivinar la otra vista.
+
+### 2.6 Compara V1 vs V2
+
+Abre las 2 conversaciones lado a lado. Mira el Artifact del V1 y el del V2.
+
+- **V1:** genérico, podría ser de cualquiera.
+- **V2:** tiene tu nombre, tus colores, tu estilo, tus links.
+
+Esa es la diferencia entre Vibe Coding Irresponsable y Profesional.
+
+✅ **Checkpoint:** Tienes tu MyLinks generado en Claude V2 con tus tokens, layout y mockups del Lab 07.
+
+---
+
+## Parte 3 · Itera con Código Real: Botones de uiverse.io (15 min)
+
+> 🎨 **Idea clave:** El V2 ya está bien, pero los botones son los que generó Claude por defecto. Vamos a **personalizarlos con código real** de [uiverse.io](https://uiverse.io){:target="_blank"} — una librería open-source con cientos de componentes CSS listos. **No copiamos el botón tal cual** — le damos su código a Claude como referencia para que adapte los botones de TU MyLinks.
+
+### 3.1 Encuentra un botón que te guste
+
+1. Abre [uiverse.io/buttons](https://uiverse.io/buttons){:target="_blank"}.
+2. Filtra/scrollea hasta encontrar un botón que combine con tu estilo (brutalista, minimalista, neón, etc.).
+3. Clic en el botón → copia el **código CSS** completo (el sitio te separa HTML y CSS).
+
+### 3.2 Pásale el código a Claude con instrucción precisa
+
+En tu conversación V2 de Claude, pega esto sustituyendo el bloque entre corchetes:
+
+```
+Quiero modificar los botones de enlace de mi MyLinks usando
+como referencia el estilo CSS de este botón que encontré
+en uiverse.io:
+
+[PEGAR AQUÍ EL CÓDIGO CSS DEL BOTÓN ELEGIDO]
+
+Instrucciones:
+- Aplica este estilo visual (sombras, bordes, hover effects)
+  a TODOS los botones de enlace.
+- Adapta los colores del botón a mi paleta existente
+  (no uses los colores originales del snippet tal cual).
+- Mantén la estructura HTML que ya tienes.
+- Genera el código completo actualizado en un nuevo Artifact.
+```
+
+### 3.3 Evalúa el resultado
+
+Mira el nuevo Artifact. ¿Los botones se ven como esperabas? Si no:
+
+- Si el efecto hover no funciona → "El hover no se aplica, asegúrate de incluir el `:hover` en el CSS final".
+- Si los colores quedaron raros → "Los botones quedaron muy oscuros, usa el color `acento` que es #_______".
+
+> ⚠️ **Esto es iterar con criterio.** Cero "hazlo más bonito". Siempre con instrucción específica que la IA pueda actuar.
+
+✅ **Checkpoint:** Tus botones tienen estilo personalizado, generado por IA pero adaptado a tu paleta.
+
+---
+
+## Parte 4 · Extracción a VS Code + Live Server (10 min)
+
+> 🛠 **Idea clave:** El código vive en Claude. Hay que sacarlo y ponerlo en tu máquina como un proyecto real.
+
+### 4.1 Copia el Artifact final
+
+1. En el Artifact de la última versión (con los botones personalizados), clic en el botón **"Copy"** (ícono arriba del código).
+
+### 4.2 Crea el archivo en VS Code
+
+1. Abre VS Code en tu repositorio MyLinks de la Clase 06.
+2. Abre `index.html`.
+3. **Reemplaza TODO el contenido** del archivo con lo que copiaste de Claude.
+4. Guarda con `Ctrl+S`.
+
+### 4.3 Verifica con Live Server
+
+1. Clic derecho sobre `index.html` → **"Open with Live Server"**.
+2. Tu navegador abre `http://127.0.0.1:5500/index.html`.
+3. Coloca Claude a la izquierda y Live Server a la derecha. **¿Se ven iguales?**
+
+Si hay diferencias visuales (una sombra que cambia, un color que se ve distinto), ajústalas directamente en VS Code — ya tienes el CSS suficiente de las clases anteriores.
+
+### 4.4 Commit del progreso
+
+En la terminal integrada de VS Code:
 
 ```bash
 git add index.html
-git commit -m "feat: generar MyLinks con IA y personalizar contenido"
+git commit -m "feat: generar MyLinks con IA y personalizar botones"
 ```
 
-✅ **Checkpoint:** Tu código generado por IA está en tu proyecto local con tu información personalizada. Commit #1 hecho.
+✅ **Checkpoint:** Tu MyLinks corre en localhost con tu diseño personalizado. Commit hecho.
 
 ---
 
-## Parte 3: Verificación Responsive (20 min)
+## Parte 5 (Desafío Calificado) · Publicación en GitHub Pages (~30 min, post-clase)
 
-### 3.1 Abre en Live Server
+> 🌍 **Idea clave:** Tu código existe solo en tu computadora. El mundo no puede verlo todavía. GitHub Pages convierte tu repo en una web pública gratuita.
 
-1. En VS Code, click derecho en `index.html`
-2. Selecciona **"Open with Live Server"**
-
-### 3.2 Abre DevTools
-
-Presiona `F12` (o `Ctrl+Shift+I`) para abrir Chrome DevTools.
-
-### 3.3 Activa Modo Responsive
-
-1. Haz clic en el ícono de dispositivos (📱💻) o presiona `Ctrl+Shift+M`
-2. Verás tu página en modo responsive
-
-### 3.4 Prueba en Móvil (375px)
-
-1. En el menú de dispositivos, selecciona **"iPhone SE"** (o cualquier ~375px)
-2. Verifica:
-
-| Verificar | ✓ |
-|-----------|---|
-| El contenido no se corta ni sale de la pantalla | ☐ |
-| El texto es legible (no muy pequeño) | ☐ |
-| Los botones son fáciles de tocar (altura suficiente) | ☐ |
-| No hay scroll horizontal | ☐ |
-
-### 3.5 Prueba en Desktop (768px+)
-
-1. Cambia a **"iPad"** o arrastra el ancho a 768px+
-2. Verifica:
-
-| Verificar | ✓ |
-|-----------|---|
-| El contenido está centrado | ☐ |
-| Los botones tienen un ancho máximo (no se estiran infinito) | ☐ |
-| El hover funciona al pasar el mouse | ☐ |
-| El espaciado se ve proporcional | ☐ |
-
-### 3.6 Ajusta si es Necesario
-
-Si algo no funciona bien en algún tamaño:
-
-1. Vuelve a Claude.ai
-2. Describe el problema específico:
-   ```
-   "En móvil (375px) los botones se ven muy pequeños.
-   Aumenta el padding a 1rem y el font-size a 1.1rem"
-   ```
-3. Copia el código corregido a tu proyecto
-
-### 3.7 Commit #2
-
-Guarda los ajustes responsive:
-
-```bash
-git add index.html
-git commit -m "fix: ajustar diseño responsive para móvil y desktop"
-```
-
-✅ **Checkpoint:** Tu MyLinks funciona correctamente en 375px y 768px+. Commit #2 hecho.
-
----
-
-## Parte 4: Publicación en GitHub Pages (20 min)
-
-### 4.1 Push a GitHub
-
-Primero, sube tus cambios:
+### 5.1 Sube tu código
 
 ```bash
 git push
 ```
 
-### 4.2 Activa GitHub Pages
+Si es la primera vez que pusheas en este repo:
 
-1. Ve a tu repositorio en GitHub: `github.com/TU-USUARIO/mylinks`
-2. Haz clic en **"Settings"** (pestaña, arriba a la derecha)
-3. En el menú lateral izquierdo, busca **"Pages"**
-4. En **"Source"**, selecciona:
-   - Branch: **main**
-   - Folder: **/ (root)**
-5. Haz clic en **"Save"**
+```bash
+git push -u origin main
+```
 
-### 4.3 Espera el Deploy
+### 5.2 Activa GitHub Pages
 
-GitHub Pages tarda 1-3 minutos en publicar tu sitio.
+1. Ve a tu repo en GitHub: `github.com/TU-USUARIO/mylinks`.
+2. Pestaña **Settings** (arriba derecha).
+3. Menú lateral izquierdo → **Pages**.
+4. En `Source`: **Deploy from a branch**.
+5. En `Branch`: **main** + **/ (root)**.
+6. Clic en **Save**.
 
-1. Actualiza la página de Settings → Pages
-2. Verás un mensaje: **"Your site is live at https://TU-USUARIO.github.io/mylinks/"**
+### 5.3 Espera el deploy (1-3 min)
 
-### 4.4 Verifica tu Sitio
+Refresca la página de Settings → Pages. Cuando aparezca:
 
-1. Haz clic en el link o cópialo en una nueva pestaña
-2. ¡Tu sitio está en internet! 🎉
+> ✅ **Your site is live at https://TU-USUARIO.github.io/mylinks/**
 
-**Prueba en tu teléfono real:**
-1. Copia la URL
-2. Envíatela por WhatsApp o email
-3. Ábrela en tu celular
-4. Verifica que se ve bien
+…tu sitio está publicado.
 
-### 4.5 Troubleshooting
+### 5.4 Prueba en tu celular
 
-Si ves un error 404:
+1. Copia la URL.
+2. Envíatela por WhatsApp a ti mismo.
+3. Ábrela en tu celular.
+4. **Prueba todos los enlaces.**
+
+### 5.5 Comparte en el chat de la clase
+
+Pega tu URL pública en el chat. Mira las URLs de tus compañeros. Compara estilos.
+
+> 💡 **Esto NO es show off.** Es validación social del trabajo de un módulo entero. Lleva tu URL al LinkedIn — ya tienes algo público para mostrar.
+
+### 5.6 Troubleshooting rápido
 
 | Problema | Solución |
 |----------|----------|
-| Archivo no se llama `index.html` | Renómbralo exactamente a `index.html` |
-| Branch incorrecto | Verifica que seleccionaste `main` |
-| No has hecho push | Ejecuta `git push` y espera 2 min |
-| Acabas de activar Pages | Espera 3-5 minutos y refresca |
+| Error 404 al abrir la URL | Verifica que el archivo se llame exactamente `index.html` |
+| Pages dice "site not built" | Espera 3-5 min más, GitHub está construyendo |
+| Cambios no aparecen tras `git push` | El deploy tarda 1-2 min después del push |
 
-✅ **Checkpoint:** Tu MyLinks está publicado con URL pública funcionando.
+✅ **Checkpoint final:** Tu MyLinks está vivo en internet con URL pública.
 
 ---
 
-## Parte 5: Refinamiento Final (35 min - Post-clase)
+## 🟢 Bonus (Opcional, si te queda tiempo)
 
-> Esta parte la completas después de clase, antes de la entrega.
+### Bonus 1 · Background con patrón sutil
 
-### 5.1 Mejoras de Contenido
+Visita [patterncraft.fun](https://patterncraft.fun){:target="_blank"}. Elige un patrón, ajusta los colores a tu paleta, copia el CSS y pídele a Claude que lo aplique como background del body con la misma técnica de la Parte 3 (instrucción específica + código real adjunto).
 
-- [ ] Verifica que todos tus enlaces funcionan (haz clic en cada uno)
-- [ ] Agrega una foto de perfil real (opcional pero recomendado)
-- [ ] Revisa ortografía en nombre y bio
-- [ ] Asegúrate de tener al menos 5 enlaces
+### Bonus 2 · Iconos en los botones
 
-### 5.2 Mejoras de Estilo
+Pídele a Claude que agregue iconos de [Font Awesome](https://fontawesome.com/){:target="_blank"} o [Lucide](https://lucide.dev/){:target="_blank"} junto al texto de cada botón.
 
-Opciones para mejorar tu diseño:
+---
 
-```
-"Agrega un degradado sutil al fondo"
-"Incluye iconos de Font Awesome en los botones de redes sociales"
-"Agrega una animación suave cuando aparece la página"
-```
+## ✅ Cierre y Verificación
 
-### 5.3 Commits Finales
+Antes de cerrar el lab, valida:
 
-Haz commits mientras trabajas:
-
-```bash
-# Commit #3
-git add .
-git commit -m "style: mejorar diseño visual y agregar iconos"
-
-# Commit #4 (final)
-git add .
-git commit -m "feat: agregar enlaces finales y foto de perfil"
-
-# No olvides push
-git push
-```
-
-### 5.4 Verifica el Deploy Final
-
-Después de cada push, espera 1-2 minutos y verifica que los cambios se reflejen en tu URL de GitHub Pages.
+- [ ] Tu MyLinks corre en `localhost` con Live Server.
+- [ ] Está publicado en GitHub Pages con URL pública funcionando.
+- [ ] Diseño coherente con el `spec-sheet.txt` original.
+- [ ] Mínimo 3 commits descriptivos en el historial.
+- [ ] URL compartida en el chat de la clase.
 
 ---
 
 ## 📝 Entrega
 
-### Checklist Final
-
-- [ ] MyLinks publicado en GitHub Pages con URL funcionando
-- [ ] 5+ enlaces personalizados
-- [ ] Diseño responsive (verificado en 375px y 768px)
-- [ ] 4+ commits descriptivos en el historial
-- [ ] Paleta de colores coherente
-- [ ] Nombre y bio personalizados
-
-### Entregable
-
-📦 **Envía:**
+📦 **Envía por la plataforma del curso:**
 
 1. **URL de GitHub Pages:** `https://tu-usuario.github.io/mylinks/`
 2. **URL del repositorio:** `https://github.com/tu-usuario/mylinks`
 
-### Rúbrica de Evaluación
+---
+
+## 📊 Rúbrica de Evaluación (100 pts)
 
 | Criterio | Excelente (25) | Bueno (20) | Satisfactorio (15) | Bajo (10) |
-|----------|----------------|------------|-------------------|-----------|
-| **Estructura y Git** | 4+ commits descriptivos, estructura clara de archivos | 3 commits, estructura organizada | 2 commits, estructura básica | 1 commit o estructura desordenada |
-| **Diseño Responsive** | Funciona perfectamente en móvil y desktop | Funciona bien en ambos tamaños | Funciona en uno, problemas en otro | No responsive o roto en múltiples tamaños |
-| **Contenido y Estilo** | 5+ enlaces, paleta coherente, tipografía personalizada | 4 enlaces, estilos aplicados | 3 enlaces, estilos básicos | Menos de 3 enlaces o sin estilos |
-| **Publicación** | GitHub Pages funcionando, URL pública, sin errores | URL funciona con errores menores | URL funciona pero con problemas visuales | No publicado o URL rota |
+|----------|----------------|------------|--------------------|-----------|
+| **Prompt Scaffolded y uso del Spec Sheet** | Prompt completo (Rol+Contexto+Tarea+Restricciones+Formato), Spec Sheet del Lab 07 incorporado, mockups adjuntos a Claude | Prompt estructurado básico, Spec Sheet usado parcialmente, 1 mockup adjunto | Prompt mediocre, contexto débil, sin mockups | Prompt vago tipo zero-shot, sin Spec Sheet |
+| **Iteración con criterio** | Aplicó iteración con código real de uiverse.io adaptado a su paleta, instrucción específica a Claude | Aplicó iteración pero con instrucciones genéricas o copió el botón tal cual | Iteración mínima, botones casi sin cambios | No iteró o pegó código sin entender |
+| **Extracción y Diseño Responsive** | Código en VS Code corre en Live Server, paridad visual con Claude, responsive verificado en móvil y desktop | Funciona en VS Code con problemas menores, responsive parcial | Funciona pero con problemas visibles, responsive roto en algún tamaño | No corre localmente o no es responsive |
+| **Publicación y Coherencia** | GitHub Pages funcionando, URL pública sin errores, diseño coherente con Spec Sheet, 3+ commits descriptivos | Publicado con errores menores, 2-3 commits | Publicado con problemas visuales, 1-2 commits | No publicado o URL rota |
 
 **Escala de calificación:**
-- A (90-100): Excelente
-- B (80-89): Bueno
-- C (70-79): Satisfactorio
-- F (<70): Necesita mejora
+
+| Rango | Nota | Descripción |
+|-------|------|-------------|
+| 90-100 | A | Excelente |
+| 80-89 | B | Bueno |
+| 70-79 | C | Satisfactorio |
+| < 70 | F | Necesita mejora |
+
+> Ver rúbrica detallada con evidencia a revisar en [rubric.md](rubric.md).

@@ -4,17 +4,17 @@
 
 ---
 
-## 🔗 TRANSICIÓN: Responsive → Wireframing
+## 🔗 TRANSICIÓN: Responsive → Diseño con Intención
 
 ### Clase anterior:
 - Tu MyLinks ya es **responsive** (móvil + desktop)
-- Usaste **DevTools** para probar diferentes tamaños
-- Aplicaste **media queries** y unidades relativas
+- Usaste **DevTools** y media queries
+- Trabajaste con unidades relativas
 
 ### Hoy:
-- Planificarás cómo **mejorar** tu diseño antes de tocar código
-- Crearás **wireframes** (bocetos) de baja y alta fidelidad
-- Usarás **Figma**, la herramienta de diseño de la industria
+- **No vas a tocar código.** Vas a planificar.
+- Aprenderás **Figma**, la herramienta estándar de la industria
+- Producirás los **3 entregables** que alimentan al Lab 08 (calificado)
 
 > "Los arquitectos no construyen casas sin planos. Los desarrolladores no deberían codificar sin wireframes."
 
@@ -23,7 +23,7 @@
 ## 🧠 QUIZ PRE-LAB
 
 ### Pregunta:
-¿Por qué crees que los diseñadores profesionales dibujan bocetos en papel antes de abrir Figma o escribir código?
+¿Por qué los diseñadores profesionales empiezan con cajas grises antes de aplicar colores y fuentes?
 
 *Toma 2-3 respuestas antes de continuar*
 
@@ -36,7 +36,7 @@
 
 A. Low-fi usa Figma, high-fi usa papel
 B. Low-fi es para móvil, high-fi es para desktop
-C. Low-fi es un boceto rápido sin colores, high-fi tiene colores y tipografía definida
+C. Low-fi son cajas grises sin estilo, high-fi tiene colores y tipografía definida
 D. Low-fi es más difícil de hacer que high-fi
 
 ---
@@ -45,114 +45,112 @@ D. Low-fi es más difícil de hacer que high-fi
 
 **Respuesta:** C
 
-- **Low-fi** = Boceto rápido, solo estructura, sin colores
-- **High-fi** = Diseño detallado con colores, tipografía y espaciado
+- **Low-fi** = Cajas grises, solo estructura, sin colores
+- **High-fi** = Diseño detallado con colores, tipografía, sombras
 
-Siempre empezamos por low-fi porque es más rápido iterar sobre ideas.
+> Hoy harás los **dos en el mismo archivo Figma** — las mismas cajas grises evolucionan a high-fi.
+
+---
+
+## 💡 Las 3 zonas de Figma
+
+| Panel | Equivalente en código |
+|-------|------------------------|
+| **Capas (izquierda)** | DOM Tree de Chrome |
+| **Lienzo (centro)** | Tu navegador con Live Server |
+| **Propiedades (derecha)** | DevTools → Styles |
+
+### 5 teclas que dominarás hoy:
+
+- `V` Mover · `F` Frame · `R` Rectángulo · `O` Círculo · `T` Texto
+
+> Si dominas divs y flexbox, ya dominas Figma.
 
 ---
 
 ## ✅ CHECKPOINT Parte 1: Análisis e Inspiración
 
 ### Verificar:
-- Screenshot de tu MyLinks actual guardado
-- 3+ observaciones escritas de sitios de inspiración
-- Objetivo de rediseño definido
+- 2 referencias de Carrd analizadas
+- 4 preguntas respondidas en bloc de notas
+- **Objetivo de Rediseño** escrito y compartido en chat
 
-**¿Qué debe estar listo?**
-- Sabes qué quieres mejorar de tu MyLinks
-- Tienes ideas de otros sitios que te inspiran
-- Puedes explicar quién es tu "usuario ideal"
+**Frase plantilla:**
+> "Mi MyLinks actual es ___, pero quiero que sea ___ usando ___. Mi usuario ideal es ___ que necesita ___."
 
 ---
 
-## ✅ CHECKPOINT Parte 2: Wireframe Low-Fi
+## ✅ CHECKPOINT Parte 2 + 3: Low-Fi en Figma
+
+### Verificar en tu Frame `Móvil`:
+- Cajas grises del kit (foto, titulo, bio, boton) arrastradas
+- Layout decidido (centrado, asimétrico, etc.)
+- Cero colores, cero textos reales
+
+**Validación con 2 preguntas:**
+1. ¿Lo más grande/arriba corresponde a lo más importante?
+2. ¿Una persona que nunca te conoció entendería en 3 segundos?
+
+---
+
+## ✅ CHECKPOINT Parte 4: High-Fi (Móvil + Escritorio)
 
 ### Verificar:
-- 3 variantes diferentes dibujadas (papel o Excalidraw)
-- Una variante elegida como "ganadora"
-- Wireframe digitalizado en Excalidraw
+- Tokens inyectados en Color Styles (`bg-principal`, `acento`, `texto`)
+- Effect Style `sombra` ajustado a tu gusto
+- Cajas grises reemplazadas por foto real, nombre, bio, botones high-fi
+- Frame `Escritorio` adaptado del móvil
 
-**¿Qué debe verse?**
-- Rectángulos representando elementos
-- Versión móvil clara
-- Solo blanco, negro y gris (¡sin colores aún!)
+> **El Botón Maestro con Auto Layout** se adapta solo al texto. Esa es la magia del `display: flex` de Figma.
 
 ---
 
-## ✅ CHECKPOINT Parte 3: Wireframe High-Fi
+## 💡 REFLEXIÓN: Tu Frankenstein de diseño
 
-### Verificar en Figma:
-- Frame de iPhone con diseño completo
-- Paleta de colores aplicada
-- Tipografía definida
+### Tomar prestado, no robar:
 
-**¿Qué debe verse?**
-- Colores finales en todos los elementos
-- Botones con bordes redondeados (si los usarás)
-- Espaciado consistente entre elementos
+> "Voy a tomar **\[X\]** de la referencia 1 y combinarla con **\[Y\]** de la referencia 2, porque mi usuario necesita **\[razón\]**."
 
----
+### Decisiones por intención, no por gusto:
 
-## 💡 REFLEXIÓN: Low-Fi vs High-Fi
-
-| Aspecto | Low-Fi | High-Fi |
-|---------|--------|---------|
-| **Herramienta** | Papel, Excalidraw | Figma |
-| **Tiempo** | 5-10 minutos | 30-60 minutos |
-| **Colores** | Solo grises | Paleta final |
-| **Propósito** | Explorar ideas rápido | Definir diseño final |
-| **Cuándo cambiar** | Fácil, es solo un boceto | Más trabajo, más detalle |
-
-> **Regla**: Empieza low-fi, termina high-fi. Nunca al revés.
+- ¿Por qué centrado? → Mi usuario escanea verticalmente
+- ¿Por qué sombra dura? → Quiero personalidad fuerte
+- ¿Por qué solo 4 botones? → Reclutador no lee 20 enlaces
 
 ---
 
-## 💡 REFLEXIÓN: Design Thinking
-
-### Las 5 fases:
-
-1. **Empatizar** → ¿Quién visitará mi MyLinks?
-2. **Definir** → ¿Qué problema resuelvo?
-3. **Idear** → ¿Qué opciones tengo? (3 variantes)
-4. **Prototipar** → Wireframe high-fi
-5. **Testear** → ¿Funciona? (próxima clase)
-
-> Esta metodología la usan Apple, Google, Airbnb... y ahora tú.
-
----
-
-## 🔗 TRANSICIÓN: Preview Clase 08
+## 🔗 TRANSICIÓN: Preview Clase 08 (Lab Calificado)
 
 ### Hoy lograste:
-- Analizar sitios de inspiración
-- Crear wireframes low-fi y high-fi
-- Definir tu paleta de colores y tipografía
-- Usar Figma como un profesional
+- Spec Sheet con tu objetivo, tokens y enlaces
+- Mockup móvil exportado (PNG)
+- Mockup escritorio exportado (PNG)
 
-### Próxima clase (Lab Calificado):
-- Usarás **IA** para ayudarte a implementar tu wireframe
-- Aprenderás **Prompt Engineering** para obtener mejor código
-- Publicarás tu MyLinks en **GitHub Pages** con URL pública
-
----
-
-## ❓ Preguntas de Cierre
-
-1. ¿Por qué es más rápido hacer cambios en un wireframe que en código?
-
-2. ¿En qué momento del proceso de desarrollo deberías crear wireframes?
-
-3. ¿Cómo usarás tu wireframe high-fi en la próxima clase para guiar tu implementación?
+### Próxima clase:
+- Esos 3 archivos se convierten en **input directo** del prompt que le darás a Claude
+- La IA leerá tus mockups y extraerá colores y proporciones
+- Tu sitio MyLinks quedará publicado con URL pública
 
 ---
 
 ## 📝 Entrega
 
-- Screenshot de tu MyLinks actual (antes)
-- Wireframe low-fi exportado (PNG de Excalidraw)
-- Wireframe high-fi exportado (PNG de Figma)
-- Paleta de colores (códigos hex)
+### 3 archivos en una carpeta:
 
-### Próxima clase: Vibe Coding Tools
-**Trae tu wireframe high-fi listo** — lo usarás para escribir prompts de IA
+1. `spec-sheet.txt` — Tu hoja de especificación (descargable desde el lab)
+2. `mockup-mobile.png` — Tu Frame `Móvil` exportado de Figma (escala 2x)
+3. `mockup-desktop.png` — Tu Frame `Escritorio` exportado de Figma (escala 2x)
+
+### Próxima clase: Vibe Coding — De idea a sitio publicado
+
+> **Trae tus 3 entregables sí o sí.** Sin ellos no puedes ejecutar el lab calificado.
+
+---
+
+## ❓ Preguntas de Cierre
+
+1. ¿Por qué arrancamos con cajas grises antes de pintar de colores?
+
+2. ¿Qué es un Token de diseño y por qué se parece a una variable CSS?
+
+3. ¿Cómo justificarías a un cliente tu decisión de layout asimétrico vs centrado?

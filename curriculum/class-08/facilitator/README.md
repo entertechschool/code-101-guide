@@ -1,4 +1,4 @@
-# Guía del Facilitador - Clase 08: Vibe Coding con IA
+# Guía del Facilitador - Clase 08: Vibe Coding — De idea a sitio publicado
 
 > Tiempo de lectura: 10 minutos | Prepárate antes de clase
 
@@ -6,233 +6,167 @@
 
 ## 🔑 Conceptos Clave
 
-- **Prompt Scaffolding**: Técnica de construir prompts efectivos mediante preguntas clarificadoras con opciones predefinidas. Reduce la fricción de "no sé qué pedir".
-- **Iteración con IA**: Proceso de refinar resultados pidiendo cambios específicos. La clave es ser concreto, no vago.
-- **GitHub Pages**: Servicio de hosting gratuito de GitHub para sitios estáticos. Toma el contenido de un branch y lo publica en una URL pública.
-- **Artifact**: En Claude, un bloque de código interactivo que se genera en el panel derecho y permite vista previa en tiempo real.
+- **Vibe Coding** — Programar en lenguaje natural y dejar que la IA escriba el código. Andrej Karpathy acuñó el término en febrero de 2025.
+- **Vibe Coding Responsable vs Irresponsable** — La línea entre profesional y aficionado. El profesional usa Prompt Scaffolding, evalúa el output, y entiende qué hace cada bloque del código generado.
+- **Prompt Scaffolding** — Construir un prompt estructurado por bloques: Rol + Contexto + Tarea + Restricciones técnicas + Restricciones de diseño + Formato de salida.
+- **Iterar con criterio** — Refinar el output con instrucciones específicas y código real (uiverse.io), no caprichos vagos ("hazlo bonito").
+- **Artifact** — Panel renderizable de Claude que ejecuta el código en vivo. Cambia el flujo de iteración: ya no copias-pegas-pruebas, todo pasa en una conversación.
+- **GitHub Pages** — Hosting gratuito que convierte cualquier repo en URL pública.
 
 ---
 
 ## 🔗 Analogías Útiles
 
-**Prompt Scaffolding <> Cuestionario médico:**
-Cuando vas al doctor, no le dices "me siento mal, arréglame". Te hace preguntas específicas: ¿Dónde te duele? ¿Desde cuándo? ¿Es constante o intermitente? Con las respuestas, puede diagnosticar. Prompt Scaffolding hace lo mismo: preguntas específicas → prompt preciso.
+**Prompt Scaffolding ↔ Cuestionario médico:** Cuando vas al doctor, no le dices "me siento mal". Te hace preguntas específicas. El doctor diagnostica con esa información estructurada. Igual con la IA: contexto estructurado → resultado preciso.
 
-**Iteración con IA <> Ajustar un traje:**
-Un sastre te hace un traje, te lo pruebas, y dices "las mangas están largas" (específico), no "no me gusta" (vago). El sastre ajusta y pruebas de nuevo. Así funciona iterar con IA: feedback específico → ajuste → feedback → ajuste.
+**Vibe Coding Profesional ↔ Cirujano que delega:** Un cirujano experto puede dejar que el residente haga la incisión, pero supervisa cada paso, sabe qué tendones evitar, y puede tomar el control si algo falla. El programador profesional usa la IA igual: la IA escribe, el humano valida y entiende.
 
-**GitHub Pages <> Subir foto a Instagram:**
-Cuando subes una foto a Instagram, está en tu teléfono (local) y después en internet (público). GitHub Pages hace lo mismo con tu código: está en tu computadora, haces push, y aparece en una URL pública.
+**Iteración ↔ Sastre ajustando un traje:** No le dices "no me gusta", le dices "las mangas están 2 cm largas". Mismo principio con Claude: feedback específico → ajuste preciso.
 
-**Dos IAs <> Arquitecto + Constructor:**
-Gemini es como un arquitecto que te hace preguntas para entender qué casa quieres. Claude es como el constructor que recibe los planos y construye. Cada uno tiene su rol especializado.
+**Dos IAs ↔ Arquitecto + Constructor:** Gemini es el arquitecto que organiza el plano. Claude es el constructor que ejecuta. Cada uno especializado.
+
+**GitHub Pages ↔ Subir foto a Instagram:** Tu código en local no lo ve nadie. `git push` + activar Pages = foto subida a internet. Gratis y para siempre.
 
 ---
 
 ## 📚 Contexto Histórico
 
-### El nacimiento del Prompt Engineering
+### Vibe Coding (2025): el término que define la era
 
-El término "prompt engineering" surgió con la llegada de GPT-3 en junio de 2020. Antes de los modelos de lenguaje grandes, la interacción con IA era mediante interfaces estructuradas (botones, formularios). GPT-3 cambió eso: de repente, podías hablarle a una IA en lenguaje natural.
+Andrej Karpathy — ex-OpenAI, ex-Tesla, profesor de Stanford — escribió en X en febrero de 2025: *"There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."*
 
-Rápidamente se descubrió que **cómo preguntabas** afectaba dramáticamente la calidad de las respuestas. Ingenieros comenzaron a documentar patrones: dar contexto, ser específico, pedir formato particular. Nació una nueva habilidad.
+El concepto explotó en la industria. No describe una herramienta — describe un **cambio de mentalidad**: el programador deja de escribir cada línea y pasa a **dirigir** la generación de código mediante lenguaje natural.
 
-Empresas como Scale AI y Anthropic comenzaron a contratar "prompt engineers" en 2022—personas cuyo trabajo era exclusivamente escribir instrucciones efectivas para IAs. Algunos salarios llegaron a $300,000/año.
+> **Para contar en clase:** "Hace menos de un año, el término 'Vibe Coding' no existía. Hoy es el modo de trabajo de empresas top. Lo que aprenden esta clase es habilidad de **2026**, no de 2020."
 
-> **Para contar en clase:** "Hace 5 años, nadie sabía qué era un 'prompt'. Hoy es una habilidad que empresas pagan muy bien. Lo que aprenden hoy—cómo pedir cosas a una IA—es una habilidad del futuro."
+### Prompt Engineering: de moda a habilidad estándar
 
-### Claude y los Artifacts
+En 2022 empresas pagaban $300,000/año a "Prompt Engineers" especializados. En 2025, esa habilidad ya no es un rol — es un **requisito básico** para todo programador. Saber estructurar un prompt es como saber escribir un buen email: nadie te paga por eso, pero si no sabes hacerlo, no consigues empleo.
 
-Claude, desarrollado por Anthropic, introdujo los "artifacts" en 2024. A diferencia de otros chatbots que solo generan texto, Claude puede crear bloques de código interactivos que se renderizan en tiempo real en un panel separado.
+### Claude y los Artifacts (2024)
 
-Esto cambió el flujo de trabajo: en lugar de copiar código a un archivo, verlo en un navegador, y volver al chat para pedir cambios, todo sucede en una sola interfaz. El desarrollador puede iterar sin salir de la conversación.
+Anthropic introdujo los Artifacts en 2024. Cambió el flujo: en lugar de copiar código, abrirlo en un navegador, volver al chat — todo sucede en una sola interfaz. Es lo que hace al lab posible en 90 minutos.
 
-> **Para contar en clase:** "Claude tiene algo especial: los artifacts. Cuando generen código, van a ver una vista previa en vivo al lado. Pueden pedir cambios y ver el resultado instantáneamente, sin copiar y pegar."
+### GitHub Pages: democratizando el hosting (2008)
 
-### GitHub Pages: Democratizando el hosting
+Antes de Pages, publicar un sitio costaba $50-100/año + configurar servidores + manejar DNS. Pages eliminó toda esa fricción. Hoy millones de sitios corren ahí, incluyendo Bootstrap, React, Vue.
 
-GitHub Pages se lanzó en 2008, el mismo año que GitHub. Originalmente era solo para documentación de proyectos. Con el tiempo, desarrolladores comenzaron a usarlo para portfolios, blogs, y páginas personales.
+---
 
-Lo revolucionario fue el precio: gratis. Antes, publicar un sitio web requería comprar hosting, configurar servidores, manejar DNS. GitHub Pages eliminó toda esa fricción. Solo necesitas un repositorio público y activar un switch.
+## 🚨 Plan de Rescate (uso del instructor — NO público)
 
-Hoy, millones de sitios corren en GitHub Pages, incluyendo documentación de proyectos de código abierto como Bootstrap, React, y Vue.
+> ⚠️ **Esto NO va al lab del alumno.** Solo se activa caso por caso cuando un alumno se acerca y dice "no tengo el Lab 07".
 
-> **Para contar en clase:** "Publicar un sitio web solía costar dinero y requerir conocimientos de servidores. GitHub Pages lo hizo gratis y simple. Con un clic, su código pasa de 'en mi computadora' a 'en internet'. Eso es lo que harán hoy."
+**Cuándo activarlo:**
+- Alumno se acerca antes o durante el setup admitiendo que no entregó Lab 07.
+- NO lo ofrezcas proactivamente — esperarías que lo activaran como ruta válida y romperías el incentivo del Lab 07.
 
-**Fuentes:** [Prompt Engineering Guide](https://www.promptingguide.ai/){:target="_blank"}, [Anthropic Claude](https://www.anthropic.com/claude){:target="_blank"}, [GitHub Pages Docs](https://docs.github.com/en/pages){:target="_blank"}
+**Qué hacer (en privado, por chat directo o aparte):**
+
+1. Pega esta plantilla rellena en su chat (con valores neutrales pero funcionales):
+
+```
+Estos son los valores predeterminados para que puedas avanzar hoy.
+Personaliza tu nombre y enlaces, lo demás déjalo así.
+
+OBJETIVO DE REDISEÑO:
+"Mi MyLinks actual es básico, pero quiero que sea profesional y limpio
+con paleta neutral y botones rectangulares. Mi usuario ideal es un
+reclutador o colega que necesita encontrar mis redes en pocos segundos."
+
+ESTILO: Minimalista profesional centrado.
+
+TOKENS:
+  bg-principal: #FFFFFF
+  acento: #2563EB
+  texto: #1F2937
+  sombra: X:0 Y:4 Blur:12 rgba(0,0,0,0.1)
+  Tipografía: Inter
+
+ENLACES:
+- LinkedIn: https://...
+- GitHub: https://...
+- Email: mailto:...
+```
+
+2. Refuerza individualmente: *"Esto es solo para hoy. La próxima cohorte trae su Lab 07 sí o sí."*
+
+3. **No documentes públicamente esta ruta.** Si lo haces, todos la usarán y matarás el Lab 07.
 
 ---
 
 ## 🎭 Dinámicas de Clase
 
-### Dinámica 1: "Prompt malo vs Prompt bueno"
+### Dinámica 1: "V1 vago en vivo (el contraste pedagógico)"
 
-Antes de enseñar Prompt Scaffolding, muestra la diferencia en vivo.
+**Preparación:** Claude.ai abierto en proyector con conversación nueva.
 
-**Preparación:**
-- Tener Claude.ai abierto en el proyector
-
-**Dinámica sugerida:**
 ```
-Facilitador: "Voy a pedirle a Claude que me haga un Linktree."
-Facilitador: (Escribe) "Hazme un Linktree"
-Facilitador: (Muestra resultado genérico)
-Facilitador: "¿Es esto lo que quería? No sé, porque no le dije qué quería."
-
-Facilitador: "Ahora con más contexto."
-Facilitador: (Escribe) "Hazme un Linktree con fondo oscuro casi negro,
-              botones redondeados color neón cyan, hover que agrande
-              los botones, foto circular arriba, responsive mobile-first"
-Facilitador: (Muestra resultado personalizado)
-Facilitador: "¿Ven la diferencia? El segundo prompt le dice exactamente qué hacer."
+Facilitador: "Vamos a hacer Vibe Coding Irresponsable a propósito."
+Facilitador: (Pega el prompt vago) "Crea un linktree con botones..."
+Facilitador: (Espera resultado, lo muestra)
+Facilitador: "¿Es esto lo que querían? ¿Aparece su nombre? ¿Sus colores?
+              No. Esto es lo que pasa sin contexto."
 ```
 
-### Dinámica 2: "Prompt Scaffolding en vivo"
+> Tip: deja el resultado V1 visible mientras explicas la Parte 2. Al final, ponen V1 y V2 lado a lado y el contraste **se ve solo**.
 
-Haz el proceso completo con un voluntario antes de que todos lo hagan.
+### Dinámica 2: "Caso de Estudio 0 con TU Spec Sheet"
 
-**Preparación:**
-- Tener Gemini abierto en el proyector
-- Prompt de scaffolding listo para pegar
+Tú ejecutas el lab paralelo a los alumnos con tu Spec Sheet personal (el del Caso de Estudio 0 que usaste en Clase 07). Los alumnos te ven llenar la plantilla en Gemini, generar el prompt, pegarlo en Claude, adjuntar **tus** mockups.
 
-**Dinámica sugerida:**
 ```
-Facilitador: "Necesito un voluntario. Vamos a construir su prompt juntos."
-Facilitador: (Pega el prompt de scaffolding en Gemini)
-Facilitador: "Gemini va a hacer preguntas. [Voluntario], responde en voz alta."
-
-Gemini: "¿Tienes un wireframe?"
-Voluntario: "No tengo"
-
-Gemini: "¿Qué estilo visual prefieres? A, B, C, o D"
-Voluntario: "C, oscuro y moderno"
-
-(Continuar con todas las preguntas)
-
-Facilitador: "Miren el prompt que generó. Esto es lo que van a copiar a Claude."
+Facilitador: "Mi Spec Sheet es de un MyLinks brutalista alineado a la izquierda.
+              Voy a llenarlo en vivo. Ustedes hacen lo mismo con el suyo.
+              Si me atasco, sale en vivo."
 ```
 
-### Dinámica 3: "Iteración en acción"
+### Dinámica 3: "Iteración con criterio en vivo"
 
-Después de que generen su primer código, muestra cómo iterar.
+Cuando lleguen a la Parte 3 (uiverse.io):
 
-**Dinámica sugerida:**
 ```
-Facilitador: "Levanten la mano si algo no se ve como querían."
-(Varias manos)
-Facilitador: "Perfecto, eso es NORMAL. Ahora vamos a iterar."
-
-Facilitador: "Dame un ejemplo de algo que no te gustó."
-Estudiante: "Los botones están muy juntos"
-
-Facilitador: "¿Cómo le pedirías a Claude que lo arregle?"
-Estudiante: "¿Que los separe?"
-
-Facilitador: "Más específico. ¿Cuánto espacio? Intenta con 'agrega 1.5rem de espacio entre los botones'"
-(Estudiante prueba, ve resultado)
-
-Facilitador: "¿Ven? Específico = resultado. Vago = adivinanza."
+Facilitador: (Va a uiverse.io/buttons) "Voy a buscar un botón brutalista... este."
+Facilitador: (Copia el CSS, vuelve a Claude)
+Facilitador: "Observen mi instrucción: NO digo 'hazlo más bonito'.
+              Le doy CÓDIGO REAL y le digo qué adaptar."
+Facilitador: (Pega y envía)
+Facilitador: (Muestra resultado adaptado a su paleta) "Esto es iterar con criterio."
 ```
 
 ---
 
 ## 💡 Ejemplos Listos para Usar
 
-### Ejemplo 1: Prompt de Scaffolding completo
+### Ejemplo 1: Plantilla del prompt scaffolding (la del lab)
 
-Este es el prompt que los estudiantes pegarán en Gemini:
+Está en el lab oficial — solo recuérdale a los alumnos pegar el contenido del `spec-sheet.txt` completo en el lugar marcado.
+
+### Ejemplo 2: Iteraciones específicas que sí funcionan
 
 ```
-Eres un asistente que ayuda a construir prompts para generar páginas web tipo Linktree.
+❌ "El botón se ve feo"
+✅ "El hover no se aplica, asegúrate de incluir el :hover en el CSS final"
 
-Tu trabajo es hacerme 5 preguntas para entender qué quiero, y luego generar un prompt final que pueda usar en otra IA.
+❌ "Cambia los colores"
+✅ "Los botones quedaron en #00FF00 del snippet original. Cámbialos
+    al color acento de mi paleta que es #FF6B35"
 
-Las preguntas deben ser:
-
-**Pregunta 0 (opcional):** "¿Tienes un wireframe o boceto de tu diseño? Si es así, descríbelo brevemente o pega el link. Si no tienes, escribe 'No tengo' y continuamos."
-
-**Pregunta 1:** "¿Qué estilo visual prefieres?"
-- A) Minimalista y limpio
-- B) Colorido y llamativo
-- C) Oscuro y moderno
-- D) Profesional y corporativo
-
-**Pregunta 2:** "¿Qué tipo de paleta de colores?"
-- A) Tonos neutros (blancos, grises, negros)
-- B) Colores vibrantes (azul, rosa, naranja)
-- C) Modo oscuro con acentos neón
-- D) Colores tierra y naturales
-
-**Pregunta 3:** "¿Cómo prefieres los botones de enlaces?"
-- A) Rectangulares con bordes marcados
-- B) Redondeados (pill buttons)
-- C) Con sombras y efecto 3D
-- D) Minimalistas, solo texto con hover
-
-**Pregunta 4:** "¿Qué efecto de hover quieres en los botones?"
-- A) Cambio de color suave
-- B) Escala (se agranda ligeramente)
-- C) Sombra que aparece
-- D) Cambio de fondo + escala combinados
-
-Hazme las preguntas UNA POR UNA. Espera mi respuesta antes de hacer la siguiente.
-
-Cuando tenga todas las respuestas, genera un prompt final con este formato:
-
----
-**PROMPT PARA CLAUDE:**
-
-Crea una página web tipo Linktree con las siguientes características:
-
-[Incluir todas mis respuestas organizadas]
-
-Requisitos técnicos:
-- HTML semántico en un solo archivo
-- CSS incluido en un tag <style> dentro del HTML
-- Diseño responsive (mobile-first)
-- Debe verse bien en 375px y 768px+
-- Incluir al menos 5 enlaces de ejemplo
-- Foto de perfil circular como placeholder
-- Nombre y bio debajo de la foto
-
-Genera el código completo listo para usar.
----
-```
-
-### Ejemplo 2: Iteraciones comunes
-
-**Problema:** Botones muy juntos
-```
-"Agrega 1.5rem de margin-bottom a cada botón para separarlos más"
-```
-
-**Problema:** Texto muy pequeño en móvil
-```
-"Aumenta el font-size del título a 2rem y de la bio a 1.1rem"
-```
-
-**Problema:** Fondo no es suficientemente oscuro
-```
-"Cambia el color de fondo a #0a0a0a (casi negro puro)"
-```
-
-**Problema:** Hover no se nota
-```
-"Haz que el hover sea más notorio: escala a 1.05 y cambia el color de fondo"
+❌ "Hazlo más responsive"
+✅ "En el Frame Móvil los botones se cortan a 320px. Reduce el padding
+    horizontal a 16px en mobile y mantén 24px en desktop"
 ```
 
 ### Ejemplo 3: Configuración de GitHub Pages
 
 ```
-Paso 1: Ve a tu repositorio en github.com
-Paso 2: Click en "Settings" (arriba a la derecha)
-Paso 3: En el menú izquierdo, busca "Pages"
-Paso 4: En "Source", selecciona:
-        - Branch: main
-        - Folder: / (root)
-Paso 5: Click en "Save"
-Paso 6: Espera 1-3 minutos
-Paso 7: Refresca la página, verás tu URL
+1. Ve a github.com/TU-USUARIO/mylinks
+2. Settings (arriba derecha)
+3. Menú izquierdo → Pages
+4. Source: Deploy from a branch
+5. Branch: main + / (root)
+6. Save
+7. Esperar 1-3 min, refrescar
 ```
 
 ---
@@ -241,89 +175,56 @@ Paso 7: Refresca la página, verás tu URL
 
 | Señal | Qué está pasando | Qué hacer |
 |-------|------------------|-----------|
-| "Claude dice que no puede generar código" | Prompt muy vago o pidiendo algo prohibido | Verificar que el prompt sea específico y apropiado |
-| "No veo el artifact" | Puede estar en otra pestaña o Claude no generó código | Buscar panel derecho, o pedir explícitamente "genera el código en un artifact" |
-| "El código tiene errores de sintaxis" | A veces la IA comete errores | Pedir a Claude que corrija: "Hay un error de sintaxis, revisa y corrige" |
-| "GitHub Pages muestra 404" | Archivo no se llama index.html o no hizo push | Verificar nombre exacto y que hizo `git push` |
-| "GitHub Pages no actualiza" | Cache del navegador o deploy no terminó | Esperar 2-3 min, hacer hard refresh (Ctrl+Shift+R) |
-| "No puedo acceder a Claude.ai" | Bloqueo de red o cuenta no verificada | Usar alternativa (pueden compartir pantalla con compañero) |
-| "Gemini no hace las preguntas una por una" | A veces Gemini ignora esa instrucción | Pedir: "Hazme las preguntas una por una, espera mi respuesta" |
+| Alumno no tiene Lab 07 entregado | Distintos motivos | Activar Plan de Rescate **en privado** (ver arriba) |
+| Claude da error o cuenta cerrada | Límite gratuito agotado | Pedirle que use otra cuenta de Google/correo |
+| Gemini no devuelve el prompt scaffolded | A veces ignora la instrucción | "Pídele literal: 'Solo dame el prompt estructurado, no me hagas preguntas'" |
+| El Artifact no aparece | Claude no generó código | Reenviar con instrucción clara: "Genera el código completo en un Artifact renderizable" |
+| Botones de uiverse copiados tal cual | Alumno no entiende qué es "adaptar" | Mostrar lado a lado: "Mira el snippet original (verde) y mi resultado (naranja). La estructura es la misma, los colores son míos." |
+| GitHub Pages devuelve 404 | Archivo no se llama `index.html` | Renombrar exactamente a `index.html` (case-sensitive) |
+| Cambios no aparecen en Pages tras `git push` | Deploy tarda 1-2 min + cache | Esperar y hacer hard refresh (Ctrl+Shift+R) |
+| Alumno copia código sin leer | Vibe Coding Irresponsable | Pregúntale en vivo: "¿Qué hace la línea 23?" — si no sabe, pídele que lea |
 
 ---
 
 ## 🎯 Checkpoints de Validación
 
-| Minuto | Checkpoint | Cómo validar |
+| Tiempo | Checkpoint | Cómo validar |
 |--------|------------|--------------|
-| 0-10 | Intro + demo prompt malo vs bueno | Estudiantes entienden la diferencia |
-| 10-45 | Prompt Scaffolding completo | Tienen prompt final copiado de Gemini |
-| 45-70 | Código generado y personalizado | `index.html` tiene su código, Commit #1 hecho |
-| 70-90 | Responsive verificado | Probaron en 375px y 768px, Commit #2 hecho |
-| 90-110 | GitHub Pages activado | URL pública funcionando |
-
----
-
-## 🚨 Plan de Contingencia
-
-### Si Claude.ai está caído o inaccesible:
-
-**Opción A:** Usar ChatGPT como alternativa
-- El prompt funciona igual
-- No tiene artifacts, pero genera código que pueden copiar
-
-**Opción B:** Usar Gemini para todo
-- Gemini también puede generar código
-- El flujo sería: Scaffolding en Gemini → Generación en Gemini
-
-### Si GitHub Pages no activa:
-
-**Opción A:** Verificar en grupo
-1. Proyectar el proceso paso a paso
-2. Todos hacen cada paso juntos
-3. Esperar 3-5 minutos entre activar y verificar
-
-**Opción B:** Usar Netlify Drop como alternativa
-1. Ir a [app.netlify.com/drop](https://app.netlify.com/drop){:target="_blank"}
-2. Arrastrar la carpeta del proyecto
-3. Obtener URL instantánea
-4. No es la solución "oficial", pero funciona para demostrar el deploy
-
-### Si estudiantes no tienen wireframe:
-
-**Ya está contemplado:** El prompt de scaffolding tiene "Pregunta 0" opcional. Si no tienen wireframe, simplemente responden "No tengo" y las otras 4 preguntas cubren lo necesario.
+| 0-5 | Setup completo | Todos tienen Claude + Gemini abiertos y los 3 archivos del Lab 07 a mano |
+| 5-15 | V1 generado | Screenshot del resultado vago en el chat |
+| 15-35 | V2 scaffolded en Claude con mockups adjuntos | Pregunta: "¿Aparece tu nombre en el Artifact?" |
+| 35-50 | Iteración con uiverse aplicada | Botones tienen estilo personalizado, NO los originales de uiverse |
+| 50-60 | Código en VS Code + Live Server | URL `http://127.0.0.1:5500/index.html` funcionando |
+| 60-90 | (Post-clase) GitHub Pages activado | URL pública pegada en el chat de la clase |
 
 ---
 
 ## 🔗 Conexión con Módulo 3
 
-Al cerrar el módulo, planta la semilla para JavaScript:
+Al cerrar el módulo, planta la semilla:
 
-> "Felicidades, su MyLinks está en internet. Cualquier persona en el mundo puede verlo. Pero... ¿qué pasa si quieren que haga algo? ¿Que cuente cuántas veces alguien hace clic? ¿Que muestre un mensaje de bienvenida? ¿Que cambie de color según la hora del día? Para eso necesitan JavaScript. Eso es el Módulo 3."
+> "Su MyLinks está en internet. Cualquier persona en el mundo puede verlo. Pero... si hacen clic en algo, ¿pasa algo? ¿Pueden contar visitas? ¿Cambiar de color según la hora? Para eso necesitan **JavaScript**. Eso es el Módulo 3."
 
 ---
 
 ## 🎨 Notas Específicas de Esta Clase
 
-### Sobre el flujo de dos IAs
-
-Puede parecer complicado usar dos IAs (Gemini → Claude). Justifícalo así:
-
-> "¿Por qué dos IAs? Porque cada una es buena en algo diferente. Gemini es excelente para hacer preguntas y organizar información. Claude es excelente para generar código con vista previa. Usar la herramienta correcta para cada tarea es lo que hacen los profesionales."
-
 ### Sobre el lab calificado
 
-Esta es la primera evaluación formal. Algunos estudiantes estarán nerviosos.
+Es la primera evaluación formal del módulo. Algunos alumnos estarán nerviosos:
 
-> "Este es un lab calificado, pero no es un examen sorpresa. Ya saben todo lo que necesitan: usaron Git, hicieron responsive, crearon wireframes. Hoy solo juntamos todo. La rúbrica está en el lab—no hay sorpresas."
+> "La rúbrica está en el lab. No hay sorpresas. Lo evaluamos en el proceso, no solo el resultado: si su botón se ve perfecto pero copiaron sin entender, eso baja el criterio 2."
 
-### Sobre los commits
+### Sobre el momento "wow" del deploy
 
-El objetivo es 4 commits. Dos están forzados en clase (después de generación y después de responsive). Los otros dos vienen del refinamiento post-clase. Si un estudiante llega con menos de 4 pero todo lo demás está bien, no penalizar excesivamente—el objetivo pedagógico es que practiquen Git, no que memoricen cuántos commits hacer.
+Cuando GitHub Pages active y vean su URL pública, **no apures el momento**:
 
-### Sobre el momento "wow"
+> "Ábranlo en su celular. Mándenlo a un amigo. Eso está en internet. En 4 clases pasaron de no saber qué era Git a tener un sitio publicado con su Spec Sheet detrás."
 
-Cuando GitHub Pages active y vean su URL pública, haz una pausa:
+Es el cierre emocional del módulo. Vale la pena 5 minutos solo para eso.
 
-> "Ábranlo en su teléfono. Mándenselo a un amigo. Eso está en internet. Ustedes lo hicieron. En 4 clases pasaron de no saber qué era Git a tener un sitio web publicado."
+### Sobre Vibe Coding Responsable
 
-Ese es el cierre emocional del módulo. No lo apures.
+El callout del lab no es decorativo. **Insiste durante todo el lab**:
+
+> "Si te pregunto qué hace la línea 23 de tu CSS y no sabes, ese es Vibe Coding Irresponsable. Hoy aprendemos a NO ser eso."
