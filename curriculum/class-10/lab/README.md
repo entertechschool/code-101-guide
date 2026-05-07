@@ -9,6 +9,7 @@
 1. Generar números aleatorios dentro de un rango usando `Math.random()` y `Math.floor()`
 2. Implementar `if/else if/else` para dar pistas al jugador (alto, bajo, correcto)
 3. Validar la entrada del usuario con `isNaN()` y operadores lógicos
+4. Escribir desde cero un bloque `if/else if/else` para resolver un problema real con múltiples condiciones
 
 ---
 
@@ -302,6 +303,67 @@ git push
 
 ---
 
+## Parte 4: Reto — Calculadora de Descuentos (20 min)
+
+Una tienda online aplica descuentos según el total de compra. El usuario ingresa el precio total con `prompt()`. El programa muestra el precio final con `alert()`.
+
+**Reglas de descuento:**
+
+- Si el total es mayor a 100 → aplicar 20% de descuento
+- Si el total está entre 50 y 100 (ambos incluidos) → aplicar 10% de descuento
+- Si el total es menor a 50 → sin descuento, el precio final es el mismo
+
+---
+
+### Antes de codificar — ¿cuántos caminos tiene este problema?
+
+Esta parte no tiene código de ejemplo. Antes de escribir, respóndete:
+
+1. **¿Cuántos caminos posibles hay?** Cuenta las reglas: hay tres situaciones distintas, por lo tanto necesitas tres ramas.
+2. **¿Qué varía en cada camino?** El porcentaje de descuento. Define ese valor primero, luego calcula el precio final.
+3. **¿Cómo se calcula el precio final?** Piénsalo así: si hay 20% de descuento, el cliente paga el 80%. La fórmula es `total - (total * descuento)`.
+4. **¿En qué orden vas las condiciones?** Empieza por la más restrictiva (mayor a 100) y baja hacia la menos restrictiva.
+
+> 💡 **Pista de estructura:** Necesitas exactamente un `if`, un `else if` y un `else`. Cada rama asigna un porcentaje diferente. El `alert()` va una sola vez, al final.
+
+---
+
+### Escribe tu solución
+
+Abre un archivo nuevo `descuentos.js` o una nueva sección en tu `script.js` con un comentario que lo separe:
+
+```js
+// === CALCULADORA DE DESCUENTOS ===
+```
+
+A partir de ahí, escribe el código completo tú solo.
+
+---
+
+### Pruebas de validación
+
+Una vez que tengas tu solución, prueba con estos tres valores:
+
+| Entrada | Esperado | Cálculo |
+|---------|----------|---------|
+| `120` | `96` | 120 × 0.80 |
+| `75` | `67.5` | 75 × 0.90 |
+| `30` | `30` | sin descuento |
+
+Si los tres dan el resultado correcto, tu lógica está bien.
+
+### Commit
+
+```bash
+git add script.js
+git commit -m "feat: calculadora de descuentos con if/else if/else"
+git push
+```
+
+✅ **Checkpoint:** Tu programa pide un total con `prompt()`, aplica el descuento correcto según las tres reglas, y muestra el precio final con `alert()`. Probado con 120, 75 y 30.
+
+---
+
 ## Logros Adicionales (Opcional)
 
 ### 🟢 Pista de Temperatura
@@ -327,7 +389,8 @@ Investiga `Number.isInteger()`. Agrega validación para que solo se acepten núm
 - [ ] Validación con `isNaN()` rechaza texto no numérico
 - [ ] Validación de rango rechaza números fuera de 1-100
 - [ ] Operador ternario usado al menos una vez
-- [ ] Al menos 3 commits descriptivos
+- [ ] Calculadora de descuentos escrita desde cero: prueba 120 → 96, 75 → 67.5, 30 → 30
+- [ ] Al menos 4 commits descriptivos
 
 ### Entregable
 
