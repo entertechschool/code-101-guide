@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive — Cómo hacer que tu sitio se vea bien en cualquier pantalla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #060913;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    pre {
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    code { font-size: 0.9em; }
+    .inline-code {
+      background: rgba(217, 70, 239, 0.12);
+      color: #d946ef;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(217, 70, 239, 0.15);
+      color: #d946ef;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 .tech { color: #d946ef; }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-purple { border-left: 3px solid #d946ef; }
+    .accent-green  { border-left: 3px solid #4ade80; }
+    .accent-blue   { border-left: 3px solid #93c5fd; }
+    .accent-orange { border-left: 3px solid #fb923c; }
+
+    /* ── Devices visual (Block 1) ── */
+    .devices {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 0.5rem 0 1.25rem;
+      padding: 1.5rem;
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+    }
+    .device {
+      background: #0d1117;
+      border: 2px solid #94a3b8;
+      border-radius: 10px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem;
+    }
+    .device .screen {
+      background: rgba(217, 70, 239, 0.12);
+      border: 1px dashed rgba(217, 70, 239, 0.4);
+      border-radius: 4px;
+      width: 100%;
+      flex: 1;
+    }
+    .device .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .device.mobile  { width: 80px; height: 140px; }
+    .device.tablet  { width: 130px; height: 170px; }
+    .device.desktop { width: 220px; height: 150px; }
+
+    /* ── Units comparison (Block 2) ── */
+    .units {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .unit-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+    .unit-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      color: #4ade80;
+      min-width: 70px;
+      font-size: 0.95rem;
+    }
+    .unit-name.fixed { color: #fb923c; }
+    .unit-desc {
+      flex: 1;
+      color: #94a3b8;
+      font-size: 0.92rem;
+    }
+    .unit-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #64748b;
+      background: rgba(255,255,255,0.04);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* ── Breakpoints visual (Block 4) ── */
+    .breakpoints {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .bp {
+      flex: 1;
+      background: #161b22;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 0.75rem;
+      text-align: center;
+    }
+    .bp.highlight {
+      border-color: rgba(74, 222, 128, 0.4);
+      background: rgba(74, 222, 128, 0.06);
+    }
+    .bp-size {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin-bottom: 0.25rem;
+    }
+    .bp.highlight .bp-size { color: #4ade80; }
+    .bp-device {
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 220px;
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.88rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    .footer .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="badge">Módulo 2 · Clase 06</div>
+    <h1><span class="tech">Responsive</span> — Cómo hacer que tu sitio se vea bien en cualquier pantalla</h1>
+    <p class="subtitle">DevTools, unidades relativas y media queries: el trío que adapta tu diseño desde un iPhone hasta un monitor ultrawide.</p>
+  </section>
+
+  <!-- ════════ BLOQUE 1: DevTools ════════ -->
+  <section>
+    <div class="card accent-purple">
+      <h3>Chrome DevTools</h3>
+      <p class="desc">Las herramientas integradas del navegador para inspeccionar HTML/CSS, modificarlo en vivo y simular cualquier dispositivo. Ábrelas con <code class="inline-code">F12</code> o <code class="inline-code">Ctrl+Shift+I</code>.</p>
+
+      <div class="devices">
+        <div class="device mobile">
+          <div class="screen"></div>
+          <div class="label">375px</div>
+        </div>
+        <div class="device tablet">
+          <div class="screen"></div>
+          <div class="label">768px</div>
+        </div>
+        <div class="device desktop">
+          <div class="screen"></div>
+          <div class="label">1200px</div>
+        </div>
+      </div>
+
+<pre><code><span style="color: #64748b">/* Atajos clave */</span>
+<span style="color: #d946ef">F12</span>              <span style="color: #64748b">→ Abrir DevTools</span>
+<span style="color: #d946ef">Ctrl+Shift+M</span>     <span style="color: #64748b">→ Modo responsive</span>
+<span style="color: #d946ef">Ctrl+Shift+C</span>     <span style="color: #64748b">→ Inspeccionar elemento</span></code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 2: Unidades Relativas ════════ -->
+    <div class="card accent-green">
+      <h3>Unidades Relativas</h3>
+      <p class="desc">Reemplaza valores fijos en <code class="inline-code">px</code> por unidades que escalan con la pantalla y la accesibilidad del usuario.</p>
+
+      <div class="units">
+        <div class="unit-row">
+          <span class="unit-name fixed">px</span>
+          <span class="unit-desc">Fijo. No se adapta a nada.</span>
+          <span class="unit-tag">bordes, sombras</span>
+        </div>
+        <div class="unit-row">
+          <span class="unit-name">rem</span>
+          <span class="unit-desc">Relativo a la fuente raíz (16px).</span>
+          <span class="unit-tag">texto, padding</span>
+        </div>
+        <div class="unit-row">
+          <span class="unit-name">%</span>
+          <span class="unit-desc">Relativo al elemento padre.</span>
+          <span class="unit-tag">anchos</span>
+        </div>
+        <div class="unit-row">
+          <span class="unit-name">vh / vw</span>
+          <span class="unit-desc">% de la altura/ancho del viewport.</span>
+          <span class="unit-tag">secciones full-screen</span>
+        </div>
+      </div>
+
+<pre><code><span style="color: #93c5fd">.container</span> {
+    <span style="color: #d946ef">width</span>: 90%;              <span style="color: #64748b">/* Flexible */</span>
+    <span style="color: #d946ef">max-width</span>: 600px;        <span style="color: #64748b">/* Pero con tope */</span>
+    <span style="color: #d946ef">font-size</span>: 1rem;         <span style="color: #64748b">/* = 16px escalable */</span>
+    <span style="color: #d946ef">padding</span>: 2rem;           <span style="color: #64748b">/* = 32px escalable */</span>
+}</code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 3: Media Queries ════════ -->
+    <div class="card accent-blue">
+      <h3>Media Queries</h3>
+      <p class="desc">Reglas CSS condicionales: aplican estilos solo cuando se cumple una condición de pantalla. Tu CSS se vuelve sensible al contexto.</p>
+
+      <div class="breakpoints">
+        <div class="bp">
+          <div class="bp-size">576px</div>
+          <div class="bp-device">Móvil grande</div>
+        </div>
+        <div class="bp highlight">
+          <div class="bp-size">768px</div>
+          <div class="bp-device">Tablet ★</div>
+        </div>
+        <div class="bp">
+          <div class="bp-size">992px</div>
+          <div class="bp-device">Laptop</div>
+        </div>
+        <div class="bp">
+          <div class="bp-size">1200px</div>
+          <div class="bp-device">Desktop</div>
+        </div>
+      </div>
+
+<pre><code><span style="color: #64748b">/* Estilos base: móvil */</span>
+<span style="color: #93c5fd">h1</span> {
+    <span style="color: #d946ef">font-size</span>: 1.5rem;
+}
+
+<span style="color: #64748b">/* Solo si la pantalla es 768px o más */</span>
+<span style="color: #fb923c">@media</span> (min-width: 768px) {
+    <span style="color: #93c5fd">h1</span> {
+        <span style="color: #d946ef">font-size</span>: 2.5rem;
+    }
+}</code></pre>
+    </div>
+
+    <!-- ════════ BLOQUE 4: Mobile-First ════════ -->
+    <div class="card accent-orange">
+      <h3>Mobile-First</h3>
+      <p class="desc">Estrategia moderna: empieza por la versión móvil y agrega complejidad para pantallas más grandes con <code class="inline-code">min-width</code>. Es más fácil sumar que quitar.</p>
+
+<pre><code><span style="color: #64748b">/* ❌ Desktop-First (antiguo) */</span>
+<span style="color: #93c5fd">h1</span> { <span style="color: #d946ef">font-size</span>: 3rem; }
+<span style="color: #fb923c">@media</span> (max-width: 768px) { <span style="color: #64748b">/* quitar cosas */</span> }
+
+<span style="color: #64748b">/* ✅ Mobile-First (moderno) */</span>
+<span style="color: #93c5fd">h1</span> { <span style="color: #d946ef">font-size</span>: 1.5rem; }
+<span style="color: #fb923c">@media</span> (min-width: 768px) { <span style="color: #64748b">/* agregar cosas */</span> }</code></pre>
+    </div>
+  </section>
+
+  <!-- ════════ GLOSARIO ════════ -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Viewport</strong>
+        <span>Área visible de la página en el navegador</span>
+      </div>
+      <div class="term">
+        <strong>Breakpoint</strong>
+        <span>Ancho donde el diseño cambia (ej: 768px)</span>
+      </div>
+      <div class="term">
+        <strong>rem</strong>
+        <span>1rem = tamaño de fuente raíz (16px)</span>
+      </div>
+      <div class="term">
+        <strong>vh / vw</strong>
+        <span>1% del alto/ancho del viewport</span>
+      </div>
+      <div class="term">
+        <strong>@media</strong>
+        <span>Regla CSS condicional por pantalla</span>
+      </div>
+      <div class="term">
+        <strong>Mobile-First</strong>
+        <span>Diseñar primero para móvil, escalar arriba</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <section class="footer">
+    <div class="logo">Code 101 — EnterTechSchool</div>
+    Clase 06 · Diseño Web Responsive + DevTools
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(13,17,23,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[̀-ͯ]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-06-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>

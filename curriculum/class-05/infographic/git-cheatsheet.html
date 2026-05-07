@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git & Terminal — Cheat Sheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #ffffff;
+      color: #1e293b;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      padding: 3rem 3.5rem 3rem;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .header .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.1);
+      color: #4f46e5;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      margin-bottom: 1rem;
+    }
+    .header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .header h1 .git { color: #ea580c; }
+    .header h1 .term { color: #4f46e5; }
+    .header p {
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+
+    /* ── Two Columns ── */
+    .columns {
+      display: flex;
+      gap: 2rem;
+    }
+    .col {
+      flex: 1;
+    }
+
+    /* ── Section titles ── */
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid;
+    }
+    .section-title.terminal { color: #4f46e5; border-color: #4f46e5; }
+    .section-title.git-sec  { color: #ea580c; border-color: #ea580c; }
+    .section-title.github   { color: #16a34a; border-color: #16a34a; }
+
+    /* ── Command Row ── */
+    .cmd-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .cmd-box {
+      flex-shrink: 0;
+      width: 280px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 0.55rem 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: #f1f5f9;
+      position: relative;
+      overflow: hidden;
+    }
+    .cmd-box .prompt {
+      color: #4ade80;
+      user-select: none;
+    }
+    .cmd-box .flag {
+      color: #818cf8;
+    }
+    .cmd-box .arg {
+      color: #fbbf24;
+    }
+    .cmd-box .str {
+      color: #f97316;
+    }
+    .cmd-desc {
+      flex: 1;
+      padding-top: 0.5rem;
+      color: #64748b;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .cmd-desc strong {
+      color: #1e293b;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: #e2e8f0;
+      margin: 1.5rem 0;
+    }
+
+    /* ── Tip Box ── */
+    .tip-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.25rem;
+      font-size: 0.88rem;
+      color: #64748b;
+    }
+    .tip-box .tip-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: #b45309;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    /* ── Flow Diagram ── */
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: 1.5rem;
+      padding: 1.5rem 1rem;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+    .flow-step {
+      text-align: center;
+      padding: 0.75rem 1rem;
+    }
+    .flow-step .step-cmd {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .flow-step .step-label {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: #cbd5e1;
+      padding: 0 0.5rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      color: #94a3b8;
+      font-size: 0.8rem;
+    }
+    .footer .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">Code 101 · Módulo 2 · Referencia Rápida</div>
+    <h1><span class="term">Terminal</span> & <span class="git">Git</span> Cheat Sheet</h1>
+    <p>Todos los comandos que necesitas para navegar, versionar y subir tu código</p>
+  </div>
+
+  <!-- TWO COLUMNS -->
+  <div class="columns">
+
+    <!-- ═══ COLUMNA IZQUIERDA ═══ -->
+    <div class="col">
+
+      <!-- Terminal -->
+      <div class="section-title terminal">🖥️ Terminal — Navegación</div>
+
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>pwd</div>
+        <div class="cmd-desc">Muestra la <strong>ruta completa</strong> de la carpeta actual</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>ls</div>
+        <div class="cmd-desc"><strong>Lista</strong> archivos y carpetas del directorio actual</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>cd <span class="arg">carpeta</span></div>
+        <div class="cmd-desc"><strong>Entra</strong> a una carpeta hija</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>cd <span class="arg">..</span></div>
+        <div class="cmd-desc"><strong>Sube</strong> un nivel (carpeta padre)</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>mkdir <span class="arg">nombre</span></div>
+        <div class="cmd-desc"><strong>Crea</strong> una carpeta nueva</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>touch <span class="arg">archivo.html</span></div>
+        <div class="cmd-desc"><strong>Crea</strong> un archivo vacío</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>code <span class="arg">.</span></div>
+        <div class="cmd-desc"><strong>Abre</strong> VS Code en la carpeta actual</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">💡 Tip: Tab Autocomplete</div>
+        Presiona <strong>Tab</strong> para autocompletar nombres de carpetas y archivos. Ahorra tiempo y evita errores de tipeo.
+      </div>
+
+    </div>
+
+    <!-- ═══ COLUMNA DERECHA ═══ -->
+    <div class="col">
+
+      <!-- Git -->
+      <div class="section-title git-sec">🔥 Git — Control de Versiones</div>
+
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git init</div>
+        <div class="cmd-desc"><strong>Inicializa</strong> un repositorio Git en la carpeta</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git status</div>
+        <div class="cmd-desc">Muestra qué archivos fueron <strong>modificados</strong></div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git add <span class="arg">.</span></div>
+        <div class="cmd-desc"><strong>Prepara</strong> todos los cambios para el commit</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git commit <span class="flag">-m</span> <span class="str">"mensaje"</span></div>
+        <div class="cmd-desc"><strong>Guarda</strong> los cambios en el historial local</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- GitHub -->
+      <div class="section-title github">☁️ GitHub — La Nube</div>
+
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git clone <span class="arg">URL</span></div>
+        <div class="cmd-desc"><strong>Descarga</strong> un repositorio remoto a tu PC</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git push</div>
+        <div class="cmd-desc"><strong>Sube</strong> tus commits locales a GitHub</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-box"><span class="prompt">$ </span>git pull</div>
+        <div class="cmd-desc"><strong>Descarga</strong> los últimos cambios del remoto</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">💡 Tip: Mensajes de Commit</div>
+        Escribí mensajes claros y específicos:<br>
+        ✅ <code style="color:#4ade80">"feat: agregar sección contacto"</code><br>
+        ❌ <code style="color:#f87171">"cambios varios"</code>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FLOW DIAGRAM -->
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-cmd" style="color:#94a3b8;">📝 Editar</div>
+      <div class="step-label">Código en VS Code</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-cmd" style="color:#fbbf24;">git add .</div>
+      <div class="step-label">Preparar cambios</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-cmd" style="color:#f97316;">git commit -m ""</div>
+      <div class="step-label">Guardar en historial</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-cmd" style="color:#4ade80;">git push</div>
+      <div class="step-label">Subir a GitHub</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-cmd" style="color:#818cf8;">🌐 GitHub</div>
+      <div class="step-label">Código en la nube</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="brand">Code 101 — EnterTechSchool</div>
+    N20 · Módulo 2 · Clase 05
+  </div>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(10,14,26,0.9);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            link.download = 'git-terminal-cheatsheet.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>
