@@ -34,15 +34,9 @@ Presentar tu juego "Adivina el Número" en una demo de 3 minutos, demostrando fu
 ### Minuto 2: Tu Código
 
 - Abre `script.js` en VS Code
-- Muestra UNA función clave (ej: `verificarIntento()`)
+- Muestra UNA función clave para ti (ej: `verificarIntento()`) o el flujo de forma breve , **NO TODO EL CODIGO LINEA POR LINEA**
 - Explica brevemente: ¿qué recibe? ¿qué hace? ¿qué devuelve?
-- Menciona cómo conectaste el botón con `addEventListener`
-
-### Minuto 3: Reflexión
-
-- ¿Qué fue lo más difícil de aprender?
-- ¿Qué parte del código te enorgullece más?
-- ¿Qué mejorarías si tuvieras más tiempo?
+- Si agregaste funcionalidades nuevas que no estaban en el laboratorio, mencionalas en tu exposicion
 
 ---
 
