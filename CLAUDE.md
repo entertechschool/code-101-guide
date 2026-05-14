@@ -21,7 +21,7 @@ Ver **[AGENTS.md](AGENTS.md)** para convenciones del repositorio, estructura, to
 | `class-infographic` | Infografía post-clase | `infographic/index.html` + `infographic/image-prompts.md` |
 | `module-updater` | Auditar y actualizar módulo existente | Reporte + ediciones |
 
-Ver detalles en `.claude/skills/*/SKILL.md`
+Ver detalles en `~/.entertechschool/shared-skills/*/SKILL.md` (fuente canónica)
 
 ---
 
@@ -44,6 +44,11 @@ Los 10 skills vienen de [shared-skills](https://github.com/entertechschool/share
 | Módulo | Estado | Proyecto |
 |--------|--------|----------|
 | M1 (1-4) | Completo | Mi Perfil Personal |
-| M2 (5-8) | En desarrollo | MyLinks |
+| M2 (5-8) | Completo | MyLinks |
 | M3 (9-12) | Pendiente | Adivina el Número |
 | Fast-Track | Completo | Mi Portfolio Dev |
+| Nivelación M1 | Completo | Mi Perfil Personal (autodirigido) |
+| Nivelación M2 | Completo | MyLinks (autodirigido) |
+| Nivelación M3 (Recuperación) | Completo | Mi Mapa de Sueños (autodirigido, integrador 3 módulos) |
+
+> **Nivelación:** Labs integradores autodirigidos en `curriculum/nivelacion/` para alumnos que se incorporan tarde o faltan 2+ clases de un módulo. Calificados con la misma rúbrica que el lab oficial del módulo. **Nivelación M3 ("Proyecto de Recuperación")** integra los 3 módulos completos del curso — equivalente más accesible al proyecto final `Adivina el Número`.
