@@ -225,6 +225,46 @@ Ver programa completo en [fast-track/](fast-track/).
 
 ---
 
+## Stack del Repositorio
+
+Herramientas usadas para construir y mantener este repositorio — no las herramientas del curso.
+
+### Generación de Contenido
+
+| Herramienta | Rol |
+|-------------|-----|
+| **Claude Code** (CLI) | Genera y actualiza contenido vía 10 skills especializados |
+| **Shared Skills** | 10 skills (`module-planner`, `class-readme`, `class-lab`, `class-slides`, `class-facilitator`, `evaluation-class`, `lint-markdown`, `module-test`, `class-infographic`, `module-updater`) sincronizados desde [shared-skills](https://github.com/entertechschool/shared-skills) vía symlinks en `.claude/skills/` |
+| **`ets-sync-skills`** | Script que copia las versiones canónicas a `~/.entertechschool/shared-skills/` y actualiza todos los repositorios de cursos |
+
+### Presentaciones
+
+| Herramienta | Rol |
+|-------------|-----|
+| **reveal.js** | Diapositivas en Markdown separadas por `---`, renderizadas desde `slides/README.md` |
+
+### Hosting y Renderizado
+
+| Herramienta | Rol |
+|-------------|-----|
+| **GitHub Pages** | Hosting estático del site del repositorio |
+| **Jekyll + kramdown** | Renderizador de Markdown; soporta atributos como `{:target="_blank"}` y `{:download}` |
+
+### Diseño (Herramientas del Instructor)
+
+| Herramienta | Rol |
+|-------------|-----|
+| **Figma** | Diseño de mockups y starter kits para los labs |
+| **Plugin Figma (`dev/figma-starter-kit/`)** | Genera el MyLinks Starter Kit completo en Figma (Frames, Color Styles, Effect Styles, componentes low-fi, Botón Maestro con Auto Layout) en ~3 segundos |
+
+### Versionado
+
+| Herramienta | Rol |
+|-------------|-----|
+| **Git + GitHub** | Control de versiones; cada módulo o feature en su propia rama con PR |
+
+---
+
 ## Prerrequisitos
 
 **Ninguno.** Code 101 es el curso de entrada al programa de Desarrollo de Software.
@@ -237,4 +277,4 @@ Este curso prepara a los estudiantes para Code 201, donde profundizarán en:
 
 ---
 
-*Última actualización: Febrero 2026*
+*Última actualización: Mayo 2026*
