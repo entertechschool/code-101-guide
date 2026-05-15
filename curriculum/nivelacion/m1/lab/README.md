@@ -807,7 +807,7 @@ Refresca la página de tu repositorio en GitHub. Debes ver `index.html` y `style
 
 ### Entrega
 
-📦 **Envía por la plataforma del curso (Canvas):**
+📦 **Envía por la plataforma del curso (Blackboard):**
 
 1. **URL del repositorio:** `https://github.com/tu-usuario/mi-perfil-personal`
 2. **Captura de pantalla** del sitio funcionando con Live Server (vista completa).

@@ -19,7 +19,7 @@ Conceptos de las Clases 1-4:
 
 ## Instrucciones
 
-1. Se realiza en Canvas durante la clase
+1. Se realiza en Blackboard durante la clase
 2. Tienes 15 minutos
 3. Individual y a libro cerrado
 

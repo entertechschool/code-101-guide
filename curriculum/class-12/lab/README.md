@@ -14,7 +14,7 @@ Presentar tu juego "Adivina el Número" en una demo de 3 minutos, demostrando fu
 
 | Fase | Tiempo | Actividad |
 |------|--------|-----------|
-| Test diagnóstico | 15 min | 8 preguntas en Canvas (diagnóstico, no calificado) |
+| Test diagnóstico | 15 min | 8 preguntas en Blackboard (diagnóstico, no calificado) |
 | Preparación | 15 min | Verificar juego, practicar presentación |
 | Presentaciones | ~90 min | 3 min por estudiante |
 | Cierre | 20 min | Reflexión y celebración |
@@ -74,4 +74,4 @@ Ver [rubric.md](rubric.md) para los criterios detallados.
 
 - [ ] URL del repositorio `guess-number-js` en GitHub
 - [ ] Presentación completada en clase
-- [ ] Test diagnóstico completado en Canvas
+- [ ] Test diagnóstico completado en Blackboard

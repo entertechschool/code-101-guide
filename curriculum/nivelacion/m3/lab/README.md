@@ -848,7 +848,7 @@ Antes de cerrar, valida toda la lista:
 
 ## 📝 Entrega
 
-📦 **Envía por la plataforma del curso (Canvas):**
+📦 **Envía por la plataforma del curso (Blackboard):**
 
 1. **URL de GitHub Pages:** `https://tu-usuario.github.io/mi-mapa-de-suenos/`
 2. **URL del repositorio:** `https://github.com/tu-usuario/mi-mapa-de-suenos`

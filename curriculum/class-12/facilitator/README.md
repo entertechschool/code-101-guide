@@ -20,7 +20,7 @@ Esta clase NO introduce conceptos nuevos. Es evaluación, presentación y cierre
 
 | Fase | Minutos | Actividad | Notas |
 |------|---------|-----------|-------|
-| 1 | 0-15 | Test diagnóstico | Canvas, 8 preguntas, individual |
+| 1 | 0-15 | Test diagnóstico | Blackboard, 8 preguntas, individual |
 | 2 | 15-30 | Preparación | Verificar juegos, practicar |
 | 3 | 30-120 | Presentaciones | ~3 min por estudiante |
 | 4 | 120-140 | Evaluación | Completar rúbricas |
@@ -44,7 +44,7 @@ Esta clase NO introduce conceptos nuevos. Es evaluación, presentación y cierre
 
 ### Antes del Test
 
-1. Abrir Canvas con el test listo
+1. Abrir Blackboard con el test listo
 2. Recordar: "Este test es diagnóstico. NO afecta tu calificación. Nos ayuda a identificar qué temas reforzar."
 3. Instrucciones: individual, a libro cerrado, 15 minutos
 
@@ -196,7 +196,7 @@ Facilitador: "Todo lo que aprendieron aquí es la base para lo que viene."
 - Eliminar la pregunta después de cada presentación
 - Priorizar que TODOS presenten aunque sea brevemente
 
-### Si el test de Canvas falla:
+### Si el test de Blackboard falla:
 
 - Tener las preguntas impresas o en pantalla como respaldo
 - Hacer el test de forma oral con el grupo (formato quiz)
