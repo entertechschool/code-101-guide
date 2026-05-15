@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones — Los bloques de construcción</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Canvas ── */
+    html { font-size: 19.2px; }
+    body {
+      width: 1080px;
+      margin: 0 auto;
+      background: #0f172a;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(236, 72, 153, 0.10) 0%, transparent 60%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+    pre {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 3rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 3rem 2.5rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(236, 72, 153, 0.18);
+      color: #ec4899;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accent borders ── */
+    .accent-pink   { border-left: 3px solid #ec4899; }
+    .accent-blue   { border-left: 3px solid #3b82f6; }
+    .accent-yellow { border-left: 3px solid #f59e0b; }
+    .accent-green  { border-left: 3px solid #10b981; }
+
+    /* ── Function diagram ── */
+    .fn-diagram {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .fn-box {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.85rem 1.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      flex: 1;
+      min-width: 120px;
+    }
+    .fn-box .label {
+      display: block;
+      font-size: 0.7rem;
+      color: #ec4899;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .fn-box .value {
+      color: #f8fafc;
+    }
+    .fn-arrow {
+      color: #64748b;
+      font-size: 1.5rem;
+    }
+
+    /* ── DOM diagram ── */
+    .dom-flow {
+      display: grid;
+      grid-template-columns: 1fr 0.3fr 1fr;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .dom-side {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .dom-side .head {
+      font-weight: 600;
+      color: #3b82f6;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .dom-side .body {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+    .dom-arrow {
+      text-align: center;
+      color: #3b82f6;
+      font-size: 1.6rem;
+    }
+
+    /* ── Refactor before/after ── */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .compare .col {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .compare .col.bad   { border: 1px solid rgba(239, 68, 68, 0.3); }
+    .compare .col.good  { border: 1px solid rgba(16, 185, 129, 0.3); }
+    .compare .col .tag {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .compare .col.bad  .tag { background: rgba(239,68,68,0.2); color: #fca5a5; }
+    .compare .col.good .tag { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+    .compare pre {
+      margin-top: 0;
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 0.78rem;
+    }
+
+    /* ── Syntax highlighting mocks ── */
+    .syn-keyword { color: #c678dd; }
+    .syn-string  { color: #98c379; }
+    .syn-number  { color: #d19a66; }
+    .syn-comment { color: #5c6370; font-style: italic; }
+    .syn-fn      { color: #61afef; }
+
+    /* ── Glossary ── */
+    .glossary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .glossary .term {
+      flex: 1 1 200px;
+      background: #1e293b80;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .glossary .term strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #f8fafc;
+    }
+    .glossary .term span {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 3rem 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Módulo 3 · Clase 11</div>
+    <h1>Funciones — Los bloques de construcción</h1>
+    <p class="subtitle">DOM, eventos y refactorización en JavaScript</p>
+  </section>
+
+  <!-- BLOQUES DE CONTENIDO -->
+  <section>
+
+    <!-- Bloque 1: Anatomía de una función -->
+    <div class="card accent-pink">
+      <h3>1. Anatomía de una función</h3>
+      <p class="desc">Una función es un bloque de código <strong>reutilizable</strong> con un nombre. Recibe datos (<strong>parámetros</strong>), hace una tarea y opcionalmente devuelve un resultado con <code>return</code>.</p>
+
+      <div class="fn-diagram">
+        <div class="fn-box">
+          <span class="label">Entrada</span>
+          <span class="value">intento, secreto</span>
+        </div>
+        <span class="fn-arrow">→</span>
+        <div class="fn-box" style="flex:1.5">
+          <span class="label">Función</span>
+          <span class="value">verificarIntento()</span>
+        </div>
+        <span class="fn-arrow">→</span>
+        <div class="fn-box">
+          <span class="label">Salida</span>
+          <span class="value">"correcto"</span>
+        </div>
+      </div>
+
+      <pre><code><span class="syn-keyword">function</span> <span class="syn-fn">verificarIntento</span>(intento, secreto) {
+  <span class="syn-keyword">if</span> (intento === secreto) <span class="syn-keyword">return</span> <span class="syn-string">"correcto"</span>;
+  <span class="syn-keyword">if</span> (intento > secreto)   <span class="syn-keyword">return</span> <span class="syn-string">"muy alto"</span>;
+  <span class="syn-keyword">return</span> <span class="syn-string">"muy bajo"</span>;
+}</code></pre>
+    </div>
+
+    <!-- Bloque 2: DOM -->
+    <div class="card accent-blue">
+      <h3>2. El DOM: JavaScript habla con HTML</h3>
+      <p class="desc">El <strong>DOM</strong> (Document Object Model) es el HTML representado como objetos JavaScript. Con él, JS puede <em>leer</em>, <em>cambiar</em> y <em>estilizar</em> cualquier elemento de la página.</p>
+
+      <div class="dom-flow">
+        <div class="dom-side">
+          <div class="head">📄 HTML</div>
+          <div class="body">&lt;p id="mensaje"&gt;<br>&nbsp;&nbsp;Hola<br>&lt;/p&gt;</div>
+        </div>
+        <div class="dom-arrow">⇄</div>
+        <div class="dom-side">
+          <div class="head">🧠 JavaScript</div>
+          <div class="body">document.getElementById(<br>&nbsp;&nbsp;<span style="color:#98c379">'mensaje'</span><br>).textContent = <span style="color:#98c379">'¡Hola!'</span></div>
+        </div>
+      </div>
+
+      <pre><code><span class="syn-comment">// 3 herramientas esenciales del DOM</span>
+<span class="syn-keyword">document</span>.<span class="syn-fn">getElementById</span>(<span class="syn-string">'id'</span>)   <span class="syn-comment">// Busca un elemento por su id</span>
+elemento.textContent = <span class="syn-string">'texto'</span>;       <span class="syn-comment">// Cambia el texto visible</span>
+elemento.style.color  = <span class="syn-string">'red'</span>;        <span class="syn-comment">// Cambia el estilo CSS</span></code></pre>
+    </div>
+
+    <!-- Bloque 3: Eventos -->
+    <div class="card accent-yellow">
+      <h3>3. Eventos: la página responde al usuario</h3>
+      <p class="desc">Un <strong>evento</strong> es cualquier acción del usuario (click, tecla, scroll). Con <code>addEventListener</code> le decimos al navegador: "cuando pase X, ejecuta esta función".</p>
+      <pre><code><span class="syn-comment">// Conectar el botón con la función</span>
+<span class="syn-keyword">const</span> boton = document.<span class="syn-fn">getElementById</span>(<span class="syn-string">'btnAdivinar'</span>);
+
+boton.<span class="syn-fn">addEventListener</span>(<span class="syn-string">'click'</span>, verificarIntento);
+<span class="syn-comment">//                              ↑ ↑                  ↑</span>
+<span class="syn-comment">//                              | Qué evento         La función a ejecutar</span>
+<span class="syn-comment">//                              | escuchar          (SIN paréntesis: pasamos la referencia)</span></code></pre>
+    </div>
+
+    <!-- Bloque 4: Refactorizar -->
+    <div class="card accent-green">
+      <h3>4. Refactorizar: mejorar sin cambiar lo que hace</h3>
+      <p class="desc">En la vida real, los desarrolladores pasan más tiempo <strong>mejorando código existente</strong> que escribiendo código nuevo. Refactorizar = reorganizar en funciones reutilizables, sin cambiar el comportamiento.</p>
+
+      <div class="compare">
+        <div class="col bad">
+          <div class="tag">❌ Antes</div>
+          <pre><code><span class="syn-comment">// Todo lineal, repetitivo</span>
+<span class="syn-keyword">let</span> intento = <span class="syn-keyword">prompt</span>(...);
+<span class="syn-keyword">if</span> (intento === secreto)
+  <span class="syn-keyword">alert</span>(<span class="syn-string">"¡Correcto!"</span>);
+<span class="syn-keyword">else if</span> (intento > secreto)
+  <span class="syn-keyword">alert</span>(<span class="syn-string">"Muy alto"</span>);
+<span class="syn-keyword">else</span>
+  <span class="syn-keyword">alert</span>(<span class="syn-string">"Muy bajo"</span>);</code></pre>
+        </div>
+        <div class="col good">
+          <div class="tag">✅ Después</div>
+          <pre><code><span class="syn-comment">// Función reutilizable</span>
+<span class="syn-keyword">function</span> <span class="syn-fn">verificar</span>() {
+  <span class="syn-keyword">const</span> i = input.value;
+  mensaje.textContent =
+    <span class="syn-fn">comparar</span>(i, secreto);
+}
+
+boton.<span class="syn-fn">addEventListener</span>(
+  <span class="syn-string">'click'</span>, verificar
+);</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <div class="glossary">
+      <div class="term">
+        <strong>Parámetro vs Argumento</strong>
+        <span>Parámetro: variable en la definición. Argumento: valor real que pasas al llamarla. <code>function f(x)</code> → x es parámetro; <code>f(5)</code> → 5 es argumento.</span>
+      </div>
+      <div class="term">
+        <strong>return</strong>
+        <span>Devuelve un valor desde la función al código que la llamó y termina la ejecución de la función. Sin <code>return</code>, devuelve <code>undefined</code>.</span>
+      </div>
+      <div class="term">
+        <strong>Refactorización</strong>
+        <span>Reorganizar código existente para hacerlo más legible y reutilizable, sin cambiar lo que hace. Habilidad clave del trabajo profesional.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    Code 101 — EnterTechSchool · Clase 11
+  </section>
+
+  <!-- ════════ EXPORT PNG ════════ -->
+  <button id="export-btn" style="position:fixed;top:16px;right:16px;z-index:1000;background:rgba(15,23,42,0.85);color:#e2e8f0;border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1.15rem;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity 0.2s">
+    Exportar a PNG
+  </button>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('export-btn');
+    var originalText = btn.textContent;
+
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      btn.textContent = 'Exportando...';
+
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      script.onload = function(){
+        btn.style.display = 'none';
+        document.fonts.ready.then(function(){
+          html2canvas(document.body, { scale: 3, useCORS: true, windowWidth: 1080 }).then(function(canvas){
+            var link = document.createElement('a');
+            var title = document.title
+              .toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            link.download = 'clase-11-' + title + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }).catch(function(){
+            btn.style.display = '';
+            btn.disabled = false;
+            btn.textContent = 'Error — Intenta de nuevo';
+            setTimeout(function(){ btn.textContent = originalText; }, 2000);
+          });
+        });
+      };
+      script.onerror = function(){
+        btn.disabled = false;
+        btn.textContent = 'Error — Intenta de nuevo';
+        setTimeout(function(){ btn.textContent = originalText; }, 2000);
+      };
+      document.head.appendChild(script);
+    });
+  })();
+  </script>
+
+</body>
+</html>
