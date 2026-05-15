@@ -218,7 +218,7 @@ nav a {
 | 25-40 | Nav horizontal | Enlaces en fila con gap |
 | 40-55 | Cards layout | Al menos 3 cards en fila |
 | 55-70 | Hover funciona | Cards "flotan" al pasar mouse |
-| 70-85 | **Test diagnóstico** | Todos respondiendo en Canvas |
+| 70-85 | **Test diagnóstico** | Todos respondiendo en Blackboard |
 | 85-100 | **Revisión resultados** | Estadísticas en pantalla |
 | 100-130 | Presentaciones | Cierre del módulo |
 | 130-150 | Cierre M1 | Preview M2, celebración |
@@ -231,8 +231,8 @@ nav a {
 
 | Actividad | Tiempo | Qué hacer |
 |-----------|--------|-----------|
-| Test en Canvas | 15 min | Proyectar countdown, ambiente silencioso |
-| Revisión en vivo | 15 min | Compartir pantalla Canvas, solo estadísticas |
+| Test en Blackboard | 15 min | Proyectar countdown, ambiente silencioso |
+| Revisión en vivo | 15 min | Compartir pantalla Blackboard, solo estadísticas |
 
 ### Durante el test
 
@@ -245,7 +245,7 @@ nav a {
 
 ### Revisión de resultados
 
-**Preparación:** En Canvas, ir a "Estadísticas de Quiz" (NO muestra nombres individuales)
+**Preparación:** En Blackboard, ir a "Estadísticas de Quiz" (NO muestra nombres individuales)
 
 ```
 Facilitador: (Comparte pantalla con estadísticas del quiz)

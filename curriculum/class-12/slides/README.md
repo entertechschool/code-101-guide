@@ -26,7 +26,7 @@
 
 | Fase | Tiempo | Actividad |
 |------|--------|-----------|
-| 🧠 Test diagnóstico | 15 min | 8 preguntas en Canvas |
+| 🧠 Test diagnóstico | 15 min | 8 preguntas en Blackboard |
 | 🔧 Preparación | 15 min | Verificar juego + practicar |
 | 🎤 Presentaciones | ~90 min | 3 min por estudiante |
 | 🎉 Cierre | 20 min | Reflexión + próximos pasos |
