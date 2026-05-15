@@ -1,6 +1,6 @@
 # Test Módulo 2: Herramientas del Desarrollador
 
-**Duración:** 15 min | **Preguntas:** 5 | **Formato:** Opción múltiple
+**Duración:** 15 min | **Preguntas:** 8 | **Formato:** Opción múltiple
 
 ---
 
