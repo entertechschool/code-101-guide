@@ -104,7 +104,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 | 🧪 Laboratorio Evaluado | [Ver Lab 08](https://entertechschool.github.io/code-101-guide/curriculum/class-08/lab/){:target="_blank"} |
 | 🖥️ Presentación | [Ver Slides 08](https://entertechschool.github.io/public/slides/?class=code-101_08){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 08](https://entertechschool.github.io/code-101-guide/curriculum/class-08/facilitator/){:target="_blank"} |
-| 📝 Test Diagnóstico (5 preguntas) | [Ver Test M2](https://entertechschool.github.io/code-101-guide/curriculum/class-08/test/){:target="_blank"} |
+| 📝 Test Diagnóstico (5 preguntas) | [Ver Test M2](https://entertechschool.github.io/code-101-guide/curriculum/class-08/test/questions){:target="_blank"} |
 
 ---
 
