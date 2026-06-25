@@ -95,7 +95,6 @@ Evalúa la capacidad del estudiante de demostrar y explicar su trabajo.
 
 1. **URL del repositorio:** `https://github.com/[usuario]/guess-number-js`
 2. **Presentación Demo Day:** Completada en clase (3 minutos)
-3. **Test diagnóstico:** Completado en Blackboard durante la clase
 
 ---
 
