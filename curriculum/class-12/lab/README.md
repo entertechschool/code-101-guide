@@ -74,4 +74,3 @@ Ver [rubric.md](rubric.md) para los criterios detallados.
 
 - [ ] URL del repositorio `guess-number-js` en GitHub
 - [ ] Presentación completada en clase
-- [ ] Test diagnóstico completado en Blackboard
