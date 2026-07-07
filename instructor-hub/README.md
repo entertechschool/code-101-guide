@@ -19,7 +19,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 >
 > 📝 El **test diagnóstico** solo se aplica en la **Clase 08 (M2)**. Los tests de M1 y M3 están desactivados.
 >
-> 🖥️ Los enlaces de **Presentación** abren directamente la reveal.js de la clase (formato `public/slides/?class=code-101_XX`).
+> 🖥️ Los enlaces de **Presentación** abren directamente la reveal.js de la clase (formato `public-sylabus/slides/?class=code-101_XX`).
 
 ---
 
@@ -33,7 +33,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 01](https://entertechschool.github.io/code-101-guide/curriculum/class-01/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 01](https://entertechschool.github.io/code-101-guide/curriculum/class-01/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 01](https://entertechschool.github.io/public/slides/?class=code-101_01){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 01](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_01){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 01](https://entertechschool.github.io/code-101-guide/curriculum/class-01/facilitator/){:target="_blank"} |
 
 ### Clase 02 — Diseña y Estructura
@@ -42,7 +42,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 02](https://entertechschool.github.io/code-101-guide/curriculum/class-02/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 02](https://entertechschool.github.io/code-101-guide/curriculum/class-02/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 02](https://entertechschool.github.io/public/slides/?class=code-101_02){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 02](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_02){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 02](https://entertechschool.github.io/code-101-guide/curriculum/class-02/facilitator/){:target="_blank"} |
 
 ### Clase 03 — Estilos con CSS
@@ -51,7 +51,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 03](https://entertechschool.github.io/code-101-guide/curriculum/class-03/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 03](https://entertechschool.github.io/code-101-guide/curriculum/class-03/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 03](https://entertechschool.github.io/public/slides/?class=code-101_03){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 03](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_03){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 03](https://entertechschool.github.io/code-101-guide/curriculum/class-03/facilitator/){:target="_blank"} |
 
 ### ⭐ Clase 04 — Layout Moderno con Flexbox *(Lab Evaluado)*
@@ -60,7 +60,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 04](https://entertechschool.github.io/code-101-guide/curriculum/class-04/){:target="_blank"} |
 | 🧪 Laboratorio Evaluado | [Ver Lab 04](https://entertechschool.github.io/code-101-guide/curriculum/class-04/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 04](https://entertechschool.github.io/public/slides/?class=code-101_04){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 04](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_04){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 04](https://entertechschool.github.io/code-101-guide/curriculum/class-04/facilitator/){:target="_blank"} |
 
 ---
@@ -75,7 +75,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 05](https://entertechschool.github.io/code-101-guide/curriculum/class-05/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 05](https://entertechschool.github.io/code-101-guide/curriculum/class-05/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 05](https://entertechschool.github.io/public/slides/?class=code-101_05){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 05](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_05){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 05](https://entertechschool.github.io/code-101-guide/curriculum/class-05/facilitator/){:target="_blank"} |
 
 ### Clase 06 — Diseño Web Responsive + DevTools
@@ -84,7 +84,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 06](https://entertechschool.github.io/code-101-guide/curriculum/class-06/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 06](https://entertechschool.github.io/code-101-guide/curriculum/class-06/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 06](https://entertechschool.github.io/public/slides/?class=code-101_06){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 06](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_06){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 06](https://entertechschool.github.io/code-101-guide/curriculum/class-06/facilitator/){:target="_blank"} |
 
 ### Clase 07 — Wireframing y Pensamiento Creativo
@@ -93,7 +93,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 07](https://entertechschool.github.io/code-101-guide/curriculum/class-07/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 07](https://entertechschool.github.io/code-101-guide/curriculum/class-07/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 07](https://entertechschool.github.io/public/slides/?class=code-101_07){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 07](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_07){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 07](https://entertechschool.github.io/code-101-guide/curriculum/class-07/facilitator/){:target="_blank"} |
 
 ### ⭐ Clase 08 — Vibe Coding Tools *(Lab Evaluado)*
@@ -102,7 +102,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 08](https://entertechschool.github.io/code-101-guide/curriculum/class-08/){:target="_blank"} |
 | 🧪 Laboratorio Evaluado | [Ver Lab 08](https://entertechschool.github.io/code-101-guide/curriculum/class-08/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 08](https://entertechschool.github.io/public/slides/?class=code-101_08){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 08](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_08){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 08](https://entertechschool.github.io/code-101-guide/curriculum/class-08/facilitator/){:target="_blank"} |
 | 📝 Test Diagnóstico (5 preguntas) | [Ver Test M2](https://entertechschool.github.io/code-101-guide/curriculum/class-08/test/questions){:target="_blank"} |
 
@@ -118,7 +118,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 09](https://entertechschool.github.io/code-101-guide/curriculum/class-09/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 09](https://entertechschool.github.io/code-101-guide/curriculum/class-09/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 09](https://entertechschool.github.io/public/slides/?class=code-101_09){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 09](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_09){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 09](https://entertechschool.github.io/code-101-guide/curriculum/class-09/facilitator/){:target="_blank"} |
 
 ### Clase 10 — Decisiones y Lógica Condicional
@@ -127,7 +127,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 10](https://entertechschool.github.io/code-101-guide/curriculum/class-10/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 10](https://entertechschool.github.io/code-101-guide/curriculum/class-10/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 10](https://entertechschool.github.io/public/slides/?class=code-101_10){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 10](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_10){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 10](https://entertechschool.github.io/code-101-guide/curriculum/class-10/facilitator/){:target="_blank"} |
 
 ### Clase 11 — Funciones: Los Bloques de Construcción
@@ -136,7 +136,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 11](https://entertechschool.github.io/code-101-guide/curriculum/class-11/){:target="_blank"} |
 | 🧪 Laboratorio | [Ver Lab 11](https://entertechschool.github.io/code-101-guide/curriculum/class-11/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 11](https://entertechschool.github.io/public/slides/?class=code-101_11){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 11](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_11){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 11](https://entertechschool.github.io/code-101-guide/curriculum/class-11/facilitator/){:target="_blank"} |
 
 ### ⭐ Clase 12 — Proyecto Final *(Demo Day — Lab Evaluado)*
@@ -145,7 +145,7 @@ Cada clase cuenta con los siguientes documentos. Haz clic en el ícono para sabe
 |-----------|--------|
 | 📄 Resumen de la clase | [Ver Clase 12](https://entertechschool.github.io/code-101-guide/curriculum/class-12/){:target="_blank"} |
 | 🧪 Laboratorio Demo Day | [Ver Lab 12](https://entertechschool.github.io/code-101-guide/curriculum/class-12/lab/){:target="_blank"} |
-| 🖥️ Presentación | [Ver Slides 12](https://entertechschool.github.io/public/slides/?class=code-101_12){:target="_blank"} |
+| 🖥️ Presentación | [Ver Slides 12](https://entertechschool.github.io/public-sylabus/slides/?class=code-101_12){:target="_blank"} |
 | 🎓 Guía del Facilitador | [Ver Facilitator 12](https://entertechschool.github.io/code-101-guide/curriculum/class-12/facilitator/){:target="_blank"} |
 
 ---
