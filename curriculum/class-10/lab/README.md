@@ -1,123 +1,412 @@
-# Laboratorio 10: Decisiones y Lógica Condicional
+# Lab 10: Decisiones y Lógica Condicional
 
-En este laboratorio, vas a mejorar el programa interactivo de la clase anterior. Esta vez, le enseñaremos al programa a tomar decisiones con estructuras condicionales como `if`, `else` y `else if`.  
-Este paso es clave para que tu aplicación comience a comportarse de manera más “inteligente” y te prepara para el próximo reto: agregar bucles y lógica de juego en **"Adivina el número"**.
+> 🚀 **Proyecto del Módulo:** Adivina el Número - Juego Interactivo
+>
+> 📌 **Este lab:** Agregar lógica de decisión al juego con condicionales, números aleatorios y validación.
 
-## 🎯 Objetivos de Aprendizaje
+## 🎯 Objetivos del Lab
 
-- Escribir estructuras condicionales que controlan el flujo de un programa.
-- Usar operadores relacionales y lógicos para evaluar condiciones.
-- Mostrar mensajes distintos según las decisiones del programa.
-- Fortalecer el vínculo entre lógica cotidiana y lógica computacional.
+1. Generar números aleatorios dentro de un rango usando `Math.random()` y `Math.floor()`
+2. Implementar `if/else if/else` para dar pistas al jugador (alto, bajo, correcto)
+3. Validar la entrada del usuario con `isNaN()` y operadores lógicos
+4. Escribir desde cero un bloque `if/else if/else` para resolver un problema real con múltiples condiciones
+
+---
 
 ## 🔑 Conceptos Clave
 
-- **if / else**: ejecuta una acción si se cumple una condición, o una alternativa si no.
-- **else if**: permite múltiples condiciones.
-- **Operadores relacionales**: `>`, `<`, `>=`, `<=`, `===`, `!==`
-- **Operadores lógicos**: `&&` (y), `||` (o), `!` (no)
-- **Control de flujo**: secuencia de decisiones que sigue el programa.
-
-
-## 🔧 Setup inicial
-
-Si ya tienes tu repositorio `guess-number-js`, continúa ahí. Si no:
-
-- Crea uno nuevo o reutiliza el anterior.
-- Asegúrate de tener `index.html` y `script.js` conectados correctamente.
+- **Math.random()** - Genera un número aleatorio entre 0 y 1. Combinado con `Math.floor()`, crea números enteros en un rango
+- **Operadores de comparación** - Comparan valores: `===` (igual), `!==` (diferente), `>`, `<`, `>=`, `<=`
+- **if/else if/else** - Estructura que elige un camino según condiciones evaluadas en orden
+- **Operadores lógicos** - Combinan condiciones: `&&` (ambas), `||` (al menos una), `!` (invierte)
+- **isNaN()** - Devuelve `true` si un valor NO es un número válido
 
 ---
 
-## 💻 Actividades paso a paso
+## ⚙️ Tu Proyecto Hasta Ahora
 
-### Paso 1: Validar si puede votar
+Antes de comenzar, verifica que tienes del Lab 09:
 
-Reutiliza el código de la clase 09. Justo después de pedir la edad:
-
-```js
-let edad = prompt("¿Cuántos años tienes?");
-edad = Number(edad);
-
-if (edad >= 18) {
-  alert("Puedes votar 🗳️");
-} else {
-  alert("Aún no puedes votar 🧒");
-}
-````
-
-### Paso 2: Recomendación según temperatura
-
-Agrega una nueva sección que evalúe la temperatura y sugiera qué ropa usar.
-
-```js
-let temperatura = Number(prompt("¿Qué temperatura hace hoy?"));
-
-if (temperatura < 15) {
-  alert("Hace frío, ponte abrigo 🧥");
-} else if (temperatura <= 25) {
-  alert("Clima templado, usa casaca ligera 🧢");
-} else {
-  alert("Hace calor, usa polo y gorra ☀️");
-}
-```
+| ✓ | Requisito | Verificación |
+|---|-----------|--------------|
+| ☐ | Repositorio `guess-number-js` | Existe en tu GitHub |
+| ☐ | `index.html` y `script.js` enlazados | La consola muestra mensajes |
+| ☐ | Variables con `let` y `const` | Declaradas en `script.js` |
+| ☐ | `prompt()` y `alert()` funcionando | Pide datos y muestra mensajes |
 
 ---
 
-## 🏆 Retos
+## Parte 1: El Número Secreto (25 min)
 
-### Reto 1: Contraseña segura
+### 1.1 Limpia tu Archivo
 
-Pide al usuario que cree una contraseña y verifica si tiene **al menos 6 caracteres**.
+Abre `script.js` en tu repositorio `guess-number-js`. Vamos a empezar fresco para la lógica del juego. Reemplaza el contenido con:
 
 ```js
-let clave = prompt("Crea una contraseña:");
-if (clave.length >= 6) {
-  alert("Contraseña válida ✅");
+// === ADIVINA EL NÚMERO ===
+// El programa genera un número secreto entre 1 y 100
+// El jugador intenta adivinarlo
+
+console.log('=== Adivina el Número ===');
+```
+
+### 1.2 Genera el Número Secreto
+
+Agrega después:
+
+```js
+// --- Generar número secreto ---
+const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+// Temporal: ver el número para probar (lo quitaremos después)
+console.log('(DEBUG) Número secreto:', numeroSecreto);
+```
+
+Guarda y recarga la página varias veces. El número debe cambiar cada vez.
+
+> 💡 **¿Cómo funciona?** `Math.random()` genera un decimal entre 0 y 0.999... Multiplicar por 100 da un rango de 0 a 99.999... `Math.floor()` lo redondea hacia abajo (0-99). Sumar 1 da el rango final: 1-100.
+
+### 1.3 Pide el Primer Intento
+
+```js
+// --- Pedir intento al jugador ---
+let intento = prompt('Adivina el número (1-100):');
+intento = Number(intento);
+
+console.log('Intento del jugador:', intento);
+console.log('Tipo:', typeof intento);
+```
+
+> 💡 **Recuerda:** `prompt()` devuelve un `string`. Por eso usamos `Number()` para convertirlo a número antes de comparar.
+
+### 1.4 Primera Comparación
+
+Agrega tu primer condicional:
+
+```js
+// --- Comparar intento con número secreto ---
+if (intento === numeroSecreto) {
+  alert('🎉 ¡Correcto! El número era ' + numeroSecreto);
 } else {
-  alert("Contraseña muy corta ❌");
+  alert('❌ Incorrecto. El número era ' + numeroSecreto);
 }
 ```
 
-### Reto 2: Clasificar la edad (más de dos condiciones)
+Prueba tu código: recarga la página, mira el número secreto en la consola (DEBUG), e ingresa ese número. Debería decir "¡Correcto!".
 
-Agrega lógica para mostrar diferentes mensajes según rangos de edad:
+### 1.5 Commit
 
-* Menores de 13
-* Entre 13 y 17
-* Mayores de 18
-
-```js
-if (edad < 13) {
-  alert("Eres un niño 🧒");
-} else if (edad <= 17) {
-  alert("Eres un adolescente 👦");
-} else {
-  alert("Eres un adulto 👨‍🦱");
-}
+```bash
+git add script.js
+git commit -m "feat: número aleatorio y primera comparación if/else"
+git push
 ```
 
-### Reto 3: Combinar condiciones
-
-Muestra un mensaje especial si la edad es mayor de 18 **y** la temperatura es menor de 15.
-
-```js
-if (edad > 18 && temperatura < 15) {
-  alert("Adulto con frío: lleva abrigo extra 🧣");
-}
-```
+✅ **Checkpoint:** El programa genera un número aleatorio entre 1 y 100 (verificable en consola), pide un intento con `prompt()`, y dice "Correcto" o "Incorrecto" con `if/else`.
 
 ---
 
-## 📝 Instrucciones de Entrega
+## Parte 2: Pistas Alto/Bajo (35 min)
 
-1. Sube tus cambios al repositorio con un commit:
+### 2.1 Mejora las Pistas
 
+Reemplaza el bloque `if/else` anterior con `if/else if/else`:
+
+```js
+// --- Pistas alto/bajo/correcto ---
+if (intento === numeroSecreto) {
+  alert('🎉 ¡Correcto! El número era ' + numeroSecreto);
+  console.log('Resultado: ¡GANÓ!');
+} else if (intento > numeroSecreto) {
+  alert('📈 Muy alto. Intenta un número más bajo.');
+  console.log('Resultado: muy alto');
+} else {
+  alert('📉 Muy bajo. Intenta un número más alto.');
+  console.log('Resultado: muy bajo');
+}
 ```
-condicionales js - clase 10
+
+Prueba con diferentes números:
+- El número secreto exacto → "¡Correcto!"
+- Un número mayor → "Muy alto"
+- Un número menor → "Muy bajo"
+
+### 2.2 Agrega un Segundo Intento
+
+Después del primer `if/else if/else`, agrega otro intento:
+
+```js
+// --- Segundo intento ---
+if (intento !== numeroSecreto) {
+  let intento2 = prompt('Intenta de nuevo (1-100):');
+  intento2 = Number(intento2);
+
+  if (intento2 === numeroSecreto) {
+    alert('🎉 ¡Correcto en el segundo intento!');
+  } else if (intento2 > numeroSecreto) {
+    alert('📈 Muy alto. El número era ' + numeroSecreto);
+  } else {
+    alert('📉 Muy bajo. El número era ' + numeroSecreto);
+  }
+}
 ```
 
-2. Si desplegaste el proyecto con GitHub Pages, actualiza el sitio.
-3. Responde esta actividad en Blackboard incluyendo:
+> 💡 **Nota:** Estamos repitiendo código. En la Clase 11 aprenderás a usar **funciones** para evitar esta repetición. Por ahora, la repetición es intencional para practicar `if/else`.
 
-   * Link al repositorio.
-   * Link al sitio desplegado.
+### 2.3 Operadores de Comparación
+
+Experimenta con los operadores en la consola (F12):
+
+```js
+// Prueba estos directamente en la consola:
+5 === 5      // true  (estrictamente igual)
+5 === '5'    // false (diferente tipo)
+5 == '5'     // true  (convierte tipo) ← ¡EVITAR!
+5 !== 3      // true  (diferente)
+10 > 5       // true
+10 >= 10     // true
+3 < 1        // false
+```
+
+> ⚠️ **Regla importante:** Siempre usa `===` (igualdad estricta), nunca `==` (igualdad flexible). `===` compara valor Y tipo. `==` intenta convertir tipos y puede dar resultados inesperados.
+
+### 2.4 Operadores Lógicos
+
+Prueba combinar condiciones en la consola:
+
+```js
+// AND (&&): ambas deben ser true
+let edad = 25;
+let tieneLicencia = true;
+console.log(edad >= 18 && tieneLicencia);  // true
+
+// OR (||): al menos una debe ser true
+let esFeriado = false;
+let esDomingo = true;
+console.log(esFeriado || esDomingo);  // true (domingo es true)
+
+// NOT (!): invierte el valor
+let lloviendo = false;
+console.log(!lloviendo);  // true (NO está lloviendo)
+```
+
+### 2.5 Commit
+
+```bash
+git add script.js
+git commit -m "feat: pistas alto/bajo con if/else if/else y segundo intento"
+git push
+```
+
+✅ **Checkpoint:** El juego da pistas "Muy alto" / "Muy bajo" / "¡Correcto!" con `if/else if/else`. Permite dos intentos. Sabes la diferencia entre `===` y `==`.
+
+---
+
+## Parte 3: Validación y Ternario (30 min)
+
+### 3.1 Valida la Entrada del Usuario
+
+¿Qué pasa si el jugador escribe "hola" en lugar de un número? Agrega validación **antes** de la comparación. Modifica tu código para que quede así:
+
+```js
+// === ADIVINA EL NÚMERO ===
+const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+console.log('(DEBUG) Número secreto:', numeroSecreto);
+
+// --- Pedir intento ---
+let intento = prompt('Adivina el número (1-100):');
+intento = Number(intento);
+
+// --- Validar entrada ---
+if (isNaN(intento)) {
+  alert('⚠️ Eso no es un número. Por favor ingresa un número del 1 al 100.');
+} else if (intento < 1 || intento > 100) {
+  alert('⚠️ El número debe estar entre 1 y 100.');
+} else if (intento === numeroSecreto) {
+  alert('🎉 ¡Correcto! El número era ' + numeroSecreto);
+} else if (intento > numeroSecreto) {
+  alert('📈 Muy alto. Intenta un número más bajo.');
+} else {
+  alert('📉 Muy bajo. Intenta un número más alto.');
+}
+```
+
+Prueba con diferentes entradas:
+- Un texto ("hola") → Mensaje de error
+- Un número fuera de rango (0, 150) → Mensaje de rango
+- Un número válido → Pista normal
+
+> 💡 **¿Cómo funciona `isNaN()`?** `isNaN` significa "is Not a Number". `Number('hola')` devuelve `NaN`, y `isNaN(NaN)` devuelve `true`. Así sabemos que el usuario no escribió un número válido.
+
+### 3.2 El Operador Ternario
+
+El ternario es una forma corta de escribir un `if/else` simple:
+
+```js
+// if/else normal
+let mensaje;
+if (intento === numeroSecreto) {
+  mensaje = '¡Ganaste!';
+} else {
+  mensaje = 'Sigue intentando';
+}
+
+// Lo mismo con ternario
+let mensaje2 = intento === numeroSecreto ? '¡Ganaste!' : 'Sigue intentando';
+
+console.log(mensaje2);
+```
+
+Agrega un ternario útil al juego:
+
+```js
+// --- Pista de cercanía ---
+let diferencia = Math.abs(intento - numeroSecreto);
+let cercanía = diferencia <= 10 ? '🔥 ¡Estás cerca!' : '❄️ Estás lejos';
+console.log(cercanía);
+```
+
+> 💡 **`Math.abs()`** devuelve el valor absoluto (siempre positivo). `Math.abs(-7)` es `7`. Útil para medir "distancia" sin importar la dirección.
+
+### 3.3 Segundo Intento con Validación
+
+Agrega un segundo intento que también valida:
+
+```js
+// --- Segundo intento (si no acertó) ---
+if (!isNaN(intento) && intento >= 1 && intento <= 100 && intento !== numeroSecreto) {
+  let intento2 = prompt('Intenta de nuevo (1-100):');
+  intento2 = Number(intento2);
+
+  if (isNaN(intento2) || intento2 < 1 || intento2 > 100) {
+    alert('⚠️ Entrada inválida. El número era ' + numeroSecreto);
+  } else if (intento2 === numeroSecreto) {
+    alert('🎉 ¡Correcto en el segundo intento! El número era ' + numeroSecreto);
+  } else {
+    let pista = intento2 > numeroSecreto ? 'alto' : 'bajo';
+    alert(`Muy ${pista}. El número era ${numeroSecreto}`);
+  }
+}
+```
+
+> 💡 **Observa:** `intento2 > numeroSecreto ? 'alto' : 'bajo'` usa el ternario para elegir la palabra de la pista en una sola línea.
+
+### 3.4 Commit Final
+
+```bash
+git add script.js
+git commit -m "feat: validación con isNaN, rango 1-100 y operador ternario"
+git push
+```
+
+✅ **Checkpoint:** El juego valida que la entrada sea un número entre 1 y 100, rechaza texto y números fuera de rango, usa operadores lógicos (`&&`, `||`) y el operador ternario.
+
+---
+
+## Parte 4: Reto — Calculadora de Descuentos (20 min)
+
+Una tienda online aplica descuentos según el total de compra. El usuario ingresa el precio total con `prompt()`. El programa muestra el precio final con `alert()`.
+
+**Reglas de descuento:**
+
+- Si el total es mayor a 100 → aplicar 20% de descuento
+- Si el total está entre 50 y 100 (ambos incluidos) → aplicar 10% de descuento
+- Si el total es menor a 50 → sin descuento, el precio final es el mismo
+
+---
+
+### Antes de codificar — ¿cuántos caminos tiene este problema?
+
+Esta parte no tiene código de ejemplo. Antes de escribir, respóndete:
+
+1. **¿Cuántos caminos posibles hay?** Cuenta las reglas: hay tres situaciones distintas, por lo tanto necesitas tres ramas.
+2. **¿Qué varía en cada camino?** El porcentaje de descuento. Define ese valor primero, luego calcula el precio final.
+3. **¿Cómo se calcula el precio final?** Piénsalo así: si hay 20% de descuento, el cliente paga el 80%. La fórmula es `total - (total * descuento)`.
+4. **¿En qué orden vas las condiciones?** Empieza por la más restrictiva (mayor a 100) y baja hacia la menos restrictiva.
+
+> 💡 **Pista de estructura:** Necesitas exactamente un `if`, un `else if` y un `else`. Cada rama asigna un porcentaje diferente. El `alert()` va una sola vez, al final.
+
+---
+
+### Escribe tu solución
+
+Abre un archivo nuevo `descuentos.js` o una nueva sección en tu `script.js` con un comentario que lo separe:
+
+```js
+// === CALCULADORA DE DESCUENTOS ===
+```
+
+A partir de ahí, escribe el código completo tú solo.
+
+---
+
+### Pruebas de validación
+
+Una vez que tengas tu solución, prueba con estos tres valores:
+
+| Entrada | Esperado | Cálculo |
+|---------|----------|---------|
+| `120` | `96` | 120 × 0.80 |
+| `75` | `67.5` | 75 × 0.90 |
+| `30` | `30` | sin descuento |
+
+Si los tres dan el resultado correcto, tu lógica está bien.
+
+### Commit
+
+```bash
+git add script.js
+git commit -m "feat: calculadora de descuentos con if/else if/else"
+git push
+```
+
+✅ **Checkpoint:** Tu programa pide un total con `prompt()`, aplica el descuento correcto según las tres reglas, y muestra el precio final con `alert()`. Probado con 120, 75 y 30.
+
+---
+
+## Logros Adicionales (Opcional)
+
+### 🟢 Pista de Temperatura
+
+Agrega más niveles de cercanía: "hirviendo" (diferencia ≤ 5), "caliente" (≤ 15), "tibio" (≤ 30), "frío" (> 30). Usa `if/else if/else` para determinarlo.
+
+### 🟡 Tercer Intento
+
+Agrega un tercer intento con las mismas validaciones. Nota cómo el código se repite cada vez más. En la Clase 11 resolveremos esto con funciones.
+
+### 🔴 Números Enteros
+
+Investiga `Number.isInteger()`. Agrega validación para que solo se acepten números enteros (rechazar 3.5 o 99.9).
+
+---
+
+## 📝 Entrega
+
+### Checklist
+
+- [ ] `Math.random()` genera número secreto entre 1 y 100
+- [ ] `if/else if/else` da pistas "muy alto" / "muy bajo" / "correcto"
+- [ ] Validación con `isNaN()` rechaza texto no numérico
+- [ ] Validación de rango rechaza números fuera de 1-100
+- [ ] Operador ternario usado al menos una vez
+- [ ] Calculadora de descuentos escrita desde cero: prueba 120 → 96, 75 → 67.5, 30 → 30
+- [ ] Al menos 4 commits descriptivos
+
+### Entregable
+
+📸 **Screenshot** de tu consola del navegador mostrando:
+- El número secreto (DEBUG)
+- Un intento con pista "Muy alto" o "Muy bajo"
+- Un intento con validación (texto o fuera de rango)
+
+> ⚠️ Tu consola debe mostrar los mensajes de log que confirman que la lógica funciona.
+
+### Cómo entregar
+
+📦 **Sube tu actividad por Blackboard** incluyendo:
+
+1. **Link al repositorio:** `https://github.com/tu-usuario/guess-number-js`
+2. **Link al sitio desplegado** (si usaste GitHub Pages): `https://tu-usuario.github.io/guess-number-js/`
+3. **El screenshot** de la consola descrito arriba.
+
+> 💡 Antes de entregar, verifica que tus commits estén subidos con `git push` y que los links abran correctamente en una ventana de incógnito.
