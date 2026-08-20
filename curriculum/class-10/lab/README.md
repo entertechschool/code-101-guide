@@ -117,7 +117,7 @@ condicionales js - clase 10
 ```
 
 2. Si desplegaste el proyecto con GitHub Pages, actualiza el sitio.
-3. Responde esta actividad en Canvas incluyendo:
+3. Responde esta actividad en Blackboard incluyendo:
 
    * Link al repositorio.
    * Link al sitio desplegado.
