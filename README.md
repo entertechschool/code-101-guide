@@ -191,7 +191,7 @@ Tabla detallada de contenidos por clase para evaluación y referencia:
 | 1 | Ciclo de vida web, URL, rol de HTML/CSS/JS | - |
 | 2 | HTML semántico, etiquetas, accesibilidad, alt, href | - |
 | 3 | CSS selectores, propiedades, Box Model, tipografía | - |
-| **4** | **Markdown, GitHub, GitHub Pages, deploy** | ✓ M1 |
+| **4** | **Flexbox, cards, hover states, transiciones** | ✓ M1 |
 | 5 | Terminal, Git, VS Code, clonar, commit, push | - |
 | 6 | Unidades relativas, Flexbox, media queries, DevTools | - |
 | 7 | Wireframes, fidelidad, Design Thinking, ideación | - |
@@ -218,7 +218,7 @@ Programa intensivo de **4 días** (2h/día) para estudiantes que necesitan compl
 |-----|------|
 | 1 | HTML semántico + CSS básico + Git setup |
 | 2 | CSS variables + Flexbox + diseño responsive |
-| 3 | JavaScript: validación, menú toggle, smooth scroll |
+| 3 | JavaScript: validación, menú toggle |
 | 4 | GitHub Pages deploy + pulido + revisión con rúbrica |
 
 Ver programa completo en [fast-track/](fast-track/).
