@@ -38,9 +38,127 @@ Antes de comenzar, verifica que tienes de los Labs 09-10:
 
 ## Parte 1: La Interfaz del Juego (30 min)
 
-### 1.1 Actualiza el HTML
+### 1.1 Crea los Estilos del Juego
 
-Abre `index.html` y reemplaza el contenido del `<body>` con la interfaz del juego:
+En la raíz de tu repositorio `guess-number-js`, crea el archivo `styles.css` con los estilos de la interfaz:
+
+```css
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #eee;
+  padding: 20px;
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+h1 {
+  color: #e94560;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 24px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  width: 100px;
+  text-align: center;
+  border: 2px solid rgba(233, 69, 96, 0.4);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #eee;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input:focus {
+  border-color: #e94560;
+  box-shadow: 0 0 12px rgba(233, 69, 96, 0.3);
+}
+/* Ocultar flechas del input numérico */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type=number] { -moz-appearance: textfield; }
+
+button {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #e94560;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+button:hover {
+  background-color: #d63d56;
+  transform: translateY(-2px);
+}
+button:active { transform: translateY(1px); }
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#mensaje {
+  font-size: 24px;
+  margin: 20px 0;
+  min-height: 40px;
+  transition: font-size 0.3s;
+}
+
+#historial {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+#btnReiniciar {
+  background-color: #0f3460;
+  margin-top: 12px;
+}
+
+@media (max-width: 480px) {
+  .game-card { padding: 30px 20px; }
+  .controls { flex-direction: column; align-items: center; }
+  input { width: 80%; }
+  button { width: 80%; }
+}
+```
+
+> 💡 Igual que en tu perfil personal, el CSS va en su propio archivo y el HTML lo enlaza con `<link>`. Cada archivo tiene una responsabilidad: `index.html` la estructura, `styles.css` la presentación, `script.js` el comportamiento.
+
+### 1.2 Actualiza el HTML
+
+Abre `index.html` y reemplaza todo su contenido con la interfaz del juego:
 
 ```html
 <!DOCTYPE html>
@@ -49,117 +167,7 @@ Abre `index.html` y reemplaza el contenido del `<body>` con la interfaz del jueg
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adivina el Número</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #eee;
-      padding: 20px;
-    }
-
-    .game-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(233, 69, 96, 0.3);
-      border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      transition: border-color 0.5s, box-shadow 0.5s;
-    }
-
-    h1 {
-      color: #e94560;
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: #aaa;
-      margin-bottom: 24px;
-    }
-
-    .controls {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    input {
-      padding: 12px;
-      font-size: 18px;
-      width: 100px;
-      text-align: center;
-      border: 2px solid rgba(233, 69, 96, 0.4);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #eee;
-      outline: none;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    input:focus {
-      border-color: #e94560;
-      box-shadow: 0 0 12px rgba(233, 69, 96, 0.3);
-    }
-    /* Ocultar flechas del input numérico */
-    input::-webkit-inner-spin-button,
-    input::-webkit-outer-spin-button { -webkit-appearance: none; }
-    input[type=number] { -moz-appearance: textfield; }
-
-    button {
-      padding: 12px 24px;
-      font-size: 18px;
-      background-color: #e94560;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
-    }
-    button:hover {
-      background-color: #d63d56;
-      transform: translateY(-2px);
-    }
-    button:active { transform: translateY(1px); }
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    #mensaje {
-      font-size: 24px;
-      margin: 20px 0;
-      min-height: 40px;
-      transition: font-size 0.3s;
-    }
-
-    #historial {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    #btnReiniciar {
-      background-color: #0f3460;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 480px) {
-      .game-card { padding: 30px 20px; }
-      .controls { flex-direction: column; align-items: center; }
-      input { width: 80%; }
-      button { width: 80%; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-card" id="game-card">
@@ -187,7 +195,7 @@ Abre `index.html` y reemplaza el contenido del `<body>` con la interfaz del jueg
 
 Abre con Live Server. Deberías ver la interfaz del juego con un input, un botón y áreas para mensajes.
 
-### 1.2 Conecta JS con el DOM
+### 1.3 Conecta JS con el DOM
 
 Ahora reemplaza el contenido de `script.js` con el inicio de la nueva versión:
 
@@ -210,7 +218,7 @@ Guarda y verifica en la consola que los elementos NO son `null`.
 
 > 💡 **`getElementById('id')`** busca en el HTML un elemento con ese `id` y te lo devuelve como un objeto JavaScript. Si no encuentra nada, devuelve `null`.
 
-### 1.3 Tu Primera Función
+### 1.4 Tu Primera Función
 
 Agrega tu primera función al archivo:
 
@@ -233,10 +241,10 @@ Guarda y observa cómo el mensaje aparece en la página con el color indicado.
 > - `(texto, color)` → parámetros (datos que recibe)
 > - `{ ... }` → cuerpo (código que ejecuta)
 
-### 1.4 Commit
+### 1.5 Commit
 
 ```bash
-git add index.html script.js
+git add index.html styles.css script.js
 git commit -m "feat: interfaz HTML del juego y conexión con DOM"
 git push
 ```
@@ -447,7 +455,7 @@ En `index.html`, cambia el `<p>` del historial por un `<div>`:
 <div id="historial" class="historial"></div>
 ```
 
-Agrega este CSS dentro del `<style>`:
+Agrega este CSS al final de `styles.css`:
 
 ```css
 .historial {
