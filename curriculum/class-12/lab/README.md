@@ -25,7 +25,7 @@ Presentar tu juego "Adivina el Número" en una demo de 3 minutos, demostrando fu
 
 ### Minuto 1: Demo en Vivo
 
-- Abre tu juego en el navegador (muestra la tarjeta flotante)
+- Abre tu juego en el navegador y cuenta qué tema elegiste y por qué
 - Juega una ronda completa: ingresa números, muestra las pistas con colores
 - Muestra el historial de intentos
 - Adivina el número y muestra la celebración visual (tarjeta verde)
@@ -43,7 +43,7 @@ Presentar tu juego "Adivina el Número" en una demo de 3 minutos, demostrando fu
 ## Checklist Pre-Presentación
 
 - [ ] El juego genera un número aleatorio entre 1 y 100
-- [ ] La tarjeta centrada se ve con glass-effect y gradiente de fondo
+- [ ] Tu juego tiene tu propio tema: fondo, colores, fuente y textos (Lab 11, Parte 4)
 - [ ] El input brilla al enfocarse y el botón tiene micro-interacciones
 - [ ] Las pistas (alto/bajo/correcto) aparecen con colores
 - [ ] Al ganar, la tarjeta brilla verde (celebración visual)

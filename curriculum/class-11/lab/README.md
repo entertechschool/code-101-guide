@@ -10,6 +10,7 @@
 2. Declarar funciones con parámetros y `return` para organizar la lógica
 3. Conectar JavaScript con el DOM usando `getElementById()`, `textContent` y `style`
 4. Usar `addEventListener('click')` para que el botón ejecute la verificación
+5. Personalizar la interfaz con tu propio tema: colores, fuente y textos
 
 ---
 
@@ -443,6 +444,69 @@ git push
 
 ---
 
+## Parte 4: Personaliza tu Juego (antes de la presentación)
+
+Hasta aquí todos tienen el mismo juego. Para el Demo Day, el tuyo tiene que tener **tu propio tema**: una idea que se note en los colores, la fuente y los textos.
+
+### 4.1 Elige tu Tema
+
+Elige una idea sencilla que te guste: deportes, música, comida, un videojuego, el mar, el espacio, tu equipo favorito. Esa idea decide los colores, la fuente y cómo hablan los mensajes.
+
+👀 **Ejemplo del profe:** [La Taza Secreta](https://cattcloud.github.io/guess-number-js-coden23/), con el tema "café de la mañana".
+
+> ⚠️ El ejemplo sirve para ver **qué se puede cambiar**, no para copiarlo. Si tu juego queda igual al del profe, no cuenta como personalizado.
+
+### 4.2 Cambia el Aspecto en `styles.css`
+
+No necesitas código nuevo: cambia los **valores** que ya existen.
+
+| Qué cambiar | Dónde | Ejemplo |
+|---|---|---|
+| Fondo de la página | `body` → `background` | `background: #fdf6ec;` |
+| Imagen de fondo (opcional) | `body` → `background-image` y `background-size` | `background-image: url("https://images.unsplash.com/...");` y `background-size: cover;` |
+| Tarjeta | `.game-card` → `background`, `border`, `box-shadow` | `background: #ffffff;` |
+| Color principal | `h1` → `color` y `button` → `background-color` | `color: #d9690b;` |
+| Color del texto | `body` → `color` y `.subtitle` → `color` | `color: #4a3426;` |
+
+> 💡 **Contraste:** el texto tiene que leerse fácil sobre su fondo. Texto oscuro sobre fondo claro, o texto claro sobre fondo oscuro.
+
+### 4.3 Cambia la Fuente con Google Fonts
+
+1. Entra a [fonts.google.com](https://fonts.google.com), elige una fuente y copia su `<link>`.
+2. Pégalo en el `<head>` de `index.html`, **antes** del `<link>` de `styles.css`.
+3. En `styles.css`, cambia la fuente del `body`:
+
+```css
+body {
+  font-family: 'Nunito', Arial, sans-serif;
+}
+```
+
+### 4.4 Cambia los Textos y los Mensajes
+
+- En `index.html`: el título `<h1>`, el subtítulo, el `placeholder` del input y el texto de los botones.
+- En `script.js`: los textos y colores que le pasas a `mostrarMensaje()`, y los textos que devuelve `obtenerPista()`.
+
+```js
+// Antes
+mostrarMensaje('📈 Muy alto. ' + pista, '#ff6b6b');
+
+// Después (tema café)
+mostrarMensaje('📈 Muy dulce, prueba más bajo. ' + pista, '#c0392b');
+```
+
+### 4.5 Commit
+
+```bash
+git add index.html styles.css script.js
+git commit -m "feat: tema personalizado del juego"
+git push
+```
+
+✅ **Checkpoint:** Tu juego tiene tu propio tema: otro fondo, otros colores, otra fuente y textos propios en el título y los mensajes. Todo se lee bien y sigue funcionando igual.
+
+---
+
 ## Logros Adicionales (Opcional)
 
 ### 🟢 Historial con Pastillas de Color
@@ -512,7 +576,8 @@ Guarda el mejor puntaje (menor cantidad de intentos) usando una variable global.
 - [ ] Historial de intentos visible
 - [ ] Botón reiniciar funciona y resetea la celebración
 - [ ] Se ve bien en celular (responsive)
-- [ ] Al menos 3 commits nuevos (9+ total acumulado)
+- [ ] Tema propio: fondo, colores, fuente de Google Fonts y textos personalizados
+- [ ] Al menos 4 commits nuevos (10+ total acumulado)
 
 ### Entregable
 
