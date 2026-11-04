@@ -34,6 +34,10 @@
     --alarm-text: #ff8a7a;
     --alarm-body: #e3cfcf;
     --alarm-strong: #f2dede;
+    --exito-bg: #16261d;
+    --exito-edge: #2f7a4d;
+    --exito-text: #6fd08c;
+    --exito-body: #d5e8da;
     --bp: #0f2238;
     --bp-grid: #1d3a5e;
     --bp-line: #9cc3ea;
@@ -176,6 +180,8 @@
   .ico:hover::after { opacity: 1; transition-delay: 0.25s; }
   .comp.concepto .ico, .comp.conclusiones .ico { color: var(--amber-text); }
   .comp.error .ico { color: var(--alarm); }
+  /* Bloques que no se entienden solos: el título dice de qué tratan. Va encima de su contenido, junto al icono. */
+  .lamina .comp-titulo { margin: 0 0 0.7rem; font: 700 1.08rem/1.35 "Geist", sans-serif; letter-spacing: -0.01em; color: var(--ink); }
   .comp.figura { grid-template-columns: minmax(0, 1fr); margin-top: 1.5rem; padding: 0; background: none; }
   .comp.figura + .comp { margin-top: 1.5rem; }
   .lamina .idea { font-size: 1.28rem; font-weight: 600; line-height: 1.55; color: var(--ink); max-width: 62ch; }
@@ -193,6 +199,11 @@
   .terminos.cod div { grid-template-columns: 1fr; }
   .terminos.cod dt { padding-top: 0; }
   .terminos.cod dd { max-width: 66ch; }
+  /* El término es un subtítulo: sin la cajita del código en línea, para que no se confunda con el código dentro de las frases */
+  .terminos.cod { gap: 1.2rem; }
+  .lamina .terminos + p { margin-top: 1.2rem; }
+  .terminos.cod dt { font-size: 1.04rem; font-weight: 700; }
+  .terminos.cod dt code { padding: 0; background: none; color: inherit; font-size: 0.98em; font-weight: 700; }
   @media (max-width: 600px) { .terminos div { grid-template-columns: 1fr; } }
 
   /* Compara */
@@ -222,11 +233,69 @@
   @media (max-width: 700px) { .sino { grid-template-columns: 1fr; } }
   @media (min-width: 1200px) and (max-width: 1399px) { .sino { grid-template-columns: 1fr; } }
 
-  /* Pregunta: la respuesta queda detrás de "Ver respuesta" */
-  .lamina .pregunta .enunciado { color: var(--ink); }
-  .pregunta .ver { margin-top: 0; }
-  .respuesta { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 2px solid var(--sheet-edge); }
-  .respuesta[hidden] { display: none; }
+  /* Pregunta: alternativas tocables; el sistema corrige y explica (P-10) */
+  .comp.pregunta-c:empty { display: none; }
+  .lamina .pregunta-c .enunciado { color: var(--ink); }
+  .lamina .pregunta-c .pista { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .opciones, .piezas, .armado { display: grid; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+  .opcion {
+    display: grid; grid-template-columns: 16px minmax(0, 1fr); column-gap: 0.7rem; align-items: start; width: 100%; min-height: 44px;
+    padding: 0.65rem 0.8rem; font: 400 1rem/1.5 "Geist", sans-serif; color: var(--body); text-align: left;
+    background: var(--chip); border: 0; cursor: pointer; box-shadow: inset 0 0 0 2px var(--chip-edge); touch-action: manipulation;
+  }
+  .opcion:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--amber-deep); }
+  .opcion:focus-visible, .repaso:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .opcion code { background: var(--sheet); }
+  .opcion .marca { display: block; width: 16px; height: 16px; margin-top: 0.2rem; box-shadow: inset 0 0 0 2px var(--chip-edge); }
+  .opcion .marca.con { box-shadow: none; }
+  .opcion .marca svg { display: block; width: 12px; height: 12px; margin: 2px; }
+  .opcion.sin-marca { grid-template-columns: minmax(0, 1fr); }
+  .opcion.ok { color: var(--ink); box-shadow: inset 0 0 0 2px var(--amber-deep); }
+  .opcion.ok .marca { color: var(--amber-text); }
+  .opcion.mal { color: var(--alarm-body); background: var(--alarm-bg); box-shadow: inset 0 0 0 2px var(--alarm-edge); }
+  .opcion.mal .marca { color: var(--alarm-text); }
+  .opcion.mal code { background: none; color: inherit; }
+  .opcion:disabled { cursor: default; }
+  .opcion:disabled:not(.ok):not(.mal) { color: var(--ink-soft); }
+  .armado { margin-bottom: 0.9rem; }
+  .armado li { display: grid; grid-template-columns: 1.3rem minmax(0, 1fr); column-gap: 0.45rem; align-items: start; }
+  .armado .num { padding-top: 0.75rem; font: 600 0.88rem "JetBrains Mono", monospace; color: var(--ink-soft); }
+  .armado .hueco { min-height: 44px; outline: 2px dashed var(--chip-edge); outline-offset: -2px; }
+  .piezas { margin-bottom: 0.9rem; }
+  .piezas:empty { display: none; }
+  .comprobar { margin-top: 0; }
+  .comprobar[hidden] { display: none; }
+  .comprobar:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: inset 0 0 0 2px var(--chip-edge); }
+  .veredicto { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 2px solid var(--sheet-edge); }
+  .veredicto:empty { display: none; }
+  .lamina .veredicto p { margin-bottom: 0.5rem; }
+  .lamina .veredicto p:last-child { margin-bottom: 0; }
+  .repaso { padding: 0.6rem 0; min-height: 44px; font: 600 0.95rem "Geist", sans-serif; color: var(--amber-text); background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; touch-action: manipulation; }
+  .comp { scroll-margin-top: 1rem; }
+  .comp.repasando { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  /* Bloque de práctica: un recuadro por apunte, con cinta, título y borde ámbar */
+  .comp.practica { position: relative; padding-top: 0; box-shadow: inset 0 0 0 2px var(--amber-deep); overflow: hidden; }
+  .practica .cinta {
+    grid-column: 1 / -1; height: 10px; margin: 0 -1.3rem 1.1rem -1.1rem;
+    background: repeating-linear-gradient(90deg, var(--amber) 0 16px, #0d1016 16px 32px);
+  }
+  .practica > .ico { color: var(--amber-text); }
+  .lamina .practica .practica-titulo { margin: 0 0 1.1rem; font: 700 1.28rem/1.3 "Geist", sans-serif; letter-spacing: -0.01em; color: var(--ink); }
+  .practica .pregunta-c + .pregunta-c { margin-top: 1.3rem; padding-top: 1.3rem; border-top: 2px solid var(--sheet-edge); }
+  .practica .con-numero .enunciado { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); }
+  .practica .enunciado .n { font-weight: 700; color: var(--amber-text); }
+  .opcion { grid-template-columns: 24px minmax(0, 1fr); }
+  .opcion .marca { display: grid; place-items: center; width: 24px; height: 24px; margin-top: 0; font: 600 0.82rem "JetBrains Mono", monospace; color: var(--ink-soft); }
+  .opcion .marca svg { margin: 0; }
+  @media (max-width: 700px) {
+    .practica .pregunta-c { grid-column: 1 / -1; }
+    .practica .con-numero .enunciado { grid-template-columns: 1.3rem minmax(0, 1fr); }
+  }
+
+  .opcion.ok { color: var(--exito-body); background: var(--exito-bg); box-shadow: inset 0 0 0 2px var(--exito-edge); }
+  .opcion.ok .marca { color: var(--exito-text); }
+  .opcion.ok code { background: none; color: inherit; }
 
   /* Error común: el recuadro del componente es la alarma; el icono rojo va dentro */
   .comp.error { background: var(--alarm-bg); box-shadow: inset 0 0 0 2px var(--alarm-edge); }
@@ -309,6 +378,10 @@
 
   /* ── Turno de día: cada color de interfaz con fondo propio tiene su par ── */
   :root[data-turno="dia"] {
+    --exito-bg: #e8f5ec;
+    --exito-edge: #7fbf98;
+    --exito-text: #1a7a3e;
+    --exito-body: #1f4d2e;
     --bg: #c9d0d9; --ink: #12161d; --ink-soft: #4f5868;
     --amber-text: #8a4f00;
     --sheet: #f5f6f8; --sheet-edge: #d5dbe3; --surface: #e9ecf0; --chip: #e2e6eb; --chip-edge: #cfd5dd;
@@ -460,7 +533,7 @@
 
     <section class="comp compara">
       <span class="ico" data-nombre="Compara"><svg aria-hidden="true"><use href="#i-compara"/></svg></span>
-      <div><h3 class="sr">Compara</h3>
+      <div><h3 class="comp-titulo">Diferencias entre HTML, CSS y JavaScript</h3>
         <div class="tabla" tabindex="0" role="region" aria-label="Tabla comparativa"><table>
           <thead><tr><th scope="col"><span class="sr">Criterio</span></th><th scope="col">HTML</th><th scope="col">CSS</th><th scope="col">JavaScript</th></tr></thead>
           <tbody>
@@ -472,6 +545,7 @@
         <p>Primero se aprende HTML, porque sin él las otras dos no tienen sobre qué trabajar.</p>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="1.1"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-2">Bajar al piso 2
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -539,6 +613,7 @@
         <p>El servidor no envía la página "pintada". Envía texto HTML, y es tu navegador el que lo convierte en lo que ves. Por eso dos navegadores pueden mostrar la misma página con pequeñas diferencias.</p>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="2.1"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-3">Bajar al piso 3
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -602,7 +677,7 @@
     </section>
     <section class="comp como">
       <span class="ico" data-nombre="Cómo se hace"><svg aria-hidden="true"><use href="#i-como"/></svg></span>
-      <div><h3 class="sr">Cómo se hace</h3>
+      <div><h3 class="comp-titulo">Cómo escribir una etiqueta</h3>
         <ol class="pasos">
           <li>Escribe el nombre de la etiqueta entre <code>&lt;</code> y <code>&gt;</code>: <code>&lt;p&gt;</code>.</li>
           <li>Cierra con el mismo nombre y una barra: <code>&lt;/p&gt;</code>.</li>
@@ -615,8 +690,8 @@
     <section class="comp ejemplo">
       <span class="ico" data-nombre="Ejemplo"><svg aria-hidden="true"><use href="#i-ejemplo"/></svg></span>
       <div><h3 class="sr">Ejemplo</h3>
-        <pre><code>&lt;p&gt;Bienvenido a &lt;b&gt;mi página&lt;/b&gt;.&lt;/p&gt;</code></pre>
-        <p><code>&lt;p&gt;</code> marca el párrafo completo. <code>&lt;b&gt;</code> marca solo las palabras en negrita y se cierra antes que <code>&lt;/p&gt;</code>, porque se abrió después.</p>
+        <pre><code>&lt;body&gt;&lt;p&gt;Bienvenido a mi página.&lt;/p&gt;&lt;/body&gt;</code></pre>
+        <p><code>&lt;body&gt;</code> envuelve todo lo que se ve en la página y <code>&lt;p&gt;</code> marca un párrafo dentro de él. <code>&lt;p&gt;</code> se cierra antes que <code>&lt;/body&gt;</code>, porque se abrió después.</p>
       </div>
     </section>
     <section class="comp ojo">
@@ -631,12 +706,14 @@
       <div><h3 class="sr">Error común</h3>
         <div class="falla">
           <p class="que">Cerrar las etiquetas en orden cruzado:</p>
-          <pre><code>&lt;p&gt;&lt;b&gt;mi página&lt;/p&gt;&lt;/b&gt;</code></pre>
+          <pre><code>&lt;body&gt;&lt;p&gt;Bienvenido a mi página.&lt;/body&gt;&lt;/p&gt;</code></pre>
           <p>Pasa porque se cierra "la que me acuerdo" en vez de la última que se abrió. El navegador intenta arreglarlo solo y a veces lo hace, por eso el error no siempre se nota de inmediato.</p>
           <p class="detecta"><b>Cómo detectarlo:</b> lee las etiquetas de cierre de derecha a izquierda; deben aparecer en el orden exacto en que abriste.</p>
         </div>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="3.1"></section>
+    <section class="comp pregunta-c" data-pregunta="3.2"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-4">Bajar al piso 4
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -680,12 +757,12 @@
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
         <dl class="terminos cod">
-          <div><dt><code>&lt;!DOCTYPE html&gt;</code></dt><dd>Le dice al navegador que este archivo usa HTML moderno (HTML5). No es una etiqueta, es una declaración, y va siempre primero.</dd></div>
-          <div><dt><code>&lt;html&gt;</code></dt><dd>La raíz. Todo lo demás vive adentro. <code>lang="es"</code> indica el idioma del contenido.</dd></div>
-          <div><dt><code>&lt;head&gt;</code> (cabeza)</dt><dd>Información sobre la página que no se ve en pantalla.</dd></div>
-          <div><dt><code>&lt;meta charset="UTF-8"&gt;</code></dt><dd>La codificación de caracteres. Sin esto, las tildes y la ñ pueden salir como símbolos raros.</dd></div>
-          <div><dt><code>&lt;title&gt;</code></dt><dd>El texto que aparece en la pestaña del navegador.</dd></div>
-          <div><dt><code>&lt;body&gt;</code> (cuerpo)</dt><dd>Todo lo que sí se ve. Aquí va el contenido de la página.</dd></div>
+          <div><dt>La declaración <code>&lt;!DOCTYPE html&gt;</code></dt><dd>Le dice al navegador que este archivo usa HTML moderno (HTML5). No es una etiqueta, es una declaración, y va siempre primero.</dd></div>
+          <div><dt>La etiqueta <code>&lt;html&gt;</code></dt><dd>La raíz. Todo lo demás vive adentro. <code>lang="es"</code> indica el idioma del contenido.</dd></div>
+          <div><dt>La etiqueta <code>&lt;head&gt;</code> (cabeza)</dt><dd>Información sobre la página que no se ve en pantalla.</dd></div>
+          <div><dt>La etiqueta <code>&lt;meta charset="UTF-8"&gt;</code></dt><dd>La codificación de caracteres. Sin esto, las tildes y la ñ pueden salir como símbolos raros.</dd></div>
+          <div><dt>La etiqueta <code>&lt;title&gt;</code></dt><dd>El texto que aparece en la pestaña del navegador.</dd></div>
+          <div><dt>La etiqueta <code>&lt;body&gt;</code> (cuerpo)</dt><dd>Todo lo que sí se ve. Aquí va el contenido de la página.</dd></div>
         </dl>
         <p>Las etiquetas que contienen a otras son su <b>padre</b>, y las contenidas son sus <b>hijas</b>: <code>&lt;html&gt;</code> es padre de <code>&lt;head&gt;</code> y <code>&lt;body&gt;</code>; <code>&lt;head&gt;</code> es padre de <code>&lt;meta&gt;</code> y <code>&lt;title&gt;</code>. La sangría (los espacios al inicio de cada línea) no cambia nada para el navegador, pero deja ver esa jerarquía de un vistazo.</p>
       </div>
@@ -753,6 +830,8 @@
         </div>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="4.1"></section>
+    <section class="comp pregunta-c" data-pregunta="4.2"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-5">Bajar al piso 5
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -787,15 +866,14 @@
 
     <section class="comp cuando">
       <span class="ico" data-nombre="Cuándo usarlo"><svg aria-hidden="true"><use href="#i-cuando"/></svg></span>
-      <div><h3 class="sr">Cuándo usarlo</h3>
+      <div><h3 class="comp-titulo">¿Cómo usar los headings?</h3>
         <div class="sino">
           <div class="si"><h4><svg aria-hidden="true"><use href="#i-si"/></svg>Sí</h4><ul>
             <li>Un solo <code>&lt;h1&gt;</code> por página, con el tema principal.</li>
             <li><code>&lt;h2&gt;</code> para cada sección grande; <code>&lt;h3&gt;</code> para dividir dentro de una <code>&lt;h2&gt;</code>.</li>
             <li>Sin saltarse niveles: después de <code>&lt;h1&gt;</code> viene <code>&lt;h2&gt;</code>, no <code>&lt;h4&gt;</code>.</li></ul></div>
           <div class="no"><h4><svg aria-hidden="true"><use href="#i-no"/></svg>No</h4><ul>
-            <li>Para agrandar un texto que no es título. Eso se hace con CSS.</li>
-            <li>Para poner un texto en negrita. Para eso está <code>&lt;b&gt;</code>.</li></ul></div>
+            <li>Para agrandar un texto que no es título. Eso se hace con CSS.</li></ul></div>
         </div>
       </div>
     </section>
@@ -868,6 +946,7 @@
         </div>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="5.1"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-6">Bajar al piso 6
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -894,9 +973,9 @@
         <p class="idea">¿Qué es <code>&lt;img&gt;</code>? La etiqueta que inserta una imagen en la página (img de image).</p>
         <p>No tiene cierre, porque no envuelve contenido: la imagen no está escrita en el HTML, está en otro archivo, y <code>&lt;img&gt;</code> solo dice dónde buscarla. Por eso todo lo importante va en sus atributos.</p>
         <dl class="terminos cod">
-          <div><dt><code>src</code></dt><dd>Source (fuente). De dónde se carga la imagen. Es obligatorio.</dd></div>
-          <div><dt><code>alt</code></dt><dd>Alternative (alternativo). Un texto que describe la imagen. Se muestra si la imagen no carga y lo leen en voz alta los lectores de pantalla para personas ciegas. Siempre ponlo.</dd></div>
-          <div><dt><code>width</code> y <code>height</code></dt><dd>Ancho y alto en píxeles. Opcionales; sin ellos la imagen se muestra en su tamaño original.</dd></div>
+          <div><dt>El atributo <code>src</code></dt><dd>Source (fuente). De dónde se carga la imagen. Es obligatorio.</dd></div>
+          <div><dt>El atributo <code>alt</code></dt><dd>Alternative (alternativo). Un texto que describe la imagen. Se muestra si la imagen no carga y lo leen en voz alta los lectores de pantalla para personas ciegas. Siempre ponlo.</dd></div>
+          <div><dt>Los atributos <code>width</code> y <code>height</code></dt><dd>Ancho y alto en píxeles. Opcionales; sin ellos la imagen se muestra en su tamaño original.</dd></div>
         </dl>
       </div>
     </section>
@@ -931,7 +1010,7 @@
     </section>
     <section class="comp compara">
       <span class="ico" data-nombre="Compara"><svg aria-hidden="true"><use href="#i-compara"/></svg></span>
-      <div><h3 class="sr">Compara</h3>
+      <div><h3 class="comp-titulo">Diferencias entre una imagen propia y una de internet</h3>
         <div class="tabla" tabindex="0" role="region" aria-label="Tabla comparativa"><table>
           <thead><tr><th scope="col"><span class="sr">Criterio</span></th><th scope="col">Imagen propia</th><th scope="col">Imagen de internet</th></tr></thead>
           <tbody>
@@ -964,6 +1043,7 @@
         </div>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="6.1"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-7">Bajar al piso 7
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -1031,7 +1111,7 @@
 
     <section class="comp compara">
       <span class="ico" data-nombre="Compara"><svg aria-hidden="true"><use href="#i-compara"/></svg></span>
-      <div><h3 class="sr">Compara</h3>
+      <div><h3 class="comp-titulo">Diferencias entre una ruta relativa y una absoluta</h3>
         <div class="tabla" tabindex="0" role="region" aria-label="Tabla comparativa"><table>
           <thead><tr><th scope="col"><span class="sr">Criterio</span></th><th scope="col">Relativa</th><th scope="col">Absoluta</th></tr></thead>
           <tbody>
@@ -1047,7 +1127,7 @@
 
     <section class="comp como">
       <span class="ico" data-nombre="Cómo se hace"><svg aria-hidden="true"><use href="#i-como"/></svg></span>
-      <div><h3 class="sr">Cómo se hace</h3>
+      <div><h3 class="comp-titulo">Cómo escribir una ruta relativa</h3>
         <p>Para escribir una ruta relativa desde tu HTML hasta un archivo:</p>
         <ol class="pasos">
           <li>Ubica la carpeta donde está tu archivo HTML. Ese es el punto de partida.</li>
@@ -1066,18 +1146,8 @@
       </div>
     </section>
 
-    <section class="comp pregunta-c">
-      <span class="ico" data-nombre="Pregunta"><svg aria-hidden="true"><use href="#i-pregunta"/></svg></span>
-      <div><h3 class="sr">Pregunta</h3>
-        <div class="pregunta">
-          <p class="enunciado">Tu <code>index.html</code> está en la raíz del proyecto y la imagen <code>banner.jpg</code> está dentro de la carpeta <code>img</code>. ¿Qué escribes en <code>src</code>?</p>
-          <button class="intercom ver" type="button" aria-expanded="false" aria-controls="r7">Ver respuesta</button>
-          <div class="respuesta" id="r7" hidden>
-            <p><code>img/banner.jpg</code>. Partes de donde está <code>index.html</code>, entras a <code>img</code> y tomas el archivo. Sin <code>../</code>, porque no hay que subir ningún nivel.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="comp pregunta-c" data-pregunta="7.1"></section>
+    <section class="comp pregunta-c" data-pregunta="7.2"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-8">Bajar al piso 8
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -1113,7 +1183,7 @@
     </section>
     <section class="comp compara">
       <span class="ico" data-nombre="Compara"><svg aria-hidden="true"><use href="#i-compara"/></svg></span>
-      <div><h3 class="sr">Compara</h3>
+      <div><h3 class="comp-titulo">Diferencias entre una lista desordenada y una ordenada</h3>
         <div class="tabla" tabindex="0" role="region" aria-label="Tabla comparativa"><table>
           <thead><tr><th scope="col"><span class="sr">Criterio</span></th><th scope="col"><code>&lt;ul&gt;</code> desordenada</th><th scope="col"><code>&lt;ol&gt;</code> ordenada</th></tr></thead>
           <tbody>
@@ -1203,6 +1273,8 @@
         </div>
       </div>
     </section>
+    <section class="comp pregunta-c" data-pregunta="8.1"></section>
+    <section class="comp pregunta-c" data-pregunta="8.2"></section>
     <div class="siguiente">
       <a class="bajar" href="#piso-9">Bajar al piso 9
         <svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v4h2v1H6v1H5v1H3V6H2V5H1V4h2z"/></svg>
@@ -2568,12 +2640,137 @@ document.querySelectorAll('.plano').forEach(fig => {
   fig.querySelector('.lienzo')?.addEventListener('click', e => { if (!fig.closest('dialog') && !e.target.closest('button')) abrir(fig); });
 });
 
-/* ═══ Pregunta: ver respuesta ═══ */
-document.querySelectorAll('.ver').forEach(b => b.addEventListener('click', () => {
-  const r = document.getElementById(b.getAttribute('aria-controls')); const abierta = b.getAttribute('aria-expanded') === 'true';
-  r.hidden = abierta; b.setAttribute('aria-expanded', String(!abierta)); b.textContent = abierta ? 'Ver respuesta' : 'Ocultar respuesta';
-}));
+</script>
+<script>
+/* ═══ Preguntas (P-10, P-12): contenido en navegable/preguntas.md; aquí va una copia, como en los guiones de audio ═══ */
+// Las respuestas no se guardan: al recargar, la pregunta vuelve a empezar. El aviso 'taller:respuesta' lo envía al panel el bloque de medición (P-15).
+(function () {
+  const PREGUNTAS = [{"id": "1.1", "enunciado": "Creaste una página y solo le escribiste HTML: un título, un párrafo y un botón. Todavía no le agregas CSS ni JavaScript. Cuando la abres en el navegador, ¿qué vas a ver?", "pre": null, "revisar": "compara", "opciones": [{"texto": "El título, el párrafo y el botón uno debajo del otro, sin diseño; si tocas el botón, no pasa nada.", "ok": true, "explicacion": "Eso es: el HTML basta para que exista la página, y las otras dos se suman encima."}, {"texto": "Una pantalla en blanco, porque el navegador necesita CSS para mostrar el contenido.", "ok": false, "explicacion": "El CSS solo cambia la apariencia. El contenido ya está en el HTML y el navegador lo dibuja sin él."}, {"texto": "Nada, porque la página no carga hasta tener JavaScript.", "ok": false, "explicacion": "El JavaScript se ocupa de lo que pasa cuando el usuario actúa. Para mostrar el contenido no hace falta."}]}, {"id": "2.1", "enunciado": "Abres tu navegador, escribes `www.google.com.pe` y presionas Enter. Antes de que veas la página ocurren estos cuatro pasos. Ponlos en el orden en que suceden.", "pre": null, "revisar": "figura", "pasos": ["El DNS traduce el nombre a una dirección IP.", "El navegador pide la página al servidor por HTTP.", "El servidor responde con el archivo HTML, que es texto.", "El navegador convierte ese texto en lo que ves."], "explicacion": "Primero hace falta saber dónde está el servidor; recién entonces se le puede pedir el archivo. El dibujo es lo último y lo hace tu navegador."}, {"id": "3.1", "enunciado": "Quieres escribir un párrafo que diga \"Hola\" dentro del cuerpo de tu página, así que `<p>` va dentro de `<body>`. ¿Cuál de estos códigos cierra las etiquetas correctamente?", "pre": null, "revisar": "error", "opciones": [{"texto": "`<body><p>Hola</p></body>`", "ok": true, "explicacion": "Eso es: `<p>` se abrió después, así que se cierra primero."}, {"texto": "`<body><p>Hola</body></p>`", "ok": false, "explicacion": "Están cruzadas: lo último que se abre es lo primero que se cierra."}, {"texto": "`<body><p>Hola<p></body>`", "ok": false, "explicacion": "El segundo `<p>` abre otra etiqueta. El cierre lleva barra: `</p>`."}]}, {"id": "3.2", "enunciado": "Quieres mostrar la imagen `foto.jpg` y agregarle una descripción con el atributo `alt`. ¿En cuál de estos códigos están los atributos en el lugar correcto?", "pre": null, "revisar": "como", "opciones": [{"texto": "`<img src=\"foto.jpg\" alt=\"Mi foto\">`", "ok": true, "explicacion": "Eso es: van dentro de la apertura, separados por espacio y con el valor entre comillas."}, {"texto": "`<img> src=\"foto.jpg\" alt=\"Mi foto\"`", "ok": false, "explicacion": "Quedaron fuera de la etiqueta, así que el navegador los muestra como texto."}, {"texto": "`<img src=\"foto.jpg\">alt=\"Mi foto\"</img>`", "ok": false, "explicacion": "`alt` quedó fuera de la apertura, y `<img>` no tiene cierre porque no envuelve contenido."}]}, {"id": "4.1", "enunciado": "Vas a crear un archivo HTML desde cero. Estas cinco partes forman su esqueleto, pero están desordenadas. Ponlas en el orden en que se escriben, de la primera línea a la última.", "pre": null, "revisar": "concepto", "pasos": ["`<!DOCTYPE html>`", "`<html lang=\"es\">`", "`<head>…</head>`", "`<body>…</body>`", "`</html>`"], "explicacion": "La declaración va siempre primero. `<html>` envuelve todo lo demás, y dentro va primero lo que no se ve (`<head>`) y luego lo que sí (`<body>`)."}, {"id": "4.2", "enunciado": "Dentro del `<head>` de tu documento escribes `<title>Mi portafolio</title>`. Al abrir la página en el navegador, ¿dónde aparece el texto \"Mi portafolio\"?", "pre": null, "revisar": "figura", "opciones": [{"texto": "En la pestaña del navegador.", "ok": true, "explicacion": "Eso es: `<title>` va en `<head>`, que no se muestra en el área de la página."}, {"texto": "Como título grande arriba de la página.", "ok": false, "explicacion": "Eso lo hace un `<h1>` dentro de `<body>`. `<title>` solo llega a la pestaña."}, {"texto": "En la pestaña y también arriba de la página.", "ok": false, "explicacion": "Lo que se ve en la página es solo lo que está en `<body>`, y `<title>` va en `<head>`."}]}, {"id": "5.1", "enunciado": "Estás haciendo tu portafolio y el título principal ya está en un `<h1>`. Ahora agregas la sección \"Contacto\", una de las secciones grandes de la página, y quieres que su título se vea más grande de lo normal. ¿Cómo lo haces?", "pre": null, "revisar": "error", "opciones": [{"texto": "Usas `<h2>` y agrandas el texto con CSS.", "ok": true, "explicacion": "Eso es: el número dice la importancia, y el tamaño se cambia con CSS."}, {"texto": "Usas otro `<h1>` para que resalte.", "ok": false, "explicacion": "Quedarían dos títulos principales, y debe haber uno solo por página."}, {"texto": "Usas `<h4>` porque tiene el tamaño justo.", "ok": false, "explicacion": "Te saltas niveles: después de `<h1>` viene `<h2>`. El heading se elige por lo que es, no por cómo se ve."}]}, {"id": "6.1", "enunciado": "Tu página muestra una foto con el código `<img src=\"img/gato.jpg\" alt=\"Gato durmiendo\">`. Un día borras sin querer el archivo `gato.jpg` de la carpeta `img` y vuelves a abrir la página. ¿Qué aparece en el lugar de la foto?", "pre": null, "revisar": "error", "opciones": [{"texto": "Un ícono roto y el texto \"Gato durmiendo\".", "ok": true, "explicacion": "Eso es: la imagen no se encuentra y el `alt` ocupa su lugar."}, {"texto": "El texto `img/gato.jpg` en lugar de la imagen.", "ok": false, "explicacion": "`src` no se muestra: solo dice dónde buscar el archivo. Lo que aparece es el `alt`."}, {"texto": "La página entera deja de cargar.", "ok": false, "explicacion": "Solo falla esa imagen. El resto del HTML se dibuja igual."}]}, {"id": "7.1", "enunciado": "Tu proyecto tiene esta estructura y estás editando `index.html` para mostrar `banner.jpg`. ¿Qué escribes en `src`?", "pre": "proyecto/\n├── index.html\n└── img/\n    └── banner.jpg", "revisar": "como", "opciones": [{"texto": "`img/banner.jpg`", "ok": true, "explicacion": "Eso es: partes de donde está `index.html`, entras a `img` y tomas el archivo."}, {"texto": "`../img/banner.jpg`", "ok": false, "explicacion": "`../` sube un nivel, y aquí no hay que subir: `img` está dentro de la carpeta donde ya estás."}, {"texto": "`banner.jpg`", "ok": false, "explicacion": "Así solo lo busca en la misma carpeta del HTML, y está dentro de `img`."}, {"texto": "`C:/Users/ana/proyecto/img/banner.jpg`", "ok": false, "explicacion": "Esa ruta solo funciona en tu computadora. Al subir la página al servidor, esa carpeta no existe."}]}, {"id": "7.2", "enunciado": "Tu proyecto tiene esta estructura y ahora estás editando `post.html` para mostrar `playa.jpg`. ¿Qué escribes en `src`?", "pre": "proyecto/\n├── blog/\n│   └── post.html\n└── fotos/\n    └── playa.jpg", "revisar": "figura", "opciones": [{"texto": "`../fotos/playa.jpg`", "ok": true, "explicacion": "Eso es: sales de `blog` con `../` y entras a `fotos`."}, {"texto": "`fotos/playa.jpg`", "ok": false, "explicacion": "Así busca `fotos` dentro de `blog`. Primero hay que subir un nivel."}, {"texto": "`./fotos/playa.jpg`", "ok": false, "explicacion": "`./` es la misma carpeta, así que esto equivale a buscar `fotos` dentro de `blog`."}, {"texto": "`../../fotos/playa.jpg`", "ok": false, "explicacion": "Subes dos niveles y quedas fuera de `proyecto`. Con uno basta."}]}, {"id": "8.1", "enunciado": "Estás armando una página con las instrucciones para instalar un programa: primero descargarlo, luego abrir el instalador y al final aceptar los permisos. ¿Qué etiqueta de lista usas para estos pasos, y por qué?", "pre": null, "revisar": "compara", "opciones": [{"texto": "`<ol>`, porque cambiar el orden rompe los pasos.", "ok": true, "explicacion": "Eso es: esa es la prueba para decidir entre las dos."}, {"texto": "`<ul>`, porque los pasos son pocos.", "ok": false, "explicacion": "La cantidad no decide. Lo que importa es si el orden cambia el sentido."}, {"texto": "`<ol>`, porque los números se ven mejor.", "ok": false, "explicacion": "Es la etiqueta correcta, pero por otra razón: se elige por el orden, no por cómo se ve."}]}, {"id": "8.2", "enunciado": "Quieres mostrar una lista de útiles escolares y escribes este código, sin usar `<li>`. ¿Cómo se ve en el navegador?", "pre": "<ul>\n  Lápiz\n  Cuaderno\n  Regla\n</ul>", "revisar": "error", "opciones": [{"texto": "Las tres palabras en una línea, sin puntos.", "ok": true, "explicacion": "Eso es: sin `<li>` no hay ítems, solo texto seguido."}, {"texto": "Tres ítems, cada uno con su punto.", "ok": false, "explicacion": "`<ul>` solo agrupa. Cada ítem necesita su propio `<li>`."}, {"texto": "Tres líneas, sin puntos.", "ok": false, "explicacion": "Los saltos de línea del código no cuentan: el navegador junta el texto."}]}];
+  const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const marcado = t => esc(t).replace(/`([^`]+)`/g, '<code>$1</code>');
+  const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const icono = id => '<svg aria-hidden="true"><use href="#' + id + '"/></svg>';
+  const mezclar = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const avisar = detalle => document.dispatchEvent(new CustomEvent('taller:respuesta', { detail: detalle }));
 
+  function volverBoton(caja, q) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'repaso'; b.textContent = 'Volver a esa parte';
+    b.addEventListener('click', () => {
+      const destino = caja.closest('.piso').querySelector('.comp.' + q.revisar);
+      if (!destino) return;
+      destino.setAttribute('tabindex', '-1');
+      destino.scrollIntoView({ block: 'start', behavior: quieto ? 'auto' : 'smooth' });
+      destino.focus({ preventScroll: true });
+      destino.classList.add('repasando');
+      setTimeout(() => destino.classList.remove('repasando'), 2500);
+    });
+    return b;
+  }
+
+  function veredicto(zona, caja, q, html, acerto) {
+    zona.innerHTML = '<p><span class="sr">' + (acerto ? 'Correcto. ' : 'Incorrecto. ') + '</span>' + html + '</p>';
+    if (!acerto) zona.appendChild(volverBoton(caja, q));
+  }
+
+  function alternativas(caja, q, cuerpo) {
+    const zona = document.createElement('div'); zona.className = 'veredicto'; zona.setAttribute('aria-live', 'polite');
+    const grupo = document.createElement('div'); grupo.className = 'opciones'; grupo.setAttribute('role', 'group'); grupo.setAttribute('aria-labelledby', 'q' + q.id);
+    let intento = 0;
+    mezclar(q.opciones).forEach((op, pos) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'opcion';
+      b.innerHTML = '<span class="marca" aria-hidden="true">' + 'ABCD'[pos] + '</span><span>' + marcado(op.texto) + '</span>';
+      b.addEventListener('click', () => {
+        intento++;
+        b.classList.add(op.ok ? 'ok' : 'mal');
+        const m = b.querySelector('.marca'); m.classList.add('con'); m.innerHTML = icono(op.ok ? 'i-si' : 'i-no');
+        veredicto(zona, caja, q, marcado(op.explicacion), op.ok);
+        if (op.ok) grupo.querySelectorAll('button').forEach(x => { x.disabled = true; });
+        else b.disabled = true;
+        avisar({ pregunta: q.id, opcion: q.opciones.indexOf(op), acierto: op.ok, intento: intento });
+      });
+      grupo.appendChild(b);
+    });
+    cuerpo.append(grupo, zona);
+  }
+
+  function ordenar(caja, q, cuerpo) {
+    const pista = document.createElement('p'); pista.className = 'pista'; pista.textContent = 'Toca cada parte en orden. Para sacar una, tócala otra vez.';
+    const armado = document.createElement('ol'); armado.className = 'armado';
+    const piezas = document.createElement('div'); piezas.className = 'piezas'; piezas.setAttribute('role', 'group'); piezas.setAttribute('aria-label', 'Partes por ordenar');
+    const comprobar = document.createElement('button'); comprobar.type = 'button'; comprobar.className = 'intercom comprobar'; comprobar.textContent = 'Comprobar';
+    const zona = document.createElement('div'); zona.className = 'veredicto'; zona.setAttribute('aria-live', 'polite');
+    const puestos = [];
+    let intento = 0;
+    let orden = mezclar(q.pasos.map((_, i) => i));
+    if (orden.every((v, i) => v === i)) orden.reverse();
+    const boton = i => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'opcion sin-marca'; b.innerHTML = '<span>' + marcado(q.pasos[i]) + '</span>'; return b;
+    };
+    function dibujar(enfocar) {
+      armado.innerHTML = '';
+      q.pasos.forEach((_, n) => {
+        const li = document.createElement('li');
+        li.innerHTML = '<span class="num" aria-hidden="true">' + (n + 1) + '</span>';
+        if (puestos[n] === undefined) { const h = document.createElement('div'); h.className = 'hueco'; li.appendChild(h); }
+        else {
+          const b = boton(puestos[n]);
+          b.setAttribute('aria-label', 'Puesto ' + (n + 1) + ': ' + b.textContent + '. Tocar para sacarlo.');
+          b.addEventListener('click', () => { puestos.splice(n, 1); zona.innerHTML = ''; dibujar(); comprobar.focus({ preventScroll: true }); });
+          li.appendChild(b);
+        }
+        armado.appendChild(li);
+      });
+      piezas.innerHTML = '';
+      orden.filter(i => !puestos.includes(i)).forEach(i => {
+        const b = boton(i);
+        b.addEventListener('click', () => { puestos.push(i); zona.innerHTML = ''; dibujar(true); });
+        piezas.appendChild(b);
+      });
+      comprobar.disabled = puestos.length < q.pasos.length;
+      if (enfocar) (piezas.querySelector('button') || comprobar).focus({ preventScroll: true });
+    }
+    comprobar.addEventListener('click', () => {
+      intento++;
+      const botones = armado.querySelectorAll('button');
+      const bien = puestos.filter((p, n) => p === n).length;
+      const acerto = bien === q.pasos.length;
+      botones.forEach((b, n) => {
+        const ok = puestos[n] === n; b.classList.remove('sin-marca'); b.classList.add(ok ? 'ok' : 'mal');
+        const m = document.createElement('span'); m.className = 'marca con'; m.setAttribute('aria-hidden', 'true'); m.innerHTML = icono(ok ? 'i-si' : 'i-no'); b.prepend(m);
+        if (acerto) b.disabled = true;
+      });
+      if (acerto) { comprobar.hidden = true; pista.hidden = true; }
+      veredicto(zona, caja, q, acerto ? marcado(q.explicacion) : bien + ' de ' + q.pasos.length + ' están en su lugar. Saca las marcadas con la equis y vuelve a ponerlas.', acerto);
+      avisar({ pregunta: q.id, opcion: puestos.join('-'), acierto: acerto, intento: intento });
+    });
+    dibujar();
+    cuerpo.append(pista, armado, piezas, comprobar, zona);
+  }
+
+  [1, 2, 3, 4, 5, 6, 7, 8].forEach(piso => {
+    const grupo = PREGUNTAS.filter(q => q.id.charAt(0) === String(piso));
+    const marcadores = document.querySelectorAll('#piso-' + piso + ' [data-pregunta]');
+    if (!grupo.length || !marcadores.length) return;
+    const bloque = document.createElement('section');
+    bloque.className = 'comp practica'; bloque.setAttribute('aria-labelledby', 'practica' + piso);
+    bloque.innerHTML = '<div class="cinta" aria-hidden="true"></div><span class="ico" aria-hidden="true">' + icono('i-pregunta') + '</span>' +
+      '<div class="cuerpo"><h3 class="practica-titulo" id="practica' + piso + '">Pon a prueba lo que leíste</h3></div>';
+    const cuerpoBloque = bloque.querySelector('.cuerpo');
+    grupo.forEach((q, i) => {
+      const caja = document.createElement('div');
+      caja.className = 'pregunta-c' + (grupo.length > 1 ? ' con-numero' : '');
+      const n = grupo.length > 1 ? '<span class="n">' + (i + 1) + '.</span>' : '';
+      caja.innerHTML = '<p class="enunciado" id="q' + q.id + '">' + n + '<span>' + marcado(q.enunciado) + '</span></p>';
+      if (q.pre) { const p = document.createElement('pre'); p.innerHTML = '<code>' + esc(q.pre) + '</code>'; caja.appendChild(p); }
+      (q.pasos ? ordenar : alternativas)(caja, q, caja);
+      cuerpoBloque.appendChild(caja);
+    });
+    marcadores[0].replaceWith(bloque);
+    marcadores.forEach((m, i) => { if (i) m.remove(); });
+  });
+})();
 </script>
 <script>
 /* ═══ Audio por piso (D-06): síntesis de voz del navegador; narra en el orden de la pantalla ═══ */
@@ -2590,7 +2787,9 @@ HTML se ocupa del contenido y su estructura: qué textos, imágenes y listas hay
 
 Mira la figura. Es una sola página que se construye en tres etapas. Primero aparece solo con HTML: un título, un párrafo, una lista y un botón, todo en blanco y negro y apilado a la izquierda. Con eso solo, ya es una página. Después llega el CSS y la misma página toma color, el título se centra, la lista se vuelve un menú horizontal y el botón toma forma. Por último entra JavaScript: un cursor toca el botón y debajo se despliega un mensaje.
 
-Ahora la tabla. Si falta HTML, no hay página. Si falta CSS, la página se ve en blanco y negro y apilada. Y si falta JavaScript, nada reacciona a lo que haces. Por eso se aprende primero HTML: sin él, las otras dos no tienen sobre qué trabajar.`,
+Ahora la tabla. Si falta HTML, no hay página. Si falta CSS, la página se ve en blanco y negro y apilada. Y si falta JavaScript, nada reacciona a lo que haces. Por eso se aprende primero HTML: sin él, las otras dos no tienen sobre qué trabajar.
+
+Al final de este apunte hay una pregunta para ti. Respóndela en pantalla.`,
   2: `Cómo funciona la web.
 
 Tu navegador pide una página a una computadora remota, y esa computadora se la envía. Cada vez que escribes una dirección y presionas Enter pasa lo mismo: el navegador averigua dónde está la computadora que tiene esa página, le pide el archivo, lo recibe y lo dibuja. Todo eso toma menos de un segundo, pero son varios pasos y cada uno tiene nombre.
@@ -2599,7 +2798,9 @@ Mira la figura. A la izquierda está tu laptop, que es el cliente; a la derecha,
 
 Ahora los términos. El cliente es el programa que pide la página; en la práctica, tu navegador: Chrome, Firefox o Safari. El servidor es la computadora que guarda los archivos de la página y los envía a quien los pida, y está encendida todo el tiempo. La URL es la dirección completa de un recurso, como https://www.google.com.pe/cursos. Dice el protocolo, el dominio y la ruta. El DNS traduce un nombre como google.com.pe a la dirección IP del servidor. Funciona como una lista de contactos: tú recuerdas el nombre y el DNS sabe el número. La IP es el número que identifica a una computadora en la red, por ejemplo 142.250.78.3. Y HTTP son las reglas con las que el navegador y el servidor se hablan. GET es la petición de "dame este archivo", y la S de HTTPS indica que la conversación va cifrada.
 
-Ojo: el servidor no envía la página pintada. Envía texto HTML, y tu navegador lo convierte en lo que ves. Por eso dos navegadores pueden mostrar la misma página con pequeñas diferencias.`,
+Ojo: el servidor no envía la página pintada. Envía texto HTML, y tu navegador lo convierte en lo que ves. Por eso dos navegadores pueden mostrar la misma página con pequeñas diferencias.
+
+Al final de este apunte hay una pregunta para ti. Respóndela en pantalla.`,
   3: `Sintaxis HTML: las etiquetas.
 
 ¿Qué es una etiqueta? Es la marca con la que HTML le dice al navegador qué es cada pedazo de contenido. HTML es un lenguaje de marcado: no da órdenes, señala. Se escribe el texto normal y se rodea con etiquetas que indican "esto es un título" o "esto es un párrafo". Una etiqueta de apertura y una de cierre forman, con lo que hay entre ellas, un elemento.
@@ -2610,11 +2811,13 @@ Mira la figura. Muestra la anatomía de un elemento con una etiqueta genérica. 
 
 Las reglas de sintaxis son cinco. Una: el nombre de la etiqueta va entre los signos menor que y mayor que. Dos: se cierra con el mismo nombre y una barra. Tres: los atributos van solo en la apertura, separados por espacio, con el valor entre comillas. Cuatro: los nombres se escriben en minúsculas. Y cinco: se cierra en orden inverso al que abriste, es decir, lo último que se abre es lo primero que se cierra.
 
-En el ejemplo, la etiqueta p marca el párrafo completo, y dentro de él la etiqueta b marca solo las palabras "mi página" en negrita. La b se cierra antes que la p, porque se abrió después.
+En el ejemplo, la etiqueta body envuelve todo lo que se ve en la página y la etiqueta p marca un párrafo dentro de ella. La p se cierra antes que la body, porque se abrió después.
 
 Ojo: algunas etiquetas no tienen cierre porque no envuelven contenido, solo insertan algo. Las más usadas son img, para una imagen; br, para un salto de línea; hr, para una línea horizontal; e input, para un campo de formulario. El ejemplo pone un salto de línea entre "Primera línea" y "Segunda línea", dentro de un párrafo.
 
-El error común es cerrar las etiquetas en orden cruzado, por ejemplo cerrar la p antes que la b cuando la b se abrió después. Pasa porque se cierra la que uno se acuerda en vez de la última que se abrió. El navegador intenta arreglarlo solo y a veces lo logra, por eso el error no siempre se nota de inmediato. Para detectarlo, lee las etiquetas de cierre de derecha a izquierda: tienen que aparecer en el orden exacto en que abriste.`,
+El error común es cerrar las etiquetas en orden cruzado, por ejemplo cerrar la body antes que la p cuando la p se abrió después. Pasa porque se cierra la que uno se acuerda en vez de la última que se abrió. El navegador intenta arreglarlo solo y a veces lo logra, por eso el error no siempre se nota de inmediato. Para detectarlo, lee las etiquetas de cierre de derecha a izquierda: tienen que aparecer en el orden exacto en que abriste.
+
+Al final de este apunte hay dos preguntas para ti. Respóndelas en pantalla.`,
   4: `Estructura de un documento HTML.
 
 Un documento HTML es un archivo de texto con extensión .html. El nombre va en minúsculas, sin espacios ni tildes: contacto.html, no "Mi Página.html". Y index.html es el nombre reservado para la página principal: cuando abres una carpeta o un dominio sin indicar archivo, el servidor busca index.html y muestra ese.
@@ -2627,12 +2830,14 @@ Mira la figura. Cada línea de la plantilla tiene una flecha con su rol. La de t
 
 Otro ojo, sobre el atajo: en Visual Studio Code, en un archivo html vacío, escribe un signo de exclamación y presiona Tab. El editor escribe toda la plantilla por ti. Igual tienes que saber qué hace cada línea: el atajo ahorra tipeo, no entendimiento.
 
-El error común es escribir contenido fuera de body. Por ejemplo, un párrafo que queda después de cerrar body y html. Pasa al pegar o escribir al final del archivo sin mirar dónde cerró el cuerpo. El navegador suele mostrar el párrafo igual, así que el error no salta a la vista. Para detectarlo, la última línea del archivo tiene que ser el cierre de html; si hay algo después, está afuera.`,
+El error común es escribir contenido fuera de body. Por ejemplo, un párrafo que queda después de cerrar body y html. Pasa al pegar o escribir al final del archivo sin mirar dónde cerró el cuerpo. El navegador suele mostrar el párrafo igual, así que el error no salta a la vista. Para detectarlo, la última línea del archivo tiene que ser el cierre de html; si hay algo después, está afuera.
+
+Al final de este apunte hay dos preguntas para ti. Respóndelas en pantalla.`,
   5: `Etiquetas de texto.
 
 ¿Qué es un heading? Es un título o subtítulo que organiza el contenido en niveles. Hay seis, de h1 a h6: la h es de heading y el número es el nivel. h1 es el título principal de la página; h2 divide en secciones; h3 divide una sección; y así hasta h6. Por defecto el navegador los muestra en negrita y cada nivel más chico que el anterior. En el ejemplo hay un h1 con "Mi portafolio", un h2 con "Proyectos" y un h3 con "Página de recetas".
 
-¿Cuándo se usan? Un solo h1 por página, con el tema principal. h2 para cada sección grande y h3 para dividir dentro de un h2. Y sin saltarse niveles: después de h1 viene h2, no h4. No se usan para agrandar un texto que no es título, porque eso se hace con CSS, ni para poner un texto en negrita, porque para eso está la etiqueta b.
+¿Cómo usar los headings? Un solo h1 por página, con el tema principal. h2 para cada sección grande y h3 para dividir dentro de un h2. Y sin saltarse niveles: después de h1 viene h2, no h4. No se usan para agrandar un texto que no es título, porque eso se hace con CSS.
 
 Mira la figura. Muestra los seis headings con el mismo texto, de Nivel 1 a Nivel 6, apilados como los dibuja el navegador, cada uno más chico. Al costado hay una escalera que baja de h1 a h6: cada nivel depende del anterior. Y h1 es uno solo por página.
 
@@ -2642,7 +2847,9 @@ Ahora el párrafo. ¿Qué es la etiqueta p? Es la etiqueta de párrafo, un bloqu
 
 En el ejemplo, un h2 con "Sobre mí" abre la sección y dos p la llenan: "Estudio desarrollo web y me gusta la fotografía" y "Este es mi primer sitio, hecho solo con HTML". Cada párrafo se ve como un bloque separado aunque en el código estén pegados.
 
-El error común es elegir el heading por cómo se ve en vez de por lo que es. Por ejemplo, un h1 con "Mi portafolio", un h4 con "Proyectos" y otro h1 con "Contacto". Pasa porque el h4 "se veía del tamaño justo" y el segundo h1, "para que resalte". La página queda con dos títulos principales y una sección que depende de un nivel que no existe. Para detectarlo, lee solo los headings de arriba abajo, como un índice: si no forman un esquema con un único título y secciones ordenadas, hay un nivel mal puesto.`,
+El error común es elegir el heading por cómo se ve en vez de por lo que es. Por ejemplo, un h1 con "Mi portafolio", un h4 con "Proyectos" y otro h1 con "Contacto". Pasa porque el h4 "se veía del tamaño justo" y el segundo h1, "para que resalte". La página queda con dos títulos principales y una sección que depende de un nivel que no existe. Para detectarlo, lee solo los headings de arriba abajo, como un índice: si no forman un esquema con un único título y secciones ordenadas, hay un nivel mal puesto.
+
+Al final de este apunte hay una pregunta para ti. Respóndela en pantalla.`,
   6: `Etiqueta imagen.
 
 ¿Qué es img? Es la etiqueta que inserta una imagen en la página; img es de image. No tiene cierre, porque no envuelve contenido: la imagen no está escrita en el HTML, está en otro archivo, y img solo dice dónde buscarla. Por eso todo lo importante va en sus atributos. src, de source, indica de dónde se carga la imagen, y es obligatorio. alt, de alternative, es un texto que describe la imagen: se muestra si la imagen no carga y los lectores de pantalla lo leen en voz alta para personas ciegas. Siempre ponlo. Y width y height son el ancho y el alto en píxeles; son opcionales, y sin ellos la imagen se muestra en su tamaño original.
@@ -2653,7 +2860,9 @@ Ahora compara una imagen propia con una de internet. La imagen propia está en u
 
 Dos ejemplos. Una imagen propia, guardada en la carpeta img del proyecto: src con el valor img/perfil.jpg, y alt "Foto de perfil con fondo azul". Y una imagen de internet, con su dirección completa en src, y alt "Logo de Google".
 
-El error común: la imagen no carga y en su lugar aparece el ícono roto con el texto del alt. Por ejemplo, con src igual a "Mi Foto.JPG". Pasa casi siempre por el nombre del archivo: tiene espacios, mayúsculas que no coinciden, porque foto.jpg no es lo mismo que foto.JPG, o la extensión está mal. Para detectarlo, abre la carpeta y compara letra por letra el nombre real con lo que escribiste en src. Renombra el archivo en minúsculas y sin espacios, por ejemplo mi-foto.jpg, y corrige el src.`,
+El error común: la imagen no carga y en su lugar aparece el ícono roto con el texto del alt. Por ejemplo, con src igual a "Mi Foto.JPG". Pasa casi siempre por el nombre del archivo: tiene espacios, mayúsculas que no coinciden, porque foto.jpg no es lo mismo que foto.JPG, o la extensión está mal. Para detectarlo, abre la carpeta y compara letra por letra el nombre real con lo que escribiste en src. Renombra el archivo en minúsculas y sin espacios, por ejemplo mi-foto.jpg, y corrige el src.
+
+Al final de este apunte hay una pregunta para ti. Respóndela en pantalla.`,
   7: `Rutas.
 
 ¿Qué es una ruta? Es el camino que le das al navegador para que encuentre un archivo. Cuando escribes src igual a img/perfil.jpg, el navegador no busca perfil.jpg en toda la computadora: sigue el camino exacto que le diste, carpeta por carpeta. Si una sola carpeta del camino no coincide, no encuentra nada. Hay dos formas de escribir ese camino.
@@ -2668,7 +2877,7 @@ Para escribir una ruta relativa desde tu HTML hasta un archivo, sigue estos paso
 
 Ojo: ./ significa esta misma carpeta y se puede omitir, así que ./img/perfil.jpg e img/perfil.jpg son lo mismo. En cambio ../ significa la carpeta de arriba y no se puede omitir. Y la barra es la que se inclina hacia la derecha, no la invertida, aunque Windows use la otra.
 
-Ahora una pregunta para ti. Tu index.html está en la raíz del proyecto y la imagen banner.jpg está dentro de la carpeta img. ¿Qué escribes en src? Piensa tu respuesta y luego pulsa Ver respuesta.`,
+Al final de este apunte hay dos preguntas para ti. Respóndelas en pantalla.`,
   8: `Etiquetas de listas.
 
 ¿Qué es una lista en HTML? Es un grupo de ítems que el navegador muestra uno debajo del otro, con una marca adelante. Hay dos etiquetas para el grupo y una sola para cada ítem. ul, de unordered list, es la lista desordenada: por defecto cada ítem lleva un punto. ol, de ordered list, es la lista ordenada: por defecto cada ítem lleva un número, empezando en 1. Y li, de list item, es un ítem; va siempre dentro de ul o de ol, y es la misma etiqueta en las dos. La palabra que decide cuál usar es orden: si cambiar el orden de los ítems cambia el sentido, es ol; si no, es ul.
@@ -2679,7 +2888,9 @@ Mira la figura. Son dos listas lado a lado con el mismo contenido en distinto fo
 
 En el ejemplo, los ingredientes van en una ul porque da igual en qué orden los leas. Los pasos van en una ol porque no puedes verter la leche antes de mezclar la harina.
 
-El error común es poner el texto directo dentro de la lista, sin li: las palabras Harina, Huevos y Leche sueltas dentro de la ul. Pasa porque se piensa que ul ya hace la lista sola. El navegador muestra las tres palabras pegadas en una sola línea, sin puntos. Para detectarlo, mira si en pantalla aparecen las marcas, sean puntos o números; si no aparecen, falta li, porque cada ítem tiene que tener la suya.`,
+El error común es poner el texto directo dentro de la lista, sin li: las palabras Harina, Huevos y Leche sueltas dentro de la ul. Pasa porque se piensa que ul ya hace la lista sola. El navegador muestra las tres palabras pegadas en una sola línea, sin puntos. Para detectarlo, mira si en pantalla aparecen las marcas, sean puntos o números; si no aparecen, falta li, porque cada ítem tiene que tener la suya.
+
+Al final de este apunte hay dos preguntas para ti. Respóndelas en pantalla.`,
   9: `Conclusiones.
 
 Una página web son tres tecnologías que llegan por una petición. Es un documento HTML que un servidor envía como texto y tu navegador dibuja; CSS le da apariencia y JavaScript, comportamiento. Para que llegue, el DNS traduce el nombre a una IP y HTTP lleva la petición y la respuesta.
@@ -2711,6 +2922,7 @@ const PRONUNCIA = [
   P('br', 'be erre'), P('hr', 'hache erre'), P('headings', 'jedins', 1), P('heading', 'jeding', 1),
   P('doctype', 'doc taip', 1), P('head', 'jed'), P('body', 'bodi'), P('title', 'taitl'),
   P('width', 'güit'), P('height', 'jait'), P('Visual Studio Code', 'Visual Estudio Coud'),
+  P('Chrome', 'Cróum'), P('Firefox', 'Fáirfox'), P('Windows', 'Güindous'), P('charset', 'chárset'), P('source', 'sors'),
 ];
 const pronunciar = t => PRONUNCIA.reduce((x, [r, c]) => x.replace(r, c), t);
 // Oraciones sueltas: Chrome corta los textos largos (~15 s) y así Pausar y Continuar no dependen de pause()/resume()
@@ -2800,6 +3012,158 @@ if (sintesis) {
   addEventListener('pageshow', e => { if (e.persisted) detenerAudio(); });
 }
 
+</script>
+<script>
+// ===== Medición de uso (plataforma-navegable.md § 3) =====
+// Registra 6 eventos y los manda al panel. Si el panel no responde, los guarda en el navegador y reintenta.
+// Nunca interrumpe la página: todo va dentro de try/catch y sin promesas sin capturar.
+(function () {
+  const PANEL = {
+    url: '',                                      // medición apagada: se activa al desplegar el panel
+    llave: '',                                    // solo permite insertar
+    clase: 'code-101/class-01',
+    version: '2026-11-03c',
+    palabrasPorMinuto: 200,                       // para el tiempo esperado por apunte
+    topeTiempo: 3,                                // apunte_tiempo se corta en 3 × esperado
+    minVisto: 3000,                               // ms para contar un apunte como visto
+    sesionMin: 30                                 // minutos sin eventos → sesión nueva
+  };
+  if (!PANEL.url) return;
+
+  const ls = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  // --- identidad y origen ---
+  let dispositivo = ls.get('taller-dispositivo');
+  if (!dispositivo) {
+    const a = new Uint8Array(12); crypto.getRandomValues(a);
+    dispositivo = 'd_' + Array.from(a, b => b.toString(16).padStart(2, '0')).join('');
+    ls.set('taller-dispositivo', dispositivo);
+  }
+  const c = new URLSearchParams(location.search).get('c');
+  if (c) ls.set('taller-origen', c.slice(0, 40));
+  const origen = ls.get('taller-origen') || '';
+
+  // --- cola y envío ---
+  let cola = [];
+  try { cola = JSON.parse(ls.get('taller-cola') || '[]'); if (!Array.isArray(cola)) cola = []; } catch (e) { cola = []; }
+  const guardarCola = () => ls.set('taller-cola', JSON.stringify(cola.slice(-200)));
+  let enviando = false;
+  function enviar(beacon) {
+    if (!cola.length) return;
+    const lote = cola.slice(0, 50);
+    if (beacon && navigator.sendBeacon) {
+      // text/plain evita el preflight que un beacon no puede hacer; la llave va en la URL
+      if (navigator.sendBeacon(PANEL.url + '?llave=' + PANEL.llave, new Blob([JSON.stringify(lote)], { type: 'text/plain' }))) {
+        cola = cola.slice(lote.length); guardarCola();
+      }
+      return;
+    }
+    if (enviando) return; enviando = true;
+    fetch(PANEL.url, { method: 'POST', headers: { 'Content-Type': 'text/plain', 'X-Llave': PANEL.llave }, body: JSON.stringify(lote), keepalive: true })
+      .then(r => { if (r.ok || r.status === 400) { cola = cola.slice(lote.length); guardarCola(); } })  // 400 = evento malformado: no reintentar
+      .catch(() => {})
+      .finally(() => { enviando = false; if (cola.length) setTimeout(() => enviar(false), 15000); });
+  }
+  function evento(tipo, datos, diferir) {
+    cola.push(Object.assign({ tipo, dispositivo, origen, clase: PANEL.clase, version: PANEL.version, fechaCliente: new Date().toISOString() }, datos));
+    guardarCola(); ls.set('taller-ultimo', String(Date.now()));
+    if (!diferir) enviar(false);   // al cerrar la pestaña lo manda solo el beacon, si no llega duplicado
+  }
+
+  // --- sesión ---
+  const ultimo = +ls.get('taller-ultimo') || 0;
+  if (Date.now() - ultimo > PANEL.sesionMin * 60000) {
+    const celular = matchMedia('(pointer: coarse)').matches || innerWidth < 768;
+    evento('sesion', { pantalla: celular ? 'celular' : 'laptop' });
+  } else if (cola.length) enviar(false);
+
+  // --- apuntes: visto, tiempo, completado ---
+  const pisos = Array.from(document.querySelectorAll('.piso[data-piso]'));
+  const esperado = {};
+  pisos.forEach(p => {
+    const lamina = p.querySelector('.lamina');
+    const palabras = lamina ? (lamina.textContent.trim().split(/\s+/).length) : 0;
+    esperado[p.dataset.piso] = Math.max(20, Math.round(palabras / PANEL.palabrasPorMinuto * 60));
+  });
+  const vistos = new Set();
+  let completados = new Set();
+  try { completados = new Set(JSON.parse(ls.get('taller-completados') || '[]')); } catch (e) {}
+
+  let actual = null, desde = 0, acumulado = 0, temporizadorVisto = null;
+  const visible = () => !document.hidden;
+  function cerrarTiempo(beacon) {
+    if (!actual) return;
+    if (visible() && desde) acumulado += (Date.now() - desde) / 1000;
+    desde = 0;
+    const seg = Math.min(Math.round(acumulado), esperado[actual] * PANEL.topeTiempo);
+    if (seg >= 1) { evento('apunte_tiempo', { apunte: +actual, segundos: seg }, beacon); if (beacon) enviar(true); }
+    acumulado = 0;
+  }
+  function entrar(piso) {
+    if (piso === actual) return;
+    clearTimeout(temporizadorVisto);
+    cerrarTiempo(false);
+    actual = piso; acumulado = 0; desde = visible() ? Date.now() : 0;
+    if (piso && !vistos.has(piso)) {
+      temporizadorVisto = setTimeout(() => { if (actual === piso && visible()) { vistos.add(piso); evento('apunte_visto', { apunte: +piso }); } }, PANEL.minVisto);
+    }
+  }
+  // El apunte "actual" es el que cruza la franja central de la pantalla
+  const centro = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) entrar(e.target.dataset.piso); });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  pisos.forEach(p => centro.observe(p));
+
+  // Respuesta a una pregunta: el apunte es la parte entera de su id ("7.1" → 7)
+  document.addEventListener('taller:respuesta', e => {
+    try {
+      const d = e.detail;
+      evento('respuesta', { apunte: parseInt(d.pregunta, 10), pregunta: d.pregunta, opcion: String(d.opcion), acierto: d.acierto, intento: d.intento, repaso: false });
+    } catch (x) {}
+  });
+
+  // Completado: el último componente del apunte entra en pantalla
+  const fin = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const piso = e.target.closest('.piso').dataset.piso;
+      fin.unobserve(e.target);
+      if (completados.has(piso)) return;
+      completados.add(piso); ls.set('taller-completados', JSON.stringify([...completados]));
+      evento('apunte_completado', { apunte: +piso });
+    });
+  }, { threshold: 0.5 });
+  pisos.forEach(p => { const comps = p.querySelectorAll('.comp'); if (comps.length) fin.observe(comps[comps.length - 1]); });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!actual) return;
+    if (document.hidden) { if (desde) acumulado += (Date.now() - desde) / 1000; desde = 0; }
+    else desde = Date.now();
+  });
+  addEventListener('pagehide', () => cerrarTiempo(true));
+
+  // --- audio: envuelve el motor existente sin tocarlo ---
+  if (typeof empezarAudio === 'function') {
+    let inicio = 0, pausadoEn = 0;
+    const segundo = () => Math.round(pausadoEn + (inicio ? (Date.now() - inicio) / 1000 : 0));
+    const _empezar = empezarAudio, _pausar = pausarAudio, _seguir = seguirAudio, _siguiente = hablarSiguiente;
+    empezarAudio = function (n) {
+      const accion = audio.n === n && audio.estado !== 'quieto' ? 'reiniciar' : 'reproducir';
+      _empezar(n); inicio = Date.now(); pausadoEn = 0;
+      evento('audio', { apunte: +n, accion, segundo: 0 });
+    };
+    pausarAudio = function () { pausadoEn = segundo(); inicio = 0; _pausar(); evento('audio', { apunte: +audio.n, accion: 'pausar', segundo: pausadoEn }); };
+    seguirAudio = function () { inicio = Date.now(); _seguir(); };
+    hablarSiguiente = function () {
+      // Chrome da por terminadas al instante las frases interrumpidas por un cancel() reciente: un "fin" a los 0-1 s no es escucha real
+      if (audio.estado === 'sonando' && audio.i >= audio.segs.length) { const s = segundo(); if (s >= 2) evento('audio', { apunte: +audio.n, accion: 'fin', segundo: s }); inicio = 0; pausadoEn = 0; }
+      _siguiente();
+    };
+  }
+})();
 </script>
 </body>
 </html>
